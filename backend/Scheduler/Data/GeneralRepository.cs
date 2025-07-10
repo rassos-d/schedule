@@ -1,4 +1,7 @@
 using System.Text.Json;
+using Scheduler.Models.General;
+
+namespace Scheduler.Data;
 
 public class GeneralRepository
 {

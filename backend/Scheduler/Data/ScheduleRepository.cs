@@ -1,4 +1,7 @@
 using System.Text.Json;
+using Scheduler.Models;
+
+namespace Scheduler.Data;
 
 public class ScheduleRepository
 {

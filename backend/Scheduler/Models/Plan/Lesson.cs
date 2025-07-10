@@ -1,6 +1,11 @@
+using Scheduler.Models.Base;
+using Scheduler.Models.Constants;
+
+namespace Scheduler.Models.Plan;
+
 public class Lesson : Entity
 {
-    public string Name { get; set; }
+    public required string Name { get; set; }
 
     public LessonType Type { get; set; }
 

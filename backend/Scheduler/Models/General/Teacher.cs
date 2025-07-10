@@ -1,8 +1,12 @@
+using Scheduler.Models.Base;
+
+namespace Scheduler.Models.General;
+
 public class Teacher : Entity
 {
-    public string Name { get; set; }
+    public required string Name { get; set; }
 
-    public string Rank { get; set; }
+    public required string Rank { get; set; }
 
     public List<Tuple<DateTime, DateTime>> Vacations { get; set; } = [];
 

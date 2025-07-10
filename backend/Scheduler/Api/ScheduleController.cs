@@ -1,5 +1,10 @@
 // Controllers/ScheduleController.cs
+
 using Microsoft.AspNetCore.Mvc;
+using Scheduler.Data;
+using Scheduler.Models;
+
+namespace Scheduler.Api;
 
 [ApiController]
 [Route("api/[controller]")]

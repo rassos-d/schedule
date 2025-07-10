@@ -1,5 +1,9 @@
 // Controllers/ReferenceDataController.cs
+
 using Microsoft.AspNetCore.Mvc;
+using Scheduler.Data;
+
+namespace Scheduler.Api;
 
 [ApiController]
 [Route("api/[controller]")]

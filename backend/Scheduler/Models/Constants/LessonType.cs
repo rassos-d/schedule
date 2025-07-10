@@ -1,3 +1,5 @@
+namespace Scheduler.Models.Constants;
+
 public enum LessonType
 {
     Group,
