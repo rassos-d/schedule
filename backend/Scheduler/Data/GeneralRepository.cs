@@ -8,7 +8,7 @@ public class GeneralRepository
     {
         _filePath = Path.Combine(basePath, "general.json");
         Directory.CreateDirectory(basePath);
-
+        
         _jsonOptions = new JsonSerializerOptions
         {
             WriteIndented = true,
@@ -20,23 +20,12 @@ public class GeneralRepository
 
     private void LoadData()
     {
-        if (File.Exists(_filePath))
-        {
-            string json = File.ReadAllText(_filePath);
-            _data = JsonSerializer.Deserialize<GeneralData>(json, _jsonOptions) ?? new GeneralData();
-        }
-        else
-        {
-            _data = new GeneralData();
-            SaveChanges();
-        }
+        _data = File.Exists(_filePath) 
+            ? JsonSerializer.Deserialize<GeneralData>(File.ReadAllText(_filePath), _jsonOptions) ?? new GeneralData()
+            : new GeneralData();
     }
 
-    private void SaveChanges()
-    {
-        string json = JsonSerializer.Serialize(_data, _jsonOptions);
-        File.WriteAllText(_filePath, json);
-    }
+    public void SaveChanges() => File.WriteAllText(_filePath, JsonSerializer.Serialize(_data, _jsonOptions));
 
     #region Audience CRUD
     public Audience? GetAudience(Guid id) => _data.Audiences.FirstOrDefault(a => a.Id == id);
