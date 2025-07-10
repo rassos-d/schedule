@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+
+:root {
+  /* Border radius */
+  --extra-small-border-radius: 4px;
+  --small-border-radius: 8px;
+  --medium-border-radius: 12px;
+  --large-border-radius: 16px;
+  --extra-large-border-radius: 28px;
+  --big-border-radius: 40px;
+  --rounded-border-radius: 50%;
+  
+  /* Colors */
+  --body-color: #FFF;
+  --main-color: #0B63C1;
+  --light-main-color: #7FADE0;
+  --dangerous-color: #EF302B;
+  
+  --black-color: #111;
+  --light-black-color: #333;
+  --grey-color: #666;
+  --light-grey-color: #999;
+  --ultra-light-grey-color: #ddd;
+  --dark-white-color: #f6f6f6;
+  --fc-today-bg-color: rgba(127, 173, 224, 0.1);
+
+  --background-blur-color: #00000066;
+
+  /* Fonts Sizes */
+  --h1-font-size: 36px;
+  --h2-font-size: 24px;
+  --h3-font-size: 22px;
+  --subhead-font-size: 18px;
+  --body-font-size: 16px;
+  --headline-font-size: 14px;
+  --caption-font-size: 12px;
+
+  --opacity-value: 0.2;
+
+  /* margins */
+  --body-padding: 40px
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 18px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+  color: var(--light-black-color);
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+  color: var(--black-color);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto';
+  font-weight: 400;
+  color: var(--black-color);
+}
+
+input[type="time"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}

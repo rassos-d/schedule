@@ -1,0 +1,113 @@
+.button {
+    @include text_subhead();
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: var(--medium-border-radius);
+    &_body {
+        color: var(--body-color);
+        background: var(--body-color);
+    }
+    &_primary {
+        color: var(--body-color);
+        background: var(--main-color);
+        @media (min-width: $lg) {
+            &:hover {
+                background: #1B589A;
+            }
+        }
+        &:active {
+            background: #134780;
+        }
+    }
+    &_secondary {
+        color: var(--body-color);
+        background: var(--dangerous-color);
+        @media (min-width: $lg) {
+            &:hover {
+                background: #E83C38;
+            }
+        }
+        &:active {
+            background: #C72D29;
+        }
+    }
+    &_lightBlack {
+        color: var(--body-color);
+        background: var(--light-black-color);
+    }
+    &_grey {
+        color: var(--body-color);
+        background: var(--grey-color);
+    }
+    &_whiteMain {
+        color: var(--main-color);
+        background: var(--dark-white-color);
+        @media (min-width: $lg) {
+            &:hover {
+                background-color: var(--ultra-light-grey-color);
+                &.button_textGrey {
+                    color: var(--main-color);
+                    & i {
+                        background-color: var(--main-color) !important;
+                    }
+                }
+            }
+        }
+        &:active {
+            background-color: var(--light-grey-color);
+        }
+    }
+    &_whiteDangerous {
+        color: var(--dangerous-color);
+        background: var(--dark-white-color);
+    }
+    &_default {
+        padding: 12px 18px;
+    }
+    &_max {
+        width: 100%;
+        padding: 12px;
+    }
+    &_icon {
+        padding: 12px;
+    }
+    &_small {
+        padding: 0;
+    }
+    &_textGrey {
+        color: var(--grey-color);
+    }
+    &_textLightGrey {
+        color: var(--light-grey-color);
+    }
+    &_textBlack {
+        color: var(--black-color);
+    }
+    &_textPrimary {
+        color: var(--main-color);
+    }
+    &_textLightMain {
+        color: var(--light-main-color);
+    }
+    &_textDangerous {
+        color: var(--dangerous-color);
+    }
+    &_radiusExtraSmall {
+        border-radius: var(--extra-small-border-radius);
+    }
+    &_radiusSmall {
+        border-radius: var(--small-border-radius);
+    }
+    &_radiusMedium {
+        border-radius: var(--medium-border-radius);
+    }
+    &_radiusLarge {
+        border-radius: var(--large-border-radius);
+    }
+    &_radiusExtraLarge {
+        border-radius: var(--extra-large-border-radius);
+    }
+}
