@@ -1,0 +1,68 @@
+/*Grid*/
+$xxl: 1600px;
+$xxlc: 1552px;
+$xl: 1200px;
+$xlc: 1152px;
+$lg: 992px;
+$lgc: 864px;
+$md: 768px;
+$sm: 576px;
+$smc: 528px;
+$sml: 425px;
+$smm: 375px;
+$sms: 320px;
+$xs: 0px;
+$xsc: 100%;
+
+//text
+@mixin text_h1 {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 44px;
+}
+
+@mixin text_h2 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+}
+
+@mixin text_h3 {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 30px;
+}
+
+@mixin text_body {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+@mixin text_subhead {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 26px;
+}
+
+@mixin text_caption {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+@mixin text_headline {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+//margins
+
+@mixin body_margin {
+  padding: 18px 40px;
+
+  @media (max-width: $md) {
+    padding: 16px 15px;
+  }
+}
