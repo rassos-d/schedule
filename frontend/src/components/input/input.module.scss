@@ -1,0 +1,108 @@
+.inputBlock {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  &_error {
+    margin-bottom: 10px;
+  }
+}
+
+.input {
+  z-index: 3;
+  width: 100%;
+  padding: 12px 24px;
+  border-radius: var(--large-border-radius);
+  background-color: var(--dark-white-color);
+  @include text_body();
+  color: var(--light-black-color);
+  overflow: hidden;
+  resize: none;
+  height: fit-content;
+  &__clear {
+    position: absolute;
+    right: 24px;
+    cursor: pointer;
+    z-index: 4;
+  }
+  &__placeholder {
+    color: var(--grey-color);
+  }
+  &_error {
+    border: 1px solid #EF302B;
+  }
+}
+
+
+.list {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  &__title {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    border-radius: var(--large-border-radius);
+    background-color: var(--dark-white-color);
+    padding: 12px 18px;
+    @include text_body();
+    color: var(--grey-color);
+    &_active {
+      background-color: var(--main-color);
+      color: var(--body-color);
+    }
+    &_error {
+      border: 1px solid #EF302B;
+    }
+  }
+  &__list {
+    position: relative;
+    z-index: 1;
+    background-color: var(--dark-white-color);
+    margin-top: calc(var(--large-border-radius) * -1);
+    padding-top: var(--large-border-radius);
+    border-bottom-left-radius: var(--large-border-radius);
+    border-bottom-right-radius: var(--large-border-radius);
+  }
+  &__line {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    margin-left: 24px;
+    margin-right: 24px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    @include text_body();
+    color: var(--grey-color);
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--ultra-light-grey-color);
+    }
+  }
+  &__search {
+    width: 100%;
+    background-color: var(--dark-white-color);
+    @include text_body();
+    color: var(--light-black-color);
+  }
+  &__showMore {
+    cursor: pointer;
+    text-align: center;
+    margin-top: 18px;
+    margin-bottom: 18px;
+    color: var(--main-color);
+    @include text_body();
+  }
+}
+
+.errorText {
+  position: absolute;
+  @include text_headline();
+  color: var(--dangerous-color);
+  margin-top: 8px;
+  bottom: -20px;
+  text-wrap: nowrap;
+}
