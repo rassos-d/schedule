@@ -9,9 +9,11 @@ public class GeneralRepository
     private GeneralData _data;
     private readonly JsonSerializerOptions _jsonOptions;
 
-    public GeneralRepository(string basePath = "data")
+    public GeneralRepository(string basePath = "Data\\data")
     {
-        _filePath = Path.Combine(basePath, "general.json");
+        var currentPath = Environment.CurrentDirectory;
+
+        _filePath = Path.Combine(currentPath, basePath, "general.json");
         Directory.CreateDirectory(basePath);
         
         _jsonOptions = new JsonSerializerOptions
