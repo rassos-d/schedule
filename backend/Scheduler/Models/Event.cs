@@ -1,3 +1,7 @@
+using Scheduler.Models.Base;
+
+namespace Scheduler.Models;
+
 public class Event : Entity
 {
     public Guid? LessonId { get; set; }

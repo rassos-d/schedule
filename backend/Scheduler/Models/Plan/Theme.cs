@@ -1,5 +1,7 @@
+namespace Scheduler.Models.Plan;
+
 public class Theme
 {
-    public string Name { get; set; }
+    public required string Name { get; set; }
     public Guid SubjectId { get; set; }
 }

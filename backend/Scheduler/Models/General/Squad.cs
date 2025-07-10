@@ -1,3 +1,7 @@
+using Scheduler.Models.Base;
+
+namespace Scheduler.Models.General;
+
 public class Squad : Entity
 {
     public string Name { get; set; }
