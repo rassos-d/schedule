@@ -35,6 +35,7 @@ export type glyphs =
   'teacher' |
   'time' |
   'event' |
+  'close' |
   'trash';
 
 type IconColor = keyof typeof Colors;

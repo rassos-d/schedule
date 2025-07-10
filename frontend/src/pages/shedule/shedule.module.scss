@@ -1,0 +1,201 @@
+.container {
+  position: relative;
+  padding-bottom: 100px;
+  &__title {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  &__tableContainer {
+    margin-left: 40px;
+    position: relative;
+    width: 120%;
+    padding-right: 40px;
+    &:not(:last-child) {
+      margin-bottom: 5px;
+    }
+  }
+  &__table {
+    border: 1px solid #000;
+  }
+  .table {
+    &__firstLine {
+      display: grid;
+      grid-template-columns: 130px 150px repeat(auto-fit, minmax(0, 1fr));
+    }
+    &__header {
+      border: 1px solid #000;
+      padding: 5px;
+      font-size: 12px;
+      text-align: center;
+    }
+    &__date {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #000;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    &__content {
+      display: grid;
+      grid-template-columns: 130px 150px repeat(auto-fit, minmax(0, 1fr));
+      &_first {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        row-gap: 30px;
+        align-items: center;
+        border: 1px solid #000;
+        & p {
+          text-align: center;
+        }
+      }
+    }
+    &__time {
+      display: grid;
+      grid-template-rows: repeat(auto-fit, minmax(0, 1fr));
+      border-right: 1px solid #000;
+      border-left: 1px solid #000;
+      &_row {
+        &:first-child {
+          border-top: 1px solid #000;
+        }
+        &:not(:last-child) {
+          border-bottom: 2px solid #000;
+        }
+        &:last-child {
+          border-bottom: 1px solid #000;
+        }
+        flex: 1;
+        display: grid;
+        grid-template-columns: 55px repeat(auto-fit, minmax(0, 1fr));
+        &_grey {
+          background-color: var(--light-grey-color);
+        }
+      }
+      &_number {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+        text-align: center;
+        font-size: 12px;
+        border-right: 2px solid #000;
+        &_bold {
+          font-weight: 600;
+        }
+      }
+      &_time {
+        padding: 20px 0;
+        text-align: center;
+        font-size: 12px;
+        font-weight: 600;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    &__day {
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+      flex-direction: column;
+      border-right: 1px solid #000;
+      border-left: 1px solid #000;
+    }
+    &__lesson {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border-bottom: 1px solid #000;
+      &:first-child {
+          border-top: 1px solid #000;
+        }
+        &:not(:last-child) {
+          border-bottom: 2px solid #000;
+        }
+        &:last-child {
+          border-bottom: 1px solid #000;
+        }
+      & p {
+        font-size: 12px;
+      }
+    }
+  }
+  &__noname {
+    position: sticky;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    left: 100%;
+    background-color: aqua;
+    padding: 20px;
+  }
+  &__buttons {
+    margin-left: 40px;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__sidebar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-top-left-radius: var(--medium-border-radius);
+    border-top-right-radius: var(--medium-border-radius);
+    width: 100%;
+    border: 2px solid #000;
+    background-color: #fff;
+    &_close {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 50px;
+    }
+    &_open {
+      padding: 10px;
+    }
+  }
+  .sidebar {
+    &__close {
+      cursor: pointer;
+    }
+    &__line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    &__tabs {
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
+    }
+    &__tab {
+      cursor: pointer;
+      font-weight: 600;
+      padding: 5px;
+      border: 2px solid #000;
+      &_active {
+        background-color: var(--light-grey-color);
+      }
+    }
+    &__items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    &__item {
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid #000;
+      cursor: pointer;
+    }
+  }
+}

@@ -7,10 +7,6 @@
   color: var(--black-color);
 }
 
-* {
-  scrollbar-width: none;
-}
-
 .icon {
   display: inline-block;
   width: 24px;
@@ -47,52 +43,8 @@ p {
   @include text_body();
 }
 
-.react-datepicker-popper {
-  z-index: 5 !important;
-}
-
 .iconButton {
   display: flex;
   align-items: center;
   column-gap: 8px;
-}
-
-/* Фиксированная высота временных слотов */
-.fc .fc-timegrid-slot {
-  height: 66px !important;
-}
-
-/* Для заголовков временных меток */
-.fc .fc-timegrid-slot-label {
-  height: 66px !important;
-}
-
-/* Для контентной части */
-.fc .fc-timegrid-slot-lane {
-  height: 66px !important;
-}
-
-.fc .fc-timegrid-slot {
-  height: 66px !important;
-}
-
-/* Для заголовков временных меток */
-.fc .fc-timegrid-slot-label {
-  height: 66px !important;
-}
-
-
-.fc .fc-col-header-cell-cushion {
-  @include text_body();
-  padding: 0;
-  width: 100%;
-}
-
-.fc .fc-timegrid-axis-cushion {
-  max-width: 100%;
-  padding: 0;
-}
-
-.fc-timegrid-axis-frame {
-  justify-content: flex-start;
 }
