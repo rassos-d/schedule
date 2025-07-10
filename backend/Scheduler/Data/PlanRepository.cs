@@ -1,3 +1,5 @@
+using System.Text.Json;
+
 public class PlanRepository
 {
     private readonly string _directoryPath;

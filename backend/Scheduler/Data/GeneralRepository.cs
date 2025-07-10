@@ -1,3 +1,5 @@
+using System.Text.Json;
+
 public class GeneralRepository
 {
     private readonly string _filePath;
