@@ -32,6 +32,7 @@ public class ScheduleController : ControllerBase
         return Ok(new SimpleDto<Guid>(schedule.Id));
     }
 
+    [HttpPut]
     public IActionResult Update([FromBody] EntityNameUpdateDto dto)
     {
         return Ok();

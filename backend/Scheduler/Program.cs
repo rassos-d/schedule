@@ -11,7 +11,6 @@ builder.Services.AddSingleton<PlanRepository>();
 
 builder.Services.AddControllers();
 
-// Configure Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors();
@@ -26,6 +25,12 @@ app.UseSwaggerUI(c =>
 });
                             
 app.MapControllers();
-app.UseCors();
+app.UseCors(builder =>
+{
+    builder.AllowAnyHeader();
+    builder.AllowAnyMethod();
+    builder.AllowAnyOrigin();
+    builder.AllowCredentials();
+});
 
 app.Run();
