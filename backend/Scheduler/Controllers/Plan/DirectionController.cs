@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Scheduler.DataAccess.Plan;
+using Scheduler.Dto;
 using Scheduler.Entities.Plan;
 
 namespace Scheduler.Controllers.Plan;
@@ -61,8 +62,9 @@ public class DirectionController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult Create([FromBody] Direction direction)
+    public IActionResult Create([FromBody] CreateEntityWithNameRequest request)
     {
+        var direction = new Direction { Name = request.Name };
         _planRepository.SaveDirection(direction);
         return Ok();
     }

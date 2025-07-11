@@ -7,9 +7,8 @@ public partial class PlanRepository
 {
     public void SaveLesson(Lesson lesson)
     {
-        string filePath = Path.Combine(DirectoryPath, $"lesson_{lesson.Id}.json");
-        string json = JsonSerializer.Serialize(lesson, JsonOptions);
-        File.WriteAllText(filePath, json);
+        var theme = 
+        
     }
 
     public Lesson? GetLesson(Guid id)

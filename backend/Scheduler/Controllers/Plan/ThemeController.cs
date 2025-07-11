@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Scheduler.DataAccess.Plan;
+using Scheduler.Dto.Theme;
 using Scheduler.Entities.Plan;
 
 namespace Scheduler.Controllers.Plan;
@@ -17,8 +18,9 @@ public class ThemeController : ControllerBase
 
 
     [HttpPost]
-    public IActionResult Create([FromBody] Theme theme)
+    public IActionResult Create([FromBody] ThemeCreateDto request)
     {
+        var theme = new Theme { Name = request.Name, SubjectId = request.SubjectId };
         _planRepository.SaveTheme(theme);
         return Ok();
 

@@ -8,6 +8,7 @@ public partial class PlanRepository
     {
         var direction = GetDirection(subject.DirectionId);
         direction.Subjects.Add(subject);
+        SaveChanges();
     }
 
     public Subject? GetSubject(Guid id)

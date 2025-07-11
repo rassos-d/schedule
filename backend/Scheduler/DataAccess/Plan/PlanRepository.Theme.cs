@@ -9,6 +9,7 @@ public partial class PlanRepository
     {
         var subject = GetSubject(theme.SubjectId);
         subject.Themes.Add(theme);
+        SaveChanges();
     }
 
     public List<Theme> GetThemesBySubject(Guid subjectId)
@@ -29,4 +30,13 @@ public partial class PlanRepository
         var theme = subject.Themes.First(theme => theme.Id == id);
         subject.Themes.Remove(theme);
     }
+
+    public Theme? GetTheme(Guid id) =>
+        Directions
+            .SelectMany(d => d.Subjects)
+            .SelectMany(d => d.Themes)
+            .FirstOrDefault(x => x.Id == id) ?? 
+        GetAllSubjects()
+            .SelectMany(x => x.Themes)
+            .FirstOrDefault(x => x.Id == id);
 }

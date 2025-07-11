@@ -9,5 +9,9 @@ public class Lesson : Entity
 
     public LessonType Type { get; set; }
 
+    public Guid DirectionId { get; set; }
+    
+    public Guid SubjectId { get; set; }
+    
     public Guid ThemeId { get; set; }
 }

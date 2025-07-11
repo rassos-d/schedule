@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Scheduler.DataAccess.Plan;
+using Scheduler.Dto.Subject;
 using Scheduler.Entities.Plan;
 
 namespace Scheduler.Controllers.Plan;
@@ -63,9 +64,10 @@ public class SubjectController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult Create([FromBody] Subject subject)
+    public IActionResult Create([FromBody] SubjectCreateDto request)
     {
-        _planRepository.SaveSubject(subject);
+        var subj = new Subject { Name = request.Name, DirectionId = request.DirectionId };
+        _planRepository.SaveSubject(subj);
         return Ok();
     }
 

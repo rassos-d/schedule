@@ -10,6 +10,11 @@ public partial class PlanRepository
     {
         Directions.Add(direction);
         WriteFile($"{direction.Id}.json", direction);
+        
+        var directions = GetAllDirectionInfos();
+        directions.Add(new DirectionInfo(direction.Id, direction.Name));
+        
+        WriteFile(DirectionsPath, directions);
     }
 
     public Direction? GetDirection(Guid id)
@@ -34,7 +39,7 @@ public partial class PlanRepository
     public List<DirectionInfo> GetAllDirectionInfos()
     {
         var json = ReadFile(DirectionsPath);
-        return JsonSerializer.Deserialize<List<DirectionInfo>>(File.ReadAllText(json), JsonOptions) ?? [];
+        return JsonSerializer.Deserialize<List<DirectionInfo>>(json, JsonOptions) ?? [];
     }
 
     public bool DeleteDirection(Guid id)
