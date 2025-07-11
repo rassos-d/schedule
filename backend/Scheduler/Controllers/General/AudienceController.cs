@@ -16,7 +16,7 @@ public class AudienceController : ControllerBase
         _generalRepo = generalRepo;
     }
 
-    [HttpGet("find")]
+    [HttpGet]
     public IActionResult Find()
     {
         var audiences = _generalRepo.GetAllAudiences();
@@ -40,7 +40,7 @@ public class AudienceController : ControllerBase
         return NoContent();
     }
 
-    [HttpDelete]
+    [HttpDelete("{id:guid}")]
     public IActionResult Delete(Guid id)
     {
         _generalRepo.DeleteAudience(id);

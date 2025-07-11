@@ -16,7 +16,7 @@ public class TeacherController : ControllerBase
         _generalRepo = generalRepo;
     }
 
-    [HttpGet("find")]
+    [HttpGet]
     public IActionResult Find()
     {
         var teachers = _generalRepo.GetAllTeachers();
@@ -40,8 +40,8 @@ public class TeacherController : ControllerBase
         return NoContent();
     }
 
-    [HttpDelete]
-    public IActionResult Delete(Guid id)
+    [HttpDelete("{id:guid}")]
+    public IActionResult Delete([FromRoute] Guid id)
     {
         _generalRepo.DeleteTeacher(id);
         _generalRepo.SaveChanges();

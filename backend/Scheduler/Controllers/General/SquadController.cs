@@ -16,7 +16,7 @@ public class SquadController : ControllerBase
         _generalRepo = generalRepo;
     }
 
-    [HttpGet("find")]
+    [HttpGet]
     public IActionResult Find()
     {
         var teachers = _generalRepo.GetAllSquads();
@@ -40,7 +40,7 @@ public class SquadController : ControllerBase
         return NoContent();
     }
 
-    [HttpDelete]
+    [HttpDelete("{id:guid}")]
     public IActionResult Delete(Guid id)
     {
         _generalRepo.DeleteSquad(id);
