@@ -8,8 +8,8 @@ namespace Scheduler.DataAccess;
 public class ScheduleRepository : BaseRepository
 {
     private readonly Dictionary<Guid, Schedule> _schedulesCache = new();
-   
-    
+
+
     private const string SchedulesFileName = "schedules.json";
 
     public ScheduleRepository() : base("schedules")
@@ -34,7 +34,7 @@ public class ScheduleRepository : BaseRepository
         {
             return null;
         }
-        
+
         _schedulesCache[id] = schedule;
 
         return schedule;
@@ -52,9 +52,10 @@ public class ScheduleRepository : BaseRepository
         var schedules = JsonSerializer.Deserialize<List<ScheduleInfo>>(schedulesJson, JsonOptions);
         schedules!.Add(new ScheduleInfo(schedule.Id, schedule.Name));
         WriteFile(SchedulesFileName, schedules);
-        
+
         _schedulesCache[schedule.Id] = schedule;
-        WriteFile($"{schedule.Id}.json", _schedulesCache);
+
+        WriteFile($"{schedule.Id}.json", _schedulesCache[schedule.Id]);
     }
 
     public bool DeleteSchedule(Guid id)
@@ -77,4 +78,6 @@ public class ScheduleRepository : BaseRepository
             WriteFile($"{schedule.Key}.json", schedule.Value);
         }
     }
+    
+
 }

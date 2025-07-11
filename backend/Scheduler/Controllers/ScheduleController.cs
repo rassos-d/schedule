@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Scheduler.DataAccess;
+using Scheduler.DataAccess.Plan;
 using Scheduler.Entities;
 
 namespace Scheduler.Controllers;
@@ -9,18 +10,30 @@ namespace Scheduler.Controllers;
 public class ScheduleController : ControllerBase
 {
     private readonly ScheduleRepository _scheduleRepo;
+    private readonly GeneralRepository generalRepository;
 
-    public ScheduleController(ScheduleRepository scheduleRepo)
+    public PlanRepository planRepository;
+
+    public ScheduleController(ScheduleRepository scheduleRepo, PlanRepository planRepository, GeneralRepository generalRepository)
     {
         _scheduleRepo = scheduleRepo;
+        this.planRepository = planRepository;
+        this.generalRepository = generalRepository;
     }
-    
+
     [HttpGet]
     public IActionResult GetAllSchedules()
     {
         return Ok(_scheduleRepo.GetAllScheduleInfos());
     }
-    
+
+    [HttpGet("{id:guid}")]
+    public IActionResult Get(Guid id)
+    {
+        var schedule = _scheduleRepo.GetSchedule(id);
+        var teachers = schedule.Events.SelectMany
+    }
+
     [HttpGet("{scheduleId}/events")]
     public IActionResult GetScheduleEvents(Guid scheduleId)
     {
@@ -32,7 +45,7 @@ public class ScheduleController : ControllerBase
 
         return Ok(schedule.Events);
     }
-    
+
     [HttpPost("{scheduleId}/events")]
     public IActionResult AddEvent(Guid scheduleId, [FromBody] Event newEvent)
     {
@@ -50,7 +63,7 @@ public class ScheduleController : ControllerBase
             new { scheduleId }, newEvent);
 
     }
-    
+
     [HttpPut("{scheduleId}/events/{eventId}")]
     public IActionResult UpdateEvent(Guid scheduleId, Guid eventId, [FromBody] Event updatedEvent)
     {
@@ -76,7 +89,7 @@ public class ScheduleController : ControllerBase
         _scheduleRepo.SaveSchedule(schedule);
         return NoContent();
     }
-    
+
     [HttpDelete("{scheduleId}/events/{eventId}")]
     public IActionResult DeleteEvent(Guid scheduleId, Guid eventId)
     {
@@ -96,7 +109,7 @@ public class ScheduleController : ControllerBase
         _scheduleRepo.SaveSchedule(schedule);
         return NoContent();
     }
-    
+
     [HttpPost]
     public IActionResult Create([FromBody] string name)
     {
@@ -104,7 +117,7 @@ public class ScheduleController : ControllerBase
         _scheduleRepo.SaveSchedule(newSchedule);
         return CreatedAtAction(nameof(GetAllSchedules), newSchedule);
     }
-    
+
     [HttpDelete("{scheduleId}")]
     public IActionResult DeleteSchedule(Guid scheduleId)
     {
@@ -114,5 +127,25 @@ public class ScheduleController : ControllerBase
         }
 
         return NoContent();
+    }
+
+    private GetScheduleResponse ConvertToResponse(Schedule schedule)
+    {
+        var teacherNames = schedule
+        .Events
+        .Select(e => generalRepository.Teachers.Get(e.TeacherId!.Value))
+        .ToDictionary(k => k.Id, t => $"{t.Rank} {t.Name}");
+
+        var audienceNames = schedule
+        .Events
+        .Select(e => generalRepository.Audiences.Get(e.AudienceId!.Value))
+        .ToDictionary(k => k.Id, t => t.Name);
+
+        var squadNames = schedule
+        .Events
+        .Select(e => generalRepository.Squads.Get(e.SquadId!.Value))
+        .ToDictionary(k => k.Id, t => t.Name);
+
+        var 
     }
 }

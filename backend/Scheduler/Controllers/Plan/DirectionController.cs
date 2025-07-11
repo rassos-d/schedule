@@ -47,7 +47,7 @@ public class DirectionController : ControllerBase
 
     }
 
-    [HttpDelete("{id}::guid")]
+    [HttpDelete("{id::guid}")]
     public IActionResult Delete(Guid id)
     {
         var direction = _planRepository.GetDirection(id);
