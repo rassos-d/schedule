@@ -9,17 +9,17 @@ namespace Scheduler.Controllers.General;
 [Route("api/teachers")]
 public class TeacherController : ControllerBase
 {
-    private readonly GeneralRepository _generalRepo;
+    private readonly GeneralRepository repository;
 
     public TeacherController(GeneralRepository generalRepo)
     {
-        _generalRepo = generalRepo;
+        repository = generalRepo;
     }
 
     [HttpGet]
     public IActionResult Find()
     {
-        var teachers = _generalRepo.GetAllTeachers();
+        var teachers = repository.Teachers.GetAll();
         return Ok(teachers);
     }
 
@@ -27,24 +27,24 @@ public class TeacherController : ControllerBase
     public IActionResult Create(TeacherCreateRequest request)
     {
         var teacher = new Teacher { Name = request.Name, Rank = request.Rank};
-        _generalRepo.UpsertTeacher(teacher);
-        _generalRepo.SaveChanges();
+        repository.Teachers.Upsert(teacher);
+        repository.SaveChanges();
         return Ok(teacher);
     }
 
     [HttpPut]
     public IActionResult Update(Teacher request)
     {
-        _generalRepo.UpsertTeacher(request);
-        _generalRepo.SaveChanges();
+        repository.Teachers.Upsert(request);
+        repository.SaveChanges();
         return NoContent();
     }
 
     [HttpDelete("{id:guid}")]
     public IActionResult Delete([FromRoute] Guid id)
     {
-        _generalRepo.DeleteTeacher(id);
-        _generalRepo.SaveChanges();
+        repository.Teachers.Delete(id);
+        repository.SaveChanges();
         return NoContent();
     }
 }
