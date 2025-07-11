@@ -1,33 +1,25 @@
 using System.Text.Json;
+using Scheduler.DataAccess.Base;
 using Scheduler.Entities;
 using Scheduler.Models;
 
 namespace Scheduler.DataAccess;
 
-public class ScheduleRepository
+public class ScheduleRepository : BaseRepository
 {
-    private readonly string _directoryPath;
     private readonly Dictionary<Guid, Schedule> _schedulesCache = new();
-    private readonly JsonSerializerOptions _jsonOptions;
+   
     
     private const string SchedulesFileName = "schedules.json";
 
-    public ScheduleRepository(string basePath = "data")
+    public ScheduleRepository() : base("schedules")
     {
-        _directoryPath = Path.Combine(basePath, "schedules");
-        Directory.CreateDirectory(_directoryPath);
-        
-        _jsonOptions = new JsonSerializerOptions
-        {
-            WriteIndented = true,
-            PropertyNameCaseInsensitive = true
-        };
     }
 
     private Schedule? LoadSchedule(Guid id)
     {
         var json = ReadFile($"{id}.json");
-        return JsonSerializer.Deserialize<Schedule>(json, _jsonOptions);
+        return JsonSerializer.Deserialize<Schedule>(json, JsonOptions);
     }
 
     public Schedule? GetSchedule(Guid id)
@@ -51,13 +43,13 @@ public class ScheduleRepository
     public List<ScheduleInfo>? GetAllScheduleInfos()
     {
         var json = ReadFile(SchedulesFileName);
-        return JsonSerializer.Deserialize<List<ScheduleInfo>>(json, _jsonOptions);
+        return JsonSerializer.Deserialize<List<ScheduleInfo>>(json, JsonOptions);
     }
 
     public void SaveSchedule(Schedule schedule)
     {
         var schedulesJson = ReadFile(SchedulesFileName);
-        var schedules = JsonSerializer.Deserialize<List<ScheduleInfo>>(schedulesJson, _jsonOptions);
+        var schedules = JsonSerializer.Deserialize<List<ScheduleInfo>>(schedulesJson, JsonOptions);
         schedules!.Add(new ScheduleInfo(schedule.Id, schedule.Name));
         WriteFile(SchedulesFileName, schedules);
         
@@ -68,7 +60,7 @@ public class ScheduleRepository
     public bool DeleteSchedule(Guid id)
     {
         _schedulesCache.Remove(id);
-        var filePath = Path.Combine(_directoryPath, $"{id}.json");
+        var filePath = Path.Combine(DirectoryPath, $"{id}.json");
         if (File.Exists(filePath) == false)
         {
             return false;
@@ -77,10 +69,15 @@ public class ScheduleRepository
         File.Delete(filePath);
         return true;
     }
-    
+
+    protected override void SaveChanges()
+    {
+        throw new NotImplementedException();
+    }
+
     private string ReadFile(string path)
     {
-        var filePath = Path.Combine(_directoryPath, path);
+        var filePath = Path.Combine(DirectoryPath, path);
         return File.Exists(filePath) == false 
             ? string.Empty 
             : File.ReadAllText(filePath);
@@ -88,7 +85,7 @@ public class ScheduleRepository
     
     private void WriteFile(string path, object text)
     {
-        var filePath = Path.Combine(_directoryPath, path);
-        File.WriteAllText(filePath, JsonSerializer.Serialize(text, _jsonOptions));
+        var filePath = Path.Combine(DirectoryPath, path);
+        File.WriteAllText(filePath, JsonSerializer.Serialize(text, JsonOptions));
     }
 }

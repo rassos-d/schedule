@@ -1,21 +1,19 @@
-using System.Text.Json;
+using Scheduler.DataAccess.Base;
+using Scheduler.Entities.Plan;
 
 namespace Scheduler.DataAccess.Plan;
 
-public partial class PlanRepository
+public partial class PlanRepository : BaseRepository
 {
-    private readonly string _directoryPath;
-    private readonly JsonSerializerOptions _jsonOptions;
-
-    public PlanRepository(string basePath = "data")
+    protected readonly List<Direction> Directions = [];
+    protected const string DirectionsPath = "directions.json";
+    
+    public PlanRepository() : base("plan")
     {
-        _directoryPath = Path.Combine(basePath, "plan");
-        Directory.CreateDirectory(_directoryPath);
+    }
 
-        _jsonOptions = new JsonSerializerOptions
-        {
-            WriteIndented = true,
-            PropertyNameCaseInsensitive = true
-        };
+    protected override void SaveChanges()
+    {
+        throw new NotImplementedException();
     }
 }
