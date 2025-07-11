@@ -19,4 +19,14 @@ public partial class PlanRepository
             .Where(t => t != null && t.SubjectId == subjectId)
             .ToList()!;
     }
+
+    public void DeleteTheme(Guid id)
+    {
+        var subject = GetAllSubjects().FirstOrDefault(subject => subject.Themes.Any(theme => theme.Id == id));
+        if (subject == null)
+            return;
+
+        var theme = subject.Themes.First(theme => theme.Id == id);
+        subject.Themes.Remove(theme);
+    }
 }

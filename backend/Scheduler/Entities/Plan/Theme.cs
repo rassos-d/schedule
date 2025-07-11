@@ -1,6 +1,8 @@
+using Scheduler.Entities.Base;
+
 namespace Scheduler.Entities.Plan;
 
-public class Theme
+public class Theme : Entity
 {
     public required string Name { get; set; }
     public Guid SubjectId { get; set; }

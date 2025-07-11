@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Scheduler.DataAccess.Plan;
 using Scheduler.Entities.Plan;
 
 namespace Scheduler.Controllers.Plan
@@ -7,39 +8,28 @@ namespace Scheduler.Controllers.Plan
     [Route("api/themes")]
     public class ThemeController : ControllerBase
     {
-        public ThemeController()
+        private readonly PlanRepository planRepository;
+
+        public ThemeController(PlanRepository planRepository)
         {
-            
+            this.planRepository = planRepository;
         }
 
-        [HttpGet]
-        public IActionResult GetAll()
-        {
-            
-        }
 
-        [HttpGet("{id::guid}")]
-        public IActionResult Get(Guid id)
+        [HttpPost]
+        public IActionResult Create([FromBody] Theme theme)
         {
-
-        }
-
-        [HttpPut("{id}::guid")]
-        public IActionResult Update(Guid id)
-        {
+            planRepository.SaveTheme(theme);
+            return Ok();
 
         }
 
         [HttpDelete("{id}::guid")]
         public IActionResult Delete(Guid id)
         {
+            planRepository.DeleteTheme(id);
 
-        }
-
-        [HttpPost]
-        public IActionResult Create([FromBody] Theme direction)
-        {
-
+            return Ok();
         }
     }
 }
