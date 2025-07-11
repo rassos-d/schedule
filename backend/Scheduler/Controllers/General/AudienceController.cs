@@ -9,17 +9,17 @@ namespace Scheduler.Controllers.General;
 [Route("api/audiences")]
 public class AudienceController : ControllerBase
 {
-    private readonly GeneralRepository _generalRepo;
+    private readonly GeneralRepository repository;
 
     public AudienceController(GeneralRepository generalRepo)
     {
-        _generalRepo = generalRepo;
+        repository = generalRepo;
     }
 
     [HttpGet]
     public IActionResult Find()
     {
-        var audiences = _generalRepo.GetAllAudiences();
+        var audiences = repository.Audiences.GetAll();
         return Ok(audiences);
     }
 
@@ -27,24 +27,24 @@ public class AudienceController : ControllerBase
     public IActionResult Create(CreateEntityWithNameRequest request)
     {
         var audience = new Audience { Name = request.Name };
-        _generalRepo.UpsertAudience(audience);
-        _generalRepo.SaveChanges();
+        repository.Audiences.Upsert(audience);
+        repository.SaveChanges();
         return Ok(audience);
     }
 
     [HttpPut]
     public IActionResult Update(Audience audience)
     {
-        _generalRepo.UpsertAudience(audience);
-        _generalRepo.SaveChanges();
+        repository.Audiences.Upsert(audience);
+        repository.SaveChanges();
         return NoContent();
     }
 
     [HttpDelete("{id:guid}")]
     public IActionResult Delete(Guid id)
     {
-        _generalRepo.DeleteAudience(id);
-        _generalRepo.SaveChanges();
+        repository.Audiences.Delete(id);
+        repository.SaveChanges();
         return NoContent();
     }
 }
