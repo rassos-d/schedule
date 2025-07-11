@@ -1,4 +1,3 @@
-using System.Text.Json;
 using Scheduler.Entities.Plan;
 
 namespace Scheduler.DataAccess.Plan;
@@ -7,49 +6,34 @@ public partial class PlanRepository
 {
     public void SaveLesson(Lesson lesson)
     {
-        Lessons.Add(lesson);
-        WriteFile($"{lesson.Id}.json", lesson);
+        var subject = Subjects.FirstOrDefault(x => x.Id == lesson.SubjectId);
+        var theme = subject?.Themes.FirstOrDefault(x => x.Id == lesson.ThemeId);
+
+        if (theme is null)
+        {
+            return;
+        }
         
-        var lessons = GetAllLessons();
-        lessons.Add(lesson);
-        
-        WriteFile(LessonsPath, lessons);
+        theme.Lessons.Add(lesson);
     }
 
     public Lesson? GetLesson(Guid id)
     {
-        return GetAllLessons().FirstOrDefault(lesson => lesson.Id == id);
-        // string filePath = Path.Combine(LessonsPath, $"lesson_{id}.json");
-        // if (!File.Exists(filePath)) return null;
-        // string json = File.ReadAllText(filePath);
-        // return JsonSerializer.Deserialize<Lesson>(json, JsonOptions);
+        return Subjects
+            .SelectMany(s => s.Themes
+                .SelectMany(t => t.Lessons))
+            .FirstOrDefault(l => l.Id == id);
     }
 
     public List<Lesson> GetLessonsByTheme(Guid themeId)
     {
-        return GetAllLessons()
-            .Where(l => l.ThemeId == themeId)
-            .ToList()!;
+        return GetTheme(themeId)?.Lessons ?? [];
     }
 
-    public bool DeleteLesson(Guid id)
+    public void DeleteLesson(Guid id)
     {
-        // string filePath = Path.Combine(LessonsPath, $"lesson_{id}.json");
-        // if (!File.Exists(filePath)) return false;
-        // File.Delete(filePath);
-        // return true;
-        
         var lesson = GetLesson(id);
-        Lessons.Remove(lesson);
-        
-        WriteFile(LessonsPath, Lessons);
-
-        return true;
-    }
-    
-    public List<Lesson> GetAllLessons()
-    {
-        var json = ReadFile(LessonsPath);
-        return JsonSerializer.Deserialize<List<Lesson>>(json, JsonOptions) ?? [];
+        var theme = GetTheme(lesson!.ThemeId);
+        theme?.Lessons.Remove(lesson);
     }
 }

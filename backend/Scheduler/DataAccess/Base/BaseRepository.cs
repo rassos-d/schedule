@@ -1,17 +1,14 @@
 using System.Text.Json;
-
+using static Scheduler.Constants.FilePaths;
 namespace Scheduler.DataAccess.Base;
 
 public abstract class BaseRepository
 {
     protected readonly JsonSerializerOptions JsonOptions;
     protected readonly string DirectoryPath;
-    
-    private const string BasePath = "data";
-
     protected BaseRepository(string directoryPath)
     {
-        DirectoryPath = Path.Combine(BasePath, directoryPath);
+        DirectoryPath = Path.Combine(BaseFolder, directoryPath);
 
         if (Directory.Exists(DirectoryPath) == false)
         {
