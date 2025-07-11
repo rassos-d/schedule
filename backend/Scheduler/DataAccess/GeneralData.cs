@@ -4,7 +4,7 @@ namespace Scheduler.DataAccess;
 
 public class GeneralData
 {
-    public List<Audience> Audiences { get; set; } = [];
-    public List<Squad> Squads { get; set; } = [];
-    public List<Teacher> Teachers { get; set; } = [];
+    public Dictionary<Guid, Audience> Audiences { get; set; } = [];
+    public Dictionary<Guid, Squad> Squads { get; set; } = [];
+    public Dictionary<Guid, Teacher> Teachers { get; set; } = [];
 }

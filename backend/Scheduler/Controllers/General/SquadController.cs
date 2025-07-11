@@ -35,7 +35,7 @@ public class SquadController : ControllerBase
     [HttpPut]
     public IActionResult Update(Squad request)
     {
-        _generalRepo.UpdateSquad(request);
+        _generalRepo.UpsertSquad(request);
         _generalRepo.SaveChanges();
         return NoContent();
     }

@@ -27,7 +27,7 @@ public class AudienceController : ControllerBase
     public IActionResult Create(CreateEntityWithNameRequest request)
     {
         var audience = new Audience { Name = request.Name };
-        _generalRepo.AddAudience(audience);
+        _generalRepo.UpsertAudience(audience);
         _generalRepo.SaveChanges();
         return NoContent();
     }
@@ -35,7 +35,7 @@ public class AudienceController : ControllerBase
     [HttpPut]
     public IActionResult Update(Audience audience)
     {
-        _generalRepo.UpdateAudience(audience);
+        _generalRepo.UpsertAudience(audience);
         _generalRepo.SaveChanges();
         return NoContent();
     }

@@ -27,7 +27,7 @@ public class TeacherController : ControllerBase
     public IActionResult Create(TeacherCreateRequest request)
     {
         var audience = new Teacher { Name = request.Name, Rank = request.Rank};
-        _generalRepo.AddTeacher(audience);
+        _generalRepo.UpsertTeacher(audience);
         _generalRepo.SaveChanges();
         return NoContent();
     }
@@ -35,7 +35,7 @@ public class TeacherController : ControllerBase
     [HttpPut]
     public IActionResult Update(Teacher request)
     {
-        _generalRepo.UpdateTeacher(request);
+        _generalRepo.UpsertTeacher(request);
         _generalRepo.SaveChanges();
         return NoContent();
     }
