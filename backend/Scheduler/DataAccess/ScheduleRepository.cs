@@ -9,6 +9,8 @@ public class ScheduleRepository
     private readonly string _directoryPath;
     private readonly Dictionary<Guid, Schedule> _schedulesCache = new();
     private readonly JsonSerializerOptions _jsonOptions;
+    
+    private const string SchedulesFileName = "schedules.json";
 
     public ScheduleRepository(string basePath = "data")
     {
@@ -22,57 +24,71 @@ public class ScheduleRepository
         };
     }
 
-    private Schedule LoadSchedule(Guid id)
+    private Schedule? LoadSchedule(Guid id)
     {
-        string filePath = Path.Combine(_directoryPath, "schedules.json");
-        if (File.Exists(filePath) == false)
-        {
-            return null;
-        }
-
-        var json = File.ReadAllText(filePath);
+        var json = ReadFile($"{id}.json");
         return JsonSerializer.Deserialize<Schedule>(json, _jsonOptions);
     }
 
-    public Schedule GetSchedule(Guid id)
+    public Schedule? GetSchedule(Guid id)
     {
         if (_schedulesCache.TryGetValue(id, out var cachedSchedule))
+        {
             return cachedSchedule;
+        }
 
         var schedule = LoadSchedule(id);
-        if (schedule != null)
-            _schedulesCache[id] = schedule;
+        if (schedule == null)
+        {
+            return null;
+        }
+        
+        _schedulesCache[id] = schedule;
 
         return schedule;
     }
 
-    public List<ScheduleInfo> GetAllScheduleInfos()
+    public List<ScheduleInfo>? GetAllScheduleInfos()
     {
-        return Directory.GetFiles(_directoryPath, "schedules.json")
-            .Select(file => 
-            {
-                var json = File.ReadAllText(file);
-                return JsonSerializer.Deserialize<ScheduleInfo>(json, _jsonOptions);
-            })
-            .Select(s => new ScheduleInfo(s.Id, s.Name))
-            .ToList();
+        var json = ReadFile(SchedulesFileName);
+        return JsonSerializer.Deserialize<List<ScheduleInfo>>(json, _jsonOptions);
     }
 
     public void SaveSchedule(Schedule schedule)
     {
+        var schedulesJson = ReadFile(SchedulesFileName);
+        var schedules = JsonSerializer.Deserialize<List<ScheduleInfo>>(schedulesJson, _jsonOptions);
+        schedules!.Add(new ScheduleInfo(schedule.Id, schedule.Name));
+        WriteFile(SchedulesFileName, schedules);
         
         _schedulesCache[schedule.Id] = schedule;
-        string filePath = Path.Combine(_directoryPath, $"{schedule.Id}.json");
-        File.WriteAllText(filePath, JsonSerializer.Serialize(schedule, _jsonOptions));
+        WriteFile($"{schedule.Id}.json", _schedulesCache);
     }
 
     public bool DeleteSchedule(Guid id)
     {
         _schedulesCache.Remove(id);
-        string filePath = Path.Combine(_directoryPath, $"{id}.json");
-        if (!File.Exists(filePath)) return false;
-        
+        var filePath = Path.Combine(_directoryPath, $"{id}.json");
+        if (File.Exists(filePath) == false)
+        {
+            return false;
+        }
+
         File.Delete(filePath);
         return true;
+    }
+    
+    private string ReadFile(string path)
+    {
+        var filePath = Path.Combine(_directoryPath, path);
+        return File.Exists(filePath) == false 
+            ? string.Empty 
+            : File.ReadAllText(filePath);
+    }
+    
+    private void WriteFile(string path, object text)
+    {
+        var filePath = Path.Combine(_directoryPath, path);
+        File.WriteAllText(filePath, JsonSerializer.Serialize(text, _jsonOptions));
     }
 }
