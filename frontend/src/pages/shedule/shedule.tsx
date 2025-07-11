@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 import styles from './shedule.module.scss'
 import { Button } from '../../components/button/button'
-import { FreeLesson, Lesson, Shedule } from '../../types/shedule'
+import { FreeLesson, Lesson, NewLesson, Shedule } from '../../types/shedule'
 import { useState } from 'react'
 import { getFullShedule, getShedule } from '../../utils/shedule'
 import { Icon } from '../../components/icon'
@@ -11,6 +11,8 @@ import { DragLesson } from '../../components/dragNDrop/dragLesson'
 import { DropLesson } from '../../components/dragNDrop/dropLesson'
 import { DropZone } from '../../components/dragNDrop/dropZone'
 import { DragFreeLesson } from '../../components/dragNDrop/dragFreeLesson'
+import PopupContainer from '../../components/popupContainer/popupContainer'
+import { Input } from '../../components/input/Input'
 
 const TIMES = [
     {
@@ -41,16 +43,16 @@ const SHEDULE: Shedule = {
     squards: [
         {
             id: '2',
-            name: 'А',
+            name: 'А-323',
             events: {
-                "05.09": [{ lesson_id: '1', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 1 }],
-                "12.09": [{ lesson_id: '12', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 2 }],
-                "19.09": [{ lesson_id: '13', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 3 }],
-                "26.09": [{ lesson_id: '14', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 4 }],
-                "03.10": [{ lesson_id: '15', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 1 }],
-                "10.10": [{ lesson_id: '16', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 4 }],
-                "17.10": [{ lesson_id: '17', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 5 }],
-                "24.10": [{ lesson_id: '18', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 3 }],
+                "05.09": [{ lesson_id: '1', lesson_name: "т1 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 1 }],
+                "12.09": [{ lesson_id: '12', lesson_name: "т2 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 2 }],
+                "19.09": [{ lesson_id: '13', lesson_name: "т3 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 3 }],
+                "26.09": [{ lesson_id: '14', lesson_name: "т4 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 4 }],
+                "03.10": [{ lesson_id: '15', lesson_name: "т5 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 1 }],
+                "10.10": [{ lesson_id: '16', lesson_name: "т6 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 4 }],
+                "17.10": [{ lesson_id: '17', lesson_name: "т7 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 5 }],
+                "24.10": [{ lesson_id: '18', lesson_name: "т8 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 3 }],
                 "31.10": [{ lesson_id: '19', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 1 }],
                 "07.10": [{ lesson_id: '20', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 2 }],
                 "14.11": [{ lesson_id: '21', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 3 }],
@@ -64,7 +66,7 @@ const SHEDULE: Shedule = {
         },
         {
             id: '3',
-            name: 'Д',
+            name: 'Д-323',
             events: {
                 "05.09": [{ lesson_id: '21', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 1 }],
                 "12.09": [{ lesson_id: '22', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 2 }],
@@ -99,17 +101,21 @@ export default function ShedulePage() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false)
     const [activeSquardIndex, setActiveSquardIndex] = useState(0)
     const [freeLessons, setFreeLessons] = useState<FreeLesson[]>(FREE_LESSONS)
-    const [isDraggingAnything, setIsDraggingAnything] = useState(false)
+
+    const [newLesson, setNewLesson] = useState<NewLesson>()
 
 
-    const onMoveLessonFromTableToTable = (squardIndex: number, target: {date: string;number: number;lesson?: Lesson}, oldDate: string, oldNumber: number, lesson:Lesson) => {
+    const onMoveLessonFromTableToTable = (squardIndex: number, target: {date: string;number: number;lesson?: Lesson}, oldDate: string, oldNumber: number, oldLesson:Lesson) => {
         if (oldDate === target.date && oldNumber === target.number) return
         setShedule((prev) => {
             const newShedule:Shedule = JSON.parse(JSON.stringify(prev))
-            if ("lesson" in target) {
-                
+            if (target.lesson !== undefined) {
+                const oldLesson = newShedule.squards[squardIndex].events[oldDate][oldNumber - 1]
+                newShedule.squards[squardIndex].events[target.date][target.number - 1] = {...oldLesson, number: target.lesson.number}
+                newShedule.squards[squardIndex].events[oldDate][oldNumber - 1] = {...target.lesson, number: oldLesson.number}
+                return newShedule
             }
-            newShedule.squards[squardIndex].events[target.date][target.number - 1] = {...lesson, number: target.number}
+            newShedule.squards[squardIndex].events[target.date][target.number - 1] = {...oldLesson, number: target.number}
             newShedule.squards[squardIndex].events[oldDate][oldNumber - 1] = {number: oldNumber}
             return newShedule
         })
@@ -141,10 +147,11 @@ export default function ShedulePage() {
     }
 
     const startDragging = (squardIndex: number) => {
-        //setIsSidebarOpen(true)
-        setIsDraggingAnything(true)
-        console.log(squardIndex)
         setActiveSquardIndex(squardIndex)
+    }
+
+    const createLesson = (day: string, number: number, squardIndex: number) => {
+        setNewLesson({date: day, number, squardIndex})
     }
 
     return (
@@ -187,7 +194,6 @@ export default function ShedulePage() {
                                                         <DragLesson
                                                             squardIndex={squardIndex} 
                                                             lesson={lesson} 
-                                                            isDraggingAnything={isDraggingAnything}
                                                             date={dayKey}
                                                             number={lesson.number}
                                                             onStartDragging={()=>startDragging(squardIndex)}
@@ -196,7 +202,12 @@ export default function ShedulePage() {
                                                                 onMoveLessonFromTableToTable(squardIndex, target, oldDate, oldNumber,  lesson)
                                                             }} 
                                                         /> :
-                                                        <DropLesson squardIndex={squardIndex} date={dayKey} number={lesson.number}/>
+                                                        <DropLesson 
+                                                            squardIndex={squardIndex} 
+                                                            date={dayKey} 
+                                                            number={lesson.number}
+                                                            onCreateLesson={createLesson}
+                                                        />
                                                     }
                                                 </div>
                                             ))}
@@ -236,6 +247,52 @@ export default function ShedulePage() {
                     </div>
                 </DndProvider>
             </div>
+            {newLesson && 
+                <PopupContainer onClose={()=>setNewLesson(undefined)}>
+                    <div className={styles.popup}>
+                        <h2>Создание занятия</h2>
+                        <div className={styles.popup__line}>
+                            <p className={styles.popup__title}>Взвод:</p>
+                            <p className={styles.popup__text}>{shedule.squards[newLesson.squardIndex].name}</p>
+                        </div>
+                        <div className={styles.popup__line}>
+                            <p className={styles.popup__title}>Тема:</p>
+                            <div className={styles.popup__text}>
+                                <Input value={newLesson.lesson_name ?? ''} onChange={(value)=>setNewLesson({...newLesson, lesson_name: value})}/>
+                            </div>
+                        </div>
+                        <div className={styles.popup__line}>
+                            <p className={styles.popup__title}>Занятие:</p>
+                            <div className={styles.popup__text}>
+                                <Input value={newLesson.lesson_name ?? ''} onChange={(value)=>setNewLesson({...newLesson, lesson_name: value})}/>
+                            </div>
+                        </div>
+                        <div className={styles.popup__block}>
+                            <p className={styles.popup__title}>Преподаватель:</p>
+                            <div className={styles.popup__text}>
+                                <Input value={newLesson.lesson_name ?? ''} onChange={(value)=>setNewLesson({...newLesson, lesson_name: value})}/>
+                            </div>
+                        </div>
+                        <div className={styles.popup__block}>
+                            <p className={styles.popup__title}>Аудитория:</p>
+                            <div className={styles.popup__text}>
+                                <Input value={newLesson.lesson_name ?? ''} onChange={(value)=>setNewLesson({...newLesson, lesson_name: value})}/>
+                            </div>
+                        </div>
+                        <div className={styles.popup__line}>
+                            <p className={styles.popup__title}>Дата:</p>
+                            <div className={styles.popup__text}>
+                                <Input type='date' value={newLesson.date ?? ''} onChange={(value)=>setNewLesson({...newLesson, date: value})}/>
+                            </div>
+                        </div>
+                        <div className={styles.popup__line}>
+                            <p className={styles.popup__title}>Дата:</p>
+                            <p className={styles.popup__text}>{TIMES[newLesson.number - 1].time}</p>
+                        </div>
+                        <Button size={'max'}>Сохранить</Button>
+                    </div>
+                </PopupContainer>
+            }
         </>
     )
 }
