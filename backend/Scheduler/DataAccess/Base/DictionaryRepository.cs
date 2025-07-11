@@ -1,4 +1,3 @@
-using Scheduler.DataAccess.General;
 using Scheduler.Entities.Base;
 
 public class DictionaryRepository<T> where T : Entity

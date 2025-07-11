@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Scheduler.Dto;
 using Scheduler.Entities.General;
-using GeneralRepository = Scheduler.DataAccess.General.GeneralRepository;
+using GeneralRepository = Scheduler.DataAccess.GeneralRepository;
 
 namespace Scheduler.Controllers.General;
 

@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Scheduler.Dto.Teacher;
 using Scheduler.Entities.General;
-using GeneralRepository = Scheduler.DataAccess.General.GeneralRepository;
+using GeneralRepository = Scheduler.DataAccess.GeneralRepository;
 
 namespace Scheduler.Controllers.General;
 
@@ -9,17 +9,17 @@ namespace Scheduler.Controllers.General;
 [Route("api/teachers")]
 public class TeacherController : ControllerBase
 {
-    private readonly GeneralRepository repository;
+    private readonly GeneralRepository _generalRepository;
 
     public TeacherController(GeneralRepository generalRepo)
     {
-        repository = generalRepo;
+        _generalRepository = generalRepo;
     }
 
     [HttpGet]
     public IActionResult Find()
     {
-        var teachers = repository.Teachers.GetAll();
+        var teachers = _generalRepository.Teachers.GetAll();
         return Ok(teachers);
     }
 
@@ -27,24 +27,24 @@ public class TeacherController : ControllerBase
     public IActionResult Create(TeacherCreateRequest request)
     {
         var teacher = new Teacher { Name = request.Name, Rank = request.Rank};
-        repository.Teachers.Upsert(teacher);
-        repository.SaveChanges();
+        _generalRepository.Teachers.Upsert(teacher);
+        _generalRepository.SaveChanges();
         return Ok(teacher);
     }
 
     [HttpPut]
     public IActionResult Update(Teacher request)
     {
-        repository.Teachers.Upsert(request);
-        repository.SaveChanges();
+        _generalRepository.Teachers.Upsert(request);
+        _generalRepository.SaveChanges();
         return NoContent();
     }
 
     [HttpDelete("{id:guid}")]
     public IActionResult Delete([FromRoute] Guid id)
     {
-        repository.Teachers.Delete(id);
-        repository.SaveChanges();
+        _generalRepository.Teachers.Delete(id);
+        _generalRepository.SaveChanges();
         return NoContent();
     }
 }

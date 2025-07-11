@@ -3,16 +3,16 @@ using Scheduler.DataAccess.Base;
 using Scheduler.Entities.General;
 using static Scheduler.Constants.FilePaths;
 
-namespace Scheduler.DataAccess.General;
+namespace Scheduler.DataAccess;
 
-public partial class GeneralRepository : BaseRepository
+public class GeneralRepository : BaseRepository
 {
     private readonly GeneralData _data;
     private readonly string _filePath;
 
-    public DictionaryRepository<Audience> Audiences;
-    public DictionaryRepository<Squad> Squads;
-    public DictionaryRepository<Teacher> Teachers;
+    public readonly DictionaryRepository<Audience> Audiences;
+    public readonly DictionaryRepository<Squad> Squads;
+    public readonly DictionaryRepository<Teacher> Teachers;
 
     public GeneralRepository() : base(string.Empty)
     {

@@ -1,5 +1,5 @@
 using Scheduler.DataAccess;
-using GeneralRepository = Scheduler.DataAccess.General.GeneralRepository;
+using GeneralRepository = Scheduler.DataAccess.GeneralRepository;
 using PlanRepository = Scheduler.DataAccess.Plan.PlanRepository;
 
 var builder = WebApplication.CreateBuilder(args);
