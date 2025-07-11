@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { getTokenFromCookie } from './token';
+import { getTokenFromCookie } from '../token';
 import { toast } from 'react-toastify';
 
 
@@ -8,7 +8,15 @@ const BACKEND_URL = import.meta.env.VITE_BACKEND_URL
 const notify = (message: string) => toast(message);
 
 export const PagesURl = {
-
+  AUDIENCE: 'audiences',
+  DIRECTION: 'directions',
+  EVENT: 'events',
+  LESSON: 'lessons',
+  SHEDULE: 'schedules',
+  SQUARD: 'squards',
+  SUBJECT: 'subjects',
+  TEACHER: 'teachers',
+  THEME: 'themes'
 }
 
 const REQUEST_TIMEOUT = 10000;
