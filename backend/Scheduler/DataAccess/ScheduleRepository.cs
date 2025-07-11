@@ -70,22 +70,11 @@ public class ScheduleRepository : BaseRepository
         return true;
     }
 
-    protected override void SaveChanges()
+    public override void SaveChanges()
     {
-        throw new NotImplementedException();
-    }
-
-    private string ReadFile(string path)
-    {
-        var filePath = Path.Combine(DirectoryPath, path);
-        return File.Exists(filePath) == false 
-            ? string.Empty 
-            : File.ReadAllText(filePath);
-    }
-    
-    private void WriteFile(string path, object text)
-    {
-        var filePath = Path.Combine(DirectoryPath, path);
-        File.WriteAllText(filePath, JsonSerializer.Serialize(text, JsonOptions));
+        foreach (var schedule in _schedulesCache)
+        {
+            WriteFile($"{schedule.Key}.json", schedule.Value);
+        }
     }
 }

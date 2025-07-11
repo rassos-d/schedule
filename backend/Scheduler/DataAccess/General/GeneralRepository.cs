@@ -15,6 +15,6 @@ public partial class GeneralRepository : BaseRepository
             : new GeneralData();
     }
 
-    protected override void SaveChanges() => 
+    public override void SaveChanges() => 
         File.WriteAllText(FilePath, JsonSerializer.Serialize(_data, JsonOptions));
 }

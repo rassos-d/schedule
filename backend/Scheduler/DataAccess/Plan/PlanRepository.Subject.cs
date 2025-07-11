@@ -12,12 +12,19 @@ public partial class PlanRepository
 
     public Subject? GetSubject(Guid id)
     {
-        return Directions.SelectMany(d => d.Subjects).FirstOrDefault(s => s.Id == id);
+        var subject = Directions.SelectMany(d => d.Subjects).FirstOrDefault(s => s.Id == id);
+        return subject ?? GetAllSubjects().FirstOrDefault(s => s.Id == id);
     }
 
     public List<Subject> GetAllSubjects()
     {
-        var allDirectionFiles = Directory.GetFiles(DirectionsPath).Select(d => );
+        var directions = GetAllDirectionInfos();
+        var notCachedDirections = directions.ExceptBy(Directions.Select(d => d.Id), d => d.Id);
+        foreach (var direction in notCachedDirections)
+        {
+            GetDirection(direction.Id);
+        }
+        
         return Directions.SelectMany(d => d.Subjects).ToList();
     }
 

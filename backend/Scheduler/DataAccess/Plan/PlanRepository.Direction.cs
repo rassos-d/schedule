@@ -27,10 +27,10 @@ public partial class PlanRepository
         return direction;
     }
 
-    public List<DirectionInfo>? GetAllDirectionInfos()
+    public List<DirectionInfo> GetAllDirectionInfos()
     {
         var json = ReadFile(DirectionsPath);
-        return JsonSerializer.Deserialize<List<DirectionInfo>>(File.ReadAllText(json), JsonOptions);
+        return JsonSerializer.Deserialize<List<DirectionInfo>>(File.ReadAllText(json), JsonOptions) ?? [];
     }
 
     public bool DeleteDirection(Guid id)

@@ -12,8 +12,11 @@ public partial class PlanRepository : BaseRepository
     {
     }
 
-    protected override void SaveChanges()
+    public override void SaveChanges()
     {
-        throw new NotImplementedException();
+        foreach (var direction in Directions)
+        {
+            WriteFile($"{direction.Id}.json", direction);
+        }
     }
 }
