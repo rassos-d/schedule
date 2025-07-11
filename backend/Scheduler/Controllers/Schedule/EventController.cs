@@ -112,23 +112,4 @@ public class EventController : ControllerBase
         _scheduleRepo.DeleteSchedule(scheduleId);
         return NoContent();
     }
-
-    private GetScheduleResponse ConvertToResponse(Entities.Schedule schedule)
-    {
-        var teacherNames = schedule
-        .Events
-        .Select(e => generalRepository.Teachers.Get(e.TeacherId!.Value))
-        .ToDictionary(k => k.Id, t => $"{t.Rank} {t.Name}");
-
-        var audienceNames = schedule
-        .Events
-        .Select(e => generalRepository.Audiences.Get(e.AudienceId!.Value))
-        .ToDictionary(k => k.Id, t => t.Name);
-
-        var squadNames = schedule
-        .Events
-        .Select(e => generalRepository.Squads.Get(e.SquadId!.Value))
-        .ToDictionary(k => k.Id, t => t.Name);
-        throw new NotImplementedException();
-    }
 }

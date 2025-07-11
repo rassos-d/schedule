@@ -13,8 +13,7 @@ public class ScheduleRepository : BaseRepository
     private const string SchedulesFileName = "schedules.json";
 
     public ScheduleRepository() : base("schedules")
-    {
-    }
+    { }
 
     private Schedule? LoadSchedule(Guid id)
     {
@@ -47,9 +46,8 @@ public class ScheduleRepository : BaseRepository
 
     public void SaveSchedule(Schedule schedule)
     {
-        var schedulesJson = ReadFile(SchedulesFileName);
-        var schedules = JsonSerializer.Deserialize<List<ScheduleInfo>>(schedulesJson, JsonOptions);
-        schedules!.Add(new ScheduleInfo(schedule.Id, schedule.Name));
+        var schedules = GetAllScheduleInfos();
+        schedules.Add(new ScheduleInfo(schedule.Id, schedule.Name));
         WriteFile(SchedulesFileName, schedules);
 
         _schedulesCache[schedule.Id] = schedule;
@@ -67,6 +65,15 @@ public class ScheduleRepository : BaseRepository
         }
 
         File.Delete(filePath);
+
+        var schedules = GetAllScheduleInfos();
+        var schedule = schedules.FirstOrDefault(s => s.Id == id);
+        if (schedule == null)
+        {
+            return;
+        }
+        schedules.Remove(schedule);
+        WriteFile(SchedulesFileName, schedules);
     }
 
     protected override void SaveChanges(Guid? id = null)
