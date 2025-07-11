@@ -19,11 +19,17 @@ public partial class PlanRepository
     public Subject? GetSubject(Guid id)
     {
         return Subjects.FirstOrDefault(s => s.Id == id) 
-               ?? GetAllSubjects().FirstOrDefault(s => s.Id == id);
+               ?? FindSubjects().FirstOrDefault(s => s.Id == id);
     }
 
-    public List<Subject> GetAllSubjects()
+    public List<Subject> FindSubjects(Guid? directionId = null)
     {
+        if (directionId.HasValue)
+        {
+            var direction = GetDirection(directionId.Value);
+            return direction?.Subjects ?? [];
+        }
+        
         var directions = GetAllDirectionInfos();
         var notCachedDirections = directions.ExceptBy(Directions.Select(d => d.Id), d => d.Id);
         foreach (var direction in notCachedDirections)
@@ -32,12 +38,6 @@ public partial class PlanRepository
         }
         
         return Directions.SelectMany(d => d.Subjects).ToList();
-    }
-
-    public List<Subject> GetSubjectsByDirection(Guid directionId)
-    {
-        var direction = GetDirection(directionId);
-        return direction?.Subjects ?? [];
     }
 
     public void DeleteSubject(Guid id)
@@ -50,5 +50,6 @@ public partial class PlanRepository
         
         var direction = Directions.First(x => x.Id == subject.DirectionId);
         direction.Subjects.Remove(subject);
+        SaveChanges();
     }
 }

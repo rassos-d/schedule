@@ -1,6 +1,6 @@
 namespace Scheduler.Dto;
 
-public record CreateEntityWithNameRequest
+public record EntityWithNameCreateDto
 {
     public required string Name { get; init; }
 }

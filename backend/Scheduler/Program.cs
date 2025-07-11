@@ -14,6 +14,7 @@ builder.Services.AddControllers();
 // Configure Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddCors();
 
 var app = builder.Build();
 
@@ -23,10 +24,8 @@ app.UseSwaggerUI(c =>
 { 
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Schedule API v1");
 });
-
-
-app.UseHttpsRedirection();
-app.UseAuthorization();
+                            
 app.MapControllers();
+app.UseCors();
 
 app.Run();

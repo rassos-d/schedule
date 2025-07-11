@@ -16,10 +16,10 @@ public class SubjectController : ControllerBase
         _planRepository = planRepository;
     }
 
-    [HttpGet]
-    public IActionResult GetAll()
+    [HttpGet("find")]
+    public IActionResult Find([FromQuery] Guid? directionId)
     {
-        return Ok(_planRepository.GetAllSubjects());
+        return Ok(_planRepository.FindSubjects(directionId));
     }
 
     [HttpGet("{id::guid}")]
@@ -32,6 +32,14 @@ public class SubjectController : ControllerBase
         }
 
         return Ok(direction);
+    }
+    
+    [HttpPost]
+    public IActionResult Create([FromBody] SubjectCreateDto request)
+    {
+        var subj = new Subject { Name = request.Name, DirectionId = request.DirectionId };
+        _planRepository.SaveSubject(subj);
+        return Ok(subj);
     }
 
     [HttpPut]
@@ -61,19 +69,5 @@ public class SubjectController : ControllerBase
 
         _planRepository.DeleteSubject(id);
         return Ok();
-    }
-
-    [HttpPost]
-    public IActionResult Create([FromBody] SubjectCreateDto request)
-    {
-        var subj = new Subject { Name = request.Name, DirectionId = request.DirectionId };
-        _planRepository.SaveSubject(subj);
-        return Ok(subj);
-    }
-
-    [HttpGet("{id:guid}/themes")]
-    public IActionResult GetThemesBySubject(Guid id)
-    {
-        return Ok(_planRepository.GetThemesBySubject(id));
     }
 }

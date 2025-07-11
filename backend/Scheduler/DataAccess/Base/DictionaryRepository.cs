@@ -1,5 +1,7 @@
 using Scheduler.Entities.Base;
 
+namespace Scheduler.DataAccess.Base;
+
 public class DictionaryRepository<T> where T : Entity
 {
     private Dictionary<Guid, T> Data { get; }
@@ -12,8 +14,6 @@ public class DictionaryRepository<T> where T : Entity
     public T? Get(Guid id) => Data.GetValueOrDefault(id);
     
     public List<T> GetAll() => Data.Values.ToList();
-    
-    public void Add(T entity) => Data.Add(entity.Id, entity);
     
     public void Upsert(T entity) => Data[entity.Id] = entity;
 

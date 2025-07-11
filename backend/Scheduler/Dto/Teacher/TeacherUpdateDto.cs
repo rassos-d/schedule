@@ -1,6 +1,6 @@
 namespace Scheduler.Dto.Teacher;
 
-public class TeacherUpdateRequest
+public class TeacherUpdateDto
 {
     public required string Name { get; init; }
 

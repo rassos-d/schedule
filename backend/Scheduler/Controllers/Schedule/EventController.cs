@@ -1,28 +1,23 @@
 using Microsoft.AspNetCore.Mvc;
 using Scheduler.DataAccess;
+using Scheduler.Dto;
 using Scheduler.Entities;
 
-namespace Scheduler.Controllers;
+namespace Scheduler.Controllers.Schedule;
 
 [ApiController]
-[Route("api/schedules")]
-public class ScheduleController : ControllerBase
+[Route("api/events")]
+public class EventController : ControllerBase
 {
     private readonly ScheduleRepository _scheduleRepo;
 
-    public ScheduleController(ScheduleRepository scheduleRepo)
+    public EventController(ScheduleRepository scheduleRepo)
     {
         _scheduleRepo = scheduleRepo;
     }
-    
-    [HttpGet]
-    public IActionResult GetAllSchedules()
-    {
-        return Ok(_scheduleRepo.GetAllScheduleInfos());
-    }
-    
-    [HttpGet("{scheduleId}/events")]
-    public IActionResult GetScheduleEvents(Guid scheduleId)
+
+    [HttpGet("find")]
+    public IActionResult Find([FromQuery] Guid scheduleId)
     {
         var schedule = _scheduleRepo.GetSchedule(scheduleId);
         if (schedule == null)
@@ -33,21 +28,19 @@ public class ScheduleController : ControllerBase
         return Ok(schedule.Events);
     }
     
-    [HttpPost("{scheduleId}/events")]
-    public IActionResult AddEvent(Guid scheduleId, [FromBody] Event newEvent)
+    [HttpPost]
+    public IActionResult AddEvent([FromBody] Event newEvent)
     {
-        var schedule = _scheduleRepo.GetSchedule(scheduleId);
+        var schedule = _scheduleRepo.GetSchedule(newEvent.ScheduleId);
         if (schedule == null)
         {
             return NotFound();
         }
 
-        newEvent.Id = Guid.NewGuid();
         schedule.Events.Add(newEvent);
         _scheduleRepo.SaveSchedule(schedule);
 
-        return CreatedAtAction(nameof(GetScheduleEvents),
-            new { scheduleId }, newEvent);
+        return Ok(new SimpleDto<Guid>(schedule.Id));
 
     }
     
@@ -94,25 +87,6 @@ public class ScheduleController : ControllerBase
 
         schedule.Events.Remove(eventToRemove);
         _scheduleRepo.SaveSchedule(schedule);
-        return NoContent();
-    }
-    
-    [HttpPost]
-    public IActionResult Create([FromBody] string name)
-    {
-        var newSchedule = new Schedule { Name = name };
-        _scheduleRepo.SaveSchedule(newSchedule);
-        return CreatedAtAction(nameof(GetAllSchedules), newSchedule);
-    }
-    
-    [HttpDelete("{scheduleId}")]
-    public IActionResult DeleteSchedule(Guid scheduleId)
-    {
-        if (!_scheduleRepo.DeleteSchedule(scheduleId))
-        {
-            return NotFound();
-        }
-
         return NoContent();
     }
 }
