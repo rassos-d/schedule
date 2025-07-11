@@ -26,10 +26,10 @@ public class TeacherController : ControllerBase
     [HttpPost]
     public IActionResult Create(TeacherCreateRequest request)
     {
-        var audience = new Teacher { Name = request.Name, Rank = request.Rank};
-        _generalRepo.UpsertTeacher(audience);
+        var teacher = new Teacher { Name = request.Name, Rank = request.Rank};
+        _generalRepo.UpsertTeacher(teacher);
         _generalRepo.SaveChanges();
-        return NoContent();
+        return Ok(teacher);
     }
 
     [HttpPut]

@@ -29,7 +29,7 @@ public class SquadController : ControllerBase
         var squad = new Squad { Name = request.Name };
         _generalRepo.AddSquad(squad);
         _generalRepo.SaveChanges();
-        return NoContent();
+        return Ok(squad);
     }
 
     [HttpPut]

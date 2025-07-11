@@ -29,7 +29,7 @@ public class AudienceController : ControllerBase
         var audience = new Audience { Name = request.Name };
         _generalRepo.UpsertAudience(audience);
         _generalRepo.SaveChanges();
-        return NoContent();
+        return Ok(audience);
     }
 
     [HttpPut]

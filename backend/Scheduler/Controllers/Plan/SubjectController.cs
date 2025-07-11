@@ -68,7 +68,7 @@ public class SubjectController : ControllerBase
     {
         var subj = new Subject { Name = request.Name, DirectionId = request.DirectionId };
         _planRepository.SaveSubject(subj);
-        return Ok();
+        return Ok(subj);
     }
 
     [HttpGet("{id:guid}/themes")]

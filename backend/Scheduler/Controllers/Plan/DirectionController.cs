@@ -66,6 +66,6 @@ public class DirectionController : ControllerBase
     {
         var direction = new Direction { Name = request.Name };
         _planRepository.SaveDirection(direction);
-        return Ok();
+        return Ok(direction);
     }
 }
