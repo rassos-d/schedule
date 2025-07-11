@@ -17,6 +17,27 @@
     <Content Include="..\.dockerignore">
       <Link>.dockerignore</Link>
     </Content>
+    <Content Update="data\plan\0cc32dc9-dafe-4d2a-9fc6-aa7b6676a0b8.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="data\plan\1700659a-a2fe-45e5-ab00-d5b57a9c6c9f.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="data\plan\directions.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="data\plan\fdd7b0ad-9e98-444a-b847-aa65f8aba909.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="data\schedules\b5b2616d-16db-4310-9eac-e919c34cbc43.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="data\schedules\schedules.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="data\general.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

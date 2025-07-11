@@ -11,6 +11,8 @@ namespace Scheduler.Controllers.Schedule;
 public class EventController : ControllerBase
 {
     private readonly ScheduleRepository _scheduleRepo;
+    private readonly GeneralRepository _generalRepo;
+    private readonly PlanRepository _planRepository;
     private readonly GeneralRepository generalRepository;
     public PlanRepository planRepository;
 
@@ -41,8 +43,8 @@ public class EventController : ControllerBase
 
         return Ok(schedule.Events);
     }
-
-    [HttpPost("{scheduleId}/events")]
+    
+    [HttpPost]
     public IActionResult AddEvent(Guid scheduleId, [FromBody] Event newEvent)
     {
         var schedule = _scheduleRepo.GetSchedule(newEvent.ScheduleId);
@@ -57,7 +59,7 @@ public class EventController : ControllerBase
         return Ok(new SimpleDto<Guid>(schedule.Id));
 
     }
-
+    
     [HttpPut("{scheduleId}/events/{eventId}")]
     public IActionResult UpdateEvent(Guid scheduleId, Guid eventId, [FromBody] Event updatedEvent)
     {
@@ -83,7 +85,7 @@ public class EventController : ControllerBase
         _scheduleRepo.SaveSchedule(schedule);
         return NoContent();
     }
-
+    
     [HttpDelete("{scheduleId}/events/{eventId}")]
     public IActionResult DeleteEvent(Guid scheduleId, Guid eventId)
     {
@@ -102,14 +104,6 @@ public class EventController : ControllerBase
         schedule.Events.Remove(eventToRemove);
         _scheduleRepo.SaveSchedule(schedule);
         return NoContent();
-    }
-
-    [HttpPost]
-    public IActionResult Create([FromBody] string name)
-    {
-        var newSchedule = new Entities.Schedule { Name = name };
-        _scheduleRepo.SaveSchedule(newSchedule);
-        return CreatedAtAction(nameof(GetAllSchedules), newSchedule);
     }
 
     [HttpDelete("{scheduleId}")]
@@ -135,7 +129,6 @@ public class EventController : ControllerBase
         .Events
         .Select(e => generalRepository.Squads.Get(e.SquadId!.Value))
         .ToDictionary(k => k.Id, t => t.Name);
-
         throw new NotImplementedException();
     }
 }
