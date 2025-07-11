@@ -8,35 +8,38 @@ public partial class PlanRepository
     public void SaveTheme(Theme theme)
     {
         var subject = GetSubject(theme.SubjectId);
-        subject.Themes.Add(theme);
-        SaveChanges();
+        if (subject is not null)
+        {
+            subject.Themes.Add(theme);
+        }
     }
 
     public List<Theme> GetThemesBySubject(Guid subjectId)
     {
-        
-        return Directory.GetFiles(DirectoryPath, "theme_*.json")
-            .Select(file => JsonSerializer.Deserialize<Theme>(File.ReadAllText(file), JsonOptions))
-            .Where(t => t != null && t.SubjectId == subjectId)
-            .ToList()!;
+        var subject = Subjects.FirstOrDefault(x => x.Id == subjectId);
+        return subject?.Themes ?? [];
     }
 
     public void DeleteTheme(Guid id)
     {
-        var subject = GetAllSubjects().FirstOrDefault(subject => subject.Themes.Any(theme => theme.Id == id));
+        var subject = Subjects.FirstOrDefault(s => s.Themes.Any(t => t.Id == id))
+            ?? GetAllSubjects().FirstOrDefault(s => s.Themes.Any(t => t.Id == id));
         if (subject == null)
+        {
             return;
+        }
 
         var theme = subject.Themes.First(theme => theme.Id == id);
         subject.Themes.Remove(theme);
     }
 
-    public Theme? GetTheme(Guid id) =>
-        Directions
-            .SelectMany(d => d.Subjects)
-            .SelectMany(d => d.Themes)
-            .FirstOrDefault(x => x.Id == id) ?? 
-        GetAllSubjects()
-            .SelectMany(x => x.Themes)
-            .FirstOrDefault(x => x.Id == id);
+    public Theme? GetTheme(Guid id)
+    {
+        return Subjects
+                   .SelectMany(d => d.Themes)
+                   .FirstOrDefault(x => x.Id == id) ??
+               GetAllSubjects()
+                   .SelectMany(x => x.Themes)
+                   .FirstOrDefault(x => x.Id == id);
+    }
 }

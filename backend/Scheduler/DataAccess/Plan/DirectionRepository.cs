@@ -1,5 +1,6 @@
 ﻿using Scheduler.Entities.Plan;
 using System.Text.Json;
+using static Scheduler.Constants.FilePaths;
 
 namespace Scheduler.DataAccess.Plan
 { 
@@ -8,9 +9,6 @@ namespace Scheduler.DataAccess.Plan
         private readonly string _directoryPath;
         private readonly Dictionary<Guid, Direction> _directionsCache = new();
         private readonly JsonSerializerOptions _jsonOptions;
-
-        private const string DirectionsFileName = "directions.json";
-
         public DirectionRepository(string basePath = "data")
         {
             _directoryPath = Path.Combine(basePath, "directions");
@@ -49,16 +47,16 @@ namespace Scheduler.DataAccess.Plan
 
         public List<Direction>? GetAllDirections()
         {
-            var json = ReadFile(DirectionsFileName);
+            var json = ReadFile(DirectionsFilePath);
             return JsonSerializer.Deserialize<List<Direction>>(json, _jsonOptions);
         }
 
         public void SaveDirection(Direction direction)
         {
-            var directionsJson = ReadFile(DirectionsFileName);
+            var directionsJson = ReadFile(DirectionsFilePath);
             var directions = JsonSerializer.Deserialize<List<Direction>>(directionsJson, _jsonOptions);
             directions?.Add(direction); // добавляем направление в общий список направлений
-            WriteFile(DirectionsFileName, directions);
+            WriteFile(DirectionsFilePath, directions);
 
             _directionsCache[direction.Id] = direction;
             WriteFile($"{direction.Id}.json", _directionsCache);

@@ -1,6 +1,7 @@
 using System.Text.Json;
 using Scheduler.Entities.Plan;
 using Scheduler.Models;
+using static Scheduler.Constants.FilePaths;
 
 namespace Scheduler.DataAccess.Plan;
 
@@ -14,7 +15,7 @@ public partial class PlanRepository
         var directions = GetAllDirectionInfos();
         directions.Add(new DirectionInfo(direction.Id, direction.Name));
         
-        WriteFile(DirectionsPath, directions);
+        WriteFile(DirectionsFilePath, directions);
     }
 
     public Direction? GetDirection(Guid id)
@@ -38,22 +39,24 @@ public partial class PlanRepository
 
     public List<DirectionInfo> GetAllDirectionInfos()
     {
-        var json = ReadFile(DirectionsPath);
+        var json = ReadFile(DirectionsFilePath);
         return JsonSerializer.Deserialize<List<DirectionInfo>>(json, JsonOptions) ?? [];
     }
 
-    public bool DeleteDirection(Guid id)
+    public void DeleteDirection(Guid id)
     {
         var direction = GetDirection(id);
-        Directions.Remove(direction);
+        if (direction is not null)
+        {
+            Directions.Remove(direction);
+        }
         
         var filePath = Path.Combine(DirectoryPath, $"{id}.json");
         if (File.Exists(filePath) == false)
         {
-            return false;
+            return;
         }
 
         File.Delete(filePath);
-        return true;
     }
 }

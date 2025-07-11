@@ -7,14 +7,19 @@ public partial class PlanRepository
     public void SaveSubject(Subject subject)
     {
         var direction = GetDirection(subject.DirectionId);
+        if (direction is null)
+        {
+            return;
+        }
+        
         direction.Subjects.Add(subject);
         SaveChanges();
     }
 
     public Subject? GetSubject(Guid id)
     {
-        var subject = Directions.SelectMany(d => d.Subjects).FirstOrDefault(s => s.Id == id);
-        return subject ?? GetAllSubjects().FirstOrDefault(s => s.Id == id);
+        return Subjects.FirstOrDefault(s => s.Id == id) 
+               ?? GetAllSubjects().FirstOrDefault(s => s.Id == id);
     }
 
     public List<Subject> GetAllSubjects()
@@ -32,23 +37,18 @@ public partial class PlanRepository
     public List<Subject> GetSubjectsByDirection(Guid directionId)
     {
         var direction = GetDirection(directionId);
-        return direction.Subjects;
+        return direction?.Subjects ?? [];
     }
 
-    public bool DeleteSubject(Guid id)
+    public void DeleteSubject(Guid id)
     {
-        var direction = Directions.FirstOrDefault(d => d.Subjects.Select(s => s.Id).Contains(id));
-        if (direction is null)
-        {
-            return false;
-        }
-        
         var subject = GetSubject(id);
         if (subject == null)
         {
-            return false;
+            return;
         }
+        
+        var direction = Directions.First(x => x.Id == subject.DirectionId);
         direction.Subjects.Remove(subject);
-        return true;
     }
 }

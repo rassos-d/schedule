@@ -22,6 +22,7 @@ public class ThemeController : ControllerBase
     {
         var theme = new Theme { Name = request.Name, SubjectId = request.SubjectId };
         _planRepository.SaveTheme(theme);
+        _planRepository.SaveChanges();
         return Ok(theme);
 
     }
