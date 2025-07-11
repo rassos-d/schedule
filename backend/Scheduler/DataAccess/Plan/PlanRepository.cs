@@ -6,7 +6,9 @@ namespace Scheduler.DataAccess.Plan;
 public partial class PlanRepository : BaseRepository
 {
     protected readonly List<Direction> Directions = [];
+    protected readonly List<Lesson> Lessons = [];
     protected const string DirectionsPath = "directions.json";
+    protected const string LessonsPath = "lessons.json";
     
     public PlanRepository() : base("plan")
     {
