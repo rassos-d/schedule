@@ -16,20 +16,32 @@ public class DirectionController : ControllerBase
         _planRepository = planRepository;
     }
 
-    [HttpGet]
-    public IActionResult GetAll()
+    [HttpGet("find")]
+    public IActionResult Find()
     {
-        return Ok(_planRepository.GetAllDirectionInfos());
+        var directoryInfos = _planRepository.GetAllDirectionInfos();
+        return Ok(directoryInfos);
     }
+    
 
-    [HttpGet("{id::guid}")]
+    [HttpGet("{id:guid}")]
     public IActionResult Get(Guid id)
     {
         var direction = _planRepository.GetDirection(id);
         if (direction is null)
+        {
             return NotFound();
+        }
 
         return Ok(direction);
+    }
+    
+    [HttpPost]
+    public IActionResult Create([FromBody] EntityWithNameCreateDto request)
+    {
+        var direction = new Direction { Name = request.Name };
+        _planRepository.SaveDirection(direction);
+        return Ok(new SimpleDto<Guid>(direction.Id));
     }
 
     [HttpPut]
@@ -43,7 +55,7 @@ public class DirectionController : ControllerBase
         }
 
         _planRepository.SaveDirection(updatedDirection);
-        return Ok();
+        return NoContent();
 
     }
 
@@ -58,14 +70,6 @@ public class DirectionController : ControllerBase
         }
 
         _planRepository.DeleteDirection(id);
-        return Ok();
-    }
-
-    [HttpPost]
-    public IActionResult Create([FromBody] CreateEntityWithNameRequest request)
-    {
-        var direction = new Direction { Name = request.Name };
-        _planRepository.SaveDirection(direction);
-        return Ok(direction);
+        return NoContent();
     }
 }

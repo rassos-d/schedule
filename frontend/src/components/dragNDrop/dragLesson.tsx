@@ -1,6 +1,6 @@
-import { memo, useEffect } from 'react'
-//import styles from './drop.module.scss'
-import { useDrag } from 'react-dnd'
+import { memo, useEffect, useRef } from 'react'
+import styles from './drop.module.scss'
+import { useDrag, useDrop } from 'react-dnd'
 import { Lesson as TLesson } from '../../types/shedule'
 
 type LessonProps = {
@@ -16,9 +16,12 @@ type LessonProps = {
 type DropResult = {
   date: string;
   number: number;
+  lesson?: TLesson
 } | { activeSquardIndex: number }
 
-function LessonComponent({ lesson, date, number, squardIndex, onMove }: LessonProps) {
+function LessonComponent({ lesson, date, number, squardIndex, onMove, onStartDragging }: LessonProps) {
+
+  const ref = useRef(null)
 
   const [{ isDragging }, drag] = useDrag(() => ({
     type: `LESSON-${squardIndex}`,
@@ -32,20 +35,38 @@ function LessonComponent({ lesson, date, number, squardIndex, onMove }: LessonPr
     collect: (monitor) => {
       return {isDragging: !!monitor.isDragging()}
     },
-  }));
+  }), [squardIndex, number, squardIndex, lesson]);
+
+  const [, drop] = useDrop(() => ({
+    accept: [`LESSON-${squardIndex}`, 'FREE'],
+    drop: () => {
+      return {
+        date,
+        number,
+        lesson
+      }
+    },
+    collect: (monitor) => ({
+      isOver: !!monitor.isOver(),
+    }),
+  }), [squardIndex, number, squardIndex, lesson]);
+
+  drag(drop(ref))
 
   useEffect(()=>{
     if (isDragging) {
-      //onStartDragging()
+      onStartDragging()
     }
   }, [isDragging])
 
   return (
-    <div ref={drag} style={{ opacity: isDragging ? 0.5 : 1 }}>
-      <p>ТСП</p>
-      <p>т 8/2 лек</p>
-      <p>ВО-404</p>
-      <p>п-к Кизюн Н.Н.</p>
+    <div className={styles.dragLessonContainer}>
+      <div ref={ref} style={{ opacity: isDragging ? 0.5 : 1 }}>
+        <p>ТСП</p>
+        <p>{lesson.lesson_name}</p>
+        <p>ВО-404</p>
+        <p>п-к Кизюн Н.Н.</p>
+      </div>
     </div>
   );
 }

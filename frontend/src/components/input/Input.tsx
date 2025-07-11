@@ -3,9 +3,6 @@ import styles from './input.module.scss'
 import { removeElementAtIndex } from '../../utils'
 import { Icon } from '../icon'
 import { AddInputList } from '../../types/input'
-import DatePicker from 'react-datepicker'
-import { getInputDate } from '../../utils/date'
-import { ru } from 'date-fns/locale'
 
 type InputProps = {
   placeholder?: string
@@ -54,11 +51,7 @@ export function Input ({placeholder, value, required, type, maxValues, isError, 
   }, [textarea]);
 
   if (type === 'date') {
-    return <DatePicker id='datepicker' className={styles.inputDate} locale={ru} value={getInputDate(value)} onChange={(value)=>{onChange(value ? value.toString() : '')}} customInput={
-    <div className={styles.inputBlock}>
-      <div className={styles.input}>{value.length === 0 ? <span className={styles.input__placeholder}>{placeholder}</span> : getInputDate(value)}</div>
-    </div>}
-    />
+    return <input type="date" value={value} className={`${styles.input} ${isError ? styles.input_error : ''}`} onChange={(e)=>{changeValue(e.target.value)}}/>
   }
   if (type === 'time') {
     return  <input

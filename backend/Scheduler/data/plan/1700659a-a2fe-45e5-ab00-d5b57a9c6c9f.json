@@ -1,0 +1,43 @@
+{
+  "Name": "\u043D\u0430\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 1",
+  "Subjects": [
+    {
+      "Name": "\u043F\u0440\u0435\u0434\u043C\u0435\u04421 \u0438\u0437 \u043D\u0430\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u044F1",
+      "DirectionId": "1700659a-a2fe-45e5-ab00-d5b57a9c6c9f",
+      "Themes": [
+        {
+          "Name": "\u0422\u0435\u043C\u0430 1",
+          "SubjectId": "ae3ee81f-9ae6-443d-a687-db9057d808a9",
+          "Lessons": [],
+          "Id": "92216d1c-3ca5-4fa5-b33f-dc8c151a86a6"
+        },
+        {
+          "Name": "\u0422\u0435\u043C\u0430 2",
+          "SubjectId": "ae3ee81f-9ae6-443d-a687-db9057d808a9",
+          "Lessons": [],
+          "Id": "7c5aec39-1f47-47d9-b34e-d53e16bb9d07"
+        },
+        {
+          "Name": "\u0422\u0435\u043C\u0430 3",
+          "SubjectId": "ae3ee81f-9ae6-443d-a687-db9057d808a9",
+          "Lessons": [],
+          "Id": "3ff564c0-02f5-4f1b-9dae-46d75c2d3f66"
+        }
+      ],
+      "Id": "ae3ee81f-9ae6-443d-a687-db9057d808a9"
+    },
+    {
+      "Name": "\u043F\u0440\u0435\u0434\u043C\u0435\u04422 \u0438\u0437 \u043D\u0430\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u044F1",
+      "DirectionId": "1700659a-a2fe-45e5-ab00-d5b57a9c6c9f",
+      "Themes": [],
+      "Id": "3acf9f5b-3dad-45bc-bd26-219101bcc089"
+    },
+    {
+      "Name": "\u043F\u0440\u0435\u0434\u043C\u0435\u04423 \u0438\u0437 \u043D\u0430\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u044F1",
+      "DirectionId": "1700659a-a2fe-45e5-ab00-d5b57a9c6c9f",
+      "Themes": [],
+      "Id": "ab9b13f3-459a-4f20-aa12-8684a7828724"
+    }
+  ],
+  "Id": "1700659a-a2fe-45e5-ab00-d5b57a9c6c9f"
+}

@@ -21,7 +21,7 @@ public abstract class BaseRepository
             PropertyNameCaseInsensitive = true
         };
     }
-    public abstract void SaveChanges();
+    protected abstract void SaveChanges(Guid? id = null);
 
     protected string ReadFile(string path)
     {

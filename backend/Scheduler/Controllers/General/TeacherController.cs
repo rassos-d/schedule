@@ -24,11 +24,10 @@ public class TeacherController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult Create(TeacherCreateRequest request)
+    public IActionResult Create(TeacherCreateDto dto)
     {
-        var teacher = new Teacher { Name = request.Name, Rank = request.Rank};
+        var teacher = new Teacher { Name = dto.Name, Rank = dto.Rank};
         _generalRepository.Teachers.Upsert(teacher);
-        _generalRepository.SaveChanges();
         return Ok(teacher);
     }
 
@@ -36,7 +35,6 @@ public class TeacherController : ControllerBase
     public IActionResult Update(Teacher request)
     {
         _generalRepository.Teachers.Upsert(request);
-        _generalRepository.SaveChanges();
         return NoContent();
     }
 
@@ -44,7 +42,6 @@ public class TeacherController : ControllerBase
     public IActionResult Delete([FromRoute] Guid id)
     {
         _generalRepository.Teachers.Delete(id);
-        _generalRepository.SaveChanges();
         return NoContent();
     }
 }

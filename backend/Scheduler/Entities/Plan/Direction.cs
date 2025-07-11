@@ -6,5 +6,5 @@ public class Direction : Entity
 {
     public required string Name { get; set; }
 
-    public List<Subject> Subjects { get; set; } = [];
+    public List<Subject> Subjects { get; init; } = [];
 }

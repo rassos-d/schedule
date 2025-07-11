@@ -26,6 +26,8 @@ public class GeneralRepository : BaseRepository
         Teachers = new DictionaryRepository<Teacher>(_data.Teachers);
     }
 
-    public override void SaveChanges() => 
+    protected override void SaveChanges(Guid? id = null) => 
         File.WriteAllText(_filePath, JsonSerializer.Serialize(_data, JsonOptions));
+    
+    public void SaveChanges() => SaveChanges(null);
 }

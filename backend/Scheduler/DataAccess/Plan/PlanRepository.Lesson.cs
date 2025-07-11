@@ -1,9 +1,21 @@
+using Scheduler.Dto;
 using Scheduler.Entities.Plan;
 
 namespace Scheduler.DataAccess.Plan;
 
 public partial class PlanRepository
 {
+    public List<Lesson> FindLessons(Guid? themeId = null)
+    {
+        if (themeId.HasValue == false)
+        {
+            return FindThemes().SelectMany(theme => theme.Lessons).ToList();
+        }
+        
+        var theme = GetTheme(themeId.Value);
+        return theme?.Lessons ?? [];
+    }
+    
     public void SaveLesson(Lesson lesson)
     {
         var subject = Subjects.FirstOrDefault(x => x.Id == lesson.SubjectId);
@@ -15,6 +27,7 @@ public partial class PlanRepository
         }
         
         theme.Lessons.Add(lesson);
+        SaveChanges();
     }
 
     public Lesson? GetLesson(Guid id)
@@ -25,9 +38,20 @@ public partial class PlanRepository
             .FirstOrDefault(l => l.Id == id);
     }
 
-    public List<Lesson> GetLessonsByTheme(Guid themeId)
+    public void UpdateLesson(EntityNameUpdateDto dto)
     {
-        return GetTheme(themeId)?.Lessons ?? [];
+        var lesson = GetLesson(dto.Id);
+        if (lesson is null)
+        {
+            return;
+        }
+
+        if (dto.Name.Length > 0)
+        {
+            lesson.Name = dto.Name;
+        }
+        
+        SaveChanges();
     }
 
     public void DeleteLesson(Guid id)
@@ -35,5 +59,6 @@ public partial class PlanRepository
         var lesson = GetLesson(id);
         var theme = GetTheme(lesson!.ThemeId);
         theme?.Lessons.Remove(lesson);
+        SaveChanges();
     }
 }

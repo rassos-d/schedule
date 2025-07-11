@@ -36,14 +36,13 @@ public class ScheduleRepository : BaseRepository
         }
 
         _schedulesCache[id] = schedule;
-
         return schedule;
     }
 
-    public List<ScheduleInfo>? GetAllScheduleInfos()
+    public List<ScheduleInfo> GetAllScheduleInfos()
     {
         var json = ReadFile(SchedulesFileName);
-        return JsonSerializer.Deserialize<List<ScheduleInfo>>(json, JsonOptions);
+        return JsonSerializer.Deserialize<List<ScheduleInfo>>(json, JsonOptions) ?? [];
     }
 
     public void SaveSchedule(Schedule schedule)
@@ -58,21 +57,30 @@ public class ScheduleRepository : BaseRepository
         WriteFile($"{schedule.Id}.json", _schedulesCache[schedule.Id]);
     }
 
-    public bool DeleteSchedule(Guid id)
+    public void DeleteSchedule(Guid id)
     {
         _schedulesCache.Remove(id);
         var filePath = Path.Combine(DirectoryPath, $"{id}.json");
         if (File.Exists(filePath) == false)
         {
-            return false;
+            return;
         }
 
         File.Delete(filePath);
-        return true;
     }
 
-    public override void SaveChanges()
+    protected override void SaveChanges(Guid? id = null)
     {
+        if (id is not null)
+        {
+            var schedule = _schedulesCache.GetValueOrDefault(id.Value);
+            if (schedule is not null)
+            {
+                WriteFile($"{schedule.Id}.json", schedule);
+            }
+            return;
+        }
+        
         foreach (var schedule in _schedulesCache)
         {
             WriteFile($"{schedule.Key}.json", schedule.Value);
