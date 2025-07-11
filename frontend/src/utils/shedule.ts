@@ -1,4 +1,4 @@
-import { Event, Lesson } from "../types/shedule";
+import { Event, Lesson, Shedule } from "../types/shedule";
 
 export function getShedule (events: Event) {
   let result: Record<string, (Lesson | {number: number})[]> = {} 
@@ -13,6 +13,13 @@ export function getShedule (events: Event) {
     }
     result[key] = resultDay.sort((a, b)=>a.number - b.number)
   }
-  console.log(result)
   return result
+}
+
+export function getFullShedule (shedule:Shedule) {
+  const newShedule:Shedule = JSON.parse(JSON.stringify(shedule))
+  for (const squard of newShedule.squards) {
+    squard.events = getShedule(squard.events)
+  }
+  return newShedule
 }

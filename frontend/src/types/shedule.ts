@@ -11,7 +11,7 @@ type Squard = {
   noname?: Lesson[]
 }
 
-export type Event = Record<string, (Lesson)[]>
+export type Event = Record<string, (Lesson | {number: number})[]>
 
 export type Lesson = {
   lesson_id: string
@@ -21,3 +21,5 @@ export type Lesson = {
   audience_name: string
   number: number
 }
+
+export type FreeLesson = Omit<Lesson, "number"> & {squardIndex: number}
