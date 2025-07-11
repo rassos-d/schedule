@@ -1,0 +1,24 @@
+{
+  "Name": "\u043D\u0430\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0435 2",
+  "Subjects": [
+    {
+      "Name": "\u043F\u0440\u0435\u0434\u043C\u0435\u04423 \u0438\u0437 \u043D\u0430\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u044F2",
+      "DirectionId": "0cc32dc9-dafe-4d2a-9fc6-aa7b6676a0b8",
+      "Themes": [],
+      "Id": "dd40d017-fd68-4bd0-b1f4-9157a9e42b5f"
+    },
+    {
+      "Name": "\u043F\u0440\u0435\u0434\u043C\u0435\u04422 \u0438\u0437 \u043D\u0430\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u044F2",
+      "DirectionId": "0cc32dc9-dafe-4d2a-9fc6-aa7b6676a0b8",
+      "Themes": [],
+      "Id": "eb4d5216-dba3-486a-9aea-17fc198d98b4"
+    },
+    {
+      "Name": "\u043F\u0440\u0435\u0434\u043C\u0435\u04421 \u0438\u0437 \u043D\u0430\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u044F2",
+      "DirectionId": "0cc32dc9-dafe-4d2a-9fc6-aa7b6676a0b8",
+      "Themes": [],
+      "Id": "b6f20ea0-e3db-4bbc-866b-aeaae6b8fe93"
+    }
+  ],
+  "Id": "0cc32dc9-dafe-4d2a-9fc6-aa7b6676a0b8"
+}
