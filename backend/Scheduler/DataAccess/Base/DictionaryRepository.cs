@@ -5,8 +5,6 @@ public class DictionaryRepository<T> where T : Entity
 {
     private Dictionary<Guid, T> Data { get; }
 
-    public GeneralRepository GeneralRepository { get; }
-
     public DictionaryRepository(Dictionary<Guid, T> data)
     {
         Data = data;
