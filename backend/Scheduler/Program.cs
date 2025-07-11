@@ -25,12 +25,6 @@ app.UseSwaggerUI(c =>
 });
                             
 app.MapControllers();
-app.UseCors(builder =>
-{
-    builder.AllowAnyHeader();
-    builder.AllowAnyMethod();
-    builder.AllowAnyOrigin();
-    builder.AllowCredentials();
-});
+app.UseCors();
 
 app.Run();
