@@ -8,23 +8,23 @@ namespace Scheduler.Controllers.Plan
     [Route("api/directions")]
     public class DirectionController : ControllerBase
     {
-        private readonly DirectionRepository directionRepository;
+        private readonly PlanRepository planRepository;
 
-        public DirectionController(DirectionRepository directionRepository)
+        public DirectionController(PlanRepository planRepository)
         {
-            this.directionRepository = directionRepository;
+            this.planRepository = planRepository;
         }
 
         [HttpGet]
         public IActionResult GetAll()
         {
-            return Ok(directionRepository.GetAllDirections());
+            return Ok(planRepository.GetAllDirectionInfos());
         }
 
         [HttpGet("{id::guid}")]
         public IActionResult Get(Guid id)
         {
-            var direction = directionRepository.GetDirection(id);
+            var direction = planRepository.GetDirection(id);
             if (direction is null)
                 return NotFound();
 
@@ -34,14 +34,14 @@ namespace Scheduler.Controllers.Plan
         [HttpPut]
         public IActionResult Update([FromBody] Direction updatedDirection)
         {
-            var direction = directionRepository.GetDirection(updatedDirection.Id);
+            var direction = planRepository.GetDirection(updatedDirection.Id);
 
             if (direction == null)
             {
                 return NotFound();
             }
 
-            directionRepository.SaveDirection(updatedDirection);
+            planRepository.SaveDirection(updatedDirection);
             return Ok();
 
         }
@@ -49,21 +49,21 @@ namespace Scheduler.Controllers.Plan
         [HttpDelete("{id}::guid")]
         public IActionResult Delete(Guid id)
         {
-            var direction = directionRepository.GetDirection(id);
+            var direction = planRepository.GetDirection(id);
 
             if (direction == null)
             {
                return NotFound();
             }
 
-            directionRepository.DeleteDirection(id);
+            planRepository.DeleteDirection(id);
             return Ok();
         }
 
         [HttpPost]
         public IActionResult Create([FromBody] Direction direction)
         {
-            directionRepository.SaveDirection(direction);
+            planRepository.SaveDirection(direction);
             return Ok();
         }
     }
