@@ -2,69 +2,68 @@
 using Scheduler.DataAccess.Plan;
 using Scheduler.Entities.Plan;
 
-namespace Scheduler.Controllers.Plan
+namespace Scheduler.Controllers.Plan;
+
+[ApiController]
+[Route("api/directions")]
+public class DirectionController : ControllerBase
 {
-    [ApiController]
-    [Route("api/directions")]
-    public class DirectionController : ControllerBase
+    private readonly PlanRepository _planRepository;
+
+    public DirectionController(PlanRepository planRepository)
     {
-        private readonly PlanRepository planRepository;
+        _planRepository = planRepository;
+    }
 
-        public DirectionController(PlanRepository planRepository)
+    [HttpGet]
+    public IActionResult GetAll()
+    {
+        return Ok(_planRepository.GetAllDirectionInfos());
+    }
+
+    [HttpGet("{id::guid}")]
+    public IActionResult Get(Guid id)
+    {
+        var direction = _planRepository.GetDirection(id);
+        if (direction is null)
+            return NotFound();
+
+        return Ok(direction);
+    }
+
+    [HttpPut]
+    public IActionResult Update([FromBody] Direction updatedDirection)
+    {
+        var direction = _planRepository.GetDirection(updatedDirection.Id);
+
+        if (direction == null)
         {
-            this.planRepository = planRepository;
+            return NotFound();
         }
 
-        [HttpGet]
-        public IActionResult GetAll()
+        _planRepository.SaveDirection(updatedDirection);
+        return Ok();
+
+    }
+
+    [HttpDelete("{id}::guid")]
+    public IActionResult Delete(Guid id)
+    {
+        var direction = _planRepository.GetDirection(id);
+
+        if (direction == null)
         {
-            return Ok(planRepository.GetAllDirectionInfos());
+            return NotFound();
         }
 
-        [HttpGet("{id::guid}")]
-        public IActionResult Get(Guid id)
-        {
-            var direction = planRepository.GetDirection(id);
-            if (direction is null)
-                return NotFound();
+        _planRepository.DeleteDirection(id);
+        return Ok();
+    }
 
-            return Ok(direction);
-        }
-
-        [HttpPut]
-        public IActionResult Update([FromBody] Direction updatedDirection)
-        {
-            var direction = planRepository.GetDirection(updatedDirection.Id);
-
-            if (direction == null)
-            {
-                return NotFound();
-            }
-
-            planRepository.SaveDirection(updatedDirection);
-            return Ok();
-
-        }
-
-        [HttpDelete("{id}::guid")]
-        public IActionResult Delete(Guid id)
-        {
-            var direction = planRepository.GetDirection(id);
-
-            if (direction == null)
-            {
-               return NotFound();
-            }
-
-            planRepository.DeleteDirection(id);
-            return Ok();
-        }
-
-        [HttpPost]
-        public IActionResult Create([FromBody] Direction direction)
-        {
-            planRepository.SaveDirection(direction);
-            return Ok();
-        }
+    [HttpPost]
+    public IActionResult Create([FromBody] Direction direction)
+    {
+        _planRepository.SaveDirection(direction);
+        return Ok();
     }
 }

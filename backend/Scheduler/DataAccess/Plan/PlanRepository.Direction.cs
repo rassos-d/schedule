@@ -12,7 +12,7 @@ public partial class PlanRepository
         WriteFile($"{direction.Id}.json", direction);
     }
 
-    public Direction GetDirection(Guid id)
+    public Direction? GetDirection(Guid id)
     {
         var direction = Directions.FirstOrDefault(d => d.Id == id);
         if (direction is not null)
@@ -22,7 +22,11 @@ public partial class PlanRepository
         
         var json = ReadFile($"{id}.json");
         direction = JsonSerializer.Deserialize<Direction>(json, JsonOptions);
-        Directions.Add(direction);
+
+        if (direction is not null)
+        {
+            Directions.Add(direction);
+        }
         
         return direction;
     }
