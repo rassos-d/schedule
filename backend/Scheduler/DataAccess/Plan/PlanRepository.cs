@@ -12,8 +12,18 @@ public partial class PlanRepository : BaseRepository
     {
     }
 
-    public override void SaveChanges()
+    protected override void SaveChanges(Guid? id = null)
     {
+        if (id is not null)
+        {
+            var direction = Directions.FirstOrDefault(x => x.Id == id);
+            if (direction is not null)
+            {
+                WriteFile($"{direction.Id}.json", direction);
+            }
+            return;
+        }
+        
         foreach (var direction in Directions)
         {
             WriteFile($"{direction.Id}.json", direction);

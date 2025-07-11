@@ -9,42 +9,42 @@ namespace Scheduler.Controllers.General;
 [Route("api/squads")]
 public class SquadController : ControllerBase
 {
-    private readonly GeneralRepository repository;
+    private readonly GeneralRepository _repository;
 
     public SquadController(GeneralRepository generalRepo)
     {
-        repository = generalRepo;
+        _repository = generalRepo;
     }
 
     [HttpGet]
     public IActionResult Find()
     {
-        var teachers = repository.Squads.GetAll();
+        var teachers = _repository.Squads.GetAll();
         return Ok(teachers);
     }
 
     [HttpPost]
-    public IActionResult Create(CreateEntityWithNameRequest request)
+    public IActionResult Create(EntityWithNameCreateDto request)
     {
         var squad = new Squad { Name = request.Name };
-        repository.Squads.Add(squad);
-        repository.SaveChanges();
+        _repository.Squads.Upsert(squad);
+        _repository.SaveChanges();
         return Ok(squad);
     }
 
     [HttpPut]
     public IActionResult Update(Squad request)
     {
-        repository.Squads.Upsert(request);
-        repository.SaveChanges();
+        _repository.Squads.Upsert(request);
+        _repository.SaveChanges();
         return NoContent();
     }
 
     [HttpDelete("{id:guid}")]
     public IActionResult Delete(Guid id)
     {
-        repository.Squads.Delete(id);
-        repository.SaveChanges();
+        _repository.Squads.Delete(id);
+        _repository.SaveChanges();
         return NoContent();
     }
 }

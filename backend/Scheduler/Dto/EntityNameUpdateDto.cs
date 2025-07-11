@@ -1,6 +1,6 @@
 namespace Scheduler.Dto;
 
-public class UpdateEntityNameRequest
+public class EntityNameUpdateDto
 {
     public required Guid Id { get; init; }
     

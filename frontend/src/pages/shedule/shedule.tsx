@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 import styles from './shedule.module.scss'
 import { Button } from '../../components/button/button'
-import { FreeLesson, Lesson, Shedule } from '../../types/shedule'
+import { FreeLesson, Lesson, NewLesson, Shedule } from '../../types/shedule'
 import { useState } from 'react'
 import { getFullShedule, getShedule } from '../../utils/shedule'
 import { Icon } from '../../components/icon'
@@ -10,6 +10,9 @@ import { HTML5Backend } from 'react-dnd-html5-backend'
 import { DragLesson } from '../../components/dragNDrop/dragLesson'
 import { DropLesson } from '../../components/dragNDrop/dropLesson'
 import { DropZone } from '../../components/dragNDrop/dropZone'
+import { DragFreeLesson } from '../../components/dragNDrop/dragFreeLesson'
+import PopupContainer from '../../components/popupContainer/popupContainer'
+import { Input } from '../../components/input/Input'
 
 const TIMES = [
     {
@@ -40,16 +43,16 @@ const SHEDULE: Shedule = {
     squards: [
         {
             id: '2',
-            name: 'А',
+            name: 'А-323',
             events: {
-                "05.09": [{ lesson_id: '1', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 1 }],
-                "12.09": [{ lesson_id: '12', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 2 }],
-                "19.09": [{ lesson_id: '13', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 3 }],
-                "26.09": [{ lesson_id: '14', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 4 }],
-                "03.10": [{ lesson_id: '15', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 1 }],
-                "10.10": [{ lesson_id: '16', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 4 }],
-                "17.10": [{ lesson_id: '17', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 5 }],
-                "24.10": [{ lesson_id: '18', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 3 }],
+                "05.09": [{ lesson_id: '1', lesson_name: "т1 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 1 }],
+                "12.09": [{ lesson_id: '12', lesson_name: "т2 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 2 }],
+                "19.09": [{ lesson_id: '13', lesson_name: "т3 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 3 }],
+                "26.09": [{ lesson_id: '14', lesson_name: "т4 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 4 }],
+                "03.10": [{ lesson_id: '15', lesson_name: "т5 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 1 }],
+                "10.10": [{ lesson_id: '16', lesson_name: "т6 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 4 }],
+                "17.10": [{ lesson_id: '17', lesson_name: "т7 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 5 }],
+                "24.10": [{ lesson_id: '18', lesson_name: "т8 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 3 }],
                 "31.10": [{ lesson_id: '19', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 1 }],
                 "07.10": [{ lesson_id: '20', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 2 }],
                 "14.11": [{ lesson_id: '21', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 3 }],
@@ -63,25 +66,25 @@ const SHEDULE: Shedule = {
         },
         {
             id: '3',
-            name: 'Д',
+            name: 'Д-323',
             events: {
-                "05.09": [{ lesson_id: '1', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 1 }],
-                "12.09": [{ lesson_id: '1', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 2 }],
-                "19.09": [{ lesson_id: '1', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 3 }],
-                "26.09": [{ lesson_id: '1', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 4 }],
-                "03.10": [{ lesson_id: '1', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 1 }],
-                "10.10": [{ lesson_id: '1', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 4 }],
-                "17.10": [{ lesson_id: '1', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 5 }],
-                "24.10": [{ lesson_id: '1', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 3 }],
-                "31.10": [{ lesson_id: '1', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 1 }],
-                "07.10": [{ lesson_id: '1', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 2 }],
-                "14.11": [{ lesson_id: '1', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 3 }],
-                "21.11": [{ lesson_id: '1', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 2 }],
-                "28.11": [{ lesson_id: '1', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 2 }],
-                "05.12": [{ lesson_id: '1', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 2 }],
-                "12.12": [{ lesson_id: '1', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 1 }],
-                "19.12": [{ lesson_id: '1', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 2 }],
-                "26.12": [{ lesson_id: '1', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 5 }],
+                "05.09": [{ lesson_id: '21', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 1 }],
+                "12.09": [{ lesson_id: '22', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 2 }],
+                "19.09": [{ lesson_id: '23', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 3 }],
+                "26.09": [{ lesson_id: '24', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 4 }],
+                "03.10": [{ lesson_id: '25', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 1 }],
+                "10.10": [{ lesson_id: '26', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 4 }],
+                "17.10": [{ lesson_id: '27', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 5 }],
+                "24.10": [{ lesson_id: '28', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 3 }],
+                "31.10": [{ lesson_id: '29', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 1 }],
+                "07.10": [{ lesson_id: '30', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 2 }],
+                "14.11": [{ lesson_id: '31', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 3 }],
+                "21.11": [{ lesson_id: '32', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 2 }],
+                "28.11": [{ lesson_id: '33', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 2 }],
+                "05.12": [{ lesson_id: '34', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 2 }],
+                "12.12": [{ lesson_id: '35', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 1 }],
+                "19.12": [{ lesson_id: '36', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 2 }],
+                "26.12": [{ lesson_id: '37', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', number: 5 }],
             }
         }
     ]
@@ -89,8 +92,6 @@ const SHEDULE: Shedule = {
 
 const FREE_LESSONS = [
     { lesson_id: '51', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', squardIndex: 0 },
-    { lesson_id: '52', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', squardIndex: 0 },
-    { lesson_id: '53', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', squardIndex: 0 },
     { lesson_id: '54', lesson_name: "т 8/2 лек", teacher_id: '1', teacher_name: 'п-к Кизюн Н.Н.', audience_name: 'ВО-404', squardIndex: 1 },
 ]
 
@@ -98,20 +99,28 @@ export default function ShedulePage() {
 
     const [shedule, setShedule] = useState(getFullShedule(SHEDULE))
     const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-    const [activeSquardIndex, setActiveSquardIndex] = useState(1)
+    const [activeSquardIndex, setActiveSquardIndex] = useState(0)
     const [freeLessons, setFreeLessons] = useState<FreeLesson[]>(FREE_LESSONS)
 
+    const [newLesson, setNewLesson] = useState<NewLesson>()
 
-    const onMoveLessonFromTableToTable = (squardIndex: number, date: string, number: number, oldDate: string, oldNumber: number, lesson:Lesson) => {
+
+    const onMoveLessonFromTableToTable = (squardIndex: number, target: {date: string;number: number;lesson?: Lesson}, oldDate: string, oldNumber: number, oldLesson:Lesson) => {
+        if (oldDate === target.date && oldNumber === target.number) return
         setShedule((prev) => {
             const newShedule:Shedule = JSON.parse(JSON.stringify(prev))
-            newShedule.squards[squardIndex].events[date][number - 1] = {...lesson, number: number}
+            if (target.lesson !== undefined) {
+                const oldLesson = newShedule.squards[squardIndex].events[oldDate][oldNumber - 1]
+                newShedule.squards[squardIndex].events[target.date][target.number - 1] = {...oldLesson, number: target.lesson.number}
+                newShedule.squards[squardIndex].events[oldDate][oldNumber - 1] = {...target.lesson, number: oldLesson.number}
+                return newShedule
+            }
+            newShedule.squards[squardIndex].events[target.date][target.number - 1] = {...oldLesson, number: target.number}
             newShedule.squards[squardIndex].events[oldDate][oldNumber - 1] = {number: oldNumber}
             return newShedule
         })
     }
     const onMoveLessonToFree = (activeSquardIndex: number, date: string, lesson: Lesson) => {
-        console.log(activeSquardIndex)
         if (activeSquardIndex === -1) return
         setFreeLessons((prev)=>{
             const newLessons = [...prev]
@@ -124,9 +133,25 @@ export default function ShedulePage() {
             return newShedule
         })
     }
+    const onMoveFreeToLesson = (target: {date: string, number: number}, lesson: FreeLesson) => {
+        setShedule((prev)=>{
+            const newShedule:Shedule = JSON.parse(JSON.stringify(prev))
+            newShedule.squards[activeSquardIndex].events[target.date][target.number - 1] = {...lesson, number: target.number}
+            return newShedule
+        })
+        setFreeLessons((prev)=>{
+            let newLessons = [...prev]
+            newLessons = newLessons.filter((item)=>item.lesson_id !== lesson.lesson_id)
+            return newLessons
+        })
+    }
 
-    const startDragging = () => {
-        setIsSidebarOpen(true)
+    const startDragging = (squardIndex: number) => {
+        setActiveSquardIndex(squardIndex)
+    }
+
+    const createLesson = (day: string, number: number, squardIndex: number) => {
+        setNewLesson({date: day, number, squardIndex})
     }
 
     return (
@@ -171,13 +196,18 @@ export default function ShedulePage() {
                                                             lesson={lesson} 
                                                             date={dayKey}
                                                             number={lesson.number}
-                                                            onStartDragging={startDragging}
+                                                            onStartDragging={()=>startDragging(squardIndex)}
                                                             onMove={(target, oldDate, oldNumber) => {
-                                                                 "activeSquardIndex" in target ? onMoveLessonToFree(activeSquardIndex, dayKey, lesson) :
-                                                                onMoveLessonFromTableToTable(squardIndex, target.date, target.number, oldDate, oldNumber,  lesson)
+                                                                 "activeSquardIndex" in target ? onMoveLessonToFree(target.activeSquardIndex, dayKey, lesson) :
+                                                                onMoveLessonFromTableToTable(squardIndex, target, oldDate, oldNumber,  lesson)
                                                             }} 
                                                         /> :
-                                                        <DropLesson squardIndex={squardIndex} date={dayKey} number={lesson.number}/>
+                                                        <DropLesson 
+                                                            squardIndex={squardIndex} 
+                                                            date={dayKey} 
+                                                            number={lesson.number}
+                                                            onCreateLesson={createLesson}
+                                                        />
                                                     }
                                                 </div>
                                             ))}
@@ -208,12 +238,7 @@ export default function ShedulePage() {
                                 <DropZone activeSquardIndex={activeSquardIndex}>
                                     <div className={styles.sidebar__items}>
                                         {freeLessons.filter((lesson)=>lesson.squardIndex === activeSquardIndex).map((lesson)=>(
-                                            <div key={lesson.lesson_id} className={styles.sidebar__item}>
-                                            <p>{activeSquardIndex}ТСП</p>
-                                            <p>т 8/2 лек</p>
-                                            <p>ВО-404</p>
-                                            <p>п-к Кизюн Н.Н.</p>
-                                        </div>
+                                            <DragFreeLesson key={lesson.lesson_id} lesson={lesson} squardIndex={activeSquardIndex} onMove={onMoveFreeToLesson}/>
                                         ))}
                                     </div>
                                 </DropZone>
@@ -222,6 +247,52 @@ export default function ShedulePage() {
                     </div>
                 </DndProvider>
             </div>
+            {newLesson && 
+                <PopupContainer onClose={()=>setNewLesson(undefined)}>
+                    <div className={styles.popup}>
+                        <h2>Создание занятия</h2>
+                        <div className={styles.popup__line}>
+                            <p className={styles.popup__title}>Взвод:</p>
+                            <p className={styles.popup__text}>{shedule.squards[newLesson.squardIndex].name}</p>
+                        </div>
+                        <div className={styles.popup__line}>
+                            <p className={styles.popup__title}>Тема:</p>
+                            <div className={styles.popup__text}>
+                                <Input value={newLesson.lesson_name ?? ''} onChange={(value)=>setNewLesson({...newLesson, lesson_name: value})}/>
+                            </div>
+                        </div>
+                        <div className={styles.popup__line}>
+                            <p className={styles.popup__title}>Занятие:</p>
+                            <div className={styles.popup__text}>
+                                <Input value={newLesson.lesson_name ?? ''} onChange={(value)=>setNewLesson({...newLesson, lesson_name: value})}/>
+                            </div>
+                        </div>
+                        <div className={styles.popup__block}>
+                            <p className={styles.popup__title}>Преподаватель:</p>
+                            <div className={styles.popup__text}>
+                                <Input value={newLesson.lesson_name ?? ''} onChange={(value)=>setNewLesson({...newLesson, lesson_name: value})}/>
+                            </div>
+                        </div>
+                        <div className={styles.popup__block}>
+                            <p className={styles.popup__title}>Аудитория:</p>
+                            <div className={styles.popup__text}>
+                                <Input value={newLesson.lesson_name ?? ''} onChange={(value)=>setNewLesson({...newLesson, lesson_name: value})}/>
+                            </div>
+                        </div>
+                        <div className={styles.popup__line}>
+                            <p className={styles.popup__title}>Дата:</p>
+                            <div className={styles.popup__text}>
+                                <Input type='date' value={newLesson.date ?? ''} onChange={(value)=>setNewLesson({...newLesson, date: value})}/>
+                            </div>
+                        </div>
+                        <div className={styles.popup__line}>
+                            <p className={styles.popup__title}>Дата:</p>
+                            <p className={styles.popup__text}>{TIMES[newLesson.number - 1].time}</p>
+                        </div>
+                        <Button size={'max'}>Сохранить</Button>
+                    </div>
+                </PopupContainer>
+            }
         </>
     )
 }

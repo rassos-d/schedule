@@ -23,3 +23,12 @@ export type Lesson = {
 }
 
 export type FreeLesson = Omit<Lesson, "number"> & {squardIndex: number}
+
+export type NewLesson = {
+  date: string
+  number: number
+  squardIndex: number
+  lesson_name?: string
+  teacher_name?: string
+  audience_nane?: string
+}

@@ -202,3 +202,26 @@
     }
   }
 }
+
+.popup {
+  min-width: 400px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px;
+  row-gap: 20px;
+  &__title {
+    font-weight: 600;
+    flex: 1;
+    text-align: center;
+  }
+  &__text {
+    flex: 1;
+    text-align: center;
+  }
+  &__line {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+}
