@@ -7,7 +7,6 @@ type LessonProps = {
   lesson: TLesson;
   onMove: (target: DropResult, date: string, number: number) => void;
   onStartDragging: () => void
-  isDraggingAnything: boolean
   date: string
   number: number
   squardIndex: number
@@ -17,7 +16,8 @@ type LessonProps = {
 type DropResult = {
   date: string;
   number: number;
-} | { activeSquardIndex: number } | {date: string, number: number, lesson: TLesson}
+  lesson?: TLesson
+} | { activeSquardIndex: number }
 
 function LessonComponent({ lesson, date, number, squardIndex, onMove, onStartDragging }: LessonProps) {
 
@@ -35,21 +35,21 @@ function LessonComponent({ lesson, date, number, squardIndex, onMove, onStartDra
     collect: (monitor) => {
       return {isDragging: !!monitor.isDragging()}
     },
-  }), [squardIndex]);
+  }), [squardIndex, number, squardIndex, lesson]);
 
   const [, drop] = useDrop(() => ({
     accept: [`LESSON-${squardIndex}`, 'FREE'],
     drop: () => {
       return {
-        date: date,
-        number: number,
-        lesson: lesson
+        date,
+        number,
+        lesson
       }
     },
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
     }),
-  }), [squardIndex]);
+  }), [squardIndex, number, squardIndex, lesson]);
 
   drag(drop(ref))
 
@@ -63,39 +63,12 @@ function LessonComponent({ lesson, date, number, squardIndex, onMove, onStartDra
     <div className={styles.dragLessonContainer}>
       <div ref={ref} style={{ opacity: isDragging ? 0.5 : 1 }}>
         <p>ТСП</p>
-        <p>т 8/2 лек</p>
+        <p>{lesson.lesson_name}</p>
         <p>ВО-404</p>
         <p>п-к Кизюн Н.Н.</p>
       </div>
-      {/* <ChangeZone isDisplay={isDraggingAnything} date={date} number={number} lesson={lesson} squardIndex={squardIndex}/> */}
     </div>
   );
-}
-
-type ChangeZoneProps = {
-  squardIndex: number
-  date: string
-  number: number
-  lesson: TLesson;
-  isDisplay: boolean
-}
-
-function ChangeZone({squardIndex, date, number, lesson, isDisplay}: ChangeZoneProps) {
-  const [{ isOver }, drop] = useDrop(() => ({
-    accept: [`LESSON-${squardIndex}`, 'FREE'],
-    drop: () => {
-      return {
-        date: date,
-        number: number,
-        lesson: lesson
-      }
-    },
-    collect: (monitor) => ({
-      isOver: !!monitor.isOver(),
-    }),
-  }), [squardIndex, isDisplay]);
-
-  return <div style={{zIndex: isDisplay ? '2' : '-1', background: isOver ? "#ddd" : "transparent"}} className={styles.changeZone} ref={drop}></div>;
 }
 
 export const DragLesson = memo(LessonComponent)
