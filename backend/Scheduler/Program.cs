@@ -1,6 +1,6 @@
-using Scheduler.Data;
-using Scheduler.Data.General;
-using Scheduler.Data.Plan;
+using Scheduler.DataAccess;
+using GeneralRepository = Scheduler.DataAccess.General.GeneralRepository;
+using PlanRepository = Scheduler.DataAccess.Plan.PlanRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
