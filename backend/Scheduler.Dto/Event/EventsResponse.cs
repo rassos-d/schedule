@@ -1,4 +1,4 @@
-public class EventResponse
+public class EventsResponse
 {
     public string? TeacherName { get; set; }
 
@@ -8,7 +8,7 @@ public class EventResponse
 
     public string? SquadName { get; set; }
 
-    public string? EventNumber { get; set; }
+    public int? EventNumber { get; set; }
 
-    public string? Date { get; set; }
+    public DateTime? Date { get; set; }
 }

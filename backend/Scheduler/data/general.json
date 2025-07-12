@@ -1,2 +1,30 @@
 {
+  "Audiences": {},
+  "Squads": {
+    "e5a8f139-b7d4-4279-b5e8-afdcf4a814bd": {
+      "Name": "D-323",
+      "StudyYear": 3,
+      "DaddyId": "d77a4cbd-458f-4bcb-a6ef-c96095e76a2e",
+      "FixedAudienceId": "d55a3d32-9ab0-4cd4-87d9-c726b44af6dd",
+      "DirectionId": null,
+      "Id": "e5a8f139-b7d4-4279-b5e8-afdcf4a814bd"
+    },
+    "4332838c-8a15-4c38-9864-2681a006104c": {
+      "Name": "R-323",
+      "StudyYear": null,
+      "DaddyId": null,
+      "FixedAudienceId": null,
+      "DirectionId": null,
+      "Id": "4332838c-8a15-4c38-9864-2681a006104c"
+    },
+    "555c6793-e553-4000-9519-650837aeaf85": {
+      "Name": "A-323",
+      "StudyYear": null,
+      "DaddyId": null,
+      "FixedAudienceId": null,
+      "DirectionId": null,
+      "Id": "555c6793-e553-4000-9519-650837aeaf85"
+    }
+  },
+  "Teachers": {}
 }

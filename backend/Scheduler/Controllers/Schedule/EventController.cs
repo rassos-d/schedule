@@ -1,8 +1,10 @@
-using Microsoft.AspNetCore.Mvc;
+/*using Microsoft.AspNetCore.Mvc;
 using Scheduler.DataAccess;
+using Scheduler.DataAccess.General;
 using Scheduler.DataAccess.Plan;
 using Scheduler.Dto;
 using Scheduler.Entities;
+using Scheduler.Services;
 
 namespace Scheduler.Controllers.Schedule;
 
@@ -11,28 +13,28 @@ namespace Scheduler.Controllers.Schedule;
 public class EventController : ControllerBase
 {
     private readonly ScheduleRepository _scheduleRepo;
+    private readonly GeneralRepository _generalRepo;
+    private readonly PlanRepository _planRepository;
     private readonly GeneralRepository generalRepository;
+    private readonly EventService _eventService;
     public PlanRepository planRepository;
 
     public EventController(
         ScheduleRepository scheduleRepo,
         PlanRepository planRepository,
-        GeneralRepository generalRepository)
+        GeneralRepository generalRepository,
+        EventService eventService)
     {
         _scheduleRepo = scheduleRepo;
         this.planRepository = planRepository;
         this.generalRepository = generalRepository;
+        _eventService = eventService;
     }
 
-    [HttpGet]
-    public IActionResult GetAllSchedules()
+    [HttpGet("schedules/{id::guid}")]
+    public IActionResult Find(Guid scheduleId)
     {
-        return Ok(_scheduleRepo.GetAllScheduleInfos());
-    }
-
-    [HttpGet("find")]
-    public IActionResult Find([FromQuery] Guid scheduleId)
-    {
+        var events = _eventService.GetEventsBySchedule(scheduleId);
         var schedule = _scheduleRepo.GetSchedule(scheduleId);
         if (schedule == null)
         {
@@ -41,8 +43,8 @@ public class EventController : ControllerBase
 
         return Ok(schedule.Events);
     }
-
-    [HttpPost("{scheduleId}/events")]
+    
+    [HttpPost]
     public IActionResult AddEvent(Guid scheduleId, [FromBody] Event newEvent)
     {
         var schedule = _scheduleRepo.GetSchedule(newEvent.ScheduleId);
@@ -57,7 +59,7 @@ public class EventController : ControllerBase
         return Ok(new SimpleDto<Guid>(schedule.Id));
 
     }
-
+    
     [HttpPut("{scheduleId}/events/{eventId}")]
     public IActionResult UpdateEvent(Guid scheduleId, Guid eventId, [FromBody] Event updatedEvent)
     {
@@ -83,7 +85,7 @@ public class EventController : ControllerBase
         _scheduleRepo.SaveSchedule(schedule);
         return NoContent();
     }
-
+    
     [HttpDelete("{scheduleId}/events/{eventId}")]
     public IActionResult DeleteEvent(Guid scheduleId, Guid eventId)
     {
@@ -104,38 +106,10 @@ public class EventController : ControllerBase
         return NoContent();
     }
 
-    [HttpPost]
-    public IActionResult Create([FromBody] string name)
-    {
-        var newSchedule = new Entities.Schedule { Name = name };
-        _scheduleRepo.SaveSchedule(newSchedule);
-        return CreatedAtAction(nameof(GetAllSchedules), newSchedule);
-    }
-
     [HttpDelete("{scheduleId}")]
     public IActionResult DeleteSchedule(Guid scheduleId)
     {
         _scheduleRepo.DeleteSchedule(scheduleId);
         return NoContent();
     }
-
-    private GetScheduleResponse ConvertToResponse(Entities.Schedule schedule)
-    {
-        var teacherNames = schedule
-        .Events
-        .Select(e => generalRepository.Teachers.Get(e.TeacherId!.Value))
-        .ToDictionary(k => k.Id, t => $"{t.Rank} {t.Name}");
-
-        var audienceNames = schedule
-        .Events
-        .Select(e => generalRepository.Audiences.Get(e.AudienceId!.Value))
-        .ToDictionary(k => k.Id, t => t.Name);
-
-        var squadNames = schedule
-        .Events
-        .Select(e => generalRepository.Squads.Get(e.SquadId!.Value))
-        .ToDictionary(k => k.Id, t => t.Name);
-
-        throw new NotImplementedException();
-    }
-}
+}*/

@@ -1,3 +1,8 @@
+export type SmallShedule = {
+  id: string,
+  name: string
+}
+
 export type Shedule = {
   id: string
   name: string

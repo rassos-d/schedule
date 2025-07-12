@@ -9,20 +9,20 @@ public class ExcelExportService
 {
     private readonly string templatePath = Path.Combine("Export", "template.xlsx");
 
-    private readonly GeneralRepository _generalRepository;
-    private readonly PlanRepository _planRepository;
-    private readonly ScheduleRepository _scheduleRepository;
+    // private readonly GeneralRepository _generalRepository;
+    // private readonly PlanRepository _planRepository;
+    // private readonly ScheduleRepository _scheduleRepository;
 
     public ExcelExportService(
-        GeneralRepository generalRepository,
-        PlanRepository planRepository,
-        ScheduleRepository scheduleRepository
+        // GeneralRepository generalRepository,
+        // PlanRepository planRepository,
+        // ScheduleRepository scheduleRepository
         )
     {
         ExcelPackage.License.SetNonCommercialPersonal("VUC");
-        _generalRepository = generalRepository;
-        _planRepository = planRepository;
-        _scheduleRepository = scheduleRepository;
+        // _generalRepository = generalRepository;
+        // _planRepository = planRepository;
+        // _scheduleRepository = scheduleRepository;
     }
 
     public void Save(Guid scheduleId)
