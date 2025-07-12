@@ -8,7 +8,31 @@
   }
   &__shedules {
     border: 1px solid #000;
-    padding: 10px;
     max-width: 50%;
   }
+  &__shedule {
+    cursor: pointer;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &:hover {
+      background-color: var(--ultra-light-grey-color);
+    }
+  }
+  &__button {
+    max-width: 50%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.popup {
+  min-width: 400px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px;
+  row-gap: 20px;
 }
