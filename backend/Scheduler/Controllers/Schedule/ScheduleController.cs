@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Scheduler.DataAccess;
 using Scheduler.Dto;
+using Scheduler.Entities.Schedule;
 
 namespace Scheduler.Controllers.Schedule;
 
@@ -27,7 +28,7 @@ public class ScheduleController : ControllerBase
     [HttpPost]
     public IActionResult Create([FromBody] EntityWithNameCreateDto dto)
     {
-        var schedule = new Schedule { Name = dto.Name };
+        var schedule = new StudyYearPage { Name = dto.Name };
         _scheduleRepo.SaveSchedule(schedule);
         return Ok(new SimpleDto<Guid>(schedule.Id));
     }

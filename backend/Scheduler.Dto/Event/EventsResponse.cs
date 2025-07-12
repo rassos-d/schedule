@@ -1,4 +1,4 @@
-public class EventResponse
+public class EventsResponse
 {
     public string? TeacherName { get; set; }
 

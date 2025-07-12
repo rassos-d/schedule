@@ -1,50 +1,45 @@
 using Microsoft.AspNetCore.Mvc;
 using Scheduler.Dto;
-using Scheduler.Entities.General;
-using GeneralRepository = Scheduler.DataAccess.GeneralRepository;
+using Scheduler.Dto.General.Squad;
+using Scheduler.Services;
+using Scheduler.Services.General;
 
 namespace Scheduler.Controllers.General;
 
 [ApiController]
 [Route("api/squads")]
-public class SquadController : ControllerBase
+public class SquadController(SquadService service) : ControllerBase
 {
-    private readonly GeneralRepository _repository;
-
-    public SquadController(GeneralRepository generalRepo)
-    {
-        _repository = generalRepo;
-    }
-
     [HttpGet]
     public IActionResult Find()
     {
-        var teachers = _repository.Squads.GetAll();
-        return Ok(teachers);
+        var squads = service.Find();
+        return Ok(squads);
     }
 
     [HttpPost]
-    public IActionResult Create(EntityWithNameCreateDto request)
+    public IActionResult Create(EntityWithNameCreateDto dto)
     {
-        var squad = new Squad { Name = request.Name };
-        _repository.Squads.Upsert(squad);
-        _repository.SaveChanges();
-        return Ok(squad);
+        var id = service.Create(dto);
+        return Ok(new SimpleDto<Guid>(id));
     }
 
     [HttpPut]
-    public IActionResult Update(Squad request)
+    public IActionResult Update(SquadUpdateDto dto)
     {
-        _repository.Squads.Upsert(request);
-        _repository.SaveChanges();
-        return NoContent();
+        var result = service.Update(dto);
+        if (result)
+        {
+            return NoContent();   
+        }
+        
+        return NotFound();
     }
 
     [HttpDelete("{id:guid}")]
     public IActionResult Delete(Guid id)
     {
-        _repository.Squads.Delete(id);
-        _repository.SaveChanges();
+        service.Delete(id);
         return NoContent();
     }
 }

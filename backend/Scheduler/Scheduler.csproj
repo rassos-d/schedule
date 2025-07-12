@@ -40,4 +40,12 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Dto\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Scheduler.Dto\Scheduler.Dto.csproj" />
+  </ItemGroup>
+
 </Project>

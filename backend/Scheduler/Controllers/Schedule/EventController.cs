@@ -1,8 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Scheduler.DataAccess;
+using Scheduler.DataAccess.General;
 using Scheduler.DataAccess.Plan;
 using Scheduler.Dto;
 using Scheduler.Entities;
+using Scheduler.Services;
 
 namespace Scheduler.Controllers.Schedule;
 
@@ -14,27 +16,25 @@ public class EventController : ControllerBase
     private readonly GeneralRepository _generalRepo;
     private readonly PlanRepository _planRepository;
     private readonly GeneralRepository generalRepository;
+    private readonly EventService _eventService;
     public PlanRepository planRepository;
 
     public EventController(
         ScheduleRepository scheduleRepo,
         PlanRepository planRepository,
-        GeneralRepository generalRepository)
+        GeneralRepository generalRepository,
+        EventService eventService)
     {
         _scheduleRepo = scheduleRepo;
         this.planRepository = planRepository;
         this.generalRepository = generalRepository;
+        _eventService = eventService;
     }
 
-    [HttpGet]
-    public IActionResult GetAllSchedules()
+    [HttpGet("schedules/{id::guid}")]
+    public IActionResult Find(Guid scheduleId)
     {
-        return Ok(_scheduleRepo.GetAllScheduleInfos());
-    }
-
-    [HttpGet("find")]
-    public IActionResult Find([FromQuery] Guid scheduleId)
-    {
+        var events = _eventService.GetEventsBySchedule(scheduleId);
         var schedule = _scheduleRepo.GetSchedule(scheduleId);
         if (schedule == null)
         {

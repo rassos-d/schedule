@@ -1,13 +1,14 @@
 using System.Text.Json;
 using Scheduler.DataAccess.Base;
 using Scheduler.Entities;
+using Scheduler.Entities.Schedule;
 using Scheduler.Models;
 
 namespace Scheduler.DataAccess;
 
 public class ScheduleRepository : BaseRepository
 {
-    private readonly Dictionary<Guid, Schedule> _schedulesCache = new();
+    private readonly Dictionary<Guid, StudyYearPage> _schedulesCache = new();
 
 
     private const string SchedulesFileName = "schedules.json";
@@ -15,13 +16,13 @@ public class ScheduleRepository : BaseRepository
     public ScheduleRepository() : base("schedules")
     { }
 
-    private Schedule? LoadSchedule(Guid id)
+    private StudyYearPage? LoadSchedule(Guid id)
     {
         var json = ReadFile($"{id}.json");
-        return JsonSerializer.Deserialize<Schedule>(json, JsonOptions);
+        return JsonSerializer.Deserialize<StudyYearPage>(json, JsonOptions);
     }
 
-    public Schedule? GetSchedule(Guid id)
+    public StudyYearPage? GetSchedule(Guid id)
     {
         if (_schedulesCache.TryGetValue(id, out var cachedSchedule))
         {
@@ -44,15 +45,15 @@ public class ScheduleRepository : BaseRepository
         return JsonSerializer.Deserialize<List<ScheduleInfo>>(json, JsonOptions) ?? [];
     }
 
-    public void SaveSchedule(Schedule schedule)
+    public void SaveSchedule(StudyYearPage studyYearPage)
     {
         var schedules = GetAllScheduleInfos();
-        schedules.Add(new ScheduleInfo(schedule.Id, schedule.Name));
+        schedules.Add(new ScheduleInfo(studyYearPage.Id, studyYearPage.Name));
         WriteFile(SchedulesFileName, schedules);
 
-        _schedulesCache[schedule.Id] = schedule;
+        _schedulesCache[studyYearPage.Id] = studyYearPage;
 
-        WriteFile($"{schedule.Id}.json", _schedulesCache[schedule.Id]);
+        WriteFile($"{studyYearPage.Id}.json", _schedulesCache[studyYearPage.Id]);
     }
 
     public void DeleteSchedule(Guid id)

@@ -1,47 +1,38 @@
 using Microsoft.AspNetCore.Mvc;
-using Scheduler.Dto.Teacher;
-using Scheduler.Entities.General;
-using GeneralRepository = Scheduler.DataAccess.GeneralRepository;
+using Scheduler.Dto.General.Teacher;
+using Scheduler.Services.General;
 
 namespace Scheduler.Controllers.General;
 
 [ApiController]
 [Route("api/teachers")]
-public class TeacherController : ControllerBase
+public class TeacherController(TeacherService service) : ControllerBase
 {
-    private readonly GeneralRepository _generalRepository;
-
-    public TeacherController(GeneralRepository generalRepo)
-    {
-        _generalRepository = generalRepo;
-    }
-
     [HttpGet]
     public IActionResult Find()
     {
-        var teachers = _generalRepository.Teachers.GetAll();
+        var teachers = service.Find();
         return Ok(teachers);
     }
 
     [HttpPost]
     public IActionResult Create(TeacherCreateDto dto)
     {
-        var teacher = new Teacher { Name = dto.Name, Rank = dto.Rank};
-        _generalRepository.Teachers.Upsert(teacher);
-        return Ok(teacher);
+        var id = service.Create(dto);
+        return Ok(id);
     }
 
     [HttpPut]
-    public IActionResult Update(Teacher request)
+    public IActionResult Update(TeacherUpdateDto dto)
     {
-        _generalRepository.Teachers.Upsert(request);
+        service.Update(dto);
         return NoContent();
     }
 
     [HttpDelete("{id:guid}")]
     public IActionResult Delete([FromRoute] Guid id)
     {
-        _generalRepository.Teachers.Delete(id);
+        service.Delete(id);
         return NoContent();
     }
 }

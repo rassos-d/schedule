@@ -1,4 +1,4 @@
-namespace Scheduler.Dto.Teacher;
+namespace Scheduler.Dto.General.Teacher;
 
 public class TeacherCreateDto
 {

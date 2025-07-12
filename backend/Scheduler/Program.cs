@@ -1,5 +1,6 @@
 using Scheduler.DataAccess;
-using GeneralRepository = Scheduler.DataAccess.GeneralRepository;
+using Scheduler.Services;
+using GeneralRepository = Scheduler.DataAccess.General.GeneralRepository;
 using PlanRepository = Scheduler.DataAccess.Plan.PlanRepository;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,7 @@ builder.Services.AddSingleton<GeneralRepository>();
 builder.Services.AddSingleton<ScheduleRepository>();
 builder.Services.AddSingleton<PlanRepository>();
 
+builder.Services.AddSingleton<EventService>();
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();

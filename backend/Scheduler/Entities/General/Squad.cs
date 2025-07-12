@@ -1,4 +1,5 @@
 using Scheduler.Entities.Base;
+using Scheduler.Entities.Constants;
 
 namespace Scheduler.Entities.General;
 
@@ -6,9 +7,11 @@ public class Squad : Entity
 {
     public required string Name { get; set; }
 
-    public int StudyYear { get; set; }
+    public StudyYear? StudyYear { get; set; }
+    
+    public Guid? DaddyId {  get; set; }
+    
+    public Guid? FixedAudienceId {  get; set; }
 
-    public int SemesterNumber { get; set; }
-
-    public Guid DirectionId { get; set; }
+    public Guid? DirectionId { get; set; }
 }
