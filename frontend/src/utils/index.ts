@@ -5,6 +5,15 @@ export function removeElementAtIndex<T>(array: T[], index: number): T[] {
   ];
 }
 
+export function cloneObject<T>(object: T) {
+  const result:T = JSON.parse(JSON.stringify(object))
+  return result
+}
+
+export function getUniqueElements<T>(arr: T[]): T[] {
+    return arr.filter(item => arr.indexOf(item) === arr.lastIndexOf(item));
+}
+
 export function createNestedArray<T>(length: number) {
   return Array.from({ length: length }, () => Array.from({ length: length }, () => [] as T[]));
 }

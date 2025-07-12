@@ -13,6 +13,9 @@ import { DropZone } from '../../components/dragNDrop/dropZone'
 import { DragFreeLesson } from '../../components/dragNDrop/dragFreeLesson'
 import PopupContainer from '../../components/popupContainer/popupContainer'
 import { Input } from '../../components/input/Input'
+import { Tabs } from '../../components/tabs/tabs'
+import { COURSES_YEAR } from '../../consts/tabs'
+import { useNavigate } from 'react-router-dom'
 
 const TIMES = [
     {
@@ -97,6 +100,10 @@ const FREE_LESSONS = [
 
 export default function ShedulePage() {
 
+    const navigate = useNavigate()
+
+    const [activeTab, setActiveTab] = useState(1)
+
     const [shedule, setShedule] = useState(getFullShedule(SHEDULE))
     const [isSidebarOpen, setIsSidebarOpen] = useState(false)
     const [activeSquardIndex, setActiveSquardIndex] = useState(0)
@@ -157,10 +164,14 @@ export default function ShedulePage() {
     return (
         <>
             <Helmet>
-                <title>Расписание</title>
+                <title>{`Расписание ${activeTab} курс`}</title>
             </Helmet>
             <div className={styles.container}>
-                <h1 className={styles.container__title}>Расписание</h1>
+                <div className={styles.container__tabs}>
+                    <Tabs onClick={setActiveTab} tabs={COURSES_YEAR} activeTab={activeTab}/>
+                </div>
+                <Button onClick={()=>navigate('/')} className={styles.container__back}>На главную</Button>
+                <h1 className={styles.container__title}>{`Расписание ${activeTab} курс`}</h1>
                 <DndProvider backend={HTML5Backend}>
                     {shedule.squards.map((item, squardIndex) => (
                         <div key={item.id} className={styles.container__tableContainer}>

@@ -3,6 +3,20 @@ export type SmallShedule = {
   name: string
 }
 
+export type CreateSchedule = {
+  name: string
+  years: CreateScheduleYear[]
+}
+
+export type CreateScheduleYear = {
+  year: number, 
+  squards: ScheduleSquard[], 
+  start_date: string, 
+  end_date: string
+}
+
+export type ScheduleSquard = {name: string, id: string}
+
 export type Shedule = {
   id: string
   name: string

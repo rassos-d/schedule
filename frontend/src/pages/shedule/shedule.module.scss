@@ -1,7 +1,16 @@
 .container {
   position: relative;
   padding-bottom: 100px;
-  padding-top: 40px;
+  padding-top: 60px;
+  &__back {
+    position: absolute;
+    top: 5px;
+    left: 40px;
+  }
+  &__tabs {
+    display: flex;
+    justify-content: center;
+  }
   &__title {
     text-align: center;
     margin-bottom: 30px;

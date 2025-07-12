@@ -1,1 +1,1 @@
-export type AddInputList = {name: string, id: string}
+export type AddInputList = {name: string | number, id: string | number}
