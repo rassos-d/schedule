@@ -6,5 +6,5 @@ public class Schedule : Entity
 {
     public required string Name { get; set; }
     
-    public List<StudyYearPage> Pages { get; set; } = [];
+    public List<SchedulePage> Pages { get; set; } = [];
 }

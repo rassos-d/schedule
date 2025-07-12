@@ -1,4 +1,4 @@
-using Scheduler.DataAccess;
+/*using Scheduler.DataAccess;
 using Scheduler.DataAccess.General;
 using Scheduler.DataAccess.Plan;
 using Scheduler.Dto.General.Squad;
@@ -33,19 +33,19 @@ public class EventService
         return ConvertToResponse(schedule);
     }
 
-    private GetScheduleResponse ConvertToResponse(StudyYearPage studyYearPage)
+    private GetScheduleResponse ConvertToResponse(SchedulePage schedulePage)
     {
-        var teacherNames = studyYearPage
+        var teacherNames = schedulePage
             .Events
             .Select(e => generalRepository.Teachers.Get(e.TeacherId!.Value))
             .ToDictionary(k => k.Id, t => $"{t.Rank} {t.Name}");
 
-        var audienceNames = studyYearPage
+        var audienceNames = schedulePage
             .Events
             .Select(e => generalRepository.Audiences.Get(e.AudienceId!.Value))
             .ToDictionary(k => k.Id, t => t.Name);
 
-        var squadNames = studyYearPage
+        var squadNames = schedulePage
             .Events
             .Select(e => generalRepository.Squads.Get(e.SquadId!.Value))
             .ToDictionary(k => k.Id, t => t.Name);
@@ -56,9 +56,9 @@ public class EventService
 
         return new GetScheduleResponse
         {
-            Name = studyYearPage.Name,
-            Squads = ConvertToSquads(studyYearPage.Events, teacherNames, audienceNames, squadNames, lessonNames).ToList(),
-            NoName = studyYearPage.Events
+            Name = schedulePage.Name,
+            Squads = ConvertToSquads(schedulePage.Events, teacherNames, audienceNames, squadNames, lessonNames).ToList(),
+            NoName = schedulePage.Events
                 .Where(e => e.Date == null && e.EventNumber == null)
                 .Select(e => ConvertToEvent(e, teacherNames, audienceNames, squadNames, lessonNames))
                 .ToList()
@@ -114,4 +114,4 @@ public class EventService
             LessonName = @event.LessonId.HasValue ? lessonNames.GetValueOrDefault(@event.LessonId.Value) : null
         };
     }
-}
+}*/

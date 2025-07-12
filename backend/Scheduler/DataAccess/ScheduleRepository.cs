@@ -1,6 +1,6 @@
 using System.Text.Json;
 using Scheduler.DataAccess.Base;
-using Scheduler.Entities;
+using Scheduler.Entities.Constants;
 using Scheduler.Entities.Schedule;
 using Scheduler.Models;
 
@@ -8,64 +8,78 @@ namespace Scheduler.DataAccess;
 
 public class ScheduleRepository : BaseRepository
 {
-    private readonly Dictionary<Guid, StudyYearPage> _schedulesCache = new();
+    private readonly Dictionary<Guid, Schedule> _schedulesCache = new();
 
 
     private const string SchedulesFileName = "schedules.json";
 
     public ScheduleRepository() : base("schedules")
     { }
-
-    private StudyYearPage? LoadSchedule(Guid id)
+    
+    public void SaveSchedule(Schedule schedule)
     {
-        var json = ReadFile($"{id}.json");
-        return JsonSerializer.Deserialize<StudyYearPage>(json, JsonOptions);
+        WriteSchedule(schedule);
+        foreach (var schedulePage in schedule.Pages)
+        {
+            WriteSchedulePage(schedulePage);
+        }
+        
+        _schedulesCache[schedule.Id] = schedule;
     }
 
-    public StudyYearPage? GetSchedule(Guid id)
+    public void UpdateSchedule(ScheduleInfo scheduleInfo)
     {
-        if (_schedulesCache.TryGetValue(id, out var cachedSchedule))
+        if (_schedulesCache.TryGetValue(scheduleInfo.Id, out var schedule))
         {
-            return cachedSchedule;
+            schedule.Name = scheduleInfo.Name;
+            WriteSchedule(schedule);
+        }
+    }
+    
+
+    public SchedulePage GetSchedulePage(Guid id, StudyYear studyYear)
+    {
+        if (_schedulesCache.TryGetValue(id, out var schedule))
+        {
+            var page = schedule.Pages.FirstOrDefault(p => p.StudyYear == studyYear);
+            if (page is not null)
+            {
+                return page;
+            }
+            
+            page = LoadSchedulePage(id, studyYear);
+            schedule.Pages.Add(page); 
+            return page;   
         }
 
-        var schedule = LoadSchedule(id);
-        if (schedule == null)
-        {
-            return null;
-        }
-
-        _schedulesCache[id] = schedule;
-        return schedule;
+        GetAllScheduleInfos();
+        var pageNew = LoadSchedulePage(id, studyYear);
+        _schedulesCache[id].Pages.Add(pageNew);
+        return pageNew;
     }
 
     public List<ScheduleInfo> GetAllScheduleInfos()
     {
         var json = ReadFile(SchedulesFileName);
-        return JsonSerializer.Deserialize<List<ScheduleInfo>>(json, JsonOptions) ?? [];
-    }
-
-    public void SaveSchedule(StudyYearPage studyYearPage)
-    {
-        var schedules = GetAllScheduleInfos();
-        schedules.Add(new ScheduleInfo(studyYearPage.Id, studyYearPage.Name));
-        WriteFile(SchedulesFileName, schedules);
-
-        _schedulesCache[studyYearPage.Id] = studyYearPage;
-
-        WriteFile($"{studyYearPage.Id}.json", _schedulesCache[studyYearPage.Id]);
+        var schedulesList = JsonSerializer.Deserialize<List<ScheduleInfo>>(json, JsonOptions) ?? [];
+        foreach (var schedule in schedulesList)
+        {
+            if (_schedulesCache.TryGetValue(schedule.Id, out _))
+            {
+                continue;
+            }
+            
+            _schedulesCache[schedule.Id] = new Schedule {Id = schedule.Id, Name = schedule.Name};
+        }
+        
+        return schedulesList;
     }
 
     public void DeleteSchedule(Guid id)
     {
         _schedulesCache.Remove(id);
-        var filePath = Path.Combine(DirectoryPath, $"{id}.json");
-        if (File.Exists(filePath) == false)
-        {
-            return;
-        }
-
-        File.Delete(filePath);
+        var scheduleDir = Path.Combine(DirectoryPath, id.ToString());
+        Directory.Delete(scheduleDir);
 
         var schedules = GetAllScheduleInfos();
         var schedule = schedules.FirstOrDefault(s => s.Id == id);
@@ -73,6 +87,7 @@ public class ScheduleRepository : BaseRepository
         {
             return;
         }
+        
         schedules.Remove(schedule);
         WriteFile(SchedulesFileName, schedules);
     }
@@ -94,6 +109,51 @@ public class ScheduleRepository : BaseRepository
             WriteFile($"{schedule.Key}.json", schedule.Value);
         }
     }
-    
 
+    private void WriteSchedule(Schedule scheduleInfo)
+    {
+        var schedules = GetAllScheduleInfos();
+        var schedule = schedules.FirstOrDefault(s => s.Id == scheduleInfo.Id);
+        if (schedule is null)
+        {
+            schedules.Add(new ScheduleInfo(scheduleInfo.Id, scheduleInfo.Name));
+        }
+        else
+        {
+            schedule.Name = scheduleInfo.Name;
+        }
+        
+        WriteFile(SchedulesFileName, schedules);
+    }
+
+    private void WriteSchedulePage(SchedulePage schedulePage)
+    {
+        var scheduleDir = Path.Combine(DirectoryPath, schedulePage.ScheduleId.ToString());
+        if (Directory.Exists(scheduleDir) == false)
+        {
+            Directory.CreateDirectory(scheduleDir);
+        }
+        
+        var pagePath = Path.Combine($"{schedulePage.ScheduleId}/{schedulePage.StudyYear}.json");
+        WriteFile(pagePath, schedulePage);
+    }
+    
+    private SchedulePage LoadSchedulePage(Guid scheduleId, StudyYear studyYear)
+    {
+        var directory = Path.Combine(DirectoryPath, scheduleId.ToString());
+        if (Directory.Exists(directory) == false)
+        {
+            Directory.CreateDirectory(directory);
+        }
+
+        var path = Path.Combine(directory, $"{studyYear}.json");
+        if (File.Exists(path) == false)
+        {
+            throw new FileNotFoundException();
+        }
+        
+        var json = ReadFile(path);
+        return JsonSerializer.Deserialize<SchedulePage>(json, JsonOptions)!;
+    }
+    
 }

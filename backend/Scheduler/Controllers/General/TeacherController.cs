@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Scheduler.Dto;
 using Scheduler.Dto.General.Teacher;
 using Scheduler.Services.General;
 
@@ -19,7 +20,7 @@ public class TeacherController(TeacherService service) : ControllerBase
     public IActionResult Create(TeacherCreateDto dto)
     {
         var id = service.Create(dto);
-        return Ok(id);
+        return Ok(new SimpleDto<Guid>(id));
     }
 
     [HttpPut]

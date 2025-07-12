@@ -1,16 +1,26 @@
 using Scheduler.DataAccess;
-using Scheduler.Services;
-using GeneralRepository = Scheduler.DataAccess.General.GeneralRepository;
+using Scheduler.DataAccess.General;
+using Scheduler.Services.General;
+using Scheduler.Services.Schedule;
 using PlanRepository = Scheduler.DataAccess.Plan.PlanRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddSingleton<GeneralRepository>();
+// Repo
 builder.Services.AddSingleton<ScheduleRepository>();
 builder.Services.AddSingleton<PlanRepository>();
 
-builder.Services.AddSingleton<EventService>();
+builder.Services.AddSingleton<AudienceRepository>();
+builder.Services.AddSingleton<SquadRepository>();
+builder.Services.AddSingleton<TeacherRepository>();
+
+// Service
+builder.Services.AddSingleton<SquadService>();
+builder.Services.AddSingleton<TeacherService>();
+builder.Services.AddSingleton<ScheduleService>();
+
+
+// builder.Services.AddSingleton<EventService>();
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();

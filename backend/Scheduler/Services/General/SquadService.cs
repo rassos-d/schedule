@@ -1,13 +1,24 @@
 using Scheduler.DataAccess.General;
 using Scheduler.Dto;
 using Scheduler.Dto.General.Squad;
+using Scheduler.Entities.Constants;
 using Scheduler.Entities.General;
 
 namespace Scheduler.Services.General;
 
 public class SquadService(SquadRepository repo)
 {
-    public List<Squad> Find() => repo.GetAll();
+    public List<Squad> Find(StudyYear? studyYear)
+    {
+        var squads = repo.GetAll();
+        if (studyYear is not null)
+        {
+            squads = squads.Where(s => s.StudyYear == studyYear).ToList();
+        }
+        
+        return squads;
+    }
+
     public Guid Create(EntityWithNameCreateDto dto)
     {
         var squad = new Squad { Name = dto.Name };

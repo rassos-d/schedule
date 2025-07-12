@@ -29,9 +29,6 @@
     <Content Update="data\plan\fdd7b0ad-9e98-444a-b847-aa65f8aba909.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Update="data\schedules\b5b2616d-16db-4310-9eac-e919c34cbc43.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Update="data\schedules\schedules.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

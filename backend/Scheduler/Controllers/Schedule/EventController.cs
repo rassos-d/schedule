@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+/*using Microsoft.AspNetCore.Mvc;
 using Scheduler.DataAccess;
 using Scheduler.DataAccess.General;
 using Scheduler.DataAccess.Plan;
@@ -112,4 +112,4 @@ public class EventController : ControllerBase
         _scheduleRepo.DeleteSchedule(scheduleId);
         return NoContent();
     }
-}
+}*/

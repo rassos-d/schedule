@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Scheduler.Dto;
 using Scheduler.Dto.General.Squad;
+using Scheduler.Entities.Constants;
 using Scheduler.Services;
 using Scheduler.Services.General;
 
@@ -11,9 +12,9 @@ namespace Scheduler.Controllers.General;
 public class SquadController(SquadService service) : ControllerBase
 {
     [HttpGet]
-    public IActionResult Find()
+    public IActionResult Find([FromQuery] StudyYear? studyYear)
     {
-        var squads = service.Find();
+        var squads = service.Find(studyYear);
         return Ok(squads);
     }
 
