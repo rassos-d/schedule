@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="EPPlus" Version="8.0.7" />
     <PackageReference Include="Microsoft.OpenApi" Version="1.6.24" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.3" />
   </ItemGroup>
@@ -16,6 +17,9 @@
   <ItemGroup>
     <Content Include="..\.dockerignore">
       <Link>.dockerignore</Link>
+    </Content>
+    <Content Include="Export\template.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
