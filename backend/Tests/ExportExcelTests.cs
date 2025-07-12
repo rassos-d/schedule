@@ -12,9 +12,9 @@ namespace Tests
         public void Setup()
         {
             export = new ExcelExportService(
-                new GeneralRepository(),
-                new PlanRepository(),
-                new ScheduleRepository()
+                // new GeneralRepository(),
+                // new PlanRepository(),
+                // new ScheduleRepository()
             );
         }
 
