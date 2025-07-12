@@ -1,3 +1,5 @@
+import { Lesson } from "./lesson"
+
 export type SmallShedule = {
   id: string,
   name: string
@@ -5,22 +7,31 @@ export type SmallShedule = {
 
 export type CreateSchedule = {
   name: string
-  years: CreateScheduleYear[]
+  pages: CreateScheduleYear[]
 }
 
 export type CreateScheduleYear = {
-  year: number, 
-  squards: ScheduleSquard[], 
-  start_date: string, 
-  end_date: string
+  studyYear: number, 
+  squads: ScheduleSquad[], 
+  start: string, 
+  end: string
 }
 
-export type ScheduleSquard = {name: string, id: string}
+export type ScheduleSquad = {name: string, id: string}
+
+
+export type ScheduleResponse = {
+  scheduleId: string
+  studyYear: number
+  dates: string[]
+  squads: string[]
+  events: Event[]
+}
 
 export type Shedule = {
   id: string
   name: string
-  squards: Squard[] 
+  squads: Squard[] 
 }
 
 type Squard = {
@@ -31,23 +42,3 @@ type Squard = {
 }
 
 export type Event = Record<string, (Lesson | {number: number})[]>
-
-export type Lesson = {
-  lesson_id: string
-  lesson_name: string
-  teacher_id: string
-  teacher_name: string
-  audience_name: string
-  number: number
-}
-
-export type FreeLesson = Omit<Lesson, "number"> & {squardIndex: number}
-
-export type NewLesson = {
-  date: string
-  number: number
-  squardIndex: number
-  lesson_name?: string
-  teacher_name?: string
-  audience_nane?: string
-}

@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async'
 import styles from './main.module.scss'
 import axios, { PagesURl } from '../../services/api/api'
 import { useEffect, useState } from 'react'
-import { CreateSchedule, CreateScheduleYear, ScheduleSquard, SmallShedule } from '../../types/shedule'
+import { CreateSchedule, CreateScheduleYear, ScheduleSquad, SmallShedule } from '../../types/shedule'
 import { Icon } from '../../components/icon'
 import { Button } from '../../components/button/button'
 import PopupContainer from '../../components/popupContainer/popupContainer'
@@ -10,14 +10,15 @@ import { AddInput, Input } from '../../components/input/Input'
 import { useNavigate } from 'react-router-dom'
 import { COURSES_YEAR } from '../../consts/tabs'
 import { cloneObject, getUniqueElements } from '../../utils'
+import { Squad } from '../../types/squad'
 
-const SQUARDS = [{name: 'Д-323', id: 'Д-323'}, {name: 'Д-324', id: 'Д-324'}, {name: 'Д-325', id: 'Д-325'}]
 
 export default function Main () {
 
     const [shedules, setShedules] = useState<SmallShedule[]>()
     const [newSchedule, setNewSchedule] = useState<CreateSchedule>()
     const [freeCoursesYear, setFreeCoursesYear] = useState(COURSES_YEAR)
+    const [squads, setSquads] = useState<Squad[]>()
     const navigate = useNavigate()
 
 
@@ -30,15 +31,23 @@ export default function Main () {
         handleGetShedules()
     }
     const handleCreateShedule = async (schedule: CreateSchedule) => {
-        console.log(schedule)
-        /* const {data} = await axios.post<{data: string}>(PagesURl.SHEDULE, {
-            name: name
-        }) */
-        /* navigate(`/${data.data}`) */
+        const transformedSchedule = {
+            ...schedule,
+            pages: schedule.pages.map(page => ({
+                ...page,
+                squads: page.squads.map(squad => squad.id)
+            }))
+        };
+        const {data} = await axios.post<{data: string}>(PagesURl.SHEDULE, transformedSchedule)
+        navigate(`/${data.data}`)
+    }
+    const handleGetAllSquads = async () => {
+        const {data} = await axios.get<Squad[]>(PagesURl.SQUAD)
+        setSquads(data)
     }
 
     const getFreeYears = (scheduleYears: CreateScheduleYear[]) => {
-        const newFreeYears = [...COURSES_YEAR, ...scheduleYears.map((year)=>year.year)]
+        const newFreeYears = [...COURSES_YEAR, ...scheduleYears.map((year)=>year.studyYear)]
         const unique = getUniqueElements(newFreeYears)
         return unique
     }
@@ -47,12 +56,12 @@ export default function Main () {
         if (!newSchedule) return
         setNewSchedule((prev)=>{
             if (!prev) return 
-            const freeYears = getFreeYears(prev.years)
-            return {...prev, years: [...prev.years, {
-                year: freeYears[0], 
-                squards: [], 
-                start_date: new Date().toISOString(), 
-                end_date: new Date().toISOString()
+            const freeYears = getFreeYears(prev.pages)
+            return {...prev, pages: [...prev.pages, {
+                studyYear: freeYears[0], 
+                squads: [], 
+                start: new Date().toISOString(), 
+                end: new Date().toISOString()
             }
         ]}})
     }
@@ -60,19 +69,19 @@ export default function Main () {
         setNewSchedule((prev)=>{
             if (!prev) return undefined
             const result = cloneObject(prev)
-            if (result.years[index].year !== year) {
-                result.years[index] = {...result.years[index], squards: []}
+            if (result.pages[index].studyYear !== year) {
+                result.pages[index] = {...result.pages[index], squads: []}
             }
-            result.years[index].year = year
+            result.pages[index].studyYear = year
             return result
         })
     }
 
-    const updateSquards = (newList: ScheduleSquard[], yearIndex: number) => {
+    const updateSquards = (newList: ScheduleSquad[], yearIndex: number) => {
         setNewSchedule((prev)=>{
             if (!prev) return
             const newSchedule = cloneObject(prev)
-            newSchedule.years[yearIndex].squards = newList
+            newSchedule.pages[yearIndex].squads = newList
             return newSchedule
         })
     }
@@ -80,18 +89,19 @@ export default function Main () {
         setNewSchedule((prev)=>{
             if (!prev) return
             const newSchedule = cloneObject(prev)
-            newSchedule.years[yearIndex][isStart ? 'start_date' : 'end_date'] = newDate
+            newSchedule.pages[yearIndex][isStart ? 'start' : 'end'] = newDate
             return newSchedule
         })
     }
 
     useEffect(()=>{
         if (newSchedule) {
-            setFreeCoursesYear(getFreeYears(newSchedule.years))
+            setFreeCoursesYear(getFreeYears(newSchedule.pages))
         }
     },[newSchedule])
 
     useEffect(()=>{
+        handleGetAllSquads()
         handleGetShedules()
     },[])
 
@@ -115,7 +125,7 @@ export default function Main () {
                         </div>
                     ))}
                 </div>
-                <div onClick={()=>setNewSchedule({name: '', years: []})} className={styles.container__button}><Button>Создать новое</Button></div>
+                <div onClick={()=>setNewSchedule({name: '', pages: []})} className={styles.container__button}><Button>Создать новое</Button></div>
             </div>
             {newSchedule !== undefined && 
                 <PopupContainer onClose={()=>setNewSchedule(undefined)}>
@@ -123,26 +133,27 @@ export default function Main () {
                         <h2>Создание расписания</h2>
                         <div onClick={()=>setNewSchedule(undefined)} className={styles.popup__close}><Icon glyph='close' glyphColor='black'/></div>
                         <div style={{width: '95%'}}><Input value={newSchedule.name} onChange={(value)=>setNewSchedule({...newSchedule, name: value})} placeholder='Введите название'/></div>
-                        {newSchedule.years.map((year, index)=>(
-                            <div className={styles.popup__addList} key={year.year}>
+                        {newSchedule.pages.map((year, index)=>(
+                            <div className={styles.popup__addList} key={year.studyYear}>
                                 <AddInput 
                                     title='Год обучения' 
                                     singleMode 
-                                    selectedList={[{name: year.year, id: year.year}]} 
+                                    selectedList={[{name: year.studyYear, id: year.studyYear}]} 
                                     allList={freeCoursesYear.map((year)=>({name: year, id: year}))} 
                                     changeInputList={(newList)=>addNewYearToYear(Number(newList[0].id), index)}
                                 />
+                                {squads &&
                                 <AddInput
                                     title='Взвода'
-                                    selectedList={year.squards}
-                                    allList={SQUARDS}
+                                    selectedList={year.squads}
+                                    allList={squads.filter((squad)=>squad.studyYear===year.studyYear)}
                                     changeInputList={(newList)=>updateSquards(newList.map((item)=>({name: item.name.toString(), id: item.id.toString()})), index)}
-                                />
-                                <Input value={year.start_date} type='date' onChange={(val)=>updateDateYear(val, true, index)}/>
-                                <Input value={year.end_date} type='date' onChange={(val)=>updateDateYear(val, false, index)}/>
+                                />}
+                                <Input value={year.start} type='date' onChange={(val)=>updateDateYear(val, true, index)}/>
+                                <Input value={year.end} type='date' onChange={(val)=>updateDateYear(val, false, index)}/>
                             </div>
                         ))}
-                        {COURSES_YEAR.length > newSchedule.years.length && <Button onClick={addNewYear}>Добавить год обучения</Button>}
+                        {COURSES_YEAR.length > newSchedule.pages.length && <Button onClick={addNewYear}>Добавить год обучения</Button>}
                         <Button onClick={()=>handleCreateShedule(newSchedule)}>Создать расписание</Button>
                     </div>
                 </PopupContainer>
