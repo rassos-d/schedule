@@ -12,16 +12,14 @@ namespace Tests
         public void Setup()
         {
             export = new ExcelExportService(
-                // new GeneralRepository(),
-                // new PlanRepository(),
-                // new ScheduleRepository()
+                new ScheduleRepository()
             );
         }
 
         [Test]
         public void Test1()
         {
-            export.Save(Guid.NewGuid());
+            export.Save(Guid.Parse("f3f9f8cc-ec27-4c99-b1ea-05ab2f6cefee"));
         }
     }
 }

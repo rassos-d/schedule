@@ -10,7 +10,6 @@ public class ScheduleRepository : BaseRepository
 {
     private readonly Dictionary<Guid, Schedule> _schedulesCache = new();
 
-
     private const string SchedulesFileName = "schedules.json";
 
     public ScheduleRepository() : base("schedules")
@@ -35,7 +34,32 @@ public class ScheduleRepository : BaseRepository
             WriteSchedule(schedule);
         }
     }
-    
+
+    public Schedule GetSchedule(Guid scheduleId)
+    {
+        var name = GetAllScheduleInfos().First(x => x.Id == scheduleId).Name;
+
+        var scheduleDirectory = Path.Combine(DirectoryPath, scheduleId.ToString());
+        if (!Directory.Exists(scheduleDirectory))
+        {
+            throw new ArgumentException($"Not found {nameof(scheduleId)}={scheduleId}");
+        }
+
+        var trimStartIndex = DirectoryPath.Length;
+        var files = Directory.GetFiles(scheduleDirectory);
+        var result = new List<SchedulePage>(files.Length);
+        foreach (var pagePath in files.Select(x => x[(trimStartIndex+1)..]))
+        {
+            var json = ReadFile(pagePath);
+            result.Add(JsonSerializer.Deserialize<SchedulePage>(json, JsonOptions)!);
+        }
+
+        return new Schedule()
+        {
+            Name = name,
+            Pages = result
+        };
+    }
 
     public SchedulePage GetSchedulePage(Guid id, StudyYear studyYear)
     {
@@ -46,13 +70,12 @@ public class ScheduleRepository : BaseRepository
             {
                 return page;
             }
-            
+
             page = LoadSchedulePage(id, studyYear);
-            schedule.Pages.Add(page); 
-            return page;   
+            schedule.Pages.Add(page);
+            return page;
         }
 
-        GetAllScheduleInfos();
         var pageNew = LoadSchedulePage(id, studyYear);
         _schedulesCache[id].Pages.Add(pageNew);
         return pageNew;
