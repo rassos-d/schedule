@@ -1,4 +1,5 @@
-import { Event, Lesson, Shedule } from "../types/shedule";
+import { Lesson } from "../types/lesson";
+import { Event, Shedule } from "../types/shedule";
 
 export function getShedule (events: Event) {
   let result: Record<string, (Lesson | {number: number})[]> = {} 
@@ -18,7 +19,7 @@ export function getShedule (events: Event) {
 
 export function getFullShedule (shedule:Shedule) {
   const newShedule:Shedule = JSON.parse(JSON.stringify(shedule))
-  for (const squard of newShedule.squards) {
+  for (const squard of newShedule.squads) {
     squard.events = getShedule(squard.events)
   }
   return newShedule

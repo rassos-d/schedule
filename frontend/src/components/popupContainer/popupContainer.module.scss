@@ -12,6 +12,7 @@
   justify-content: center;
   align-items: center;
   &__content {
+    scrollbar-width: none;
     height: fit-content;
     max-height: 100vh;
     max-height: -webkit-fill-available;

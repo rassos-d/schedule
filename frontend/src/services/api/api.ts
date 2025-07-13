@@ -13,7 +13,7 @@ export const PagesURl = {
   EVENT: 'events',
   LESSON: 'lessons',
   SHEDULE: 'schedules',
-  SQUARD: 'squards',
+  SQUAD: 'squads',
   SUBJECT: 'subjects',
   TEACHER: 'teachers',
   THEME: 'themes'

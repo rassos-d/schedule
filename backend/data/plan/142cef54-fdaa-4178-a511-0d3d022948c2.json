@@ -1,0 +1,40 @@
+{
+  "Name": "\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0438\u0441\u0442\u044B",
+  "Subjects": [
+    {
+      "Name": "\u0412\u0422\u041F",
+      "DirectionId": "142cef54-fdaa-4178-a511-0d3d022948c2",
+      "Themes": [
+        {
+          "Name": "\u0422\u0435\u043C\u0430 1",
+          "SubjectId": "35d9d587-38c3-41d0-9f0a-d88bf4de5fe5",
+          "Lessons": [
+            {
+              "Name": "1",
+              "Type": 2,
+              "SubjectId": "35d9d587-38c3-41d0-9f0a-d88bf4de5fe5",
+              "ThemeId": "fbacd35a-2e30-485c-97da-92996415e57c",
+              "Id": "16a6b8b6-cb05-4352-a64a-a8225f14159b"
+            }
+          ],
+          "Id": "fbacd35a-2e30-485c-97da-92996415e57c"
+        }
+      ],
+      "Id": "35d9d587-38c3-41d0-9f0a-d88bf4de5fe5"
+    },
+    {
+      "Name": "\u0412\u0422\u041F",
+      "DirectionId": "142cef54-fdaa-4178-a511-0d3d022948c2",
+      "Themes": [
+        {
+          "Name": "\u0422\u0435\u043C\u0430 1",
+          "SubjectId": "d4bd2755-563e-40ba-adc3-a8f4b31b8fc2",
+          "Lessons": [],
+          "Id": "9a2e1288-8a02-4d41-adbc-4198d85f6cc0"
+        }
+      ],
+      "Id": "d4bd2755-563e-40ba-adc3-a8f4b31b8fc2"
+    }
+  ],
+  "Id": "142cef54-fdaa-4178-a511-0d3d022948c2"
+}

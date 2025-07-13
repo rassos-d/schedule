@@ -89,11 +89,12 @@ type AddInputProps = {
   selectedList: AddInputList[]
   allList: AddInputList[]
   title: string
-  placeholder: string
+  minWidth?: number
+  placeholder?: string
   singleMode?:boolean
   displaySelected?: boolean
-  totalParts: number
-  currentPart: number
+  totalParts?: number
+  currentPart?: number
   isError?: boolean
 }
 
