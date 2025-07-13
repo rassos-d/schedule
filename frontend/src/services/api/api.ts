@@ -12,7 +12,7 @@ export const PagesURl = {
   DIRECTION: 'directions',
   EVENT: 'events',
   LESSON: 'lessons',
-  SHEDULE: 'schedules',
+  SCHEDULE: 'schedules',
   SQUAD: 'squads',
   SUBJECT: 'subjects',
   TEACHER: 'teachers',

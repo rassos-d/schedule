@@ -1,10 +1,10 @@
 import { memo, useEffect, useRef } from 'react'
 import styles from './drop.module.scss'
 import { useDrag, useDrop } from 'react-dnd'
-import { Lesson as TLesson } from '../../types/shedule'
+import { SheduleLesson } from '../../types/lesson'
 
 type LessonProps = {
-  lesson: TLesson;
+  lesson: SheduleLesson;
   onMove: (target: DropResult, date: string, number: number) => void;
   onStartDragging: () => void
   date: string
@@ -16,7 +16,7 @@ type LessonProps = {
 type DropResult = {
   date: string;
   number: number;
-  lesson?: TLesson
+  lesson?: SheduleLesson
 } | { activeSquardIndex: number }
 
 function LessonComponent({ lesson, date, number, squardIndex, onMove, onStartDragging }: LessonProps) {
@@ -63,9 +63,9 @@ function LessonComponent({ lesson, date, number, squardIndex, onMove, onStartDra
     <div className={styles.dragLessonContainer}>
       <div ref={ref} style={{ opacity: isDragging ? 0.5 : 1 }}>
         <p>ТСП</p>
-        <p>{lesson.lesson_name}</p>
-        <p>ВО-404</p>
-        <p>п-к Кизюн Н.Н.</p>
+        <p>{lesson.lessonName}</p>
+        <p>{lesson.audienceName}</p>
+        <p>{lesson.teacherName}</p>
       </div>
     </div>
   );

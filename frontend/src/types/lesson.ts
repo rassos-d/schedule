@@ -1,27 +1,43 @@
-export type LessonResponse = {
-  name: string,
-  type: 2,
-  subjectId: string,
-  themeId: string,
-  id: string
-}
+import { AddInputList } from "./input"
 
 export type Lesson = {
   name: string
-  subject: string
-  theme: string
   subjectId: string,
   themeId: string,
   id: string
+  type: number
 }
 
-export type FreeLesson = Omit<Lesson, "number"> & {squardIndex: number}
+export type FreeLesson = Omit<SheduleLesson, "number" | "date"> & {squardIndex: number}
 
 export type NewLesson = {
   date: string
   number: number
   squardIndex: number
-  lesson_name?: string
-  teacher_name?: string
-  audience_nane?: string
+  lesson?: AddInputList
+  teacher?: AddInputList
+  audience?: AddInputList
+  theme?:AddInputList
+  subject?: AddInputList
+}
+
+export type NewLessonRequest = {
+  id: string,
+  scheduleId: string,
+  lessonId: string,
+  squadId: string,
+  teacherId: string,
+  audienceId: string,
+  number: number,
+  date: string
+}
+
+export type SheduleLesson = {
+  id: string,
+  teacherName?: string,
+  audienceName?: string,
+  lessonName?: string,
+  squadName?: string,
+  number: number,
+  date: string
 }

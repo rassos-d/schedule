@@ -4,32 +4,32 @@
     "8e5fc8a5-0af9-41b1-a78f-088c87264927": {
       "Name": "\u0414-323",
       "StudyYear": 3,
-      "DaddyId": "8e63fe90-7284-4569-89bb-320150b99928",
-      "FixedAudienceId": "c940fcae-543d-4f7e-a188-ad49a6b763ed",
+      "DaddyId": "10945b5a-9088-4dad-948d-02ffe032c3c6",
+      "FixedAudienceId": "7d072108-7fe0-4643-b345-65068603d5ae",
       "DirectionId": "142cef54-fdaa-4178-a511-0d3d022948c2",
       "Id": "8e5fc8a5-0af9-41b1-a78f-088c87264927"
     },
     "f1ee8a3b-632c-42dc-9f8a-a5405b0b8b91": {
       "Name": "\u0420-3231",
       "StudyYear": 3,
-      "DaddyId": "14ba229b-a96c-4405-83e1-68e4925076fb",
-      "FixedAudienceId": "7fa76003-e55e-423f-9e7b-2972d566031f",
+      "DaddyId": "9be6cfb7-da14-462b-a3bb-d217c58802fc",
+      "FixedAudienceId": "7e3b577d-6be9-4aa7-8048-e90954b8b7fe",
       "DirectionId": "569ce176-1559-44eb-b360-8ecf49ea3292",
       "Id": "f1ee8a3b-632c-42dc-9f8a-a5405b0b8b91"
     },
     "c3ac8757-cf81-4f42-ac5e-fff792245f63": {
       "Name": "\u0420-3232",
-      "StudyYear": 2,
-      "DaddyId": "14ba229b-a96c-4405-83e1-68e4925076fb",
-      "FixedAudienceId": "7fa76003-e55e-423f-9e7b-2972d566031f",
+      "StudyYear": 3,
+      "DaddyId": "6338c3ea-1ea1-4f65-860c-ca89ad60795f",
+      "FixedAudienceId": "1b287a98-fcd9-4249-b7f8-fce5cd618f08",
       "DirectionId": "569ce176-1559-44eb-b360-8ecf49ea3292",
       "Id": "c3ac8757-cf81-4f42-ac5e-fff792245f63"
     },
     "1f45e363-83e5-4184-a938-f5e0a951040d": {
       "Name": "\u0410-323",
-      "StudyYear": 1,
-      "DaddyId": "b9fb6593-5af4-4764-90e8-b3d39376784b",
-      "FixedAudienceId": "99845482-7f92-41fc-9df7-95ca00b63e07",
+      "StudyYear": 3,
+      "DaddyId": "9be6cfb7-da14-462b-a3bb-d217c58802fc",
+      "FixedAudienceId": "7e3b577d-6be9-4aa7-8048-e90954b8b7fe",
       "DirectionId": "86d7c220-e2e2-4934-a549-e47d828e290a",
       "Id": "1f45e363-83e5-4184-a938-f5e0a951040d"
     }

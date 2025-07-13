@@ -128,7 +128,7 @@ export function generateDateStrings([startDate, endDate]:Date[]) {
 
 /**
  * удаление года из даты формата yyyy-mm-dd и получение даты в формате dd.mm
- * @param dateStr дата начала и дата конца формате [Date, Date]
+ * @param dateStr дата начала и дата конца формате yyyy-mm-dd
  * @returns дата в формате dd.mm
  */
 export function getWeekDayAndDate(dateStr: string): string {

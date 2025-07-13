@@ -5,3 +5,8 @@ export type Teacher = {
   subjectIds: string[],
   id: string
 }
+
+export type NewTeacher = {
+  name: string
+  rank: string
+}

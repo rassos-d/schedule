@@ -1,4 +1,5 @@
-import { Theme } from "react-toastify"
+import { Theme } from "./theme"
+
 
 export type Subject = {
   id: string

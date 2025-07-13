@@ -1,3 +1,5 @@
+import { AddInputList } from "./input"
+
 export type Squad = {
   name: string,
   studyYear: number,
@@ -6,6 +8,17 @@ export type Squad = {
   directionId: string,
   id: string
 }
+
+export type EditSquad = {
+  id: string
+  name: string
+  studyYear?: AddInputList
+  daddy?: AddInputList
+  fixedAudience?: AddInputList
+  direction?: AddInputList
+}
+
+export type NewSquad = Omit<EditSquad, "id">
 
 /* export type Squad = {
   name: string,

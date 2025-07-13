@@ -1,4 +1,4 @@
-import { Lesson } from "./lesson"
+import { SheduleLesson } from "./lesson"
 
 export type SmallShedule = {
   id: string,
@@ -20,25 +20,25 @@ export type CreateScheduleYear = {
 export type ScheduleSquad = {name: string, id: string}
 
 
-export type ScheduleResponse = {
+export type Schedule = {
   scheduleId: string
-  studyYear: number
-  dates: string[]
-  squads: string[]
-  events: Event[]
+  name: string
+  squads: Squad[]
+  noName: Omit<SheduleLesson, 'number' | 'date'>[]
 }
 
-export type Shedule = {
+type Squad = {
   id: string
   name: string
-  squads: Squard[] 
-}
-
-type Squard = {
-  id: string
-  name: string
+  teacherName?: string
+  directionName?: string
+  audienceName?: string
   events: Event
-  noname?: Lesson[]
 }
 
-export type Event = Record<string, (Lesson | {number: number})[]>
+export type ChangeLessonReponse = {
+  conflictEventIds: string[]
+  message?: string
+}
+
+export type Event = Record<string, (SheduleLesson | {number: number})[]>

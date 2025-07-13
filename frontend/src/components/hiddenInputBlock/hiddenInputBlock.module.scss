@@ -1,0 +1,31 @@
+.hiddenInput {
+  padding: 10px 15px; 
+  border-radius: var(--medium-border-radius);
+  &:first-child {
+    padding-top: 20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  &:hover {
+    background-color: var(--ultra-light-grey-color);
+  }
+  &__line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: text;
+  }
+  &__icons {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    cursor: pointer;
+  }
+  &__input {
+    background-color: transparent;
+    @include text_body();
+  }
+  &__enter {
+    cursor: pointer;
+  }
+}

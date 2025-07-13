@@ -17,7 +17,7 @@ type InputProps = {
   validateChecker?: (value: string) => boolean
 }
 
-export function Input ({placeholder, value, required, type, maxValues, isError, onChange, name, validateChecker, errorText}:InputProps) {
+export function Input({ placeholder, value, required, type, maxValues, isError, onChange, name, validateChecker, errorText }: InputProps) {
 
   const textarea = useRef<HTMLTextAreaElement>(null)
   const [rows, setRows] = useState(1);
@@ -42,7 +42,7 @@ export function Input ({placeholder, value, required, type, maxValues, isError, 
     onChange(value)
   }
 
-  useEffect(() => { 
+  useEffect(() => {
     if (textarea.current) {
       const lineHeight = parseInt(window.getComputedStyle(textarea.current).lineHeight, 10);
       const newRows = Math.ceil(textarea.current.scrollHeight / lineHeight) - 1;
@@ -51,47 +51,47 @@ export function Input ({placeholder, value, required, type, maxValues, isError, 
   }, [textarea]);
 
   if (type === 'date') {
-    return <input type="date" value={value} className={`${styles.input} ${isError ? styles.input_error : ''}`} onChange={(e)=>{changeValue(e.target.value)}}/>
+    return <input type="date" value={value} className={`${styles.input} ${isError ? styles.input_error : ''}`} onChange={(e) => { changeValue(e.target.value) }} />
   }
   if (type === 'time') {
-    return  <input
-    type='time'
-    min="08:00" 
-    max="19:00"
-    name={name}
-    maxLength={maxValues} required={required} 
-    className={`${styles.input} ${isError ? styles.input_error : ''}`} 
-    placeholder={placeholder} value={value} 
-    onChange={(e)=>{changeValue(e.target.value)}}
-  />
+    return <input
+      type='time'
+      min="08:00"
+      max="19:00"
+      name={name}
+      maxLength={maxValues} required={required}
+      className={`${styles.input} ${isError ? styles.input_error : ''}`}
+      placeholder={placeholder} value={value}
+      onChange={(e) => { changeValue(e.target.value) }}
+    />
   }
   return (
     <div className={`${styles.inputBlock} ${!isValid() ? styles.inputBlock_error : ''}`}>
-      {type ? 
+      {type ?
         <input
           name={name}
-          maxLength={maxValues} type={type} required={required} 
-          className={`${styles.input} ${isError ? styles.input_error : ''}`} 
-          placeholder={placeholder} value={value} 
-          onChange={(e)=>{changeValue(e.target.value)}}
+          maxLength={maxValues} type={type} required={required}
+          className={`${styles.input} ${isError ? styles.input_error : ''}`}
+          placeholder={placeholder} value={value}
+          onChange={(e) => { changeValue(e.target.value) }}
         /> :
-    <textarea name={name} required={required} maxLength={maxValues} ref={textarea} rows={rows} className={`${styles.input} ${!isValid() ? styles.input_error : ''}`}  placeholder={placeholder} value={value} onChange={(e)=>{changeTextarea(e.target.value)}}/>}
-    {type === 'search' && value !== '' && <img onClick={()=>{onChange('')}} className={styles.input__clear} src='/icons/close.svg'/>}
-    {!isValid() && <p className={styles.errorText}>{errorText ? errorText : 'Это поле обязательное для заполнения'}</p>}
+        <textarea name={name} required={required} maxLength={maxValues} ref={textarea} rows={rows} className={`${styles.input} ${!isValid() ? styles.input_error : ''}`} placeholder={placeholder} value={value} onChange={(e) => { changeTextarea(e.target.value) }} />}
+      {type === 'search' && value !== '' && <img onClick={() => { onChange('') }} className={styles.input__clear} src='/icons/close.svg' />}
+      {!isValid() && <p className={styles.errorText}>{errorText ? errorText : 'Это поле обязательное для заполнения'}</p>}
     </div>
   )
 }
 
 type AddInputProps = {
   changeInputList: (newList: AddInputList[]) => void
-  onSeeMore?: (searchValue?:string) => void
-  onSearch?: (searchValue?:string) => void
+  onSeeMore?: (searchValue?: string) => void
+  onSearch?: (searchValue?: string) => void
   selectedList: AddInputList[]
   allList: AddInputList[]
   title: string
   minWidth?: number
   placeholder?: string
-  singleMode?:boolean
+  singleMode?: boolean
   displaySelected?: boolean
   totalParts?: number
   currentPart?: number
@@ -106,15 +106,15 @@ export function AddInput({ selectedList, changeInputList, allList, title, placeh
 
   const changeSearchValue = (newvalue: string) => {
     setSearchValue(newvalue)
-    if (onSearch){
-      onSearch(newvalue!=='' ? newvalue : undefined)
+    if (onSearch) {
+      onSearch(newvalue !== '' ? newvalue : undefined)
     }
   }
 
 
   const changeList = (value: AddInputList) => {
     let newList = selectedList.slice()
-    const valueIndex = selectedList.findIndex((item)=>item.id === value.id)
+    const valueIndex = selectedList.findIndex((item) => item.id === value.id)
     if (valueIndex !== -1) {
       newList = removeElementAtIndex(newList, valueIndex)
       changeInputList(newList)
@@ -130,10 +130,10 @@ export function AddInput({ selectedList, changeInputList, allList, title, placeh
   }
 
   const seeMore = () => {
-    if (!onSeeMore){
+    if (!onSeeMore) {
       return
     }
-    onSeeMore(searchValue!=='' ? searchValue : undefined)
+    onSeeMore(searchValue !== '' ? searchValue : undefined)
   }
 
   const getTitleColor = () => {
@@ -158,20 +158,41 @@ export function AddInput({ selectedList, changeInputList, allList, title, placeh
         <Icon glyph={`arrow-${displayList ? 'up' : 'down'}`} glyphColor={getTitleColor()} />
       </div>
       {displayList && <div className={styles.list__list}>
-        {onSearch && 
-        <div className={styles.list__line}>
-          <Icon glyph='search' glyphColor='grey' />
-          <input value={searchValue} onChange={(e) => { changeSearchValue(e.target.value) }} placeholder={`${placeholder}...`} className={styles.list__search} />
-          {searchValue!=='' && <img onClick={()=>{changeSearchValue('')}} className={styles.input__clear} src='/icons/close.svg'/>}
-        </div>}
+        {onSearch &&
+          <div className={styles.list__line}>
+            <Icon glyph='search' glyphColor='grey' />
+            <input value={searchValue} onChange={(e) => { changeSearchValue(e.target.value) }} placeholder={`${placeholder}...`} className={styles.list__search} />
+            {searchValue !== '' && <img onClick={() => { changeSearchValue('') }} className={styles.input__clear} src='/icons/close.svg' />}
+          </div>}
         {allList.map((el) => (
           <p key={el.id} onClick={() => { changeList(el) }} className={styles.list__line}>
-            <img src={`/icons/${singleMode ? 'radioButton': 'checkbox'}/${selectedList.findIndex((item)=>item.id === el.id) !== -1 ? 'active' : 'disable'}.svg`} />
+            <img src={`/icons/${singleMode ? 'radioButton' : 'checkbox'}/${selectedList.findIndex((item) => item.id === el.id) !== -1 ? 'active' : 'disable'}.svg`} />
             <p>{el.name}</p>
           </p>
         ))}
-        {totalParts !== currentPart && onSeeMore && allList.length!==0 && <p onClick={seeMore} className={styles.list__showMore}>Показать еще...</p>}
+        {totalParts !== currentPart && onSeeMore && allList.length !== 0 && <p onClick={seeMore} className={styles.list__showMore}>Показать еще...</p>}
       </div>}
+    </div>
+  )
+}
+
+type HiddenInputProps = {
+  value: string
+  onEnter: (newValue: string) => void
+}
+
+export function HiddenInput({value, onEnter}:HiddenInputProps) {
+
+  const [editValue, setEditValue] = useState(value)
+
+  useEffect(()=>{
+    setEditValue(value)
+  },[value])
+
+  return (
+    <div className={styles.hiddenInput__line}>
+      <input className={styles.hiddenInput__input} value={editValue} onChange={(e) => setEditValue(e.target.value)} />
+      <div onClick={()=>onEnter(editValue)} className={styles.hiddenInput__enter}><Icon glyph='check' glyphColor='black' /></div>
     </div>
   )
 }
