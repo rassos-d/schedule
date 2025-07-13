@@ -100,6 +100,7 @@ public class EventService
 
         return new GetEventsByScheduleResponse
         {
+            ScheduleId = schedulePage.ScheduleId,
             Squads = ConvertToSquads(schedulePage
                     .Events.Where(e => e.Date != null && e.Number != null)
                     .ToList(),
