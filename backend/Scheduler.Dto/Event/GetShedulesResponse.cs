@@ -1,9 +1,7 @@
 using Scheduler.Dto.General.Squad;
 
-public class GetScheduleResponse
+public class GetEventsByScheduleResponse
 {
-    public string Name { get; set; }
-
     public List<GetSquadResponse> Squads { get; set; }
 
     public List<EventsResponse> NoName { get; set; }

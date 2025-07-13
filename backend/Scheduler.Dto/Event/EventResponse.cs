@@ -12,6 +12,4 @@ public class EventResponse
     public LessonResponse Lesson { get; set; }
     
     public GetSquadResponse Squad { get; set; }
-    
-    
 }

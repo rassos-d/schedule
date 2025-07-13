@@ -1,6 +1,6 @@
 using System.Text.Json;
 using Scheduler.DataAccess.Base;
-using Scheduler.Entities.Constants;
+using Scheduler.Dto.Constants;
 using Scheduler.Entities.Schedule;
 using Scheduler.Models;
 
@@ -25,6 +25,19 @@ public class ScheduleRepository : BaseRepository
         }
         
         _schedulesCache[schedule.Id] = schedule;
+    }
+
+    public void SaveSchedulePage(SchedulePage schedulePage)
+    {
+        var schedule = _schedulesCache[schedulePage.ScheduleId];
+        var page = schedule.Pages.FirstOrDefault(x => x.StudyYear == schedulePage.StudyYear);
+        if (page is not null)
+        {
+            schedule.Pages.Remove(page);
+        }
+        
+        schedule.Pages.Add(schedulePage);
+        WriteSchedulePage(schedulePage);
     }
 
     public void UpdateSchedule(ScheduleInfo scheduleInfo)
@@ -146,12 +159,7 @@ public class ScheduleRepository : BaseRepository
             Directory.CreateDirectory(directory);
         }
 
-        var path = Path.Combine(directory, $"{studyYear}.json");
-        if (File.Exists(path) == false)
-        {
-            throw new FileNotFoundException();
-        }
-        
+        var path = $"{scheduleId}/{studyYear}.json";
         var json = ReadFile(path);
         return JsonSerializer.Deserialize<SchedulePage>(json, JsonOptions)!;
     }

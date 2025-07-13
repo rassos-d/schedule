@@ -1,5 +1,6 @@
 public class EventsResponse
 {
+    public Guid Id { get; set; }
     public string? TeacherName { get; set; }
 
     public string? AudienceName { get; set; }
@@ -8,7 +9,7 @@ public class EventsResponse
 
     public string? SquadName { get; set; }
 
-    public int? EventNumber { get; set; }
+    public int? Number { get; set; }
 
-    public DateTime? Date { get; set; }
+    public DateOnly? Date { get; set; }
 }

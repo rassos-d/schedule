@@ -1,3 +1,3 @@
 ﻿namespace Scheduler.Entities.General;
 
-public record VacationPeriod(DateTime StartDate, DateTime EndDate);
+public record VacationPeriod(DateOnly StartDate, DateOnly EndDate);

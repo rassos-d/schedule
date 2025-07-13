@@ -1,3 +1,4 @@
+using Scheduler.Dto.Constants;
 using Scheduler.Entities.Constants;
 
 namespace Scheduler.Entities.Schedule;

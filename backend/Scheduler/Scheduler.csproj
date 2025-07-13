@@ -45,4 +45,11 @@
     <ProjectReference Include="..\Scheduler.Dto\Scheduler.Dto.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="data\schedules\65cf1004-d0df-451d-b63a-8f4f5d773b80\First.json" />
+    <_ContentIncludedByDefault Remove="data\schedules\f3f9f8cc-ec27-4c99-b1ea-05ab2f6cefee\38859265-7b01-40f0-83a6-5c8aa3956c1e.json" />
+    <_ContentIncludedByDefault Remove="data\schedules\f3f9f8cc-ec27-4c99-b1ea-05ab2f6cefee\75894ea9-bc0b-423c-b969-55d1513fbdb1.json" />
+    <_ContentIncludedByDefault Remove="data\schedules\f3f9f8cc-ec27-4c99-b1ea-05ab2f6cefee\e805de6c-7cdd-47e6-b993-507b7bd0db2d.json" />
+  </ItemGroup>
+
 </Project>

@@ -1,5 +1,6 @@
 using Scheduler.DataAccess;
 using Scheduler.DataAccess.General;
+using Scheduler.Services.Events;
 using Scheduler.Services.General;
 using Scheduler.Services.Schedule;
 using PlanRepository = Scheduler.DataAccess.Plan.PlanRepository;
@@ -13,14 +14,12 @@ builder.Services.AddSingleton<PlanRepository>();
 builder.Services.AddSingleton<AudienceRepository>();
 builder.Services.AddSingleton<SquadRepository>();
 builder.Services.AddSingleton<TeacherRepository>();
+builder.Services.AddSingleton<PlanRepository>();
 
-// Service
 builder.Services.AddSingleton<SquadService>();
 builder.Services.AddSingleton<TeacherService>();
 builder.Services.AddSingleton<ScheduleService>();
-
-
-// builder.Services.AddSingleton<EventService>();
+builder.Services.AddSingleton<EventService>();
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();

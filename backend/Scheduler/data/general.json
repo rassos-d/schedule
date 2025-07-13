@@ -24,7 +24,31 @@
       "FixedAudienceId": null,
       "DirectionId": null,
       "Id": "555c6793-e553-4000-9519-650837aeaf85"
+    },
+    "6d42b68b-3714-4be6-9392-016bbeacaad3": {
+      "Name": "\u0414-323",
+      "StudyYear": null,
+      "DaddyId": null,
+      "FixedAudienceId": null,
+      "DirectionId": null,
+      "Id": "6d42b68b-3714-4be6-9392-016bbeacaad3"
+    },
+    "18cbf1da-841e-47f6-93a7-9d42c450d4c9": {
+      "Name": "\u0414-323",
+      "StudyYear": null,
+      "DaddyId": null,
+      "FixedAudienceId": null,
+      "DirectionId": null,
+      "Id": "18cbf1da-841e-47f6-93a7-9d42c450d4c9"
     }
   },
-  "Teachers": {}
+  "Teachers": {
+    "c057d020-0099-4bfa-b327-131e0d789eec": {
+      "Name": "\u041B\u0443\u043D\u0435\u0432 ",
+      "Rank": "\u043C\u0430\u0439\u043E\u0440",
+      "Vacations": [],
+      "SubjectIds": [],
+      "Id": "c057d020-0099-4bfa-b327-131e0d789eec"
+    }
+  }
 }

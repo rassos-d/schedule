@@ -8,7 +8,7 @@ public class TeacherUpdateDto
 
     public string? Rank { get; init; }
 
-    public List<Tuple<DateTime, DateTime>>? Vacations { get; init; } = [];
+    public List<Tuple<DateOnly, DateOnly>>? Vacations { get; init; } = [];
 
     public List<Guid>? SubjectIds { get; init; } = [];
 }

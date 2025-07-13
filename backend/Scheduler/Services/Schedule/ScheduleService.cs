@@ -1,5 +1,6 @@
 using Scheduler.DataAccess;
 using Scheduler.Dto;
+using Scheduler.Dto.Constants;
 using Scheduler.Dto.Schedule;
 using Scheduler.Entities.Constants;
 using Scheduler.Entities.Schedule;
