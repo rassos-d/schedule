@@ -66,8 +66,8 @@ public class EventService
         existingEvent.ScheduleId = scheduleId;
         existingEvent.TeacherId = updatedEvent.TeacherId ?? existingEvent.TeacherId;
         existingEvent.AudienceId = updatedEvent.AudienceId ?? existingEvent.AudienceId;
-        existingEvent.Date = updatedEvent.Date ?? existingEvent.Date;
-        existingEvent.Number = updatedEvent.Number ?? existingEvent.Number;
+        existingEvent.Date = updatedEvent.Date;
+        existingEvent.Number = updatedEvent.Number;
         existingEvent.LessonId = updatedEvent.LessonId ?? existingEvent.LessonId;
         existingEvent.SquadId = updatedEvent.SquadId ?? existingEvent.SquadId;
 
