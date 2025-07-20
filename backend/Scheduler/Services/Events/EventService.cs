@@ -233,10 +233,10 @@ public class EventService(
             Number = @event.Number,
             Teacher = @event.TeacherId.HasValue ? ConvertToResponse(@event.TeacherId.Value, teacherNames.GetValueOrDefault(@event.TeacherId.Value)) : null,
             Squad = @event.SquadId.HasValue ? ConvertToResponse(@event.SquadId.Value, squads.GetValueOrDefault(@event.TeacherId.Value).Name) : null,
-            Lesson = ConvertToResponse(@event.LessonId.Value, lesson.Name),
+            Lesson = ConvertToResponse(@event.LessonId, lesson?.Name),
             LessonType = lesson.Type,
-            Theme = ConvertToResponse(@event.ThemeId.Value, theme.Name),
-            Subject = ConvertToResponse(subject.Id, subject.Name),
+            Theme = ConvertToResponse(@event.ThemeId, theme?.Name),
+            Subject = ConvertToResponse(subject?.Id, subject?.Name),
         };
     }
 
