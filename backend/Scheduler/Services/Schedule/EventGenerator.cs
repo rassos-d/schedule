@@ -10,11 +10,10 @@ public class EventGenerator(SquadRepository squadRepo, PlanRepository planRepo)
     public void Generate(SchedulePage page)
     {
         int[] lessonNumbers = { 1, 2, 4, 5 };
-        var currentNumberIndex = 0;
-        var currentDateIndex = 0;
-        
         foreach(var squadId in page.Squads)
         {
+            var currentNumberIndex = 0;
+            var currentDateIndex = 0;
             var squad = squadRepo.Get(squadId);
             var themes = planRepo.FindThemesForSemester(squad.DirectionId.Value, page.Semester);
             var lessons = themes.SelectMany(x => x.Lessons);

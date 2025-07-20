@@ -1,19 +1,20 @@
+using Scheduler.Dto;
 using Scheduler.Entities.Constants;
 
 public class EventsResponse
 {
     public Guid Id { get; set; }
-    public string? TeacherName { get; set; }
+    public EntityNameResponse? Teacher { get; set; }
 
-    public string? AudienceName { get; set; }
+    public EntityNameResponse? Audience { get; set; }
 
-    public string? LessonName { get; set; }
+    public EntityNameResponse? Lesson { get; set; }
 
-    public string? SquadName { get; set; }
+    public EntityNameResponse? Squad { get; set; }
     
-    public string? ThemeName { get; set; }
+    public EntityNameResponse? Theme { get; set; }
     
-    public string? SubjectName { get; set; }
+    public EntityNameResponse? Subject { get; set; }
     
     public LessonType? LessonType { get; set; }
 

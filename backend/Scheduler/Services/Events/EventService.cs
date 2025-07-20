@@ -90,7 +90,6 @@ public class EventService(
         var schedule = scheduleRepository
             .GetAllScheduleInfos()
             .First(x => x.Id == schedulePage.ScheduleId);
-
         return new GetEventsByScheduleResponse
         {
             ScheduleId = schedulePage.ScheduleId,
@@ -198,7 +197,9 @@ public class EventService(
         foreach (var pair in eventBySquad)
         {
             var squad = squads[pair.Key];
-            var direction = squad.DirectionId is not null ? planRepository.GetDirection(squad.DirectionId!.Value) : null;
+            var direction = squad.DirectionId is not null
+                ? planRepository.GetDirection(squad.DirectionId!.Value)
+                : null;
             var eventsDictionary = pair.Value
                 .GroupBy(events => events.Date)
                 .OrderBy(v => v.Key)
@@ -227,15 +228,26 @@ public class EventService(
         return new EventsResponse
         {
             Id = @event.Id,
-            AudienceName = @event.AudienceId.HasValue ? audienceNames.GetValueOrDefault(@event.AudienceId.Value) : null,
+            Audience = @event.AudienceId.HasValue ? ConvertToResponse(@event.AudienceId.Value, audienceNames.GetValueOrDefault(@event.AudienceId.Value)) : null,
             Date = @event.Date,
             Number = @event.Number,
-            TeacherName = @event.TeacherId.HasValue ? teacherNames.GetValueOrDefault(@event.TeacherId.Value) : null,
-            SquadName = @event.SquadId.HasValue ? squads.GetValueOrDefault(@event.SquadId.Value)?.Name : null,
-            LessonName = lesson?.Name,
-            LessonType = lesson?.Type,
-            ThemeName = theme?.Name,
-            SubjectName = subject?.Name,
+            Teacher = @event.TeacherId.HasValue ? ConvertToResponse(@event.TeacherId.Value, teacherNames.GetValueOrDefault(@event.TeacherId.Value)) : null,
+            Squad = @event.SquadId.HasValue ? ConvertToResponse(@event.SquadId.Value, squads.GetValueOrDefault(@event.TeacherId.Value).Name) : null,
+            Lesson = ConvertToResponse(@event.LessonId.Value, lesson.Name),
+            LessonType = lesson.Type,
+            Theme = ConvertToResponse(@event.ThemeId.Value, theme.Name),
+            Subject = ConvertToResponse(subject.Id, subject.Name),
+        };
+    }
+
+    private EntityNameResponse? ConvertToResponse(Guid? id, string? name)
+    {
+        if (id is null || name is null)
+            return null;
+        return new EntityNameResponse
+        {
+            Id = id.Value,
+            Name = name
         };
     }
 }
