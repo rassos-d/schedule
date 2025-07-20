@@ -10,7 +10,7 @@ namespace Scheduler.Controllers.Schedule;
 
 [ApiController]
 [Route("api/schedules")]
-public class ScheduleController(ScheduleService service, EventService eventService) : ControllerBase
+public class ScheduleController(ScheduleService service) : ControllerBase
 {
     [HttpGet("find")]
     public IActionResult Find()
@@ -22,7 +22,7 @@ public class ScheduleController(ScheduleService service, EventService eventServi
     [HttpGet("{scheduleId:guid}/pages/{studyYear}")]
     public IActionResult GetPage(Guid scheduleId, StudyYear studyYear)
     {
-        var response = eventService.GetEventsBySchedule(scheduleId, studyYear);
+        var response = service.GetPage(scheduleId, studyYear);
         return Ok(response);
     }
     

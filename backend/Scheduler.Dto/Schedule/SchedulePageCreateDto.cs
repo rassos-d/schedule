@@ -1,11 +1,12 @@
 using Scheduler.Dto.Constants;
-using Scheduler.Entities.Constants;
 
 namespace Scheduler.Dto.Schedule;
 
 public class SchedulePageCreateDto
 {
     public required StudyYear StudyYear { get; init; }
+    
+    public required Semester Semester { get; init; }
 
     public required List<Guid> Squads { get; init; } = [];
     

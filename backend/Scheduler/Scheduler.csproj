@@ -17,16 +17,7 @@
     <Content Include="..\.dockerignore">
       <Link>.dockerignore</Link>
     </Content>
-    <Content Update="data\plan\0cc32dc9-dafe-4d2a-9fc6-aa7b6676a0b8.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="data\plan\1700659a-a2fe-45e5-ab00-d5b57a9c6c9f.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Update="data\plan\directions.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Update="data\plan\fdd7b0ad-9e98-444a-b847-aa65f8aba909.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="data\schedules\schedules.json">
@@ -46,6 +37,7 @@
     <_ContentIncludedByDefault Remove="data\schedules\f3f9f8cc-ec27-4c99-b1ea-05ab2f6cefee\38859265-7b01-40f0-83a6-5c8aa3956c1e.json" />
     <_ContentIncludedByDefault Remove="data\schedules\f3f9f8cc-ec27-4c99-b1ea-05ab2f6cefee\75894ea9-bc0b-423c-b969-55d1513fbdb1.json" />
     <_ContentIncludedByDefault Remove="data\schedules\f3f9f8cc-ec27-4c99-b1ea-05ab2f6cefee\e805de6c-7cdd-47e6-b993-507b7bd0db2d.json" />
+    <_ContentIncludedByDefault Remove="data\schedules\bcb2fbf4-7ca6-451c-87a5-6c069cc486ff\Third.json" />
   </ItemGroup>
 
 </Project>

@@ -18,9 +18,9 @@ public class EventGenerator(ScheduleRepository scheduleRepo, SquadRepository squ
         foreach(var squadId in page.Squads)
         {
             var squad = squadRepo.Get(squadId);
-            var themes = planRepo.FindThemes(directionId: squad.DirectionId, semester: page.Semester);
-            var lessons = themes.SelectMany(x => x.Lessons).Select(x => x.Id);
-            foreach(var lessonId in lessons)
+            var themes = planRepo.FindThemesForSemester(squad.DirectionId.Value, page.Semester);
+            var lessons = themes.SelectMany(x => x.Lessons);
+            foreach(var lesson in lessons)
             {
                 var @event = new Event
                 {
@@ -28,7 +28,9 @@ public class EventGenerator(ScheduleRepository scheduleRepo, SquadRepository squ
                     SquadId = squadId,
                     AudienceId = squad.FixedAudienceId,
                     TeacherId = squad.DaddyId,
-                    LessonId = lessonId,
+                    LessonId = lesson.Id,
+                    ThemeId = lesson.ThemeId,
+                    SubjectId = lesson.SubjectId,
                     Date = page.Dates[currentDateIndex],
                     Number = lessonNumbers[currentNumberIndex]
                 };
