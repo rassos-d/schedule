@@ -40,7 +40,7 @@ namespace Scheduler.Controllers.Plan
         {
             var lesson = new Lesson
             {
-                Name = dto.Name, Type = dto.Type, ThemeId = dto.ThemeId, SubjectId = dto.SubjectId
+                Name = dto.Name, Type = dto.Type, ThemeId = dto.ThemeId, SubjectId = dto.SubjectId, Number = dto.Number
             };
             _planRepository.SaveLesson(lesson);
             return Ok(new SimpleDto<Guid>(lesson.Id));

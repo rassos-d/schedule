@@ -5,7 +5,11 @@ namespace Scheduler.Entities.Plan;
 
 public class Lesson : Entity
 {
-    public required string Name { get; set; }
+    public string Name { get; set; }
+
+    public int Number { get; set; }
+
+    public int SelfStudyHours { get; set; }
 
     public LessonType Type { get; set; }
     

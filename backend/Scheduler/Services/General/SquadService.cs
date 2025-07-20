@@ -1,5 +1,6 @@
 using Scheduler.DataAccess.General;
 using Scheduler.Dto;
+using Scheduler.Dto.Constants;
 using Scheduler.Dto.General.Squad;
 using Scheduler.Entities.Constants;
 using Scheduler.Entities.General;
@@ -19,9 +20,9 @@ public class SquadService(SquadRepository repo)
         return squads;
     }
 
-    public Guid Create(EntityWithNameCreateDto dto)
+    public Guid Create(SquadRequest dto)
     {
-        var squad = new Squad { Name = dto.Name };
+        var squad = new Squad { Name = dto.Name, DirectionId = dto.DirectionId };
         repo.Upsert(squad);
         repo.SaveChanges();
         return squad.Id;

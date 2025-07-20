@@ -1,7 +1,16 @@
 .container {
   position: relative;
   padding-bottom: 100px;
-  padding-top: 40px;
+  padding-top: 60px;
+  &__back {
+    position: absolute;
+    top: 5px;
+    left: 40px;
+  }
+  &__tabs {
+    display: flex;
+    justify-content: center;
+  }
   &__title {
     text-align: center;
     margin-bottom: 30px;
@@ -137,6 +146,7 @@
   &__buttons {
     margin-left: 40px;
     margin-top: 40px;
+    margin-right: 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -164,8 +174,20 @@
   .sidebar {
     &__close {
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    &_close {
+      position: absolute;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     &__line {
+      position: relative;
       padding-left: 10px;
       display: flex;
       align-items: center;
@@ -173,6 +195,7 @@
       margin-bottom: 20px;
     }
     &__tabs {
+      z-index: 2;
       display: flex;
       align-items: center;
       column-gap: 10px;

@@ -1,10 +1,7 @@
-/*using Microsoft.AspNetCore.Mvc;
-using Scheduler.DataAccess;
-using Scheduler.DataAccess.General;
-using Scheduler.DataAccess.Plan;
-using Scheduler.Dto;
+using Microsoft.AspNetCore.Mvc;
+using Scheduler.Dto.Constants;
 using Scheduler.Entities;
-using Scheduler.Services;
+using Scheduler.Services.Events;
 
 namespace Scheduler.Controllers.Schedule;
 
@@ -12,104 +9,49 @@ namespace Scheduler.Controllers.Schedule;
 [Route("api/events")]
 public class EventController : ControllerBase
 {
-    private readonly ScheduleRepository _scheduleRepo;
-    private readonly GeneralRepository _generalRepo;
-    private readonly PlanRepository _planRepository;
-    private readonly GeneralRepository generalRepository;
     private readonly EventService _eventService;
-    public PlanRepository planRepository;
 
-    public EventController(
-        ScheduleRepository scheduleRepo,
-        PlanRepository planRepository,
-        GeneralRepository generalRepository,
-        EventService eventService)
+    public EventController(EventService eventService)
     {
-        _scheduleRepo = scheduleRepo;
-        this.planRepository = planRepository;
-        this.generalRepository = generalRepository;
         _eventService = eventService;
     }
 
-    [HttpGet("schedules/{id::guid}")]
-    public IActionResult Find(Guid scheduleId)
+    [HttpGet("schedules/{scheduleId::guid}/{studyYear}")]
+    public IActionResult Find(Guid scheduleId, StudyYear studyYear)
     {
-        var events = _eventService.GetEventsBySchedule(scheduleId);
-        var schedule = _scheduleRepo.GetSchedule(scheduleId);
-        if (schedule == null)
-        {
-            return NotFound();
-        }
-
-        return Ok(schedule.Events);
+        var events = _eventService.GetEventsBySchedule(scheduleId, studyYear);
+        return Ok(events);
     }
     
-    [HttpPost]
-    public IActionResult AddEvent(Guid scheduleId, [FromBody] Event newEvent)
+    [HttpPost("schedules/{scheduleId::guid}/{studyYear}")]
+    public IActionResult AddEvent(Guid scheduleId, StudyYear studyYear, [FromBody] Event newEvent)
     {
-        var schedule = _scheduleRepo.GetSchedule(newEvent.ScheduleId);
-        if (schedule == null)
-        {
-            return NotFound();
-        }
-
-        schedule.Events.Add(newEvent);
-        _scheduleRepo.SaveSchedule(schedule);
-
-        return Ok(new SimpleDto<Guid>(schedule.Id));
-
+        return Ok(_eventService.AddEvent(scheduleId, studyYear, newEvent));
     }
     
-    [HttpPut("{scheduleId}/events/{eventId}")]
-    public IActionResult UpdateEvent(Guid scheduleId, Guid eventId, [FromBody] Event updatedEvent)
+    [HttpPut("{eventId}/schedules/{scheduleId}/{studyYear}/")]
+    public IActionResult UpdateEvent([FromRoute] Guid eventId, [FromRoute] Guid scheduleId, [FromRoute] StudyYear studyYear, [FromBody] Event updatedEvent)
     {
-        var schedule = _scheduleRepo.GetSchedule(scheduleId);
-        if (schedule == null)
-        {
-            return NotFound();
-        }
-
-        var existingEvent = schedule.Events.FirstOrDefault(e => e.Id == eventId);
-        if (existingEvent == null)
-        {
-            return NotFound();
-        }
-
-        existingEvent.TeacherId = updatedEvent.TeacherId;
-        existingEvent.AudienceId = updatedEvent.AudienceId;
-        existingEvent.Date = updatedEvent.Date;
-        existingEvent.EventNumber = updatedEvent.EventNumber;
-        existingEvent.LessonId = updatedEvent.LessonId;
-        existingEvent.SquadId = updatedEvent.SquadId;
-
-        _scheduleRepo.SaveSchedule(schedule);
-        return NoContent();
+        return Ok(_eventService.UpdateEvent( scheduleId, studyYear, eventId, updatedEvent));
     }
     
-    [HttpDelete("{scheduleId}/events/{eventId}")]
-    public IActionResult DeleteEvent(Guid scheduleId, Guid eventId)
-    {
-        var schedule = _scheduleRepo.GetSchedule(scheduleId);
-        if (schedule == null)
-        {
-            return NotFound();
-        }
-
-        var eventToRemove = schedule.Events.FirstOrDefault(e => e.Id == eventId);
-        if (eventToRemove == null)
-        {
-            return NotFound();
-        }
-
-        schedule.Events.Remove(eventToRemove);
-        _scheduleRepo.SaveSchedule(schedule);
-        return NoContent();
-    }
-
-    [HttpDelete("{scheduleId}")]
-    public IActionResult DeleteSchedule(Guid scheduleId)
-    {
-        _scheduleRepo.DeleteSchedule(scheduleId);
-        return NoContent();
-    }
-}*/
+    // [HttpDelete("{scheduleId}/events/{eventId}")]
+    // public IActionResult DeleteEvent(Guid scheduleId, Guid eventId)
+    // {
+    //     var schedule = _scheduleRepo.GetSchedule(scheduleId);
+    //     if (schedule == null)
+    //     {
+    //         return NotFound();
+    //     }
+    //
+    //     var eventToRemove = schedule.Events.FirstOrDefault(e => e.Id == eventId);
+    //     if (eventToRemove == null)
+    //     {
+    //         return NotFound();
+    //     }
+    //
+    //     schedule.Events.Remove(eventToRemove);
+    //     _scheduleRepo.SaveSchedule(schedule);
+    //     return NoContent();
+    // }
+}

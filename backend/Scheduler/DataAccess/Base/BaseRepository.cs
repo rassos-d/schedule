@@ -26,9 +26,12 @@ public abstract class BaseRepository
     protected string ReadFile(string path)
     {
         var filePath = Path.Combine(DirectoryPath, path);
-        return File.Exists(filePath) == false 
-            ? string.Empty 
-            : File.ReadAllText(filePath);
+        if (File.Exists(filePath) == false)
+        {
+            throw new FileNotFoundException();
+        }
+        
+        return File.ReadAllText(filePath);
     }
 
     protected void WriteFile(string path, object text)

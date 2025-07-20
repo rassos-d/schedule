@@ -1,4 +1,4 @@
-namespace Scheduler.Entities.Constants;
+namespace Scheduler.Dto.Constants;
 
 public enum StudyYear
 {

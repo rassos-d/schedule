@@ -12,8 +12,8 @@ export const PagesURl = {
   DIRECTION: 'directions',
   EVENT: 'events',
   LESSON: 'lessons',
-  SHEDULE: 'schedules',
-  SQUARD: 'squards',
+  SCHEDULE: 'schedules',
+  SQUAD: 'squads',
   SUBJECT: 'subjects',
   TEACHER: 'teachers',
   THEME: 'themes'

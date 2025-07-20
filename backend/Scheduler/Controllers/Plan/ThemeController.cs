@@ -27,7 +27,7 @@ public class ThemeController : ControllerBase
     [HttpPost]
     public IActionResult Create([FromBody] ThemeCreateDto dto)
     {
-        var theme = new Theme { Name = dto.Name, SubjectId = dto.SubjectId };
+        var theme = new Theme { Name = dto.Name, SubjectId = dto.SubjectId, Number = dto.Number };
         _planRepository.SaveTheme(theme);
         return Ok(theme.Id);
 

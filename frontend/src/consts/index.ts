@@ -1,0 +1,1 @@
+export const COURSES_YEAR = [1, 2, 3]

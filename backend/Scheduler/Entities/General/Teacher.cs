@@ -8,7 +8,7 @@ public class Teacher : Entity
 
     public required string Rank { get; set; }
 
-    public List<Tuple<DateTime, DateTime>> Vacations { get; set; } = [];
+    public List<Tuple<DateOnly, DateOnly>> Vacations { get; set; } = [];
 
     public List<Guid> SubjectIds { get; set; } = [];
 }

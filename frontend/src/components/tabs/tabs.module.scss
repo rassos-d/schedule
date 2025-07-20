@@ -1,0 +1,23 @@
+.container {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  border: 1px solid #000;
+  background-color: #fff;
+  border-top: none;
+  border-bottom-left-radius: var(--medium-border-radius);
+  border-bottom-right-radius: var(--medium-border-radius);
+  z-index: 2;
+  top: 0;
+  overflow: hidden;
+  &__tab {
+    cursor: pointer;
+    padding: 10px 25px;
+    &:hover {
+      background-color: var(--ultra-light-grey-color);
+    }
+    &_active {
+      background-color: var(--ultra-light-grey-color);
+    }
+  }
+}

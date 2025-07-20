@@ -1,14 +1,16 @@
 using Microsoft.AspNetCore.Mvc;
 using Scheduler.Dto;
+using Scheduler.Dto.Constants;
 using Scheduler.Dto.Schedule;
 using Scheduler.Entities.Constants;
+using Scheduler.Services.Events;
 using Scheduler.Services.Schedule;
 
 namespace Scheduler.Controllers.Schedule;
 
 [ApiController]
 [Route("api/schedules")]
-public class ScheduleController(ScheduleService service) : ControllerBase
+public class ScheduleController(ScheduleService service, EventService eventService) : ControllerBase
 {
     [HttpGet("find")]
     public IActionResult Find()
@@ -17,11 +19,11 @@ public class ScheduleController(ScheduleService service) : ControllerBase
         return Ok(schedules);
     }
 
-    [HttpGet("{scheduleId:guid}/pages/{studyYear:int}")]
-    public IActionResult GetPage(Guid scheduleId, int studyYear)
+    [HttpGet("{scheduleId:guid}/pages/{studyYear}")]
+    public IActionResult GetPage(Guid scheduleId, StudyYear studyYear)
     {
-        var page = service.GetPage(scheduleId, studyYear);
-        return Ok(page);
+        var response = eventService.GetEventsBySchedule(scheduleId, studyYear);
+        return Ok(response);
     }
     
     [HttpPost]

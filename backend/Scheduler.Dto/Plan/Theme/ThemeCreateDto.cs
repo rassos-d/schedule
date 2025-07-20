@@ -1,3 +1,3 @@
 namespace Scheduler.Dto.Theme;
 
-public record ThemeCreateDto(string Name, Guid SubjectId);
+public record ThemeCreateDto(string Name, int Number, Guid SubjectId);

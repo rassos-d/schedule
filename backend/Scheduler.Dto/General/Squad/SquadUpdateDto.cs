@@ -1,4 +1,4 @@
-using Scheduler.Entities.Constants;
+using Scheduler.Dto.Constants;
 
 namespace Scheduler.Dto.General.Squad;
 

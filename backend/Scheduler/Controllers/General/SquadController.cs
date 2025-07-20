@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Scheduler.Dto;
+using Scheduler.Dto.Constants;
 using Scheduler.Dto.General.Squad;
 using Scheduler.Entities.Constants;
 using Scheduler.Services;
@@ -19,7 +20,7 @@ public class SquadController(SquadService service) : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult Create(EntityWithNameCreateDto dto)
+    public IActionResult Create(SquadRequest dto)
     {
         var id = service.Create(dto);
         return Ok(new SimpleDto<Guid>(id));
