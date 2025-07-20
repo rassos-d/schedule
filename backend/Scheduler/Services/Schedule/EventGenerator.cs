@@ -14,7 +14,7 @@ public class EventGenerator(ScheduleRepository scheduleRepo, SquadRepository squ
         int[] lessonNumbers = { 1, 2, 4, 5 };
         var currentNumberIndex = 0;
         var currentDateIndex = 0;
-
+        
         foreach(var squadId in page.Squads)
         {
             var squad = squadRepo.Get(squadId);

@@ -10,28 +10,13 @@ using Scheduler.Entities.Schedule;
 
 namespace Scheduler.Services.Events;
 
-public class EventService
+public class EventService(
+    TeacherRepository teacherRepository,
+    ScheduleRepository scheduleRepository,
+    AudienceRepository audienceRepository,
+    PlanRepository planRepository,
+    SquadRepository squadRepository)
 {
-    private readonly TeacherRepository _teacherRepository;
-    private readonly PlanRepository planRepository;
-    private readonly SquadRepository _squadRepository;
-    private readonly ScheduleRepository scheduleRepository;
-    private readonly AudienceRepository audienceRepository;
-
-    public EventService(
-        TeacherRepository teacherRepository,
-        ScheduleRepository scheduleRepository,
-        AudienceRepository audienceRepository,
-        PlanRepository planRepository,
-        SquadRepository squadRepository)
-    {
-        _teacherRepository = teacherRepository;
-        this.planRepository = planRepository;
-        _squadRepository = squadRepository;
-        this.scheduleRepository = scheduleRepository;
-        this.audienceRepository = audienceRepository;
-    }
-
     public SimpleDto<Guid>? AddEvent(Guid scheduleId, StudyYear studyYear, Event newEvent)
     {
         var schedulePage = scheduleRepository.GetSchedulePage(scheduleId, studyYear);
@@ -84,17 +69,17 @@ public class EventService
 
     private GetEventsByScheduleResponse ConvertToResponse(SchedulePage schedulePage)
     {
-        var teacherNames = _teacherRepository.GetAll()
+        var teacherNames = teacherRepository.GetAll()
             .ToDictionary(k => k.Id, t => $"{t.Rank} {t.Name}");
 
         var audienceNames = audienceRepository
             .GetAll()
             .ToDictionary(k => k.Id, t => t.Name);
 
-        var squadNames = _squadRepository
+        var squadNames = squadRepository
             .GetAll()
             .ToDictionary(k => k.Id, t => t.Name);
-
+        
         var lessonNames = planRepository
             .FindLessons()
             .ToDictionary(k => k.Id, l => l.Name);

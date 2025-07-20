@@ -1,11 +1,24 @@
 {
-  "Audiences": {},
+  "Audiences": {
+    "24f12d29-2a2e-4f3d-a82f-ccfd59bca229": {
+      "Name": "\u0412\u041E-403",
+      "Id": "24f12d29-2a2e-4f3d-a82f-ccfd59bca229"
+    },
+    "ebf246ff-0203-4e2b-967c-1a9f308ef9fb": {
+      "Name": "\u0412\u041E-404",
+      "Id": "ebf246ff-0203-4e2b-967c-1a9f308ef9fb"
+    },
+    "783bafa4-f2bb-4a87-a81e-7217b966fc9d": {
+      "Name": "\u0412\u041E-321",
+      "Id": "783bafa4-f2bb-4a87-a81e-7217b966fc9d"
+    }
+  },
   "Squads": {
     "4332838c-8a15-4c38-9864-2681a006104c": {
       "Name": "R-323",
       "StudyYear": 3,
       "DaddyId": "5dd50d5d-6491-49b7-9d29-cb2b9afe6ed7",
-      "FixedAudienceId": "f303093c-8db4-4f46-8731-1dc5d58008b7",
+      "FixedAudienceId": "783bafa4-f2bb-4a87-a81e-7217b966fc9d",
       "DirectionId": "aefc4295-4071-4efd-9c54-c673f006dc39",
       "Id": "4332838c-8a15-4c38-9864-2681a006104c"
     },
@@ -21,7 +34,7 @@
       "Name": "\u0414-323",
       "StudyYear": 3,
       "DaddyId": "80a6d492-aec1-4f6a-bb63-b4940e8b88b4",
-      "FixedAudienceId": "2b20d1ea-c3d7-4ff9-b93c-a932ae7efec9",
+      "FixedAudienceId": "ebf246ff-0203-4e2b-967c-1a9f308ef9fb",
       "DirectionId": "29dd4f0e-8442-45a9-ab07-5e352d4d9a2a",
       "Id": "18cbf1da-841e-47f6-93a7-9d42c450d4c9"
     }

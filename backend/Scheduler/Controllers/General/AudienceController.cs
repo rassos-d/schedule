@@ -21,6 +21,7 @@ public class AudienceController(AudienceRepository generalRepo) : ControllerBase
     {
         var audience = new Audience { Name = request.Name };
         generalRepo.Upsert(audience);
+        generalRepo.SaveChanges();
         return Ok(audience);
     }
 
@@ -28,6 +29,7 @@ public class AudienceController(AudienceRepository generalRepo) : ControllerBase
     public IActionResult Update(Audience audience)
     {
         generalRepo.Upsert(audience);
+        generalRepo.SaveChanges();
         return NoContent();
     }
 
@@ -35,6 +37,7 @@ public class AudienceController(AudienceRepository generalRepo) : ControllerBase
     public IActionResult Delete(Guid id)
     {
         generalRepo.Delete(id);
+        generalRepo.SaveChanges();
         return NoContent();
     }
 }
