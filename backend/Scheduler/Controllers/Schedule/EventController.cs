@@ -17,7 +17,7 @@ public class EventController : ControllerBase
     }
 
     [HttpGet("schedules/{scheduleId::guid}/{studyYear}")]
-    public IActionResult Find(Guid scheduleId, StudyYear studyYear)
+    public IActionResult Get(Guid scheduleId, StudyYear studyYear)
     {
         var events = _eventService.GetEventsBySchedule(scheduleId, studyYear);
         return Ok(events);

@@ -5,7 +5,7 @@ namespace Scheduler.DataAccess.Plan;
 
 public partial class PlanRepository
 {
-    public List<Lesson> FindLessons(Guid? themeId = null)
+    public List<Lesson> FindLessons(Guid? themeId = null, Guid[]? directionIds = null)
     {
         if (themeId.HasValue == false)
         {

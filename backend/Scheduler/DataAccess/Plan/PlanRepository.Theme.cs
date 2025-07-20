@@ -32,7 +32,7 @@ public partial class PlanRepository
         
         SaveChanges();
     }
-
+    
     public List<Theme> FindThemes(Guid? subjectId = null, Guid? directionId = null, Semester? semester = null)
     {
         var themes = Subjects.SelectMany(x => x.Themes);
@@ -57,6 +57,19 @@ public partial class PlanRepository
             themes = themes.Where(t => subjects.Select(s => s.Id).Contains(t.SubjectId));
         }
 
+        return themes.ToList();
+    }
+
+    public List<Theme> FindThemesForSemester(Guid directionId, Semester semester)
+    {
+        var direction = GetDirection(directionId)!;
+        var subjects = direction.Subjects.Where(s => s.Semester == semester).ToList();
+        var themes = subjects
+            .SelectMany(x => x.Themes)
+            .Where(t => subjects
+                .Select(s => s.Id)
+                .Contains(t.SubjectId)
+            );
         return themes.ToList();
     }
 

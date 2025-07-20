@@ -2,7 +2,6 @@ using Scheduler.DataAccess;
 using Scheduler.Dto;
 using Scheduler.Dto.Constants;
 using Scheduler.Dto.Schedule;
-using Scheduler.Entities.Constants;
 using Scheduler.Entities.Schedule;
 using Scheduler.Models;
 
@@ -24,7 +23,7 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
             var page = new SchedulePage 
             { 
                 ScheduleId = schedule.Id,
-                Semester = Semester.Second,
+                Semester = pageDto.Semester,
                 StudyYear = pageDto.StudyYear,
                 Squads = pageDto.Squads,
                 Dates = dates            
@@ -44,9 +43,9 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
         repo.UpdateSchedule(schedule);
     }
     
-    public SchedulePage GetPage(Guid scheduleId, int studyYear)
+    public SchedulePage GetPage(Guid scheduleId, StudyYear studyYear)
     {
-        return repo.GetSchedulePage(scheduleId,  Enum.Parse<StudyYear>(studyYear.ToString()));
+        return repo.GetSchedulePage(scheduleId,  studyYear);
     }
 
     public void Delete(Guid scheduleId)

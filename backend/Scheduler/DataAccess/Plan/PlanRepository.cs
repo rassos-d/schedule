@@ -10,6 +10,11 @@ public partial class PlanRepository : BaseRepository
     
     public PlanRepository() : base("plan")
     {
+        var directions = GetAllDirectionInfos();
+        foreach (var direction in directions)
+        {
+            GetDirection(direction.Id);
+        }
     }
 
     protected override void SaveChanges(Guid? id = null)
