@@ -119,17 +119,19 @@ public class ExcelExportService
             Name = squad.Name,
             DirectionName = direction?.Name!,
             Dates = page.Dates,
-            DaddyName = teacher?.Name!,
+            DaddyName = string.Join('\n', new[] { teacher?.Rank, teacher?.Name }.Where(x => !string.IsNullOrEmpty(x))),
             Events = page.Events.Where(x => x.SquadId == squad.Id).ToList()
         };
     }
 
     private void FillSquad(SquadExcel squad, ExcelRange cells, int heightOffset)
     {
-        cells.SetCellValue(heightOffset, 0, $"Взвод {squad.Name}\n\n{squad.DirectionName}\n\nОтветственный\nпреподаватель\nподполковник\n{squad.DaddyName}");
-        // squadName.Add($"Взвод {squad.Name}\n\n");
-        // squadName.Add($"{squad.DirectionName}\n\n");
-        // squadName.Add($"Ответственный\nпреподаватель\nподполковник\n{squad.DaddyName}");
+        var squadName = cells.TakeSingleCell(heightOffset, 0);
+        AddFormattedText(squadName, "Взвод ", 36);
+        AddFormattedText(squadName, $"{squad.Name}\n\n", 36);
+        AddFormattedText(squadName, $"{squad.DirectionName}\n\n", 26);
+        AddFormattedText(squadName, $"Ответственный\nпреподаватель\n", 22);
+        AddFormattedText(squadName, $"{squad.DaddyName}", 22);
 
         var col = 3;
         var colByDate = new Dictionary<DateOnly, int>();
@@ -156,7 +158,22 @@ public class ExcelExportService
                 cells.SetCellValue(heightOffset + eventLocalPos, eventCol, subject?.Name);
                 cells.SetCellValue(heightOffset + eventLocalPos + 1, eventCol, theme?.Name);
                 cells.SetCellValue(heightOffset + eventLocalPos + 2, eventCol, audience?.Name);
-                cells.SetCellValue(heightOffset + eventLocalPos + 3, eventCol, string.Join(' ', new[] { teacher?.Rank, teacher?.Name }.Where( x => !string.IsNullOrEmpty(x))));
+                cells.SetCellValue(heightOffset + eventLocalPos + 3, eventCol, string.Join(' ', new[] { teacher?.Rank, teacher?.Name }.Where(x => !string.IsNullOrEmpty(x))));
+            }
+        }
+        
+        void AddFormattedText(ExcelRangeBase cell, string? text = null, float? size = null)
+        {
+            const string empty = "НЕ ЗАДАНО";
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                cell.RichText.Add(empty).Color = Color.Red;
+            }
+
+            var richText = cell.RichText.Add(text);
+            if (size.HasValue)
+            {
+                richText.Size = size.Value;
             }
         }
     }
