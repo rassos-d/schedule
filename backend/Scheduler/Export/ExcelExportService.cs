@@ -5,7 +5,6 @@ using Scheduler.DataAccess.General;
 using Scheduler.DataAccess.Plan;
 using Scheduler.Entities;
 using Scheduler.Entities.General;
-using Scheduler.Entities.Plan;
 using Scheduler.Entities.Schedule;
 
 namespace Scheduler.Export;
@@ -17,12 +16,14 @@ public class ExcelExportService
     private readonly string templatePath = Path.Combine("Export", "template.xlsx");
     private readonly ScheduleRepository scheduleRepository;
     private readonly TeacherRepository teacherRepository;
+    private readonly AudienceRepository audienceRepository;
     private readonly SquadRepository squadRepository;
     private readonly PlanRepository planRepository;
 
     public ExcelExportService(
         ScheduleRepository scheduleRepository,
         TeacherRepository teacherRepository,
+        AudienceRepository audienceRepository,
         SquadRepository squadRepository,
         PlanRepository planRepository
         )
@@ -34,6 +35,7 @@ public class ExcelExportService
 
         this.scheduleRepository = scheduleRepository;
         this.teacherRepository = teacherRepository;
+        this.audienceRepository = audienceRepository;
         this.squadRepository = squadRepository;
         this.planRepository = planRepository;
     }
@@ -124,18 +126,40 @@ public class ExcelExportService
 
     private void FillSquad(SquadExcel squad, ExcelRange cells, int heightOffset)
     {
-        cells.SetCellValue(heightOffset, 0, GetSquadName(squad));
+        cells.SetCellValue(heightOffset, 0, $"Взвод {squad.Name}\n\n{squad.DirectionName}\n\nОтветственный\nпреподаватель\nподполковник\n{squad.DaddyName}");
+        // squadName.Add($"Взвод {squad.Name}\n\n");
+        // squadName.Add($"{squad.DirectionName}\n\n");
+        // squadName.Add($"Ответственный\nпреподаватель\nподполковник\n{squad.DaddyName}");
+
         var col = 3;
+        var colByDate = new Dictionary<DateOnly, int>();
         for (var dateIndex = 0; dateIndex < squad.Dates.Count; dateIndex++)
         {
             var date = squad.Dates[dateIndex];
+            colByDate.Add(date, col);
             cells.SetCellValue(heightOffset - 1, col, date.ToString("dd.MM"));
             col++;
         }
-    }
 
-    private string GetSquadName(SquadExcel squad) =>
-    $"Взвод {squad.Name}\n\n{squad.DirectionName}\n\nОтветственный\nпреподаватель\nподполковник\n{squad.DaddyName}";
+        const int eventOffset = 4;
+        foreach (var @event in squad.Events)
+        {
+            if (@event.Date.HasValue && @event.Number.HasValue && colByDate.TryGetValue(@event.Date.Value, out var eventCol))
+            {
+                var eventLocalPos = eventOffset * (@event.Number.Value - 1);
+
+                var subject = @event.SubjectId.HasValue ? planRepository.GetSubject(@event.SubjectId.Value) : null;
+                var theme = @event.ThemeId.HasValue ? planRepository.GetTheme(@event.ThemeId.Value) : null;
+                var audience = @event.AudienceId.HasValue ? audienceRepository.Get(@event.AudienceId.Value) : null;
+                var teacher = @event.TeacherId.HasValue ? teacherRepository.Get(@event.TeacherId.Value) : null;
+
+                cells.SetCellValue(heightOffset + eventLocalPos, eventCol, subject?.Name);
+                cells.SetCellValue(heightOffset + eventLocalPos + 1, eventCol, theme?.Name);
+                cells.SetCellValue(heightOffset + eventLocalPos + 2, eventCol, audience?.Name);
+                cells.SetCellValue(heightOffset + eventLocalPos + 3, eventCol, string.Join(' ', new[] { teacher?.Rank, teacher?.Name }.Where( x => !string.IsNullOrEmpty(x))));
+            }
+        }
+    }
 
     private record Template
     {

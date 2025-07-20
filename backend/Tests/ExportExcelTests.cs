@@ -15,6 +15,7 @@ namespace Tests
             export = new ExcelExportService(
                 new ScheduleRepository(),
                 new TeacherRepository(),
+                new AudienceRepository(),
                 new SquadRepository(),
                 new PlanRepository()
             );

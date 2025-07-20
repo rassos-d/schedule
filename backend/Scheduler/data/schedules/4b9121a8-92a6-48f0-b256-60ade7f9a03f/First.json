@@ -1,6 +1,7 @@
 {
   "ScheduleId": "4b9121a8-92a6-48f0-b256-60ade7f9a03f",
   "StudyYear": 1,
+  "Semester": 0,
   "Dates": [
     "2025-05-11",
     "2025-05-18",
@@ -19,6 +20,9 @@
   "Events": [
     {
       "ScheduleId": "4b9121a8-92a6-48f0-b256-60ade7f9a03f",
+      "SubjectId": null,
+      "ThemeId": null,
+      "LessonType": 0,
       "LessonId": null,
       "SquadId": "18cbf1da-841e-47f6-93a7-9d42c450d4c9",
       "TeacherId": "c057d020-0099-4bfa-b327-131e0d789eec",
@@ -29,16 +33,22 @@
     },
     {
       "ScheduleId": "4b9121a8-92a6-48f0-b256-60ade7f9a03f",
+      "SubjectId": null,
+      "ThemeId": null,
+      "LessonType": 0,
       "LessonId": null,
       "SquadId": "18cbf1da-841e-47f6-93a7-9d42c450d4c9",
       "TeacherId": "c057d020-0099-4bfa-b327-131e0d789eec",
       "AudienceId": null,
-      "Number": 1,
+      "Number": 2,
       "Date": "2025-05-11",
       "Id": "e2152c92-b71b-4d0b-95db-d194fc798927"
     },
     {
       "ScheduleId": "4b9121a8-92a6-48f0-b256-60ade7f9a03f",
+      "SubjectId": null,
+      "ThemeId": null,
+      "LessonType": 0,
       "LessonId": null,
       "SquadId": "18cbf1da-841e-47f6-93a7-9d42c450d4c9",
       "TeacherId": "c057d020-0099-4bfa-b327-131e0d789eec",
@@ -49,6 +59,9 @@
     },
     {
       "ScheduleId": "4b9121a8-92a6-48f0-b256-60ade7f9a03f",
+      "SubjectId": null,
+      "ThemeId": null,
+      "LessonType": 0,
       "LessonId": null,
       "SquadId": "18cbf1da-841e-47f6-93a7-9d42c450d4c9",
       "TeacherId": "c057d020-0099-4bfa-b327-131e0d789eec",
@@ -59,6 +72,9 @@
     },
     {
       "ScheduleId": "4b9121a8-92a6-48f0-b256-60ade7f9a03f",
+      "SubjectId": null,
+      "ThemeId": null,
+      "LessonType": 0,
       "LessonId": null,
       "SquadId": "18cbf1da-841e-47f6-93a7-9d42c450d4c9",
       "TeacherId": "c057d020-0099-4bfa-b327-131e0d789eec",
@@ -66,6 +82,19 @@
       "Number": 5,
       "Date": "2025-05-25",
       "Id": "ddb3504a-6700-4d11-8a99-a61b07113d34"
+    },
+    {
+      "ScheduleId": "4b9121a8-92a6-48f0-b256-60ade7f9a03f",
+      "SubjectId": "4c10d6ee-9d4c-4adb-986b-40fb6847d568",
+      "ThemeId": "c5a0f249-2b5a-4fc7-9ce9-3616f089c57f",
+      "LessonType": 0,
+      "LessonId": "4b01439b-99d8-4ba3-819e-93b692ec7d7b",
+      "SquadId": "e5a8f139-b7d4-4279-b5e8-afdcf4a814bd",
+      "TeacherId": "c057d020-0099-4bfa-b327-131e0d789eec",
+      "AudienceId": "792f4748-1680-4cfe-8b78-91d4e5d7155e",
+      "Number": 3,
+      "Date": "2025-05-11",
+      "Id": "01178da5-c6c7-42b8-93a9-9b325c568ae3"
     }
   ]
 }
