@@ -6,6 +6,8 @@ using Scheduler.Dto.Constants;
 using Scheduler.Dto.Event;
 using Scheduler.Dto.General.Squad;
 using Scheduler.Entities;
+using Scheduler.Entities.General;
+using Scheduler.Entities.Plan;
 using Scheduler.Entities.Schedule;
 
 namespace Scheduler.Services.Events;
@@ -58,9 +60,11 @@ public class EventService(
 
         scheduleRepository.SaveSchedulePage(schedule);
 
-        return existingEvent.Number != null ? CheckForConflict(schedule, existingEvent.Number.Value) : new CheckConflictResponse();
+        return existingEvent.Number != null
+            ? CheckForConflict(schedule, existingEvent.Number.Value)
+            : new CheckConflictResponse();
     }
-    
+
     public GetEventsByScheduleResponse GetEventsBySchedule(Guid scheduleId, StudyYear studyYear)
     {
         var schedule = scheduleRepository.GetSchedulePage(scheduleId, studyYear);
@@ -76,24 +80,34 @@ public class EventService(
             .GetAll()
             .ToDictionary(k => k.Id, t => t.Name);
 
-        var squadNames = squadRepository
+        var squads = squadRepository
             .GetAll()
-            .ToDictionary(k => k.Id, t => t.Name);
-        
-        var lessonNames = planRepository
-            .FindLessons()
-            .ToDictionary(k => k.Id, l => l.Name);
+            .Where(x => schedulePage.Squads.Contains(x.Id))
+            .ToDictionary(k => k.Id);
+
+        var lessons = planRepository.FindLessons().ToDictionary(k => k.Id);
+
+        var schedule = scheduleRepository
+            .GetAllScheduleInfos()
+            .First(x => x.Id == schedulePage.ScheduleId);
 
         return new GetEventsByScheduleResponse
         {
             ScheduleId = schedulePage.ScheduleId,
-            Squads = ConvertToSquads(schedulePage
-                    .Events.Where(e => e.Date != null && e.Number != null)
-                    .ToList(),
-                teacherNames, audienceNames, squadNames, lessonNames, schedulePage.Dates).ToList(),
+            Name = schedule.Name,
+            Squads = ConvertToSquads(
+                    schedulePage
+                        .Events.Where(e => e is { Date: not null, Number: not null })
+                        .ToList(),
+                    teacherNames,
+                    audienceNames,
+                    squads,
+                    lessons
+                )
+                .ToList(),
             NoName = schedulePage.Events
                 .Where(e => e.Date == null && e.Number == null)
-                .Select(e => ConvertToEvent(e, teacherNames, audienceNames, squadNames, lessonNames))
+                .Select(e => ConvertToEvent(e, teacherNames, audienceNames, squads, lessons))
                 .ToList()
         };
     }
@@ -124,10 +138,11 @@ public class EventService(
         }
 
         var conflictEvents = conflictGroups
-            .SelectMany(group => 
-                group.Select(ev => new { 
-                    Event = ev, 
-                    GroupKey = group.Key 
+            .SelectMany(group =>
+                group.Select(ev => new
+                {
+                    Event = ev,
+                    GroupKey = group.Key
                 }))
             .Select(e => e.Event.Id)
             .ToList();
@@ -140,7 +155,8 @@ public class EventService(
 
     private string CreateMessage(List<Guid> conflictEventIds, int lessonNumber)
     {
-        return $"ВНИМАНИЕ!!! Конфликт с занятиями {string.Join(",", conflictEventIds)} {GetTimeByLessonNumber(lessonNumber)}";
+        return
+            $"ВНИМАНИЕ!!! Конфликт с занятиями {string.Join(",", conflictEventIds)} {GetTimeByLessonNumber(lessonNumber)}";
     }
 
     private string GetTimeByLessonNumber(int lessonNumber)
@@ -154,52 +170,60 @@ public class EventService(
             5 => "15:00 - 16:30",
         };
     }
-    private IEnumerable<GetSquadResponse> ConvertToSquads(List<Event> @event, 
-        Dictionary<Guid, string> teacherNames, 
+
+    private IEnumerable<GetSquadResponse> ConvertToSquads(List<Event> @event,
+        Dictionary<Guid, string> teacherNames,
         Dictionary<Guid, string> audienceNames,
-        Dictionary<Guid, string> squadNames,
-        Dictionary<Guid, string> lessonNames,
-        List<DateOnly> dates)
+        Dictionary<Guid, Squad> squads,
+        Dictionary<Guid, Lesson> lessons
+    )
     {
         var eventBySquad = new Dictionary<Guid, List<EventsResponse>>();
 
         foreach (var e in @event)
         {
-            if (!e.SquadId.HasValue) continue;
-            var response = ConvertToEvent(e, teacherNames, audienceNames, squadNames, lessonNames);
+            if (e.SquadId.HasValue == false)
+            {
+                continue;
+            }
+
+            var response = ConvertToEvent(e, teacherNames, audienceNames, squads, lessons);
 
             if (eventBySquad.ContainsKey(e.SquadId!.Value))
                 eventBySquad[e.SquadId!.Value].Add(response);
             else
                 eventBySquad[e.SquadId!.Value] = [response];
         }
-        
+
         foreach (var pair in eventBySquad)
         {
+            var squad = squads[pair.Key];
+            var direction = squad.DirectionId is not null ? planRepository.GetDirection(squad.DirectionId!.Value) : null;
             var eventsDictionary = pair.Value
                 .GroupBy(events => events.Date)
                 .OrderBy(v => v.Key)
-                .ToDictionary(e => e.Key.Value,
+                .ToDictionary(e => e.Key!.Value,
                     e => e.ToList());
-            foreach (var date in dates.Where(date => !eventsDictionary.ContainsKey(date)))
-            {
-                eventsDictionary[date] = [];
-            }
-            
             yield return new GetSquadResponse
             {
                 Id = pair.Key,
-                Name = squadNames[pair.Key],
+                Name = squad.Name,
+                DaddyName = squad.DaddyId is null ? null : teacherNames[squad.DaddyId!.Value],
+                DirectionName = direction?.Name,
                 Events = eventsDictionary
             };
         }
     }
-    private EventsResponse ConvertToEvent(Event @event, 
-        Dictionary<Guid, string> teacherNames, 
+
+    private EventsResponse ConvertToEvent(Event @event,
+        Dictionary<Guid, string> teacherNames,
         Dictionary<Guid, string> audienceNames,
-        Dictionary<Guid, string> squadNames,
-        Dictionary<Guid, string> lessonNames)
+        Dictionary<Guid, Squad> squads,
+        Dictionary<Guid, Lesson> lessons)
     {
+        var lesson = @event.LessonId.HasValue ? lessons.GetValueOrDefault(@event.LessonId.Value) : null;
+        var theme = lesson is not null ? planRepository.GetTheme(lesson.ThemeId) : null;
+        var subject = theme is not null ? planRepository.GetSubject(theme.SubjectId) : null;
         return new EventsResponse
         {
             Id = @event.Id,
@@ -207,8 +231,11 @@ public class EventService(
             Date = @event.Date,
             Number = @event.Number,
             TeacherName = @event.TeacherId.HasValue ? teacherNames.GetValueOrDefault(@event.TeacherId.Value) : null,
-            SquadName = @event.SquadId.HasValue ? squadNames.GetValueOrDefault(@event.SquadId.Value) : null,
-            LessonName = @event.LessonId.HasValue ? lessonNames.GetValueOrDefault(@event.LessonId.Value) : null
+            SquadName = @event.SquadId.HasValue ? squads.GetValueOrDefault(@event.SquadId.Value)?.Name : null,
+            LessonName = lesson?.Name,
+            LessonType = lesson?.Type,
+            ThemeName = theme?.Name,
+            SubjectName = subject?.Name,
         };
     }
 }
