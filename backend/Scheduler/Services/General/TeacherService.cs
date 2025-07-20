@@ -10,7 +10,7 @@ public class TeacherService(TeacherRepository repo)
     
     public Guid Create(TeacherCreateDto dto)
     {
-        var teacher = new Teacher { Name = dto.Name, Rank = dto.Rank};
+        var teacher = new Teacher { Name = dto.Name, Rank = dto.Rank, Vacations = dto.Vacations };
         repo.Upsert(teacher);
         repo.SaveChanges();
         return teacher.Id;
