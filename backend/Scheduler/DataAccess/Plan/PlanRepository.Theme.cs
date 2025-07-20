@@ -1,4 +1,5 @@
 using Scheduler.Dto;
+using Scheduler.Dto.Constants;
 using Scheduler.Entities.Plan;
 
 namespace Scheduler.DataAccess.Plan;
@@ -32,15 +33,31 @@ public partial class PlanRepository
         SaveChanges();
     }
 
-    public List<Theme> FindThemes(Guid? subjectId = null)
+    public List<Theme> FindThemes(Guid? subjectId = null, Guid? directionId = null, Semester? semester = null)
     {
+        var themes = Subjects.SelectMany(x => x.Themes);
+        var subjects = Subjects;
+
         if (subjectId.HasValue)
         {
-            var subject = Subjects.FirstOrDefault(x => x.Id == subjectId);
-            return subject?.Themes ?? [];
+            themes = themes.Where(t => t.SubjectId == subjectId);
         }
 
-        return Subjects.SelectMany(s => s.Themes).ToList();
+        if(directionId.HasValue || semester.HasValue)
+        {
+            if(directionId.HasValue)
+            {
+                subjects = subjects.Where(s => s.DirectionId == directionId);
+            }
+            if(semester.HasValue)
+            {
+                subjects = subjects.Where(s => s.Semester == semester);
+            }
+
+            themes = themes.Where(t => subjects.Select(s => s.Id).Contains(t.SubjectId));
+        }
+
+        return themes.ToList();
     }
 
     public void DeleteTheme(Guid id)

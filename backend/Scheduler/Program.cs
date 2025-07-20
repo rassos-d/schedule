@@ -20,6 +20,7 @@ builder.Services.AddSingleton<SquadService>();
 builder.Services.AddSingleton<TeacherService>();
 builder.Services.AddSingleton<ScheduleService>();
 builder.Services.AddSingleton<EventService>();
+builder.Services.AddSingleton<EventGenerator>();
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();

@@ -29,6 +29,7 @@ public class ScheduleRepository : BaseRepository
 
     public void SaveSchedulePage(SchedulePage schedulePage)
     {
+        GetAllScheduleInfos();
         var schedule = _schedulesCache[schedulePage.ScheduleId];
         var page = schedule.Pages.FirstOrDefault(x => x.StudyYear == schedulePage.StudyYear);
         if (page is not null)

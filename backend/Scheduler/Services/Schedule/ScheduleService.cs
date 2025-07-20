@@ -8,29 +8,33 @@ using Scheduler.Models;
 
 namespace Scheduler.Services.Schedule;
 
-public class ScheduleService(ScheduleRepository repo)
+public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenerator)
 {
     public List<ScheduleInfo> Find()
     {
         return repo.GetAllScheduleInfos();
     }
+
     public Guid Create(ScheduleCreateDto dto)
     {
         var schedule = new Entities.Schedule.Schedule {Name = dto.Name, Pages = [] };
         foreach (var pageDto in dto.Pages)
         {
             var dates = GetDatesForDayOfWeek(pageDto.Start, pageDto.End);
-            var page = new SchedulePage
-            {
+            var page = new SchedulePage 
+            { 
                 ScheduleId = schedule.Id,
+                Semester = Semester.Second,
                 StudyYear = pageDto.StudyYear,
                 Squads = pageDto.Squads,
-                Dates = dates,
+                Dates = dates            
             };
             schedule.Pages.Add(page);
+            eventGenerator.Generate(page);
         }
-        
+
         repo.SaveSchedule(schedule);
+        
         return schedule.Id;
     }
 
