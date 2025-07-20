@@ -232,7 +232,7 @@ public class EventService(
             Date = @event.Date,
             Number = @event.Number,
             Teacher = @event.TeacherId.HasValue ? ConvertToResponse(@event.TeacherId.Value, teacherNames.GetValueOrDefault(@event.TeacherId.Value)) : null,
-            Squad = @event.SquadId.HasValue ? ConvertToResponse(@event.SquadId.Value, squads.GetValueOrDefault(@event.TeacherId.Value).Name) : null,
+            Squad = @event.SquadId.HasValue ? ConvertToResponse(@event.SquadId.Value, squads.GetValueOrDefault(@event.SquadId.Value).Name) : null,
             Lesson = ConvertToResponse(@event.LessonId, lesson?.Name),
             LessonType = lesson.Type,
             Theme = ConvertToResponse(@event.ThemeId, theme?.Name),

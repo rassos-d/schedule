@@ -37,6 +37,10 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
         return schedule.Id;
     }
 
+    public List<int> GetStudyYears(Guid scheduleId)
+    {
+        return repo.GetStudyYears(scheduleId);
+    }
     public void Update(EntityNameUpdateDto dto)
     {
         var schedule = new ScheduleInfo(dto.Id, dto.Name);

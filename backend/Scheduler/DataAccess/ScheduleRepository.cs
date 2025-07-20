@@ -49,7 +49,12 @@ public class ScheduleRepository : BaseRepository
             WriteSchedule(schedule);
         }
     }
-    
+
+    public List<int> GetStudyYears(Guid scheduleId)
+    {
+        var files = GetAllFiles(scheduleId.ToString());
+        return files.Select(str => str.Split("\\").Last().Split(".").First()).Select(ConvertToStudyYear).ToList();
+    }
 
     public SchedulePage GetSchedulePage(Guid id, StudyYear studyYear)
     {
@@ -170,5 +175,15 @@ public class ScheduleRepository : BaseRepository
         var json = ReadFile(path);
         return JsonSerializer.Deserialize<SchedulePage>(json, JsonOptions)!;
     }
-    
+
+    private int ConvertToStudyYear(string fileName)
+    {
+        return fileName switch
+        {
+            "First" => 1,
+            "Second" => 2,
+            "Third" => 3,
+            _ => throw new NotImplementedException()
+        };
+    }
 }

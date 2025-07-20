@@ -1,7 +1,7 @@
 export type Teacher = {
   name: string,
   rank: string,
-  vacations: [],
+  vacations: Vacation[],
   subjectIds: string[],
   id: string
 }
@@ -9,4 +9,10 @@ export type Teacher = {
 export type NewTeacher = {
   name: string
   rank: string
+  vacations: Vacation[],
+}
+
+export type Vacation = {
+  startDate: string
+  endDate: string
 }

@@ -241,7 +241,7 @@ export default function Main () {
             handleGetAllAudience()
             handleGetAllTeachers()
         }
-    },[allAudience, allTeachers])
+    },[])
 
     if (!shedules || !allAudience || !allTeachers || !squads || !allDirections) {
         return <></>

@@ -1,16 +1,15 @@
 using Microsoft.AspNetCore.Mvc;
+using Scheduler.Services.Schedule;
 
 namespace Scheduler.Controllers.Plan;
 
 [ApiController]
 [Route("api/study-years")]
-public class StudyYearController: ControllerBase
+public class StudyYearController(ScheduleService service): ControllerBase
 {
-    private static readonly int[] studyYears = [1,2,3];
-
     [HttpGet]
-    public IActionResult Get()
+    public IActionResult Get([FromQuery] Guid scheduleId)
     {
-        return Ok(studyYears);
+        return Ok(service.GetStudyYears(scheduleId));
     }
 }
