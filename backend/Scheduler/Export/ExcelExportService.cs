@@ -129,7 +129,7 @@ public class ExcelExportService
         for (var dateIndex = 0; dateIndex < squad.Dates.Count; dateIndex++)
         {
             var date = squad.Dates[dateIndex];
-            cells.SetCellValue(heightOffset - 1, col, $"{date.Day}.{date.Month}");
+            cells.SetCellValue(heightOffset - 1, col, date.ToString("dd.MM"));
             col++;
         }
     }

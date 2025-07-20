@@ -23,8 +23,7 @@ namespace Tests
         [Test]
         public void Test1()
         {
-            export.Save(Guid.Parse("f3f9f8cc-ec27-4c99-b1ea-05ab2f6cefee"));
-            //todo 01.09 and events
+            export.Save(Guid.Parse("4b9121a8-92a6-48f0-b256-60ade7f9a03f"));
         }
     }
 }
