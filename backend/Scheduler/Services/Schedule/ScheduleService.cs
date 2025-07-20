@@ -73,22 +73,22 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
             return Semester.First;
         }
 
-        if (studyYear == StudyYear.Second && sem == 0)
+        if (studyYear == StudyYear.Second && sem == 1)
         {
             return Semester.Second;
         }
 
-        if (studyYear == StudyYear.Second && sem == 1)
+        if (studyYear == StudyYear.Second && sem == 0)
         {
             return Semester.Third;
         }
 
-        if (studyYear == StudyYear.Third && sem == 0)
+        if (studyYear == StudyYear.Third && sem == 1)
         {
             return Semester.Fourth;
         }
 
-        if (studyYear == StudyYear.Third && sem == 1)
+        if (studyYear == StudyYear.Third && sem == 0)
         {
             return Semester.Fiveth;
         }
