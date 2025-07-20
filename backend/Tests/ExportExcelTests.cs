@@ -24,7 +24,7 @@ namespace Tests
         [Test]
         public void Test1()
         {
-            export.Save(Guid.Parse("4b9121a8-92a6-48f0-b256-60ade7f9a03f"));
+            export.Save(Guid.Parse("42635d14-43e2-490e-96ce-0e4fa6c4afa1"));
         }
     }
 }

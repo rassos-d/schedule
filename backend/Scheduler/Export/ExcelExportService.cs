@@ -91,7 +91,7 @@ public class ExcelExportService
     {
         // создаем лист с сразу заполненной шапкой
         var sheet = workbook.Worksheets.Add(page.StudyYear.ToString(), template.Header.Sheet);
-        var totalHeight = template.Header.Size.Height;
+        var totalHeight = template.Header.Size.Height + 1;
 
         foreach (var squadId in page.Squads)
         {
