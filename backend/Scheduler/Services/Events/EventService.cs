@@ -209,8 +209,8 @@ public class EventService(
             {
                 Id = pair.Key,
                 Name = squad.Name,
-                DaddyName = squad.DaddyId is null ? null : teacherNames[squad.DaddyId!.Value],
-                DirectionName = direction?.Name,
+                Daddy = ConvertToResponse(squad.DaddyId!.Value, teacherNames.GetValueOrDefault(squad.DaddyId!.Value)),
+                Direction = ConvertToResponse(direction?.Id, direction?.Name),
                 Events = eventsDictionary
             };
         }
