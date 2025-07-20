@@ -1,5 +1,6 @@
 using Scheduler.DataAccess;
 using Scheduler.DataAccess.General;
+using Scheduler.Export;
 using Scheduler.Services.Events;
 using Scheduler.Services.General;
 using Scheduler.Services.Schedule;
@@ -21,6 +22,7 @@ builder.Services.AddSingleton<TeacherService>();
 builder.Services.AddSingleton<ScheduleService>();
 builder.Services.AddSingleton<EventService>();
 builder.Services.AddSingleton<EventGenerator>();
+builder.Services.AddSingleton<ExcelExportService>();
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
