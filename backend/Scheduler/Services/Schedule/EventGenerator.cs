@@ -1,13 +1,11 @@
-﻿using Scheduler.DataAccess;
-using Scheduler.DataAccess.General;
+﻿using Scheduler.DataAccess.General;
 using Scheduler.DataAccess.Plan;
-using Scheduler.Dto.Constants;
 using Scheduler.Entities;
 using Scheduler.Entities.Schedule;
 
 namespace Scheduler.Services.Schedule;
 
-public class EventGenerator(ScheduleRepository scheduleRepo, SquadRepository squadRepo, PlanRepository planRepo)
+public class EventGenerator(SquadRepository squadRepo, PlanRepository planRepo)
 {
     public void Generate(SchedulePage page)
     {
@@ -37,6 +35,7 @@ public class EventGenerator(ScheduleRepository scheduleRepo, SquadRepository squ
 
                 page.Events.Add(@event);
 
+                currentNumberIndex++;
                 if(currentNumberIndex == 3)
                 {
                     currentNumberIndex = 0;
