@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Scheduler.DataAccess;
 using Scheduler.Dto;
 using Scheduler.Dto.Constants;
@@ -43,9 +44,9 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
         return repo.GetStudyYears(scheduleId);
     }
 
-    public void ExportExcel(Guid scheduleId)
+    public Stream ExportExcel(Guid scheduleId)
     {
-        export.Save(scheduleId);
+        return export.Save(scheduleId);
     }
 
     public void Update(EntityNameUpdateDto dto)
@@ -64,6 +65,11 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
         repo.DeleteSchedule(scheduleId);
     }
 
+    public string GetName(Guid id)
+    {
+        return repo.GetSchedule(id).Name;
+    }
+
     private static List<DateOnly> GetDatesForDayOfWeek(DateOnly startDate, DateOnly endDate)
     {
         var result = new List<DateOnly>();
@@ -71,7 +77,7 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
         while (currentDate <= endDate)
         {
             result.Add(currentDate);
-            currentDate = currentDate.AddDays(7); 
+            currentDate = currentDate.AddDays(7);
         }
 
         return result;

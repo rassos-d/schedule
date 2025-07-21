@@ -40,7 +40,7 @@ public class ExcelExportService
         this.planRepository = planRepository;
     }
 
-    public void Save(Guid scheduleId)
+    public Stream Save(Guid scheduleId)
     {
         if (File.Exists(resultPath))
             File.Delete(resultPath);
@@ -57,6 +57,7 @@ public class ExcelExportService
         }
 
         resultExcel.Save();
+        return resultExcel.Stream;
     }
 
     private static Template GetTemplate(ExcelPackage templateExcel)
