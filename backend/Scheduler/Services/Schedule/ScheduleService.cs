@@ -44,6 +44,33 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
         return schedule.Id;
     }
 
+    public void FullUpdate(ScheduleUpdateDto dto)
+    {
+        var schedule = repo.GetSchedule(dto.Id);
+
+        foreach (var pageDto in dto.Pages)
+        {
+            var existsPage = repo.GetSchedulePage(dto.Id, pageDto.StudyYear);
+            
+            var dates = GetDatesForDayOfWeek(pageDto.Start, pageDto.End);
+            var page = new SchedulePage 
+            { 
+                ScheduleId = schedule.Id,
+                Semester = GetSemester(pageDto.StudyYear, pageDto.Semester),
+                StudyYear = pageDto.StudyYear,
+                Squads = pageDto.Squads,
+                Dates = dates,
+                Events = existsPage.Events
+                    .Where(e => e.Date >= pageDto.Start && e.Date <= pageDto.End)
+                    .Where(e => pageDto.Squads.Contains(e.SquadId.Value))
+                    .ToList()
+            };
+            schedule.Pages.Add(page);
+        }
+
+        repo.SaveSchedule(schedule);
+    }
+    
     public List<int> GetStudyYears(Guid scheduleId)
     {
         return repo.GetStudyYears(scheduleId);

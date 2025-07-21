@@ -2,8 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Scheduler.Dto;
 using Scheduler.Dto.Constants;
 using Scheduler.Dto.Schedule;
-using Scheduler.Entities.Constants;
-using Scheduler.Services.Events;
 using Scheduler.Services.Schedule;
 
 namespace Scheduler.Controllers.Schedule;
@@ -53,6 +51,13 @@ public class ScheduleController(ScheduleService service) : ControllerBase
     public IActionResult Update([FromBody] EntityNameUpdateDto dto)
     {
         service.Update(dto);
+        return Ok();
+    }
+
+    [HttpPut("full")]
+    public IActionResult UpdateSchedule([FromBody] ScheduleUpdateDto dto)
+    {
+        service.FullUpdate(dto);
         return Ok();
     }
     
