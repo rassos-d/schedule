@@ -1,5 +1,14 @@
 {
-  "Audiences": {},
+  "Audiences": {
+    "56eed200-51bd-4cd1-ac27-3796147d7de5": {
+      "Name": "\u0412\u041E-404",
+      "Id": "56eed200-51bd-4cd1-ac27-3796147d7de5"
+    },
+    "3229f141-9514-4e0a-b338-0e2edd647bcf": {
+      "Name": "\u0432\u043E-321",
+      "Id": "3229f141-9514-4e0a-b338-0e2edd647bcf"
+    }
+  },
   "Squads": {
     "a600afa2-6766-424c-9753-48bd90cdbd53": {
       "StudyYear": 3,
@@ -98,5 +107,13 @@
       "Id": "2f9f01ef-1107-46ec-82e0-54da74b57922"
     }
   },
-  "Teachers": {}
+  "Teachers": {
+    "447a8f61-e5cc-4b92-ae8c-8c5144676542": {
+      "Rank": "\u0439\u0446\u0443\u0439\u0446\u0443",
+      "Vacations": [],
+      "SubjectIds": [],
+      "Name": "\u0439\u0446\u0443",
+      "Id": "447a8f61-e5cc-4b92-ae8c-8c5144676542"
+    }
+  }
 }

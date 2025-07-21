@@ -74,7 +74,7 @@ function LessonComponent({ lesson, date, number, squardIndex, isConflict, onMove
     >
       <div ref={ref} className={styles.dragLessonContainer__content} style={{ opacity: isDragging ? 0.5 : 1 }}>
         <p>{lesson.subject.name}</p>
-        <p>{`${lesson.theme?.name} ${lesson.lessonType ? lesson.lessonType : ''}`}</p>
+        <p>{`${lesson.theme ? 'т. ' + lesson.theme.number + '/' : ''}${lesson.lesson ? lesson.lesson.number + ' ' + lesson.lesson.type : ''} `}</p>
         <p>{lesson.audience?.name}</p>
         <p>{lesson.teacher?.name}</p>
       </div>

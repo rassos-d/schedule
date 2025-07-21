@@ -274,6 +274,7 @@ export default function ShedulePage() {
         if (!subjects || !newLesson || !newLesson.subject) return [] as AddInputList[]
         const selectedSubject = subjects.filter((subject)=>subject.id === newLesson.subject?.id)
         if (!selectedSubject) return [] as AddInputList[]
+        console.log(selectedSubject, newLesson.theme, subjects)
         return selectedSubject[0].themes.filter((theme)=>theme.id === newLesson.theme?.id)[0].lessons
     }
 
@@ -316,6 +317,10 @@ export default function ShedulePage() {
             handleGetSchedule(activeTab)
         }
     },[activeTab])
+
+    useEffect(()=>{
+        console.log(newLesson)
+    }, [newLesson])
 
 
     if (!schedule || !freeLessons || !allTabs || !activeTab || !allTeachers || !allSquads || !allAudience) return <></>

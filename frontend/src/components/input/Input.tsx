@@ -166,10 +166,10 @@ export function AddInput({ selectedList, changeInputList, allList, title, placeh
             {searchValue !== '' && <img onClick={() => { changeSearchValue('') }} className={styles.input__clear} src='/icons/close.svg' />}
           </div>}
         {allList.map((el) => (
-          <p key={el.id} onClick={() => { changeList(el) }} className={styles.list__line}>
+          <div key={el.id} onClick={() => { changeList(el) }} className={styles.list__line}>
             <img src={`/icons/${singleMode ? 'radioButton' : 'checkbox'}/${selectedList.findIndex((item) => item.id === el.id) !== -1 ? 'active' : 'disable'}.svg`} />
             <p>{el.name}</p>
-          </p>
+          </div>
         ))}
         {totalParts !== currentPart && onSeeMore && allList.length !== 0 && <p onClick={seeMore} className={styles.list__showMore}>Показать еще...</p>}
       </div>}

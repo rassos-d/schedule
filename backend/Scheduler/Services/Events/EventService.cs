@@ -12,6 +12,7 @@ using Scheduler.Entities.General;
 using Scheduler.Entities.Plan;
 using Scheduler.Entities.Schedule;
 using Scheduler.Exceptions;
+using Scheduler.Extensions;
 
 namespace Scheduler.Services.Events;
 
@@ -204,7 +205,7 @@ public class EventService(
             ? $"Конфликт у аудитории {audiences[updatedEvent.AudienceId.Value]} во время {GetTimeByLessonNumber(updatedEvent.Number.Value)}."
             : "";
 
-        var conflictVacationString = !isTeacherInNotVacation
+        var conflictVacationString = isTeacherInNotVacation
             ? $"Конфликт у преподавателя {teachers[updatedEvent.TeacherId.Value].Name}. Преподаватель находится в отпуске."
             : "";
 
@@ -305,10 +306,10 @@ public class EventService(
             Squad = @event.SquadId.HasValue
                 ? ConvertToResponse(@event.SquadId.Value, squads.GetValueOrDefault(@event.SquadId.Value)?.Name)
                 : null,
-            Lesson = new LessonGetDto { Id = @event.LessonId, Name = lesson?.Name, Number = lesson?.Number },
+            Lesson = new LessonGetDto { Id = @event.LessonId, Name = lesson?.Name, Number = lesson?.Number, Type = lesson?.Type.GetView()},
             LessonType = lesson?.Type,
-            Theme = new ThemeGetDto { Id = @event.LessonId, Name = theme?.Name, Number = theme?.Number },
-            Subject = ConvertToResponse(subject?.Id, subject?.Name),
+            Theme = new ThemeGetDto { Id = @event.ThemeId, Name = theme?.Name, Number = theme?.Number },
+            Subject = ConvertToResponse(subject?.Id, subject?.GetShortName()),
         };
     }
 
