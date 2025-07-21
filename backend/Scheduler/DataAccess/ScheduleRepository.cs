@@ -174,13 +174,14 @@ public class ScheduleRepository : BaseRepository
 
     private void WriteSchedulePage(SchedulePage schedulePage)
     {
-        var scheduleDir = Path.Combine(DirectoryPath, schedulePage.ScheduleId.ToString());
+        var schedulePath = schedulePage.ScheduleId.ToString();
+        var scheduleDir = Path.Combine(DirectoryPath, schedulePath);
         if (Directory.Exists(scheduleDir) == false)
         {
             Directory.CreateDirectory(scheduleDir);
         }
         
-        var pagePath = Path.Combine($"{schedulePage.ScheduleId}/{schedulePage.StudyYear}.json");
+        var pagePath = Path.Combine(schedulePath, $"{schedulePage.StudyYear}.json");
         WriteFile(pagePath, schedulePage);
     }
     
@@ -192,7 +193,7 @@ public class ScheduleRepository : BaseRepository
             Directory.CreateDirectory(directory);
         }
 
-        var path = $"{scheduleId}/{studyYear}.json";
+        var path = Path.Combine(scheduleId.ToString(), $"{studyYear}.json");
         var json = ReadFile(path);
         return JsonSerializer.Deserialize<SchedulePage>(json, JsonOptions)!;
     }
