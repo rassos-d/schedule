@@ -12,6 +12,18 @@ namespace Scheduler.Export;
 
 public class ExcelExportService
 {
+    //todo 1 год, 2 год
+    //todo п/п-к -> подполковник
+    private readonly Dictionary<DayOfWeek, string> Day = new Dictionary<DayOfWeek, string>()
+    {
+        {DayOfWeek.Monday, "ПОНЕДЕЛЬНИК"},
+        {DayOfWeek.Tuesday, "ВТОРНИК"},
+        {DayOfWeek.Wednesday, "СРЕДА"},
+        {DayOfWeek.Thursday, "ЧЕТВЕРГ"},
+        {DayOfWeek.Friday, "ПЯТНИЦА"},
+        {DayOfWeek.Saturday, "СУББОТА"},
+        {DayOfWeek.Sunday, "ВОСКРЕСЕНИЕ"}
+    };
 
     private const string resultPath = "result.xlsx";
     private readonly string templatePath = Path.Combine("Export", "template.xlsx");
@@ -81,7 +93,7 @@ public class ExcelExportService
             {
                 Sheet = null!,
                 Range = templateExcel.Workbook.Worksheets[2].Cells[1, 1, 12, 20],
-                Size = new Size(20, 12)
+                Size = new Size(20, 9)
             }
         };
     }
@@ -119,24 +131,28 @@ public class ExcelExportService
     {
         const int vucsTextIndex = 71;
         const int semesterTextIndex = 74;
-        const int yearsTextIndex = 92;
-        
+        const int yearsTextIndex = 84;
+
         var header = cells.TakeSingleCell(1, 0);
+        var day = cells.TakeSingleCell(3, 0);
 
         var endYear = dates.First().Year;
         var startYear = (int)semester % 2 == 1 ? endYear - 1 : endYear + 1;
         (startYear, endYear) = endYear > startYear ? (startYear, endYear) : (endYear, startYear);
-        
+
         var semesterText = (int)semester % 2 == 1 ? "весеннем" : "осеннем";
         var yearsText = $"{startYear}-{endYear}";
         var vucsText = string.Join(", ", squads
             .Select(x => x.DirectionName.Split('-').Last())
-            .Where(x =>!string.IsNullOrWhiteSpace(x)));
+            .Where(x => !string.IsNullOrWhiteSpace(x)));
+        var dayText = Day[dates.First().DayOfWeek];
 
         header.SetCellValue(0, 0, header.Text
-            .Insert(semesterTextIndex, semesterText)
             .Insert(yearsTextIndex, yearsText)
+            .Insert(semesterTextIndex, semesterText)
             .Insert(vucsTextIndex, vucsText));
+
+        day.SetCellValue(0, 0, dayText);
     }
 
     private SquadExcel GetSquad(SchedulePage page, Squad squad)
