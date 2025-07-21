@@ -3,7 +3,7 @@ import styles from './schedule.module.scss'
 import axios, { PagesURl } from '../../services/api/api'
 import { Button } from '../../components/button/button'
 import { ChangeLessonReponse, Schedule } from '../../types/schedule'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { checkLesson, getFullSchedule, getSchedule, sortedDates } from '../../utils/schedule'
 import { Icon } from '../../components/icon'
 import { DndProvider } from 'react-dnd'
@@ -61,6 +61,9 @@ export default function ShedulePage() {
     const [allTabs, setAllTabs] = useState<number[]>()
     const [activeTab, setActiveTab] = useState<number>()
 
+    const sidebarRefIcon = useRef<HTMLDivElement>(null)
+    const sidebarContentRef = useRef<HTMLDivElement>(null)
+
     const [schedule, setShedule] = useState<Schedule>()
     const [errorList, setErrorList] = useState<string[]>([])
 
@@ -72,11 +75,10 @@ export default function ShedulePage() {
     const [allAudience, setAllAudience] = useState<Audience[]>()
     const [allSquads, setAllSquads] = useState<Squad[]>()
 
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false)
     const [activeSquardIndex, setActiveSquardIndex] = useState(0)
     const [freeLessons, setFreeLessons] = useState<FreeLesson[]>()
 
-    const [newLesson, setNewLesson] = useState<NewLesson>()
+    const [newLesson, setNewLesson] = useState<NewLesson & {isNewLesson: boolean}>()
 
     const handleGetAllTeachers = async () => {
         const {data } = await axios.get<Teacher[]>(PagesURl.TEACHER)
@@ -158,7 +160,7 @@ export default function ShedulePage() {
             number: lesson.number,
             date: lesson.date
         })
-        if (data.message) {
+        if (data.conflictEventIds) {
             setErrorList(data.conflictEventIds)
             toast(data.message)
         }
@@ -166,18 +168,23 @@ export default function ShedulePage() {
 
     const handleCreateLesson = async () => {
         if (!newLesson || !checkLesson(newLesson) || !activeTab) return
-        console.log(newLesson)
-        await axios.post<ResponseType, AxiosResponse<ResponseType>, NewLessonRequest>(PagesURl.EVENT + `/schedules/${id}/${activeTab}`, {
+        await axios[newLesson.isNewLesson ? 'post' : 'put']<ResponseType, AxiosResponse<ResponseType>, NewLessonRequest>(
+            PagesURl.EVENT + `${newLesson.id ? '/' + newLesson.id : ''}/schedules/${id}/${activeTab}`, {
             subjectId: newLesson.subject.id as string,
             teacherId: newLesson.teacher.id as string,
             themeId: newLesson.theme.id as string,
             lessonId: newLesson.lesson.id as string,
-            squadId: newLesson.squard.id as string,
+            squadId: newLesson.squad.id as string,
             audienceId: newLesson.audience.id as string,
             number: newLesson.number,
             date: newLesson.date
         })
         setNewLesson(undefined)
+        handleGetSchedule(activeTab)
+    }
+    const handleDeleteLesson = async (lessonId: string) => {
+        if (!activeTab) return
+        await axios.delete(PagesURl.EVENT + `/${lessonId}/schedules/${id}/${activeTab}`)
         handleGetSchedule(activeTab)
     }
 
@@ -232,7 +239,21 @@ export default function ShedulePage() {
     }
     const startDragging = (squardIndex: number) => {
         setActiveSquardIndex(squardIndex)
-        setIsSidebarOpen(true)
+        if (sidebarRefIcon.current && sidebarContentRef.current) {
+            sidebarContentRef.current.classList.remove(styles.sidebar__content_close)
+            sidebarRefIcon.current.classList.remove(styles.sidebar__icon_close)
+        } 
+    }
+    const changeOpenSidebar = () => {
+        if (sidebarRefIcon.current && sidebarContentRef.current) {
+            if (sidebarContentRef.current.classList.contains(styles.sidebar__content_close)) {
+                sidebarContentRef.current.classList.remove(styles.sidebar__content_close)
+                sidebarRefIcon.current.classList.remove(styles.sidebar__icon_close)
+                return
+            }
+            sidebarContentRef.current.classList.add(styles.sidebar__content_close)
+            sidebarRefIcon.current.classList.add(styles.sidebar__icon_close)
+        } 
     }
 
     const createLesson = (day: string, number: number, squardIndex: number) => {
@@ -241,9 +262,10 @@ export default function ShedulePage() {
         const activeSquad = schedule.squads[squardIndex]
         handleGetSubjects(direction ? direction.id : '')
         setNewLesson({
+            isNewLesson: true,
             date: day, 
             number, 
-            squard: {name: activeSquad.name, id: activeSquad.id}, 
+            squad: {name: activeSquad.name, id: activeSquad.id}, 
             teacher: schedule.squads[squardIndex].daddy,
             audience: schedule.squads[squardIndex].audience
         })
@@ -255,7 +277,7 @@ export default function ShedulePage() {
         return selectedSubject[0].themes.filter((theme)=>theme.id === newLesson.theme?.id)[0].lessons
     }
 
-    const changeSquadNewLesson = (newSquad: AddInputList) => {
+    const changeSquadNewLesson = (isNewLesson: boolean, newSquad: AddInputList) => {
         setNewLesson((prev)=>{
             if (!prev || !schedule || !allDirections) return undefined
             const activeSquad = schedule.squads.filter((el)=>el.id === newSquad.id)[0]
@@ -263,6 +285,7 @@ export default function ShedulePage() {
             handleGetSubjects(direction ? direction.id : '')
             const result = cloneObject(prev)
             return {
+                isNewLesson,
                 squard: newSquad,
                 number: result.number,
                 date: result.date,
@@ -271,6 +294,13 @@ export default function ShedulePage() {
             }
 
         })
+    }
+    const onEditLesson = (lesson: SheduleLesson) => {
+        if (!schedule || !allDirections) return undefined
+        const activeSquad = schedule.squads.filter((el)=>el.id === lesson.squad.id)[0]
+        const direction = allDirections.find((direction)=>activeSquad.direction?.id === direction.id)
+        handleGetSubjects(direction ? direction.id : '')
+        setNewLesson({...lesson, isNewLesson: false})
     }
 
     useEffect(()=>{
@@ -299,7 +329,10 @@ export default function ShedulePage() {
                 <div className={styles.container__tabs}>
                     <Tabs onClick={setActiveTab} tabs={allTabs} activeTab={activeTab}/>
                 </div>
-                <Button onClick={()=>navigate('/')} className={styles.container__back}>На главную</Button>
+                <div className={styles.container__buttons}>
+                    <Button onClick={()=>navigate('/')} className={styles.container__back}>На главную</Button>
+                    <Button onClick={handleExportShedule}>ЭКСПОРТ</Button>
+                </div>
                 <h1 className={styles.container__title}>{`${schedule.name} ${activeTab} курс`}</h1>
                 <DndProvider backend={HTML5Backend}>
                     {schedule.squads.map((item, squardIndex) => (
@@ -332,12 +365,14 @@ export default function ShedulePage() {
                                                 <div key={lesson.number} className={`${styles.table__lesson} ${lesson.number === 3 && styles.table__time_row_grey}`}>
                                                     {"id" in lesson ?
                                                         <DragLesson
+                                                            onDelete={()=>{handleDeleteLesson(lesson.id)}}
+                                                            onSelect={onEditLesson}
                                                             isConflict={errorList.includes(lesson.id)}
                                                             squardIndex={squardIndex} 
                                                             lesson={lesson} 
                                                             date={dayKey}
                                                             number={lesson.number}
-                                                            onStartDragging={()=>startDragging(squardIndex)}
+                                                            onStartDragging={startDragging}
                                                             onMove={(target, oldDate, oldNumber) => {
                                                                  "activeSquardIndex" in target ? onMoveLessonToFree(target.activeSquardIndex, dayKey, lesson) :
                                                                 onMoveLessonFromTableToTable(squardIndex, target, oldDate, oldNumber,  lesson)
@@ -358,57 +393,49 @@ export default function ShedulePage() {
                             </div>
                         </div>
                     ))}
-                    <div className={styles.container__buttons}>
-                        <Button onClick={handleExportShedule}>ЭКСПОРТ</Button>
-                        <Button>СОХРАНИТЬ</Button>
-                    </div>
-                    <div className={`${styles.container__sidebar} ${isSidebarOpen ? styles.container__sidebar_open : styles.container__sidebar_close}`}>
-                        {!isSidebarOpen ?
-                            <div onClick={() => setIsSidebarOpen(true)} className={styles.sidebar__close}>
-                                <Icon glyph='arrow-up' glyphColor='black' />
-                            </div> :
-                            <div className={styles.sidebar__open}>
-                                <div className={styles.sidebar__line}>
-                                    <div className={styles.sidebar__tabs}>
-                                        {schedule.squads.map((squard, index)=>(
-                                            <p 
-                                                key={squard.id} 
-                                                className={`${styles.sidebar__tab} ${index === activeSquardIndex && styles.sidebar__tab_active}`} 
-                                                onClick={(e) => {e.stopPropagation();setActiveSquardIndex(index)}}
-                                            >
-                                                {squard.name}
-                                            </p>
-                                        ))}
-                                    </div>
-                                    <div style={{ cursor: 'pointer' }} className={styles.sidebar_close} onClick={() => {setIsSidebarOpen(false)}}>
-                                        <Icon glyph='arrow-down' glyphColor='black' />
-                                    </div>
+                    <div className={`${styles.container__sidebar}`}>
+                        <div ref={sidebarContentRef} className={styles.sidebar__content_close}>
+                            <div className={styles.sidebar__line}>
+                                <div className={styles.sidebar__tabs}>
+                                    {schedule.squads.map((squard, index) => (
+                                        <p
+                                            key={squard.id}
+                                            className={`${styles.sidebar__tab} ${index === activeSquardIndex && styles.sidebar__tab_active}`}
+                                            onClick={(e) => { e.stopPropagation(); setActiveSquardIndex(index) }}
+                                        >
+                                            {squard.name}
+                                        </p>
+                                    ))}
                                 </div>
-                                <DropZone activeSquardIndex={activeSquardIndex}>
-                                    <div className={styles.sidebar__items}>
-                                        {freeLessons.filter((lesson)=>lesson.squardIndex === activeSquardIndex).map((lesson)=>(
-                                            <DragFreeLesson key={lesson.id} lesson={lesson} squardIndex={activeSquardIndex} onMove={onMoveFreeToLesson}/>
-                                        ))}
-                                    </div>
-                                </DropZone>
                             </div>
-                        }
+                            <DropZone activeSquardIndex={activeSquardIndex}>
+                                <div className={styles.sidebar__items}>
+                                    {freeLessons.filter((lesson) => lesson.squardIndex === activeSquardIndex).map((lesson) => (
+                                        <DragFreeLesson key={lesson.id} lesson={lesson} squardIndex={activeSquardIndex} onMove={onMoveFreeToLesson} />
+                                    ))}
+                                </div>
+                            </DropZone>
+                        </div>
+                        <div ref={sidebarRefIcon} onClick={changeOpenSidebar} style={{ cursor: 'pointer' }} className={`${styles.sidebar__icon} ${styles.sidebar__icon_close}`}>
+                            <Icon glyph='arrow-down' glyphColor='black' />
+                        </div>
+                        
                     </div>
                 </DndProvider>
             </div>
             {newLesson && subjects &&
                 <PopupContainer onClose={()=>setNewLesson(undefined)}>
                     <div className={styles.popup}>
-                        <h2>Создание занятия</h2>
+                        <h2>{`${newLesson.isNewLesson ? 'Создание' : 'Редактирование'} занятия`}</h2>
                         <div className={styles.popup__line}>
                             <p className={styles.popup__title}>Взвод:</p>
                             <AddInput
                                 minWidth={228}
-                                selectedList={newLesson.squard ? [newLesson.squard] : []}
+                                selectedList={newLesson.squad ? [newLesson.squad] : []}
                                 allList={schedule.squads}
                                 singleMode
                                 title='Выберите взвод'
-                                changeInputList={(newlist)=>changeSquadNewLesson(newlist[0])}
+                                changeInputList={(newlist)=>changeSquadNewLesson(true, newlist[0])}
                             />
                         </div>
                         <div className={styles.popup__line}>
@@ -419,7 +446,7 @@ export default function ShedulePage() {
                                 singleMode
                                 allList={subjects}
                                 title='Выберите дисциплину'
-                                changeInputList={(newList)=>setNewLesson({...newLesson, subject: {...newList[0]}})}
+                                changeInputList={(newList)=>setNewLesson({...newLesson, subject: {...newList[0]}, theme: undefined})}
                             />
                         </div>
                         {newLesson.subject &&   
@@ -431,7 +458,7 @@ export default function ShedulePage() {
                                     singleMode
                                     allList={subjects.filter((subject)=>subject.id === newLesson.subject?.id)[0].themes}
                                     title='Выберите тему'
-                                    changeInputList={(newList)=>setNewLesson({...newLesson, theme: {...newList[0]}})}
+                                    changeInputList={(newList)=>setNewLesson({...newLesson, theme: {...newList[0]}, lesson: undefined})}
                                 />
                             </div>
                         }
