@@ -1,7 +1,9 @@
 using System.Text.Json;
+using Scheduler.Constants;
 using Scheduler.DataAccess.Base;
 using Scheduler.Dto.Constants;
 using Scheduler.Entities.Schedule;
+using Scheduler.Exceptions;
 using Scheduler.Models;
 
 namespace Scheduler.DataAccess;
@@ -38,12 +40,14 @@ public class ScheduleRepository : BaseRepository
 
     public Schedule GetSchedule(Guid scheduleId)
     {
-        var name = GetAllScheduleInfos().First(x => x.Id == scheduleId).Name;
+        var scheduleInfo = GetAllScheduleInfos().FirstOrDefault(x => x.Id == scheduleId);
+        if (scheduleInfo is null)
+            throw new EntityNotFoundException(string.Format(ExceptionsCode.EntityNotFound, scheduleId));
         var studyYears = GetStudyYears(scheduleId);
         var schedule = new Schedule
         {
             Id = scheduleId,
-            Name = name,
+            Name = scheduleInfo.Name,
         };
 
         foreach (var studyYear in studyYears)
@@ -77,7 +81,6 @@ public class ScheduleRepository : BaseRepository
         }
     }
     
-
     public SchedulePage GetSchedulePage(Guid id, StudyYear studyYear)
     {
         if (_schedulesCache.TryGetValue(id, out var schedule))

@@ -1,5 +1,6 @@
 using Scheduler.Dto;
 using Scheduler.Entities.Plan;
+using Scheduler.Exceptions;
 
 namespace Scheduler.DataAccess.Plan;
 
@@ -32,24 +33,23 @@ public partial class PlanRepository
 
     public Lesson? GetLesson(Guid id)
     {
-        return Subjects
-            .SelectMany(s => s.Themes
-                .SelectMany(t => t.Lessons))
-            .FirstOrDefault(l => l.Id == id);
+        return GetLessons().FirstOrDefault(l => l.Id == id);
+    }
+
+    public IEnumerable<Lesson> GetLessons()
+    {
+        return Subjects.SelectMany(s => s.Themes).SelectMany(t => t.Lessons);
     }
 
     public void UpdateLesson(EntityNameUpdateDto dto)
     {
         var lesson = GetLesson(dto.Id);
         if (lesson is null)
-        {
-            return;
-        }
+            throw new EntityNotFoundException("Урок не существует");
 
-        if (dto.Name.Length > 0)
-        {
-            lesson.Name = dto.Name;
-        }
+        if (GetLessons().Any(l => l.Name == dto.Name))
+            throw new EntityAlreadyExistExceptions("Занятие с таким именем уже создано");
+        lesson.Name = dto.Name;
         
         SaveChanges();
     }

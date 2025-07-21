@@ -1,12 +1,9 @@
 using Scheduler.Entities.Base;
-using Scheduler.Dto.Constants;
 
 namespace Scheduler.Entities.Plan;
 
-public class Theme : Entity
+public class Theme : EntityWithName
 {
-    public string Name { get; set; }
-
     public int Number { get; set; }
 
     public Guid SubjectId { get; set; }

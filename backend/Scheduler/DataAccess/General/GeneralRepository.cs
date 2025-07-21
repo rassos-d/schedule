@@ -1,11 +1,12 @@
 using System.Text.Json;
 using Scheduler.DataAccess.Base;
 using Scheduler.Entities.Base;
+using Scheduler.Exceptions;
 using static Scheduler.Constants.FilePaths;
 
 namespace Scheduler.DataAccess.General;
 
-public abstract class GeneralRepository<T> : BaseRepository where T : Entity
+public abstract class GeneralRepository<T> : BaseRepository where T : EntityWithName
 {
     private readonly GeneralData Data;
     protected abstract Func<GeneralData, Dictionary<Guid, T>> GetData { get; }
@@ -28,8 +29,13 @@ public abstract class GeneralRepository<T> : BaseRepository where T : Entity
     public virtual T? Get(Guid id) => GetData(Data).GetValueOrDefault(id);
     
     public virtual List<T> GetAll() => GetData(Data).Values.ToList();
-    
-    public virtual void Upsert(T entity) => GetData(Data)[entity.Id] = entity;
+
+    public virtual void Upsert(T entity)
+    {
+        if (GetData(Data).Values.Any(x => x.Name == entity.Name))
+            throw new EntityAlreadyExistExceptions("Такое имя уже занято.");
+        GetData(Data)[entity.Id] = entity;
+    }
 
     public virtual void Delete(Guid id) => GetData(Data).Remove(id);
 }

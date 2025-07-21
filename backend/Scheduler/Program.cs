@@ -1,6 +1,7 @@
 using Scheduler.DataAccess;
 using Scheduler.DataAccess.General;
 using Scheduler.Export;
+using Scheduler.Middlewares;
 using Scheduler.Services.Events;
 using Scheduler.Services.General;
 using Scheduler.Services.Schedule;
@@ -38,6 +39,8 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+
+app.UseMiddleware<ErrorHandlingMiddleware>();
 
 app.UseSwagger();
 app.UseSwaggerUI(c => 

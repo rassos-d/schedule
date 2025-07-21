@@ -4,6 +4,7 @@ using Scheduler.Dto;
 using Scheduler.Dto.Constants;
 using Scheduler.Dto.Schedule;
 using Scheduler.Entities.Schedule;
+using Scheduler.Exceptions;
 using Scheduler.Export;
 using Scheduler.Models;
 
@@ -19,6 +20,10 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
     public Guid Create(ScheduleCreateDto dto)
     {
         var schedule = new Entities.Schedule.Schedule {Name = dto.Name, Pages = [] };
+        var scheduleInfos = repo.GetAllScheduleInfos();
+        if (scheduleInfos.Any(s => string.Equals(s.Name, dto.Name, StringComparison.CurrentCultureIgnoreCase)))
+            throw new EntityAlreadyExistExceptions("Календарь с таким именем уже существует");
+        
         foreach (var pageDto in dto.Pages)
         {
             var dates = GetDatesForDayOfWeek(pageDto.Start, pageDto.End);
