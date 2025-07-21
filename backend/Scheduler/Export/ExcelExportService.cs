@@ -40,7 +40,7 @@ public class ExcelExportService
         this.planRepository = planRepository;
     }
 
-    public Stream Save(Guid scheduleId)
+    public Stream ExportExcel(Guid scheduleId)
     {
         if (File.Exists(resultPath))
             File.Delete(resultPath);
@@ -49,14 +49,13 @@ public class ExcelExportService
         var template = GetTemplate(templateExcel);
 
         var schedule = scheduleRepository.GetSchedule(scheduleId);
-        using var resultExcel = new ExcelPackage(resultPath);
+        var resultExcel = new ExcelPackage(resultPath);
 
         foreach (var page in schedule.Pages)
         {
             WriteSheet(resultExcel.Workbook, template, page);
         }
 
-        resultExcel.Save();
         return resultExcel.Stream;
     }
 

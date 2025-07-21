@@ -46,7 +46,7 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
 
     public Stream ExportExcel(Guid scheduleId)
     {
-        return export.Save(scheduleId);
+        return export.ExportExcel(scheduleId);
     }
 
     public void Update(EntityNameUpdateDto dto)
