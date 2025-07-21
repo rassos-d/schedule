@@ -36,7 +36,7 @@ export function sortedDates(unsortedData: Event) {
 
 export function checkLesson(lesson: NewLesson) : lesson is Required<NewLesson> {
   for (const value of Object.values(lesson)) {
-    if (!value) return false
+    if (value === undefined) return false
   }
   return true
 }

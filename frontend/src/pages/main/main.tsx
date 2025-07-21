@@ -102,7 +102,7 @@ export default function Main () {
     }
     const handleDeleteTeacher = async (id: string) => {
         await axios.delete(PagesURl.TEACHER + `/${id}`)
-        handleGetAllAudience()
+        handleGetAllTeachers()
     }
 
     const editDateVacationNewTeacher = (newVacation: Vacation, index: number) => {
