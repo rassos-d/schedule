@@ -255,6 +255,7 @@ public class EventService(
                 Name = squad.Name,
                 Daddy = ConvertToResponse(squad.DaddyId!.Value, teacherNames.GetValueOrDefault(squad.DaddyId!.Value)),
                 Direction = ConvertToResponse(direction?.Id, direction?.Name),
+                Audience = ConvertToResponse(squad.FixedAudienceId, audienceNames.GetValueOrDefault(squad.FixedAudienceId!.Value)),
                 Events = eventsDictionary
             };
         }
