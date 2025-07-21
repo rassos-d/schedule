@@ -1,13 +1,13 @@
 using Scheduler.Dto.Constants;
-using Scheduler.Entities.Base;
+using Scheduler.SqlEntities.Base;
 
-namespace Scheduler.Entities.Plan;
+namespace Scheduler.SqlEntities.Plan;
 
 public class Subject : Entity
 {
     public required string Name { get; set; }
 
-    public Guid DirectionId { get; set; }
+    public Direction Direction { get; set; } = null!;
 
     public Semester Semester { get; set; }
 

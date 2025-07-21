@@ -1,6 +1,6 @@
-using Scheduler.Entities.Base;
+using Scheduler.SqlEntities.Base;
 
-namespace Scheduler.Entities.Schedule;
+namespace Scheduler.SqlEntities.Schedule;
 
 public class Schedule : Entity
 {

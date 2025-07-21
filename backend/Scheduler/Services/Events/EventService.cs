@@ -237,7 +237,7 @@ public class EventService(
         {
             var squad = squads[pair.Key];
             var direction = squad.DirectionId is not null
-                ? planRepository.GetDirection(squad.DirectionId!.Value)
+                ? planRepository.GetDirectionWithFullInfo(squad.DirectionId!.Value)
                 : null;
             
             var eventsDictionary = pair.Value

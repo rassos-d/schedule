@@ -1,19 +1,19 @@
+using Microsoft.EntityFrameworkCore;
 using Scheduler.Dto;
 using Scheduler.Dto.Constants;
-using Scheduler.Entities.Plan;
+using Scheduler.SqlEntities.Plan;
 
 namespace Scheduler.DataAccess.Plan;
 
 public partial class PlanRepository
 {
-    public void SaveTheme(Theme theme)
+    public async Task SaveTheme(Theme theme)
     {
-        var subject = GetSubject(theme.SubjectId);
+        var subject = GetSubject(theme.Subject.Id);
         if (subject is not null)
-        {
             subject.Themes.Add(theme);
-        }
-        SaveChanges();
+
+        await db.SaveChangesAsync();
     }
 
     public void UpdateTheme(EntityNameUpdateDto dto)
@@ -30,7 +30,7 @@ public partial class PlanRepository
             theme.Name = dto.Name;
         }
         
-        SaveChanges();
+        await db.Themes.ExecuteUpdateAsync();
     }
     
     public List<Theme> FindThemes(Guid? subjectId = null, Guid? directionId = null, Semester? semester = null)
@@ -62,7 +62,7 @@ public partial class PlanRepository
 
     public List<Theme> FindThemesForSemester(Guid directionId, Semester semester)
     {
-        var direction = GetDirection(directionId)!;
+        var direction = GetDirectionWithFullInfo(directionId)!;
         var subjects = direction.Subjects.Where(s => s.Semester == semester).ToList();
         var themes = subjects
             .SelectMany(x => x.Themes)

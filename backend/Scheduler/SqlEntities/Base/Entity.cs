@@ -1,4 +1,4 @@
-namespace Scheduler.Entities.Base;
+namespace Scheduler.SqlEntities.Base;
 
 public abstract class Entity
 {

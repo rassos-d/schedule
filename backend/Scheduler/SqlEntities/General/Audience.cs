@@ -1,6 +1,6 @@
-using Scheduler.Entities.Base;
+using Scheduler.SqlEntities.Base;
 
-namespace Scheduler.Entities.General;
+namespace Scheduler.SqlEntities.General;
 
 public class Audience : Entity
 {

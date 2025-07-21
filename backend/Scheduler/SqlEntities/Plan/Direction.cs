@@ -1,6 +1,6 @@
-using Scheduler.Entities.Base;
+using Scheduler.SqlEntities.Base;
 
-namespace Scheduler.Entities.Plan;
+namespace Scheduler.SqlEntities.Plan;
 
 public class Direction : Entity
 {

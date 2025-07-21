@@ -25,7 +25,7 @@ public class SubjectController : ControllerBase
     [HttpGet("{id::guid}")]
     public IActionResult Get(Guid id)
     {
-        var direction = _planRepository.GetDirection(id);
+        var direction = _planRepository.GetDirectionWithFullInfo(id);
         if (direction is null)
         {
             return NotFound();
@@ -45,7 +45,7 @@ public class SubjectController : ControllerBase
     [HttpPut]
     public IActionResult Update([FromBody] Subject updatedSubject)
     {
-        var direction = _planRepository.GetDirection(updatedSubject.Id);
+        var direction = _planRepository.GetDirectionWithFullInfo(updatedSubject.Id);
 
         if (direction == null)
         {
@@ -60,7 +60,7 @@ public class SubjectController : ControllerBase
     [HttpDelete("{id:guid}")]
     public IActionResult Delete(Guid id)
     {
-        var direction = _planRepository.GetDirection(id);
+        var direction = _planRepository.GetDirectionWithFullInfo(id);
 
         if (direction == null)
         {

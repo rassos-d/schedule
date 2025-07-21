@@ -1,211 +1,86 @@
-using System.Text.Json;
-using Scheduler.DataAccess.Base;
+using Microsoft.EntityFrameworkCore;
+using Scheduler.DataAccessSql.Base;
 using Scheduler.Dto.Constants;
-using Scheduler.Entities.Schedule;
 using Scheduler.Models;
+using Scheduler.SqlEntities.Schedule;
 
 namespace Scheduler.DataAccess;
 
-public class ScheduleRepository : BaseRepository
+public class ScheduleRepository(DataContext db)
 {
-    private readonly Dictionary<Guid, Schedule> _schedulesCache = new();
-
-    private const string SchedulesFileName = "schedules.json";
-
-    public ScheduleRepository() : base("schedules")
+    public async Task<List<StudyYear>> GetStudyYears(Guid scheduleId)
     {
-        GetAllScheduleInfos();
+        var years = await db
+            .Schedules.Where(x => x.Id == scheduleId)
+            .Select(x => x.Pages.Select(y => y.StudyYear).ToList())
+            .FirstAsync();
+        return years;
     }
 
-    public List<int> GetStudyYears(Guid scheduleId)
+    public async Task SaveSchedule(Schedule schedule)
     {
-        return GetAllFiles(scheduleId.ToString())
-            .Select(name => name.Split(Path.DirectorySeparatorChar).Last().Split(".").First())
-            .Select(ConvertToStudyYear)
-            .ToList();
-    }
-    
-    public void SaveSchedule(Schedule schedule)
-    {
-        WriteSchedule(schedule);
-        foreach (var schedulePage in schedule.Pages)
-        {
-            WriteSchedulePage(schedulePage);
-        }
-        
-        _schedulesCache[schedule.Id] = schedule;
+        var entity = await db.Schedules.FirstAsync(x => x.Id == schedule.Id);
+        entity.Name = schedule.Name;
+        await db.SaveChangesAsync();
     }
 
-    public Schedule GetSchedule(Guid scheduleId)
+    public async Task<Schedule> GetSchedule(Guid scheduleId)
     {
-        var name = GetAllScheduleInfos().First(x => x.Id == scheduleId).Name;
-        var studyYears = GetStudyYears(scheduleId);
-        var schedule = new Schedule
-        {
-            Id = scheduleId,
-            Name = name,
-        };
-
-        foreach (var studyYear in studyYears)
-        {
-            schedule.Pages.Add(GetSchedulePage(scheduleId, (StudyYear)studyYear));
-        }
-        
+        var schedule = await db
+            .Schedules.Include(x => x.Pages)
+            .FirstAsync(x => x.Id == scheduleId);
         return schedule;
     }
-    
-    public void SaveSchedulePage(SchedulePage schedulePage)
+
+    public async Task SaveSchedulePage(SchedulePage schedulePage)
     {
-        GetAllScheduleInfos();
-        var schedule = _schedulesCache[schedulePage.ScheduleId];
-        var page = schedule.Pages.FirstOrDefault(x => x.StudyYear == schedulePage.StudyYear);
-        if (page is not null)
+        var page = await db
+            .SchedulePages.Where(x => x.Id == schedulePage.Id)
+            .FirstOrDefaultAsync();
+
+        if (page is null)
         {
-            schedule.Pages.Remove(page);
-        }
-        
-        schedule.Pages.Add(schedulePage);
-        WriteSchedulePage(schedulePage);
-    }
-
-    public void UpdateSchedule(ScheduleInfo scheduleInfo)
-    {
-        if (_schedulesCache.TryGetValue(scheduleInfo.Id, out var schedule))
-        {
-            schedule.Name = scheduleInfo.Name;
-            WriteSchedule(schedule);
-        }
-    }
-    
-
-    public SchedulePage GetSchedulePage(Guid id, StudyYear studyYear)
-    {
-        if (_schedulesCache.TryGetValue(id, out var schedule))
-        {
-            var page = schedule.Pages.FirstOrDefault(p => p.StudyYear == studyYear);
-            if (page is not null)
-            {
-                return page;
-            }
-
-            page = LoadSchedulePage(id, studyYear);
-            schedule.Pages.Add(page);
-            return page;
-        }
-
-        var pageNew = LoadSchedulePage(id, studyYear);
-        _schedulesCache[id].Pages.Add(pageNew);
-        return pageNew;
-    }
-
-    public List<ScheduleInfo> GetAllScheduleInfos()
-    {
-        var json = ReadFile(SchedulesFileName);
-        var schedulesList = JsonSerializer.Deserialize<List<ScheduleInfo>>(json, JsonOptions) ?? [];
-        foreach (var schedule in schedulesList)
-        {
-            if (_schedulesCache.TryGetValue(schedule.Id, out _))
-            {
-                continue;
-            }
-            
-            _schedulesCache[schedule.Id] = new Schedule {Id = schedule.Id, Name = schedule.Name};
-        }
-        
-        return schedulesList;
-    }
-
-    public void DeleteSchedule(Guid id)
-    {
-        _schedulesCache.Remove(id);
-        var scheduleDir = Path.Combine(DirectoryPath, id.ToString());
-        var files = Directory.GetFiles(scheduleDir);
-        foreach (var file in files)
-        {
-            File.Delete(file);
-        }
-        
-        Directory.Delete(scheduleDir);
-
-        var schedules = GetAllScheduleInfos();
-        var schedule = schedules.FirstOrDefault(s => s.Id == id);
-        if (schedule == null)
-        {
+            db.Add(schedulePage);
+            await db.SaveChangesAsync();
             return;
         }
         
-        schedules.Remove(schedule);
-        WriteFile(SchedulesFileName, schedules);
+        page.StudyYear =  schedulePage.StudyYear;
+        page.Dates = schedulePage.Dates;
+        page.Semester = schedulePage.Semester;
+        page.Squads = schedulePage.Squads;
+        page.Events = schedulePage.Events;
+        await db.SaveChangesAsync();
     }
 
-    protected override void SaveChanges(Guid? id = null)
+    public async Task UpdateSchedule(ScheduleInfo scheduleInfo)
     {
-        if (id is not null)
-        {
-            var schedule = _schedulesCache.GetValueOrDefault(id.Value);
-            if (schedule is not null)
-            {
-                WriteFile($"{schedule.Id}.json", schedule);
-            }
-            return;
-        }
-        
-        foreach (var schedule in _schedulesCache)
-        {
-            WriteFile($"{schedule.Key}.json", schedule.Value);
-        }
+        await db
+            .Schedules.ExecuteUpdateAsync(x => x.SetProperty(y => y.Name, scheduleInfo.Name)
+            );
     }
 
-    private void WriteSchedule(Schedule scheduleInfo)
+
+    public async Task<SchedulePage> GetSchedulePage(Guid id, StudyYear studyYear)
     {
-        var schedules = GetAllScheduleInfos();
-        var schedule = schedules.FirstOrDefault(s => s.Id == scheduleInfo.Id);
-        if (schedule is null)
-        {
-            schedules.Add(new ScheduleInfo(scheduleInfo.Id, scheduleInfo.Name));
-        }
-        else
-        {
-            schedule.Name = scheduleInfo.Name;
-        }
-        
-        WriteFile(SchedulesFileName, schedules);
+        var page = await db
+            .SchedulePages.FirstOrDefaultAsync(x => x.ScheduleId == id && x.StudyYear == studyYear
+            );
+        return page;
     }
 
-    private void WriteSchedulePage(SchedulePage schedulePage)
+    public async Task<List<ScheduleInfo>> GetAllScheduleInfos()
     {
-        var schedulePath = schedulePage.ScheduleId.ToString();
-        var scheduleDir = Path.Combine(DirectoryPath, schedulePath);
-        if (Directory.Exists(scheduleDir) == false)
-        {
-            Directory.CreateDirectory(scheduleDir);
-        }
-        
-        var pagePath = Path.Combine(schedulePath, $"{schedulePage.StudyYear}.json");
-        WriteFile(pagePath, schedulePage);
-    }
-    
-    private SchedulePage LoadSchedulePage(Guid scheduleId, StudyYear studyYear)
-    {
-        var directory = Path.Combine(DirectoryPath, scheduleId.ToString());
-        if (Directory.Exists(directory) == false)
-        {
-            Directory.CreateDirectory(directory);
-        }
+        var schedules = await db
+            .Schedules.Select(x => new ScheduleInfo(x.Id, x.Name))
+            .ToListAsync();
 
-        var path = Path.Combine(scheduleId.ToString(), $"{studyYear}.json");
-        var json = ReadFile(path);
-        return JsonSerializer.Deserialize<SchedulePage>(json, JsonOptions)!;
+        return schedules;
     }
 
-    private int ConvertToStudyYear(string fileName)
+    public async Task DeleteSchedule(Guid id)
     {
-        return fileName switch
-        {
-            "First" => 1,
-            "Second" => 2,
-            "Third" => 3,
-            _ => throw new NotImplementedException()
-        };
+        await db.SchedulePages.Where(x => x.ScheduleId == id).ExecuteDeleteAsync();
+        await db.Schedules.Where(x => x.Id == id).ExecuteDeleteAsync();
     }
 }

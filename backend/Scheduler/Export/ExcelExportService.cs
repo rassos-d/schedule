@@ -113,7 +113,7 @@ public class ExcelExportService
     private SquadExcel GetSquad(SchedulePage page, Squad squad)
     {
         var teacher = squad.DaddyId.HasValue ? teacherRepository.Get(squad.DaddyId.Value) : null;
-        var direction = squad.DirectionId.HasValue ? planRepository.GetDirection(squad.DirectionId.Value) : null;
+        var direction = squad.DirectionId.HasValue ? planRepository.GetDirectionWithFullInfo(squad.DirectionId.Value) : null;
         return new SquadExcel()
         {
             Name = squad.Name,

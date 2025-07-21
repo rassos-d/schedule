@@ -6,7 +6,7 @@ public partial class PlanRepository
 {
     public void SaveSubject(Subject subject)
     {
-        var direction = GetDirection(subject.DirectionId);
+        var direction = GetDirectionWithFullInfo(subject.DirectionId);
         if (direction is null)
         {
             return;
@@ -26,15 +26,15 @@ public partial class PlanRepository
     {
         if (directionId.HasValue)
         {
-            var direction = GetDirection(directionId.Value);
+            var direction = GetDirectionWithFullInfo(directionId.Value);
             return direction?.Subjects ?? [];
         }
         
-        var directions = GetAllDirectionInfos();
+        var directions = GetDirectionShortInfos();
         var notCachedDirections = directions.ExceptBy(Directions.Select(d => d.Id), d => d.Id);
         foreach (var direction in notCachedDirections)
         {
-            GetDirection(direction.Id);
+            GetDirectionWithFullInfo(direction.Id);
         }
         
         return Directions.SelectMany(d => d.Subjects).ToList();

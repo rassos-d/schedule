@@ -1,15 +1,15 @@
 using Scheduler.Dto;
-using Scheduler.Entities.Base;
+using Scheduler.SqlEntities.Plan;
 
-namespace Scheduler.Entities.General;
+namespace Scheduler.SqlEntities.General;
 
-public class Teacher : Entity
+public class Teacher
 {
     public required string Name { get; set; }
 
     public required string Rank { get; set; }
-
+    
     public List<VacationPeriod> Vacations { get; set; } = [];
-
-    public List<Guid> SubjectIds { get; set; } = [];
+    
+    public List<Subject> Subjects { get; set; } = [];
 }

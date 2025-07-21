@@ -1,62 +1,37 @@
-using System.Text.Json;
-using Scheduler.Entities.Plan;
+using Microsoft.EntityFrameworkCore;
 using Scheduler.Models;
-using static Scheduler.Constants.FilePaths;
+using Scheduler.SqlEntities.Plan;
 
 namespace Scheduler.DataAccess.Plan;
 
 public partial class PlanRepository
 {
-    public void SaveDirection(Direction direction)
+    public async Task SaveDirection(Direction direction)
     {
-        Directions.Add(direction);
-        WriteFile($"{direction.Id}.json", direction);
-        
-        var directions = GetAllDirectionInfos();
-        directions.Add(new DirectionInfo(direction.Id, direction.Name));
-        
-        WriteFile(DirectionsFilePath, directions);
+        db.Add(direction);
+        await db.SaveChangesAsync();
     }
 
-    public Direction? GetDirection(Guid id)
+    public async Task<Direction?> GetDirectionWithFullInfo(Guid id)
     {
-        var direction = Directions.FirstOrDefault(d => d.Id == id);
-        if (direction is not null)
-        {
-            return direction;
-        }
-        
-        var json = ReadFile($"{id}.json");
-        direction = JsonSerializer.Deserialize<Direction>(json, JsonOptions);
-
-        if (direction is not null)
-        {
-            Directions.Add(direction);
-        }
-        
+        var direction = await db
+            .Directions.Include(x=> x.Subjects)
+            .ThenInclude(x => x.Themes)
+            .ThenInclude(x => x.Lessons)
+            .FirstOrDefaultAsync(x => x.Id == id);
         return direction;
     }
 
-    public List<DirectionInfo> GetAllDirectionInfos()
+    public async Task<List<DirectionInfo>> GetDirectionShortInfos()
     {
-        var json = ReadFile(DirectionsFilePath);
-        return JsonSerializer.Deserialize<List<DirectionInfo>>(json, JsonOptions) ?? [];
+        var directions = await db
+            .Directions.Select(x => new DirectionInfo(x.Id, x.Name))
+            .ToListAsync();
+        return directions;
     }
 
-    public void DeleteDirection(Guid id)
+    public async Task DeleteDirection(Guid id)
     {
-        var direction = GetDirection(id);
-        if (direction is not null)
-        {
-            Directions.Remove(direction);
-        }
-        
-        var filePath = Path.Combine(DirectoryPath, $"{id}.json");
-        if (File.Exists(filePath) == false)
-        {
-            return;
-        }
-
-        File.Delete(filePath);
+        await db.Directions.Where(x => x.Id == id).ExecuteDeleteAsync();
     }
 }
