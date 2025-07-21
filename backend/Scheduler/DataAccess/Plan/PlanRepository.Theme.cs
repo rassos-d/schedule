@@ -1,4 +1,3 @@
-using Scheduler.Dto;
 using Scheduler.Dto.Constants;
 using Scheduler.Dto.Plan.Theme;
 using Scheduler.Entities.Plan;
@@ -24,12 +23,12 @@ public partial class PlanRepository
     {
         var theme = GetTheme(dto.Id);
 
-        // if (theme is null)
-        //     throw new EntityNotFoundException("Тема не существует");
+        if (theme is null)
+            throw new EntityNotFoundException("Тема не существует");
 
         // if (FindThemes().Any(s => string.Equals(s.Name, dto.Name, StringComparison.CurrentCultureIgnoreCase)))
         //     throw new EntityAlreadyExistExceptions("Тема с таким именем уже создана");
-        if (dto.Name.Length > 0)
+        if (dto.Name is not null && dto.Name.Length > 0)
         {
             theme.Name = dto.Name;
         }
