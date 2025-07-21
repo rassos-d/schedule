@@ -100,9 +100,8 @@ export default function ShedulePage() {
 
     const handleExportShedule = async () => {
         if (!schedule) return
-        const response = await axios.post<Blob>(PagesURl.SCHEDULE + `/${id}/excel`, {
+        const response = await axios.post<Blob>(PagesURl.SCHEDULE + `/${id}/excel`, {}, {
             responseType: 'blob'
-
         })
         const contentDisposition = response.headers['content-disposition'];
         let fileName = `${schedule.name}.xlsx`;
@@ -115,7 +114,7 @@ export default function ShedulePage() {
         }
 
         const blob = new Blob([response.data], {
-          type: 'application/octet-stream',
+          type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
         });
 
         const downloadUrl = window.URL.createObjectURL(blob);
