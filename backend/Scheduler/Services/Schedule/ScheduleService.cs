@@ -93,7 +93,16 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
     {
         repo.DeleteSchedule(scheduleId);
     }
+    
+    public void DeleteSchedulePage(Guid scheduleId, StudyYear studyYear)
+    {
+        var schedule = repo.GetSchedule(scheduleId);
 
+        schedule.Pages.RemoveAll(page => page.StudyYear == studyYear);
+
+        repo.SaveSchedule(schedule);
+    }
+    
     public string GetName(Guid id)
     {
         return repo.GetSchedule(id).Name;

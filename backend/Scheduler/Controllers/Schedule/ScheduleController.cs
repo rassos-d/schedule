@@ -60,11 +60,18 @@ public class ScheduleController(ScheduleService service) : ControllerBase
         service.FullUpdate(dto);
         return Ok();
     }
-    
+
     [HttpDelete("{scheduleId}")]
     public IActionResult DeleteSchedule(Guid scheduleId)
     {
         service.Delete(scheduleId);
+        return NoContent();
+    }
+
+    [HttpDelete("{scheduleId:guid}/study-years/{studyYear}")]
+    public IActionResult DeleteStudyYear(Guid scheduleId, StudyYear studyYear)
+    {
+        service.DeleteSchedulePage(scheduleId, studyYear);
         return NoContent();
     }
 }
