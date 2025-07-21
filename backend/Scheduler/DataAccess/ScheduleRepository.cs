@@ -13,7 +13,9 @@ public class ScheduleRepository : BaseRepository
     private const string SchedulesFileName = "schedules.json";
 
     public ScheduleRepository() : base("schedules")
-    { }
+    {
+        GetAllScheduleInfos();
+    }
 
     public List<int> GetStudyYears(Guid scheduleId)
     {
