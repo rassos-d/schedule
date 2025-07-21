@@ -20,7 +20,7 @@ public class ScheduleRepository : BaseRepository
     public List<int> GetStudyYears(Guid scheduleId)
     {
         return GetAllFiles(scheduleId.ToString())
-            .Select(name => name.Split("/").Last().Split(".").First())
+            .Select(name => name.Split(Path.DirectorySeparatorChar).Last().Split(".").First())
             .Select(ConvertToStudyYear)
             .ToList();
     }
