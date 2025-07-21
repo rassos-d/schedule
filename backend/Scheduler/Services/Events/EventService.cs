@@ -33,7 +33,7 @@ public class EventService(
 
         schedulePage.Events.Add(newEvent);
         scheduleRepository.SaveSchedulePage(schedulePage);
-        
+
         return CheckForConflict(schedulePage, newEvent.Id);
     }
 
@@ -80,7 +80,7 @@ public class EventService(
         {
             return;
         }
-        
+
         page.Events.Remove(@event);
         scheduleRepository.SaveSchedulePage(page);
     }
@@ -232,7 +232,10 @@ public class EventService(
         List<DateOnly> dates
     )
     {
-        var eventBySquad = new Dictionary<Guid, List<EventsResponse>>();
+        var eventBySquad = squads.ToDictionary(
+            x => x.Key,
+            _ => new List<EventsResponse>()
+        );
 
         foreach (var e in @event)
         {
@@ -252,27 +255,28 @@ public class EventService(
         foreach (var pair in eventBySquad)
         {
             var squad = squads.GetValueOrDefault(pair.Key);
-            if(squad is null) continue;
+            if (squad is null) continue;
             var direction = squad.DirectionId is not null
                 ? planRepository.GetDirection(squad.DirectionId!.Value)
                 : null;
-            
+
             var eventsDictionary = pair.Value
                 .GroupBy(events => events.Date)
                 .OrderBy(v => v.Key)
                 .ToDictionary(e => e.Key!.Value,
                     e => e.ToList());
-            
+
             foreach (var date in dates.Where(date => !eventsDictionary.ContainsKey(date)))
                 eventsDictionary[date] = [];
-            
+
             yield return new GetSquadResponse
             {
                 Id = pair.Key,
                 Name = squad.Name,
                 Daddy = ConvertToResponse(squad.DaddyId!.Value, teacherNames.GetValueOrDefault(squad.DaddyId!.Value)),
                 Direction = ConvertToResponse(direction?.Id, direction?.Name),
-                Audience = ConvertToResponse(squad.FixedAudienceId, audienceNames.GetValueOrDefault(squad.FixedAudienceId!.Value)),
+                Audience = ConvertToResponse(squad.FixedAudienceId,
+                    audienceNames.GetValueOrDefault(squad.FixedAudienceId!.Value)),
                 Events = eventsDictionary
             };
         }
@@ -301,7 +305,7 @@ public class EventService(
             Squad = @event.SquadId.HasValue
                 ? ConvertToResponse(@event.SquadId.Value, squads.GetValueOrDefault(@event.SquadId.Value)?.Name)
                 : null,
-            Lesson = new LessonGetDto { Id = @event.LessonId, Name = lesson?.Name, Number = lesson?.Number } ,
+            Lesson = new LessonGetDto { Id = @event.LessonId, Name = lesson?.Name, Number = lesson?.Number },
             LessonType = lesson?.Type,
             Theme = new ThemeGetDto { Id = @event.LessonId, Name = theme?.Name, Number = theme?.Number },
             Subject = ConvertToResponse(subject?.Id, subject?.Name),
