@@ -53,6 +53,7 @@ public class EventService(
         }
 
         existingEvent.ScheduleId = scheduleId;
+        existingEvent.LessonType = updatedEvent.LessonType ?? existingEvent.LessonType;
         existingEvent.TeacherId = updatedEvent.TeacherId ?? existingEvent.TeacherId;
         existingEvent.AudienceId = updatedEvent.AudienceId ?? existingEvent.AudienceId;
         existingEvent.Date = updatedEvent.Date;
