@@ -12,8 +12,18 @@ namespace Scheduler.Export;
 
 public class ExcelExportService
 {
-    //todo 1 год, 2 год
-    //todo п/п-к -> подполковник
+    private readonly Dictionary<string, string> ShortNamesToLongNames = new Dictionary<string, string>()
+    {
+        {"п/п-к", "подполковник"},
+        {"м-р", "майор"},
+        {"п-к", "полковник"},
+        {"к-н", "капитан"},
+        {"п/п-к.", "подполковник"},
+        {"м-р.", "майор"},
+        {"п-к.", "полковник"},
+        {"к-н.", "капитан"}
+    };
+
     private readonly Dictionary<DayOfWeek, string> Day = new Dictionary<DayOfWeek, string>()
     {
         {DayOfWeek.Monday, "ПОНЕДЕЛЬНИК"},
@@ -104,7 +114,7 @@ public class ExcelExportService
         SchedulePage page)
     {
         // создаем лист сразу с шапкой
-        var sheet = workbook.Worksheets.Add(page.StudyYear.ToString(), template.Header.Sheet);
+        var sheet = workbook.Worksheets.Add($"{(int)page.StudyYear} год", template.Header.Sheet);
 
         var squads = page.Squads.Select(squadId => GetSquad(page, squadRepository.Get(squadId)!));
         FillHeader(squads, sheet.Cells, page.Dates, page.Semester);
@@ -159,11 +169,13 @@ public class ExcelExportService
     {
         var teacher = squad.DaddyId.HasValue ? teacherRepository.Get(squad.DaddyId.Value) : null;
         var direction = squad.DirectionId.HasValue ? planRepository.GetDirection(squad.DirectionId.Value) : null;
+
+        var teacherRank = ShortNamesToLongNames!.GetValueOrDefault(teacher?.Rank, teacher?.Rank);
         return new SquadExcel()
         {
             Name = squad.Name,
             DirectionName = direction?.Name!,
-            DaddyName = string.Join('\n', new[] { teacher?.Rank, teacher?.Name }.Where(x => !string.IsNullOrEmpty(x))),
+            DaddyName = string.Join('\n', new[] { teacherRank, teacher?.Name }.Where(x => !string.IsNullOrEmpty(x))),
             Events = page.Events.Where(x => x.SquadId == squad.Id).ToList()
         };
     }
