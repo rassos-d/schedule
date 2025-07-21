@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Scheduler.DataAccess.Plan;
 using Scheduler.Dto;
+using Scheduler.Dto.Plan.Theme;
 using Scheduler.Dto.Theme;
 using Scheduler.Entities.Plan;
 
@@ -34,7 +35,7 @@ public class ThemeController : ControllerBase
     }
 
     [HttpPut]
-    public IActionResult Update([FromBody] EntityNameUpdateDto dto)
+    public IActionResult Update([FromBody] ThemeUpdateDto dto)
     {
         _planRepository.UpdateTheme(dto);
         return NoContent();

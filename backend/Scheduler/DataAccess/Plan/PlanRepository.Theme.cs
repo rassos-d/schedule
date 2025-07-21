@@ -1,5 +1,6 @@
 using Scheduler.Dto;
 using Scheduler.Dto.Constants;
+using Scheduler.Dto.Plan.Theme;
 using Scheduler.Entities.Plan;
 using Scheduler.Exceptions;
 
@@ -19,7 +20,7 @@ public partial class PlanRepository
         SaveChanges();
     }
 
-    public void UpdateTheme(EntityNameUpdateDto dto)
+    public void UpdateTheme(ThemeUpdateDto dto)
     {
         var theme = GetTheme(dto.Id);
 
@@ -31,6 +32,11 @@ public partial class PlanRepository
         if (dto.Name.Length > 0)
         {
             theme.Name = dto.Name;
+        }
+
+        if (dto.Number is not null && dto.Number > 0)
+        {
+            theme.Number = dto.Number.Value;
         }
         
         SaveChanges();

@@ -2,6 +2,7 @@
 using Scheduler.DataAccess.Plan;
 using Scheduler.Dto;
 using Scheduler.Dto.Lesson;
+using Scheduler.Dto.Plan.Lesson;
 using Scheduler.Entities.Plan;
 
 namespace Scheduler.Controllers.Plan
@@ -47,7 +48,7 @@ namespace Scheduler.Controllers.Plan
         }
 
         [HttpPut]
-        public IActionResult Update([FromBody] EntityNameUpdateDto dto)
+        public IActionResult Update([FromBody] LessonUpdateDto dto)
         {
             _planRepository.UpdateLesson(dto);
             return NoContent();

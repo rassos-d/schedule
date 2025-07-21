@@ -1,4 +1,5 @@
 using Scheduler.Dto;
+using Scheduler.Dto.Plan.Lesson;
 using Scheduler.Entities.Plan;
 using Scheduler.Exceptions;
 
@@ -41,7 +42,7 @@ public partial class PlanRepository
         return Subjects.SelectMany(s => s.Themes).SelectMany(t => t.Lessons);
     }
 
-    public void UpdateLesson(EntityNameUpdateDto dto)
+    public void UpdateLesson(LessonUpdateDto dto)
     {
         var lesson = GetLesson(dto.Id);
         if (lesson is null)
@@ -49,7 +50,16 @@ public partial class PlanRepository
 
         if (GetLessons().Any(l => l.Name == dto.Name))
             throw new EntityAlreadyExistExceptions("Занятие с таким именем уже создано");
-        lesson.Name = dto.Name;
+
+        if (dto.Name is not null && dto.Name.Length > 0)
+        {
+            lesson.Name = dto.Name;
+        }
+        
+        if (dto.Number is not null && dto.Number > 0)
+        {
+            lesson.Number = dto.Number.Value;
+        }
         
         SaveChanges();
     }

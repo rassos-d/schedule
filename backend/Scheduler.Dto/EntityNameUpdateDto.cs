@@ -4,5 +4,5 @@ public class EntityNameUpdateDto
 {
     public required Guid Id { get; init; }
     
-    public required string Name { get; init; }
+    public string? Name { get; init; }
 }
