@@ -60,10 +60,7 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
                 StudyYear = pageDto.StudyYear,
                 Squads = pageDto.Squads,
                 Dates = dates,
-                Events = existsPage.Events
-                    .Where(e => e.Date >= pageDto.Start && e.Date <= pageDto.End)
-                    .Where(e => pageDto.Squads.Contains(e.SquadId.Value))
-                    .ToList()
+                Events = existsPage.Events.ToList()
             };
             schedule.Pages.Add(page);
         }
