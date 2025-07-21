@@ -22,8 +22,9 @@ export type NewLesson = {
 }
 
 export type NewLessonRequest = {
-  id: string,
-  scheduleId: string,
+  subjectId: string,
+  themeId: string,
+  lessonType?: number
   lessonId: string,
   squadId: string,
   teacherId: string,

@@ -4,7 +4,7 @@ import axios, { PagesURl } from '../../services/api/api'
 import { Button } from '../../components/button/button'
 import { ChangeLessonReponse, Schedule } from '../../types/schedule'
 import { useEffect, useState } from 'react'
-import { getFullSchedule, getSchedule, sortedDates } from '../../utils/schedule'
+import { checkLesson, getFullSchedule, getSchedule, sortedDates } from '../../utils/schedule'
 import { Icon } from '../../components/icon'
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
@@ -19,12 +19,14 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { Teacher } from '../../types/teacher'
 import { Audience } from '../../types/audience'
 import { Direction } from '../../types/directions'
-import { FreeLesson, NewLesson, SheduleLesson } from '../../types/lesson'
+import { FreeLesson, NewLesson, NewLessonRequest, SheduleLesson } from '../../types/lesson'
 import { Squad } from '../../types/squad'
 import { getWeekDayAndDate } from '../../utils/date'
-import { Theme, toast } from 'react-toastify'
+import { toast } from 'react-toastify'
 import { Subject } from '../../types/subject'
 import { AddInputList } from '../../types/input'
+import { cloneObject } from '../../utils'
+import { AxiosResponse } from 'axios'
 
 const TIMES = [
     {
@@ -69,7 +71,6 @@ export default function ShedulePage() {
     const [allTeachers, setAllTeachers] = useState<Teacher[]>()
     const [allAudience, setAllAudience] = useState<Audience[]>()
     const [allSquads, setAllSquads] = useState<Squad[]>()
-    const [allThemes, setAllThemes] = useState<Theme[]>()
 
     const [isSidebarOpen, setIsSidebarOpen] = useState(false)
     const [activeSquardIndex, setActiveSquardIndex] = useState(0)
@@ -96,22 +97,36 @@ export default function ShedulePage() {
         const {data} = await axios.get<Squad[]>(PagesURl.SQUAD)
         setAllSquads(data)
     }
-    const handleGetAllThemes = async () => {
-        const {data} = await axios.get<Theme[]>(PagesURl.THEME + '/find')
-        setAllThemes(data)
-    }
 
     const handleExportShedule = async () => {
         if (!schedule) return
-        const {data} = await axios.post<Blob>(PagesURl.SCHEDULE + `/${id}/excel`)
-        const blobUrl = window.URL.createObjectURL(new Blob([data]));
+        const response = await axios.post<Blob>(PagesURl.SCHEDULE + `/${id}/excel`, {
+            responseType: 'blob'
+
+        })
+        const contentDisposition = response.headers['content-disposition'];
+        let fileName = `${schedule.name}.xlsx`;
+
+        if (contentDisposition) {
+          const fileNameMatch = contentDisposition.match(/filename="?(.+\.xlsx)"?/i);
+          if (fileNameMatch?.[1]) {
+            fileName = fileNameMatch[1];
+          }
+        }
+
+        const blob = new Blob([response.data], {
+          type: 'application/octet-stream',
+        });
+
+        const downloadUrl = window.URL.createObjectURL(blob);
         const link = document.createElement('a');
-        link.href = blobUrl;
-        link.setAttribute('download', schedule.name);
+        link.href = downloadUrl;
+        link.download = fileName;
         document.body.appendChild(link);
         link.click();
+
         document.body.removeChild(link);
-        window.URL.revokeObjectURL(blobUrl);
+        window.URL.revokeObjectURL(downloadUrl);
     }
 
     const handleGetSubjects = async (directionId: string) => {
@@ -120,13 +135,11 @@ export default function ShedulePage() {
                 directionId
             }
         })
-        console.log(data)
         setSubjects(data)
     }
 
     const handleGetStudyYears = async () => {
         const {data} = await axios.get<number[]>(PagesURl.SCHEDULE + `/${id}/study-years`)
-        console.log(data)
         setAllTabs(data)
         setActiveTab(data[0])
     }
@@ -142,7 +155,7 @@ export default function ShedulePage() {
         setShedule(getFullSchedule(data))
     }
     const handleUpdateScheduleTime = async (lesson: Partial<SheduleLesson>) => {
-        const {data} = await axios.put<ChangeLessonReponse>(PagesURl.EVENT + `/${lesson.id}/schedules/${id}/${1}`, {
+        const {data} = await axios.put<ChangeLessonReponse>(PagesURl.EVENT + `/${lesson.id}/schedules/${id}/${activeTab}`, {
             number: lesson.number,
             date: lesson.date
         })
@@ -150,6 +163,23 @@ export default function ShedulePage() {
             setErrorList(data.conflictEventIds)
             toast(data.message)
         }
+    }
+
+    const handleCreateLesson = async () => {
+        if (!newLesson || !checkLesson(newLesson) || !activeTab) return
+        console.log(newLesson)
+        await axios.post<ResponseType, AxiosResponse<ResponseType>, NewLessonRequest>(PagesURl.EVENT + `/schedules/${id}/${activeTab}`, {
+            subjectId: newLesson.subject.id as string,
+            teacherId: newLesson.teacher.id as string,
+            themeId: newLesson.theme.id as string,
+            lessonId: newLesson.lesson.id as string,
+            squadId: newLesson.squard.id as string,
+            audienceId: newLesson.audience.id as string,
+            number: newLesson.number,
+            date: newLesson.date
+        })
+        setNewLesson(undefined)
+        handleGetSchedule(activeTab)
     }
 
 
@@ -201,7 +231,6 @@ export default function ShedulePage() {
             return newLessons
         })
     }
-
     const startDragging = (squardIndex: number) => {
         setActiveSquardIndex(squardIndex)
         setIsSidebarOpen(true)
@@ -210,15 +239,14 @@ export default function ShedulePage() {
     const createLesson = (day: string, number: number, squardIndex: number) => {
         if (!allDirections || !schedule) return
         const direction = allDirections.find((direction)=>schedule.squads[squardIndex].direction?.id === direction.id)
-        console.log(direction)
         const activeSquad = schedule.squads[squardIndex]
         handleGetSubjects(direction ? direction.id : '')
         setNewLesson({
             date: day, 
             number, 
             squard: {name: activeSquad.name, id: activeSquad.id}, 
-            teacher: schedule.squads[squardIndex].daddy ? {name: schedule.squads[squardIndex].daddy.name, id: schedule.squads[squardIndex].daddy.id} : undefined,
-            audience: schedule.squads[squardIndex].audience ? {name: schedule.squads[squardIndex].audience.name, id: schedule.squads[squardIndex].audience.id} : undefined
+            teacher: schedule.squads[squardIndex].daddy,
+            audience: schedule.squads[squardIndex].audience
         })
     }
     const getLessonsByTheme = () => {
@@ -226,6 +254,24 @@ export default function ShedulePage() {
         const selectedSubject = subjects.filter((subject)=>subject.id === newLesson.subject?.id)
         if (!selectedSubject) return [] as AddInputList[]
         return selectedSubject[0].themes.filter((theme)=>theme.id === newLesson.theme?.id)[0].lessons
+    }
+
+    const changeSquadNewLesson = (newSquad: AddInputList) => {
+        setNewLesson((prev)=>{
+            if (!prev || !schedule || !allDirections) return undefined
+            const activeSquad = schedule.squads.filter((el)=>el.id === newSquad.id)[0]
+            const direction = allDirections.find((direction)=>activeSquad.direction?.id === direction.id)
+            handleGetSubjects(direction ? direction.id : '')
+            const result = cloneObject(prev)
+            return {
+                squard: newSquad,
+                number: result.number,
+                date: result.date,
+                teacher: activeSquad.daddy,
+                audience: activeSquad.audience
+            }
+
+        })
     }
 
     useEffect(()=>{
@@ -238,12 +284,12 @@ export default function ShedulePage() {
             handleGetAllTeachers()
             handleGetAllAudience()
             handleGetAllDirections()
-            handleGetAllThemes()
             handleGetSchedule(activeTab)
         }
     },[activeTab])
 
-    if (!schedule || !freeLessons || !allTabs || !activeTab || !allTeachers) return <></>
+
+    if (!schedule || !freeLessons || !allTabs || !activeTab || !allTeachers || !allSquads || !allAudience) return <></>
 
     return (
         <>
@@ -357,11 +403,19 @@ export default function ShedulePage() {
                         <h2>Создание занятия</h2>
                         <div className={styles.popup__line}>
                             <p className={styles.popup__title}>Взвод:</p>
-                            <p className={styles.popup__text}>{newLesson.squard?.name}</p>
+                            <AddInput
+                                minWidth={228}
+                                selectedList={newLesson.squard ? [newLesson.squard] : []}
+                                allList={schedule.squads}
+                                singleMode
+                                title='Выберите взвод'
+                                changeInputList={(newlist)=>changeSquadNewLesson(newlist[0])}
+                            />
                         </div>
                         <div className={styles.popup__line}>
                             <p className={styles.popup__title}>Дисциплина:</p>
                             <AddInput
+                                minWidth={228}
                                 selectedList={newLesson.subject ? [newLesson.subject] : []}
                                 singleMode
                                 allList={subjects}
@@ -373,6 +427,7 @@ export default function ShedulePage() {
                             <div className={styles.popup__line}>
                                 <p className={styles.popup__title}>Тема:</p>
                                 <AddInput
+                                    minWidth={228}
                                     selectedList={newLesson.theme ? [newLesson.theme] : []}
                                     singleMode
                                     allList={subjects.filter((subject)=>subject.id === newLesson.subject?.id)[0].themes}
@@ -385,24 +440,37 @@ export default function ShedulePage() {
                             <div className={styles.popup__line}>
                                 <p className={styles.popup__title}>Занятие:</p>
                                 <AddInput
+                                    minWidth={228}
                                     selectedList={newLesson.lesson ? [newLesson.lesson] : []}
                                     singleMode
                                     allList={getLessonsByTheme()}
                                     title='Выберите занятие'
-                                    changeInputList={(newList)=>setNewLesson({...newLesson, subject: {...newList[0]}})}
+                                    changeInputList={(newList)=>setNewLesson({...newLesson, lesson: {...newList[0]}})}
                                 />
                             </div>
                         }
-                        {<div className={styles.popup__line}>
+                        <div className={styles.popup__line}>
                             <p className={styles.popup__title}>Преподаватель:</p>
                             <AddInput
+                                minWidth={228}
                                 selectedList={newLesson.teacher ? [newLesson.teacher] : []}
                                 singleMode
                                 allList={allTeachers}
                                 title='Выберите преподавателя'
                                 changeInputList={(newList)=>setNewLesson({...newLesson, teacher: {...newList[0]}})}
                             />
-                        </div>}
+                        </div>
+                        <div className={styles.popup__line}>
+                            <p className={styles.popup__title}>Аудитория:</p>
+                            <AddInput
+                                minWidth={228}
+                                selectedList={newLesson.audience ? [newLesson.audience] : []}
+                                singleMode
+                                allList={allAudience}
+                                title='Выберите аудиторию'
+                                changeInputList={(newList)=>setNewLesson({...newLesson, audience: {...newList[0]}})}
+                            />
+                        </div>
                         <div className={styles.popup__line}>
                             <p className={styles.popup__title}>Дата:</p>
                             <div className={styles.popup__text}>
@@ -410,13 +478,17 @@ export default function ShedulePage() {
                             </div>
                         </div>
                         <div className={styles.popup__line}>
-                            <p className={styles.popup__title}>Дата:</p>
-                            {/* <AddInput
-                                selectedList={newLesson.number ? [TIMES[newLesson.number - 1]] : []}
-                            /> */}
-                            <p className={styles.popup__text}>{TIMES[newLesson.number - 1].time}</p>
+                            <p className={styles.popup__title}>Время:</p>
+                            <AddInput
+                                minWidth={228}
+                                selectedList={newLesson.number ? [{name: `${TIMES[newLesson.number - 1].number} ${TIMES[newLesson.number - 1].time}`, id: newLesson.number}] : []}
+                                singleMode
+                                allList={TIMES.map((el, index)=>({name: `${el.number} ${el.time}`, id: index + 1}))}
+                                title='Выберите время'
+                                changeInputList={(newList)=>setNewLesson({...newLesson, number: Number(newList[0].id)})}
+                            />
                         </div>
-                        <Button size={'max'}>Сохранить</Button>
+                        <Button onClick={handleCreateLesson} size={'max'}>Сохранить</Button>
                     </div>
                 </PopupContainer>
             }
