@@ -29,7 +29,7 @@ public class EventController : ControllerBase
         return Ok(_eventService.AddEvent(scheduleId, studyYear, newEvent));
     }
     
-    [HttpPut("{eventId}/schedules/{scheduleId}/{studyYear}/")]
+    [HttpPut("{eventId}/schedules/{scheduleId}/{studyYear}")]
     public IActionResult UpdateEvent([FromRoute] Guid eventId, [FromRoute] Guid scheduleId, [FromRoute] StudyYear studyYear, [FromBody] Event updatedEvent)
     {
         return Ok(_eventService.UpdateEvent( scheduleId, studyYear, eventId, updatedEvent));

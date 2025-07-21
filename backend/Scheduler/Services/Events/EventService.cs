@@ -60,9 +60,7 @@ public class EventService(
 
         scheduleRepository.SaveSchedulePage(schedule);
 
-        return existingEvent.Number != null
-            ? CheckForConflict(schedule, existingEvent.Number.Value)
-            : new CheckConflictResponse();
+        return CheckForConflict(schedule, existingEvent.Id);
     }
 
     public GetEventsByScheduleResponse GetEventsBySchedule(Guid scheduleId, StudyYear studyYear)
@@ -111,10 +109,18 @@ public class EventService(
         };
     }
 
-    private CheckConflictResponse CheckForConflict(SchedulePage schedulePage, int lessonNumber)
+    private CheckConflictResponse CheckForConflict(SchedulePage schedulePage, Guid updatedEvent)
     {
+        var teacherNames = teacherRepository.GetAll()
+            .ToDictionary(t => t.Id, t => t);
+
+        var audienceNames = audienceRepository
+            .GetAll()
+            .ToDictionary(a => a.Id, a => a.Name);
+        
         var groupsByTime = schedulePage
             .Events
+            .Where(e => e is { Date: not null, Number: not null })
             .GroupBy(e => (e.Date, EventNumber: e.Number))
             .Where(g => g.Count() > 1);
 
@@ -148,14 +154,39 @@ public class EventService(
         return new CheckConflictResponse
         {
             ConflictEventIds = conflictEvents,
-            Message = CreateMessage(conflictEvents, lessonNumber)
+            Message = CreateMessage(schedulePage.Events, updatedEvent, teacherNames,  audienceNames)
         };
     }
 
-    private string CreateMessage(List<Guid> conflictEventIds, int lessonNumber)
+    private string? CreateMessage(List<Event> events, Guid updatedEventId, Dictionary<Guid, Teacher> teachers, Dictionary<Guid, string> audiences)
     {
-        return
-            $"ВНИМАНИЕ!!! Конфликт с занятиями {string.Join(",", conflictEventIds)} {GetTimeByLessonNumber(lessonNumber)}";
+        var updatedEvent = events.First(e => e.Id == updatedEventId);
+        if (updatedEvent.Date == null && updatedEvent.Number == null)
+            return null;
+        var isConflictWithTeacher = events
+            .Any(e => e.TeacherId == updatedEvent.TeacherId && e.Date == updatedEvent.Date && e.Number == updatedEvent.Number);
+        
+        var isConflictWithAudience = events
+            .Any(e => e.AudienceId == updatedEvent.AudienceId && e.Date == updatedEvent.Date && e.Number == updatedEvent.Number);
+
+        var isTeacherInNotVacation = updatedEvent.TeacherId.HasValue 
+                                  && teachers.TryGetValue(updatedEvent.TeacherId.Value, out var teacher) 
+                                      && teacher.Vacations.Any(vacation => vacation.StartDate <= updatedEvent.Date && vacation.EndDate >= updatedEvent.Date);
+        if (!isConflictWithAudience && isTeacherInNotVacation && !isConflictWithTeacher)
+            return null;
+        var conflictTeacherString = isConflictWithTeacher
+            ? $"Конфликт с преподавателем {teachers[updatedEvent.TeacherId.Value].Name} во время {GetTimeByLessonNumber(updatedEvent.Number.Value)}."
+            : "";
+
+        var conflictAudienceString = isConflictWithAudience
+            ? $"Конфликт у аудитории {audiences[updatedEvent.AudienceId.Value]} во время {GetTimeByLessonNumber(updatedEvent.Number.Value)}."
+            : "";
+
+        var conflictVacationString = !isTeacherInNotVacation
+            ? $"Конфликт у преподавателя {teachers[updatedEvent.TeacherId.Value].Name}. Преподаватель находится в отпуске."
+            : "";
+        
+        return "ВНИМАНИЕ!!! " + conflictTeacherString + conflictAudienceString + conflictVacationString;
     }
 
     private string GetTimeByLessonNumber(int lessonNumber)
