@@ -35,12 +35,12 @@ public class TeacherService(TeacherRepository repo)
             teacher.Rank = dto.Rank;
         }
 
-        if (dto.SubjectIds is not null &&  dto.SubjectIds.Count != 0)
+        if (dto.SubjectIds is not null)
         {
             teacher.SubjectIds = dto.SubjectIds;
         }
 
-        if (dto.Vacations is not null && dto.Vacations.Count != 0)
+        if (dto.Vacations is not null)
         {
             teacher.Vacations = dto.Vacations;
         }
