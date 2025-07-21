@@ -99,7 +99,8 @@ public class EventService(
                     teacherNames,
                     audienceNames,
                     squads,
-                    lessons
+                    lessons,
+                    schedulePage.Dates
                 )
                 .ToList(),
             NoName = schedulePage.Events
@@ -117,7 +118,7 @@ public class EventService(
         var audienceNames = audienceRepository
             .GetAll()
             .ToDictionary(a => a.Id, a => a.Name);
-        
+
         var groupsByTime = schedulePage
             .Events
             .Where(e => e is { Date: not null, Number: not null })
@@ -154,24 +155,29 @@ public class EventService(
         return new CheckConflictResponse
         {
             ConflictEventIds = conflictEvents,
-            Message = CreateMessage(schedulePage.Events, updatedEvent, teacherNames,  audienceNames)
+            Message = CreateMessage(schedulePage.Events, updatedEvent, teacherNames, audienceNames)
         };
     }
 
-    private string? CreateMessage(List<Event> events, Guid updatedEventId, Dictionary<Guid, Teacher> teachers, Dictionary<Guid, string> audiences)
+    private string? CreateMessage(List<Event> events, Guid updatedEventId, Dictionary<Guid, Teacher> teachers,
+        Dictionary<Guid, string> audiences)
     {
         var updatedEvent = events.First(e => e.Id == updatedEventId);
         if (updatedEvent.Date == null && updatedEvent.Number == null)
             return null;
         var isConflictWithTeacher = events
-            .Any(e => e.TeacherId == updatedEvent.TeacherId && e.Date == updatedEvent.Date && e.Number == updatedEvent.Number);
-        
-        var isConflictWithAudience = events
-            .Any(e => e.AudienceId == updatedEvent.AudienceId && e.Date == updatedEvent.Date && e.Number == updatedEvent.Number);
+            .Any(e => e.TeacherId == updatedEvent.TeacherId && e.Date == updatedEvent.Date &&
+                      e.Number == updatedEvent.Number);
 
-        var isTeacherInNotVacation = updatedEvent.TeacherId.HasValue 
-                                  && teachers.TryGetValue(updatedEvent.TeacherId.Value, out var teacher) 
-                                      && teacher.Vacations.Any(vacation => vacation.StartDate <= updatedEvent.Date && vacation.EndDate >= updatedEvent.Date);
+        var isConflictWithAudience = events
+            .Any(e => e.AudienceId == updatedEvent.AudienceId && e.Date == updatedEvent.Date &&
+                      e.Number == updatedEvent.Number);
+
+        var isTeacherInNotVacation = updatedEvent.TeacherId.HasValue
+                                     && teachers.TryGetValue(updatedEvent.TeacherId.Value, out var teacher)
+                                     && teacher.Vacations.Any(vacation =>
+                                         vacation.StartDate <= updatedEvent.Date &&
+                                         vacation.EndDate >= updatedEvent.Date);
         if (!isConflictWithAudience && isTeacherInNotVacation && !isConflictWithTeacher)
             return null;
         var conflictTeacherString = isConflictWithTeacher
@@ -185,7 +191,7 @@ public class EventService(
         var conflictVacationString = !isTeacherInNotVacation
             ? $"Конфликт у преподавателя {teachers[updatedEvent.TeacherId.Value].Name}. Преподаватель находится в отпуске."
             : "";
-        
+
         return "ВНИМАНИЕ!!! " + conflictTeacherString + conflictAudienceString + conflictVacationString;
     }
 
@@ -198,6 +204,7 @@ public class EventService(
             3 => "12:00 - 12:45",
             4 => "13:00 - 14:30",
             5 => "15:00 - 16:30",
+            _ => throw new ArgumentOutOfRangeException(nameof(lessonNumber), lessonNumber, null)
         };
     }
 
@@ -205,7 +212,8 @@ public class EventService(
         Dictionary<Guid, string> teacherNames,
         Dictionary<Guid, string> audienceNames,
         Dictionary<Guid, Squad> squads,
-        Dictionary<Guid, Lesson> lessons
+        Dictionary<Guid, Lesson> lessons,
+        List<DateOnly> dates
     )
     {
         var eventBySquad = new Dictionary<Guid, List<EventsResponse>>();
@@ -231,11 +239,16 @@ public class EventService(
             var direction = squad.DirectionId is not null
                 ? planRepository.GetDirection(squad.DirectionId!.Value)
                 : null;
+            
             var eventsDictionary = pair.Value
                 .GroupBy(events => events.Date)
                 .OrderBy(v => v.Key)
                 .ToDictionary(e => e.Key!.Value,
                     e => e.ToList());
+            
+            foreach (var date in dates.Where(date => !eventsDictionary.ContainsKey(date)))
+                eventsDictionary[date] = [];
+            
             yield return new GetSquadResponse
             {
                 Id = pair.Key,
@@ -259,11 +272,17 @@ public class EventService(
         return new EventsResponse
         {
             Id = @event.Id,
-            Audience = @event.AudienceId.HasValue ? ConvertToResponse(@event.AudienceId.Value, audienceNames.GetValueOrDefault(@event.AudienceId.Value)) : null,
+            Audience = @event.AudienceId.HasValue
+                ? ConvertToResponse(@event.AudienceId.Value, audienceNames.GetValueOrDefault(@event.AudienceId.Value))
+                : null,
             Date = @event.Date,
             Number = @event.Number,
-            Teacher = @event.TeacherId.HasValue ? ConvertToResponse(@event.TeacherId.Value, teacherNames.GetValueOrDefault(@event.TeacherId.Value)) : null,
-            Squad = @event.SquadId.HasValue ? ConvertToResponse(@event.SquadId.Value, squads.GetValueOrDefault(@event.SquadId.Value).Name) : null,
+            Teacher = @event.TeacherId.HasValue
+                ? ConvertToResponse(@event.TeacherId.Value, teacherNames.GetValueOrDefault(@event.TeacherId.Value))
+                : null,
+            Squad = @event.SquadId.HasValue
+                ? ConvertToResponse(@event.SquadId.Value, squads.GetValueOrDefault(@event.SquadId.Value).Name)
+                : null,
             Lesson = ConvertToResponse(@event.LessonId, lesson?.Name),
             LessonType = lesson.Type,
             Theme = ConvertToResponse(@event.ThemeId, theme?.Name),
