@@ -1,5 +1,6 @@
 using System.Drawing;
 using OfficeOpenXml;
+using Scheduler.Dto.Constants;
 using Scheduler.DataAccess;
 using Scheduler.DataAccess.General;
 using Scheduler.DataAccess.Plan;
@@ -90,16 +91,19 @@ public class ExcelExportService
         Template template,
         SchedulePage page)
     {
-        // создаем лист с сразу заполненной шапкой
+        // создаем лист сразу с шапкой
         var sheet = workbook.Worksheets.Add(page.StudyYear.ToString(), template.Header.Sheet);
+
+        var squads = page.Squads.Select(squadId => GetSquad(page, squadRepository.Get(squadId)!));
+        FillHeader(squads, sheet.Cells, page.Dates, page.Semester);
+
         var totalHeight = template.Header.Size.Height + 1;
 
-        foreach (var squadId in page.Squads)
+        foreach (var squad in squads)
         {
             // ставим взвод
             template.Body.Range.Copy(sheet.Cells[totalHeight, 1]);
-            var squad = squadRepository.Get(squadId);
-            FillSquad(GetSquad(page, squad!), sheet.Cells, totalHeight);
+            FillSquad(squad, sheet.Cells, page.Dates, totalHeight);
             totalHeight += template.Body.Size.Height;
         }
 
@@ -111,6 +115,30 @@ public class ExcelExportService
         sheet.PrinterSettings.PrintArea = sheet.Cells[1, 1, totalHeight, template.Body.Size.Width];
     }
 
+    private void FillHeader(IEnumerable<SquadExcel> squads, ExcelRange cells, List<DateOnly> dates, Semester semester)
+    {
+        const int vucsTextIndex = 71;
+        const int semesterTextIndex = 74;
+        const int yearsTextIndex = 92;
+        
+        var header = cells.TakeSingleCell(1, 0);
+
+        var endYear = dates.First().Year;
+        var startYear = (int)semester % 2 == 1 ? endYear - 1 : endYear + 1;
+        (startYear, endYear) = endYear > startYear ? (startYear, endYear) : (endYear, startYear);
+        
+        var semesterText = (int)semester % 2 == 1 ? "весеннем" : "осеннем";
+        var yearsText = $"{startYear}-{endYear}";
+        var vucsText = string.Join(", ", squads
+            .Select(x => x.DirectionName.Split('-').Last())
+            .Where(x =>!string.IsNullOrWhiteSpace(x)));
+
+        header.SetCellValue(0, 0, header.Text
+            .Insert(semesterTextIndex, semesterText)
+            .Insert(yearsTextIndex, yearsText)
+            .Insert(vucsTextIndex, vucsText));
+    }
+
     private SquadExcel GetSquad(SchedulePage page, Squad squad)
     {
         var teacher = squad.DaddyId.HasValue ? teacherRepository.Get(squad.DaddyId.Value) : null;
@@ -119,13 +147,25 @@ public class ExcelExportService
         {
             Name = squad.Name,
             DirectionName = direction?.Name!,
-            Dates = page.Dates,
             DaddyName = string.Join('\n', new[] { teacher?.Rank, teacher?.Name }.Where(x => !string.IsNullOrEmpty(x))),
             Events = page.Events.Where(x => x.SquadId == squad.Id).ToList()
         };
     }
 
-    private void FillSquad(SquadExcel squad, ExcelRange cells, int heightOffset)
+    private void FillSquad(SquadExcel squad, ExcelRange cells, List<DateOnly> dates, int heightOffset)
+    {
+        FillSquadName(squad, cells, heightOffset);
+
+        const int colOffset = 3;
+        var colByDate = dates
+            .Zip(Enumerable.Range(colOffset, dates.Count + colOffset))
+            .ToDictionary(x => x.First, x => x.Second);
+
+        FillDates(cells, dates, heightOffset, colByDate);
+        FillSquadEvents(squad, cells, heightOffset, colByDate);
+    }
+
+    private static void FillSquadName(SquadExcel squad, ExcelRange cells, int heightOffset)
     {
         var squadName = cells.TakeSingleCell(heightOffset, 0);
         AddFormattedText(squadName, "Взвод ", 36);
@@ -134,16 +174,24 @@ public class ExcelExportService
         AddFormattedText(squadName, $"Ответственный\nпреподаватель\n", 22);
         AddFormattedText(squadName, $"{squad.DaddyName}", 22);
 
-        var col = 3;
-        var colByDate = new Dictionary<DateOnly, int>();
-        for (var dateIndex = 0; dateIndex < squad.Dates.Count; dateIndex++)
+        void AddFormattedText(ExcelRangeBase cell, string? text = null, float? size = null)
         {
-            var date = squad.Dates[dateIndex];
-            colByDate.Add(date, col);
-            cells.SetCellValue(heightOffset - 1, col, date.ToString("dd.MM"));
-            col++;
-        }
+            const string empty = "НЕ ЗАДАНО";
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                cell.RichText.Add(empty).Color = Color.Red;
+            }
 
+            var richText = cell.RichText.Add(text);
+            if (size.HasValue)
+            {
+                richText.Size = size.Value;
+            }
+        }
+    }
+
+    private void FillSquadEvents(SquadExcel squad, ExcelRange cells, int heightOffset, Dictionary<DateOnly, int> colByDate)
+    {
         const int eventOffset = 4;
         foreach (var @event in squad.Events)
         {
@@ -162,20 +210,15 @@ public class ExcelExportService
                 cells.SetCellValue(heightOffset + eventLocalPos + 3, eventCol, string.Join(' ', new[] { teacher?.Rank, teacher?.Name }.Where(x => !string.IsNullOrEmpty(x))));
             }
         }
-        
-        void AddFormattedText(ExcelRangeBase cell, string? text = null, float? size = null)
-        {
-            const string empty = "НЕ ЗАДАНО";
-            if (string.IsNullOrWhiteSpace(text))
-            {
-                cell.RichText.Add(empty).Color = Color.Red;
-            }
+    }
 
-            var richText = cell.RichText.Add(text);
-            if (size.HasValue)
-            {
-                richText.Size = size.Value;
-            }
+    private static void FillDates(ExcelRange cells, List<DateOnly> dates, int heightOffset, Dictionary<DateOnly, int> colByDate)
+    {
+        for (var dateIndex = 0; dateIndex < dates.Count; dateIndex++)
+        {
+            var date = dates[dateIndex];
+            var col = colByDate[date];
+            cells.SetCellValue(heightOffset - 1, col, date.ToString("dd.MM"));
         }
     }
 
@@ -195,7 +238,6 @@ public class ExcelExportService
 
     private record SquadExcel
     {
-        public required List<DateOnly> Dates { get; init; }
         public required string Name { get; init; }
         public required string DirectionName { get; init; }
         public required string DaddyName { get; init; }
