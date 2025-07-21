@@ -6,90 +6,110 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 class Program
 {
+    private const string Plan = "plan";
     static void Main(string[] args)
     {
-        // Исходная структура JSON
-        string inputJson = File.ReadAllText("tp.json");
-
-        JObject inputData = JObject.Parse(inputJson);
-
-        var outputObject = new JObject();
-        outputObject["Name"] = "ВУС-391000";  // Название направления подготовки
-
-        JArray subjectsArray = new JArray();  // Массив предметов
-
-        foreach (var section in inputData["sections"])
+        if (Directory.Exists(Plan) == false)
         {
-            var subjectObj = new JObject();
-            var subjectId = Guid.NewGuid();
-            int semester = (int)section["semester"];
-            subjectObj["Semestr"] = semester;
-            subjectObj["Name"] = $"{section["title"].ToString()} из ВУС-391000";
-            subjectObj["DirectionId"] = Guid.Parse("1700659a-a2fe-45e5-ab00-d5b57a9c6c9f").ToString("");
-            subjectObj["Id"] = subjectId;
-            var themes = new JArray();
+            Directory.CreateDirectory(Plan);    
+        }
+        
+        var files = new[] { "093300", "093700", "094100", "493000" };
+        var directions = new List<Tuple<Guid, string>>();
+        foreach (var file in files)
+        {
+            directions.Add(Tuple.Create(Parse(file), file)); 
+        }
 
-            foreach (var topic in section["topics"])
+        var result = new JArray();
+        foreach (var dir in directions)
+        {
+            result.Add(new JObject
             {
-                var themeObj = new JObject();
+                ["Id"] = dir.Item1,
+                ["Name"] = $"ВУС-{dir.Item2}",
+            });
+        }
+        
+        File.WriteAllText($"{Plan}/directions.json", result.ToString());
+    }
+
+    private static Guid Parse(string file)
+    {
+        var inputJson = File.ReadAllText($"{file}.json");
+        var inputData = JObject.Parse(inputJson);
+
+        var directionId = Guid.NewGuid();
+        var outputObject = new JObject
+        {
+            ["Id"] =  directionId,
+            ["Name"] = $"ВУС-{file}"
+        };
+
+        var subjectsArray = new JArray();
+        foreach (var section in inputData["sections"]!)
+        {
+            var subjectId = Guid.NewGuid();
+            var subjectObj = new JObject
+            {
+                ["Semester"] = section["semester"]?.Value<int>(),
+                ["Name"] = section["title"],
+                ["DirectionId"] = directionId,
+                ["Id"] = subjectId
+            };
+            
+            var themes = new JArray();
+            foreach (var topic in section["topics"]!)
+            {
                 var themeId = Guid.NewGuid();
-                int topicNumber = (int)topic["topic_number"];
-                themeObj["Number"] = topicNumber;
-                themeObj["Name"] = topic["title"].ToString();
-                themeObj["SubjectId"] = subjectId;
-                themeObj["Id"] = themeId;
-                var lessons = new JArray();
-
-                foreach (var lesson in topic["lessons"])
+                var themeObj = new JObject
                 {
-                    var lessonObj = new JObject();
+                    ["Number"] = topic["topic_number"]?.ToObject<int>(),
+                    ["Name"] = topic["title"]?.ToString(),
+                    ["SubjectId"] = subjectId,
+                    ["Id"] = themeId
+                };
 
-                    int selfStudyHours = (int)(double)lesson["self_study_hours"];
-                    int lessonNumber = (int)lesson["lesson_number"];
-                    lessonObj["SelfStudyHours"] = selfStudyHours;
-                    lessonObj["Number"] = lessonNumber;
-                    lessonObj["Name"] = lesson["title"].ToString();
-                    lessonObj["Type"] = GetLessonTypeFromText((string)lesson["type"]);
-                    lessonObj["SubjectId"] = subjectId;
-                    lessonObj["ThemeId"] = themeId;
-                    lessonObj["Id"] = Guid.NewGuid().ToString("D");
+                var lessons = new JArray();
+                foreach (var lesson in topic["lessons"]!)
+                {
+                    var lessonObj = new JObject
+                    {
+                        ["SelfStudyHours"] = lesson["self_study_hours"]?.Value<int>(),
+                        ["Number"] = lesson["lesson_number"]?.Value<int>(),
+                        ["Name"] = lesson["title"]?.ToString(),
+                        ["Type"] = GetLessonTypeFromText(lesson["type"]?.Value<string>()),
+                        ["SubjectId"] = subjectId,
+                        ["ThemeId"] = themeId,
+                        ["Id"] = Guid.NewGuid()
+                    };
 
                     lessons.Add(lessonObj);
                 }
 
                 themeObj["Lessons"] = lessons;
-
                 themes.Add(themeObj);
             }
+            
             subjectObj["Themes"] = themes;
-
-            subjectObj["Id"] = subjectId;
             subjectsArray.Add(subjectObj);
         }
 
         outputObject["Subjects"] = subjectsArray;
         Console.WriteLine(outputObject.ToString());
-        File.WriteAllText("result.json", outputObject.ToString());
+        File.WriteAllText($"{Plan}/{directionId}.json", outputObject.ToString());
+        return directionId;
     }
 
-    private static int GetLessonTypeFromText(string type)
-    {
-        switch (type.Trim())
+    private static int GetLessonTypeFromText(string? type) =>
+        type?.Trim() switch
         {
-            case "Лекция":
-                return 1;
-            case "Семинар":
-                return 0;
-            case "Практическое занятие":
-                return 2;
-            case "Групповое занятие":
-                return 3;
-            case "Практическоезанятие":
-                return 5;
-            case "Выходной день":
-                return 4;
-            default:
-                throw new Exception($"Тип занятия '{type}' неизвестен.");
-        }
-    }
+            "Лекция" => 1,
+            "Семинар" => 0,
+            "Практическое занятие" => 2,
+            "Групповое занятие" => 3,
+            "Практическоезанятие" => 5,
+            "Выходной день" => 4,
+            _ => 1
+        };
 }

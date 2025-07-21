@@ -34,7 +34,7 @@ public abstract class BaseRepository
         return File.ReadAllText(filePath);
     }
 
-    public List<string> GetAllFiles(string path)
+    protected List<string> GetAllFiles(string path)
     {
         var folderPath = Path.Combine(DirectoryPath, path);
         return Directory.GetFiles(folderPath, "*.json", SearchOption.TopDirectoryOnly).ToList();
