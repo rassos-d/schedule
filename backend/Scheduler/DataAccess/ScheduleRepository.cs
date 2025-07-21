@@ -10,7 +10,6 @@ public class ScheduleRepository : BaseRepository
 {
     private readonly Dictionary<Guid, Schedule> _schedulesCache = new();
 
-
     private const string SchedulesFileName = "schedules.json";
 
     public ScheduleRepository() : base("schedules")
@@ -49,12 +48,7 @@ public class ScheduleRepository : BaseRepository
             WriteSchedule(schedule);
         }
     }
-
-    public List<int> GetStudyYears(Guid scheduleId)
-    {
-        var files = GetAllFiles(scheduleId.ToString());
-        return files.Select(str => str.Split("\\").Last().Split(".").First()).Select(ConvertToStudyYear).ToList();
-    }
+    
 
     public SchedulePage GetSchedulePage(Guid id, StudyYear studyYear)
     {
@@ -65,13 +59,12 @@ public class ScheduleRepository : BaseRepository
             {
                 return page;
             }
-            
+
             page = LoadSchedulePage(id, studyYear);
-            schedule.Pages.Add(page); 
-            return page;   
+            schedule.Pages.Add(page);
+            return page;
         }
 
-        GetAllScheduleInfos();
         var pageNew = LoadSchedulePage(id, studyYear);
         _schedulesCache[id].Pages.Add(pageNew);
         return pageNew;

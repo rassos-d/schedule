@@ -3,11 +3,12 @@ using Scheduler.Dto;
 using Scheduler.Dto.Constants;
 using Scheduler.Dto.Schedule;
 using Scheduler.Entities.Schedule;
+using Scheduler.Export;
 using Scheduler.Models;
 
 namespace Scheduler.Services.Schedule;
 
-public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenerator)
+public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenerator, ExcelExportService export)
 {
     public List<ScheduleInfo> Find()
     {
@@ -37,10 +38,18 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
         return schedule.Id;
     }
 
+<<<<<<< HEAD
     public List<int> GetStudyYears(Guid scheduleId)
     {
         return repo.GetStudyYears(scheduleId);
     }
+=======
+    public void ExportExcel(Guid scheduleId)
+    {
+        export.Save(scheduleId);
+    }
+
+>>>>>>> d3f8d73108944e9fab2d6f3eda4f49ce34e73f71
     public void Update(EntityNameUpdateDto dto)
     {
         var schedule = new ScheduleInfo(dto.Id, dto.Name);

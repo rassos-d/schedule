@@ -32,6 +32,13 @@ public class ScheduleController(ScheduleService service) : ControllerBase
         var id = service.Create(dto);
         return Ok(new SimpleDto<Guid>(id));
     }
+   
+    [HttpPost("{scheduleId:guid}/excel")]
+    public IActionResult SaveExcel(Guid scheduleId)
+    {
+        service.ExportExcel(scheduleId);
+        return Ok();
+    }
 
     [HttpPut]
     public IActionResult Update([FromBody] EntityNameUpdateDto dto)
