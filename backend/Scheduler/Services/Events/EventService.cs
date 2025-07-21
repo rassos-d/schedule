@@ -175,7 +175,7 @@ public class EventService(
 
         var isTeacherInNotVacation = updatedEvent.TeacherId.HasValue
                                      && teachers.TryGetValue(updatedEvent.TeacherId.Value, out var teacher)
-                                     && teacher.Vacations.Any(vacation =>
+                                     && !teacher.Vacations.Any(vacation =>
                                          vacation.StartDate <= updatedEvent.Date &&
                                          vacation.EndDate >= updatedEvent.Date);
         if (!isConflictWithAudience && isTeacherInNotVacation && !isConflictWithTeacher)
