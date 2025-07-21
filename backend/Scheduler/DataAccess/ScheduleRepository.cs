@@ -123,12 +123,12 @@ public class ScheduleRepository : BaseRepository
         _schedulesCache.Remove(id);
         var scheduleDir = Path.Combine(DirectoryPath, id.ToString());
         var files = Directory.GetFiles(scheduleDir);
-        foreach (var file in files)
-        {
-            File.Delete(file);
-        }
-        
-        Directory.Delete(scheduleDir);
+        // foreach (var file in files)
+        // {
+        //     File.Delete(file);
+        // }
+        //
+        Directory.Delete(scheduleDir, true);
 
         var schedules = GetAllScheduleInfos();
         var schedule = schedules.FirstOrDefault(s => s.Id == id);

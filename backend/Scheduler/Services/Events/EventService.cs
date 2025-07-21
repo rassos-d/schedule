@@ -5,6 +5,8 @@ using Scheduler.Dto;
 using Scheduler.Dto.Constants;
 using Scheduler.Dto.Event;
 using Scheduler.Dto.General.Squad;
+using Scheduler.Dto.Plan.Lesson;
+using Scheduler.Dto.Plan.Theme;
 using Scheduler.Entities;
 using Scheduler.Entities.General;
 using Scheduler.Entities.Plan;
@@ -299,18 +301,18 @@ public class EventService(
             Squad = @event.SquadId.HasValue
                 ? ConvertToResponse(@event.SquadId.Value, squads.GetValueOrDefault(@event.SquadId.Value)?.Name)
                 : null,
-            Lesson = ConvertToResponse(@event.LessonId, lesson?.Name),
+            Lesson = new LessonGetDto { Id = @event.LessonId, Name = lesson?.Name, Number = lesson?.Number } ,
             LessonType = lesson?.Type,
-            Theme = ConvertToResponse(@event.ThemeId, theme?.Name),
+            Theme = new ThemeGetDto { Id = @event.LessonId, Name = theme?.Name, Number = theme?.Number },
             Subject = ConvertToResponse(subject?.Id, subject?.Name),
         };
     }
 
-    private EntityNameResponse? ConvertToResponse(Guid? id, string? name)
+    private EntityWithNameGetDto? ConvertToResponse(Guid? id, string? name)
     {
         if (id is null || name is null)
             return null;
-        return new EntityNameResponse
+        return new EntityWithNameGetDto
         {
             Id = id.Value,
             Name = name
