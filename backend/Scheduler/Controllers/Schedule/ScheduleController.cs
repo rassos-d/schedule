@@ -46,7 +46,7 @@ public class ScheduleController(ScheduleService service) : ControllerBase
         var result = service.ExportExcel(scheduleId);
 
         var file = System.IO.File.OpenRead(result);
-        return File(file, "application/octet-stream", $"{name}.xlsx");
+        return File(file, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", $"{name}.xlsx");
     }
 
     [HttpPut]

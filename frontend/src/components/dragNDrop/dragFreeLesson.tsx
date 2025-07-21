@@ -39,10 +39,10 @@ function LessonComponent({ lesson, squardIndex, onMove }: LessonProps) {
 
   return (
     <div ref={drag} className={styles.freeLesson} style={{ opacity: isDragging ? 0.5 : 1 }}>
-      <p>ТСП</p>
-      <p>{lesson.lessonName}</p>
-      <p>{lesson.audienceName}</p>
-      <p>{lesson.teacherName}</p>
+        <p>{lesson.subject.name}</p>
+        <p>{`${lesson.theme?.name} ${lesson.lessonType ? lesson.lessonType : ''}`}</p>
+        <p>{lesson.audience?.name}</p>
+        <p>{lesson.teacher?.name}</p>
     </div>
   );
 }

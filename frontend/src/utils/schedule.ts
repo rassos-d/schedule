@@ -1,4 +1,4 @@
-import { SheduleLesson } from "../types/lesson";
+import { NewLesson, SheduleLesson } from "../types/lesson";
 import { Event, Schedule } from "../types/schedule";
 
 export function getSchedule (events: Event) {
@@ -33,3 +33,10 @@ export function sortedDates(unsortedData: Event) {
   });
   return obj;
 } 
+
+export function checkLesson(lesson: NewLesson) : lesson is Required<NewLesson> {
+  for (const value of Object.values(lesson)) {
+    if (!value) return false
+  }
+  return true
+}

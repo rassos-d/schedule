@@ -237,7 +237,8 @@ public class EventService(
 
         foreach (var pair in eventBySquad)
         {
-            var squad = squads[pair.Key];
+            var squad = squads.GetValueOrDefault(pair.Key);
+            if(squad is null) continue;
             var direction = squad.DirectionId is not null
                 ? planRepository.GetDirection(squad.DirectionId!.Value)
                 : null;
