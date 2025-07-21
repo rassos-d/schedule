@@ -168,12 +168,12 @@ public class EventService(
         if (updatedEvent.Date == null && updatedEvent.Number == null)
             return null;
         var isConflictWithTeacher = events
-            .Any(e => e.TeacherId == updatedEvent.TeacherId && e.Date == updatedEvent.Date &&
-                      e.Number == updatedEvent.Number);
+            .Count(e => e.TeacherId == updatedEvent.TeacherId && e.Date == updatedEvent.Date &&
+                        e.Number == updatedEvent.Number) > 1;
 
         var isConflictWithAudience = events
-            .Any(e => e.AudienceId == updatedEvent.AudienceId && e.Date == updatedEvent.Date &&
-                      e.Number == updatedEvent.Number);
+            .Count(e => e.AudienceId == updatedEvent.AudienceId && e.Date == updatedEvent.Date &&
+                        e.Number == updatedEvent.Number) > 1;
 
         var isTeacherInNotVacation = updatedEvent.TeacherId.HasValue
                                      && teachers.TryGetValue(updatedEvent.TeacherId.Value, out var teacher)
