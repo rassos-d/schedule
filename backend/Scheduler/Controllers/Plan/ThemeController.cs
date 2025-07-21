@@ -18,7 +18,7 @@ public class ThemeController : ControllerBase
     }
 
     [HttpGet("find")]
-    public IActionResult Find([FromQuery] Guid directionId, [FromQuery] Guid? subjectId)
+    public IActionResult Find([FromQuery] Guid? directionId, [FromQuery] Guid? subjectId)
     {
         var themes = _planRepository.FindThemes(directionId, subjectId);
         return Ok(themes);

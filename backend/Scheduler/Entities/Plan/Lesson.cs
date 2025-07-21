@@ -3,10 +3,8 @@ using Scheduler.Entities.Constants;
 
 namespace Scheduler.Entities.Plan;
 
-public class Lesson : Entity
+public class Lesson : EntityWithName
 {
-    public string Name { get; set; }
-
     public int Number { get; set; }
 
     public int SelfStudyHours { get; set; }

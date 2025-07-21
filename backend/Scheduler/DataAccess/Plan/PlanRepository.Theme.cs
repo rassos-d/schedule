@@ -1,6 +1,7 @@
 using Scheduler.Dto;
 using Scheduler.Dto.Constants;
 using Scheduler.Entities.Plan;
+using Scheduler.Exceptions;
 
 namespace Scheduler.DataAccess.Plan;
 
@@ -8,6 +9,8 @@ public partial class PlanRepository
 {
     public void SaveTheme(Theme theme)
     {
+        if (FindThemes().Any(t => string.Equals(t.Name, theme.Name, StringComparison.CurrentCultureIgnoreCase)))
+            throw new EntityAlreadyExistExceptions("Тема с таким именем уже создана");
         var subject = GetSubject(theme.SubjectId);
         if (subject is not null)
         {
@@ -21,10 +24,10 @@ public partial class PlanRepository
         var theme = GetTheme(dto.Id);
 
         if (theme is null)
-        {
-            return;
-        }
-        
+            throw new EntityNotFoundException("Тема не существует");
+
+        if (FindThemes().Any(s => string.Equals(s.Name, dto.Name, StringComparison.CurrentCultureIgnoreCase)))
+            throw new EntityAlreadyExistExceptions("Тема с таким именем уже создана");
         if (dto.Name.Length > 0)
         {
             theme.Name = dto.Name;

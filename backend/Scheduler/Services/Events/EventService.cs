@@ -9,6 +9,7 @@ using Scheduler.Entities;
 using Scheduler.Entities.General;
 using Scheduler.Entities.Plan;
 using Scheduler.Entities.Schedule;
+using Scheduler.Exceptions;
 
 namespace Scheduler.Services.Events;
 
@@ -19,14 +20,15 @@ public class EventService(
     PlanRepository planRepository,
     SquadRepository squadRepository)
 {
-    public SimpleDto<Guid>? AddEvent(Guid scheduleId, StudyYear studyYear, Event newEvent)
+    public SimpleDto<Guid> AddEvent(Guid scheduleId, StudyYear studyYear, Event newEvent)
     {
         var schedulePage = scheduleRepository.GetSchedulePage(scheduleId, studyYear);
         if (schedulePage == null)
-        {
-            return null;
-        }
+            throw new EntityNotFoundException("Учебный год не найден.");
 
+        if (schedulePage.Events.Any(e => e.Date == newEvent.Date && e.Number == newEvent.Number))
+            throw new EntityNotFoundException("Пара с таким временем уже создана");
+        
         schedulePage.Events.Add(newEvent);
         scheduleRepository.SaveSchedulePage(schedulePage);
 

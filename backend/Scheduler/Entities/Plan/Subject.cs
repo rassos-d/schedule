@@ -3,10 +3,8 @@ using Scheduler.Entities.Base;
 
 namespace Scheduler.Entities.Plan;
 
-public class Subject : Entity
+public class Subject : EntityWithName
 {
-    public required string Name { get; set; }
-
     public Guid DirectionId { get; set; }
 
     public Semester Semester { get; set; }

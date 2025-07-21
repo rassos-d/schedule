@@ -2,9 +2,7 @@ using Scheduler.Entities.Base;
 
 namespace Scheduler.Entities.Plan;
 
-public class Direction : Entity
+public class Direction : EntityWithName
 {
-    public required string Name { get; set; }
-
     public List<Subject> Subjects { get; init; } = [];
 }

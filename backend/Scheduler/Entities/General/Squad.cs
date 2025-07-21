@@ -1,13 +1,10 @@
 using Scheduler.Dto.Constants;
 using Scheduler.Entities.Base;
-using Scheduler.Entities.Constants;
 
 namespace Scheduler.Entities.General;
 
-public class Squad : Entity
+public class Squad : EntityWithName
 {
-    public required string Name { get; set; }
-
     public StudyYear? StudyYear { get; set; }
     
     public Guid? DaddyId {  get; set; }

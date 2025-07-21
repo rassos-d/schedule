@@ -2,7 +2,6 @@ using Scheduler.Entities.Base;
 
 namespace Scheduler.Entities.General;
 
-public class Audience : Entity
+public class Audience : EntityWithName
 {
-    public required string Name { get; set; }
 }
