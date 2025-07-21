@@ -5,6 +5,7 @@ import { SheduleLesson } from '../../types/lesson'
 
 type LessonProps = {
   lesson: SheduleLesson;
+  isConflict?: boolean
   onMove: (target: DropResult, date: string, number: number) => void;
   onStartDragging: () => void
   date: string
@@ -19,7 +20,7 @@ type DropResult = {
   lesson?: SheduleLesson
 } | { activeSquardIndex: number }
 
-function LessonComponent({ lesson, date, number, squardIndex, onMove, onStartDragging }: LessonProps) {
+function LessonComponent({ lesson, date, number, squardIndex, isConflict, onMove, onStartDragging }: LessonProps) {
 
   const ref = useRef(null)
 
@@ -60,12 +61,12 @@ function LessonComponent({ lesson, date, number, squardIndex, onMove, onStartDra
   }, [isDragging])
 
   return (
-    <div className={styles.dragLessonContainer}>
-      <div ref={ref} style={{ opacity: isDragging ? 0.5 : 1 }}>
-        <p>ТСП</p>
-        <p>{lesson.lessonName}</p>
-        <p>{lesson.audienceName}</p>
-        <p>{lesson.teacherName}</p>
+    <div className={`${styles.dragLessonContainer} ${isConflict && styles.dragLessonContainer_error}`}>
+      <div ref={ref} className={styles.dragLessonContainer__content} style={{ opacity: isDragging ? 0.5 : 1 }}>
+        <p>{lesson.subject.name}</p>
+        <p>{`${lesson.theme?.name} ${lesson.lessonType ? lesson.lessonType : ''}`}</p>
+        <p>{lesson.audience?.name}</p>
+        <p>{lesson.teacher?.name}</p>
       </div>
     </div>
   );

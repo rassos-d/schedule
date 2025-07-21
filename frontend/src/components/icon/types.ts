@@ -6,5 +6,6 @@ export enum Colors {
   'black' = 'var(--black-color)',
   'white' = 'var(--body-color)',
   'ultra-light-grey' = 'var(--ultra-light-grey-color)',
-  'light-grey' = 'var(--light-grey-color)'
+  'light-grey' = 'var(--light-grey-color)',
+  'error' = '#e50101'
 }
