@@ -48,9 +48,7 @@ public class EventService(
         var schedule = scheduleRepository.GetSchedulePage(scheduleId, studyYear);
         var existingEvent = schedule.Events.FirstOrDefault(e => e.Id == eventId);
         if (existingEvent == null)
-        {
             return null;
-        }
 
         existingEvent.ScheduleId = scheduleId;
         existingEvent.LessonType = updatedEvent.LessonType ?? existingEvent.LessonType;
@@ -70,6 +68,19 @@ public class EventService(
     {
         var schedule = scheduleRepository.GetSchedulePage(scheduleId, studyYear);
         return ConvertToResponse(schedule);
+    }
+
+    public void DeleteEvent(Guid scheduleId, StudyYear studyYear, Guid id)
+    {
+        var page = scheduleRepository.GetSchedulePage(scheduleId, studyYear);
+        var @event = page.Events.FirstOrDefault(x => x.Id == id);
+        if (@event == null)
+        {
+            return;
+        }
+        
+        page.Events.Remove(@event);
+        scheduleRepository.SaveSchedulePage(page);
     }
 
     private GetEventsByScheduleResponse ConvertToResponse(SchedulePage schedulePage)

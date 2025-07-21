@@ -35,23 +35,10 @@ public class EventController : ControllerBase
         return Ok(_eventService.UpdateEvent( scheduleId, studyYear, eventId, updatedEvent));
     }
     
-    // [HttpDelete("{scheduleId}/events/{eventId}")]
-    // public IActionResult DeleteEvent(Guid scheduleId, Guid eventId)
-    // {
-    //     var schedule = _scheduleRepo.GetSchedule(scheduleId);
-    //     if (schedule == null)
-    //     {
-    //         return NotFound();
-    //     }
-    //
-    //     var eventToRemove = schedule.Events.FirstOrDefault(e => e.Id == eventId);
-    //     if (eventToRemove == null)
-    //     {
-    //         return NotFound();
-    //     }
-    //
-    //     schedule.Events.Remove(eventToRemove);
-    //     _scheduleRepo.SaveSchedule(schedule);
-    //     return NoContent();
-    // }
+    [HttpDelete("{eventId:guid}/schedules/{scheduleId:guid}/{studyYear}/")]
+    public IActionResult DeleteEvent(Guid scheduleId, Guid eventId, StudyYear studyYear)
+    {
+        _eventService.DeleteEvent(scheduleId, studyYear,  eventId);
+        return NoContent();
+    }
 }
