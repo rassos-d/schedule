@@ -25,6 +25,12 @@ public class ScheduleController(ScheduleService service) : ControllerBase
         var response = service.GetPage(scheduleId, studyYear);
         return Ok(response);
     }
+
+    [HttpGet("{scheduleId:guid}/study-years")]
+    public IActionResult GetStudyYears(Guid scheduleId)
+    {
+        return Ok(service.GetStudyYears(scheduleId));
+    }
     
     [HttpPost]
     public IActionResult Create([FromBody] ScheduleCreateDto dto)
