@@ -20,19 +20,19 @@ public class EventService(
     PlanRepository planRepository,
     SquadRepository squadRepository)
 {
-    public SimpleDto<Guid> AddEvent(Guid scheduleId, StudyYear studyYear, Event newEvent)
+    public CheckConflictResponse AddEvent(Guid scheduleId, StudyYear studyYear, Event newEvent)
     {
         var schedulePage = scheduleRepository.GetSchedulePage(scheduleId, studyYear);
-        if (schedulePage == null)
-            throw new EntityNotFoundException("Учебный год не найден.");
+        // if (schedulePage == null)
+        //     throw new EntityNotFoundException("Учебный год не найден.");
+        //
+        // if (schedulePage.Events.Any(e => e.Date == newEvent.Date && e.Number == newEvent.Number))
+        //     throw new EntityNotFoundException("Пара с таким временем уже создана");
 
-        if (schedulePage.Events.Any(e => e.Date == newEvent.Date && e.Number == newEvent.Number))
-            throw new EntityNotFoundException("Пара с таким временем уже создана");
-        
         schedulePage.Events.Add(newEvent);
         scheduleRepository.SaveSchedulePage(schedulePage);
-
-        return new SimpleDto<Guid>(newEvent.Id);
+        
+        return CheckForConflict(schedulePage, newEvent.Id);
     }
 
     public EventsResponse Get(Guid scheduleId, StudyYear studyYear, Guid id)

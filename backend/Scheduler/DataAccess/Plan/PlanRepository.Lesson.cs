@@ -45,11 +45,11 @@ public partial class PlanRepository
     public void UpdateLesson(LessonUpdateDto dto)
     {
         var lesson = GetLesson(dto.Id);
-        if (lesson is null)
-            throw new EntityNotFoundException("Урок не существует");
-
-        if (GetLessons().Any(l => l.Name == dto.Name))
-            throw new EntityAlreadyExistExceptions("Занятие с таким именем уже создано");
+        // if (lesson is null)
+        //     throw new EntityNotFoundException("Урок не существует");
+        //
+        // if (GetLessons().Any(l => l.Name == dto.Name))
+        //     throw new EntityAlreadyExistExceptions("Занятие с таким именем уже создано");
 
         if (dto.Name is not null && dto.Name.Length > 0)
         {
