@@ -43,9 +43,10 @@ public class ScheduleController(ScheduleService service) : ControllerBase
     public IActionResult SaveExcel(Guid scheduleId)
     {
         var name = service.GetName(scheduleId);
-        using var result = service.ExportExcel(scheduleId);
+        var result = service.ExportExcel(scheduleId);
 
-        return File(result, "application/octet-stream", $"{name}.xlsx");
+        var file = System.IO.File.OpenRead(result);
+        return File(file, "application/octet-stream", $"{name}.xlsx");
     }
 
     [HttpPut]

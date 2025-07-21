@@ -44,9 +44,9 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
         return repo.GetStudyYears(scheduleId);
     }
 
-    public Stream ExportExcel(Guid scheduleId)
+    public string ExportExcel(Guid scheduleId)
     {
-        return export.ExportExcel(scheduleId);
+        return export.Save(scheduleId);
     }
 
     public void Update(EntityNameUpdateDto dto)
