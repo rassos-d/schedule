@@ -201,11 +201,11 @@ public class EventService(
     {
         return lessonNumber switch
         {
-            1 => "8:00 - 9:40",
-            2 => "10:00 - 11:30",
-            3 => "12:00 - 12:45",
-            4 => "13:00 - 14:30",
-            5 => "15:00 - 16:30",
+            1 => "8:30 - 10:00",
+            2 => "10:15 - 11:45",
+            3 => "12:00 - 12:40",
+            4 => "13:30 - 15:00",
+            5 => "15:15 - 16:45",
             _ => throw new ArgumentOutOfRangeException(nameof(lessonNumber), lessonNumber, null)
         };
     }
