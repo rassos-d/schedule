@@ -8,14 +8,16 @@ import { Button } from '../../components/button/button'
 import PopupContainer from '../../components/popupContainer/popupContainer'
 import { AddInput, Input } from '../../components/input/Input'
 import { useNavigate } from 'react-router-dom'
-import { COURSES_YEAR } from '../../consts'
-import { cloneObject, getUniqueElements } from '../../utils'
+import { COURSES_YEAR, SEMESTR_YEAR } from '../../consts'
+import { cloneObject, getUniqueElements, removeElementAtIndex } from '../../utils'
 import { EditSquad, NewSquad, Squad } from '../../types/squad'
 import { SettingsList } from '../../components/settingsList/settingsList'
 import { Audience } from '../../types/audience'
-import { NewTeacher, Teacher } from '../../types/teacher'
+import { NewTeacher, Teacher, Vacation } from '../../types/teacher'
 import { HiddenInputBlock } from '../../components/hiddenInputBlock/hiddenInputBlock'
 import { Direction } from '../../types/directions'
+import { AddInputList } from '../../types/input'
+import { VacationBlock } from '../../components/vacationBlock/vacationBlock'
 
 const DEFAULT_AUDIENCE_NAME = 'Новая Аудитория'
 
@@ -33,7 +35,7 @@ export default function Main () {
     const [newSquad, setNewSquad] = useState<NewSquad>()
 
 
-    const [allAudience, setAllAudience] = useState<Audience[]>()
+    const [allAudience, setAllAudience] = useState<(Audience & {isEdit: boolean, isWarning: boolean})[]>()
     const [allTeachers, setAllTeachers] = useState<Teacher[]>()
     const [allDirections, setAllDirections] = useState<Direction[]>()
     const [editTeacher, setEditTeacher] = useState<Teacher>()
@@ -47,13 +49,15 @@ export default function Main () {
 
     const handleGetAllAudience = async () => {
         const {data} = await axios.get<Audience[]>(PagesURl.AUDIENCE)
-        setAllAudience(data.sort((a, b)=>{
+        const sortedAudience = data.sort((a, b)=>{
             if (a.name === DEFAULT_AUDIENCE_NAME && b.name !== DEFAULT_AUDIENCE_NAME) {
                 return 1
             } else {
                 return -1
             }
-        }))
+        })
+
+        setAllAudience(sortedAudience.map((el)=>({...el, isEdit: false, isWarning: false})))
     }
     const handleAddAudience = async () => {
         await axios.post(PagesURl.AUDIENCE, {
@@ -90,7 +94,8 @@ export default function Main () {
         await axios.put(PagesURl.TEACHER, {
             id: editTeacher.id,
             name: editTeacher.name,
-            rank: editTeacher.rank
+            rank: editTeacher.rank,
+            vacations: editTeacher.vacations
         })
         setEditTeacher(undefined)
         handleGetAllTeachers()
@@ -98,6 +103,43 @@ export default function Main () {
     const handleDeleteTeacher = async (id: string) => {
         await axios.delete(PagesURl.TEACHER + `/${id}`)
         handleGetAllAudience()
+    }
+
+    const editDateVacationNewTeacher = (newVacation: Vacation, index: number) => {
+        if (!newTeacher) return
+        const result = {...newTeacher}
+        result.vacations[index] = newVacation
+        setNewTeacher(result)
+    }
+    const deleteVacationNewTeacher = (index: number) => {
+        if (!newTeacher) return
+        const result = {...newTeacher}
+        result.vacations = removeElementAtIndex(result.vacations, index)
+        setNewTeacher(result)
+    }
+    const addVacationNewTeacher = () => {
+        if (!newTeacher) return
+        const result = {...newTeacher}
+        result.vacations.push({startDate: '', endDate: ''})
+        setNewTeacher(result)
+    }
+    const editDateVacationEditTeacher = (newVacation: Vacation, index: number) => {
+        if (!editTeacher) return
+        const result = {...editTeacher}
+        result.vacations[index] = newVacation
+        setEditTeacher(result)
+    }
+    const deleteVacationEditTeacher = (index: number) => {
+        if (!editTeacher) return
+        const result = {...editTeacher}
+        result.vacations = removeElementAtIndex(result.vacations, index)
+        setEditTeacher(result)
+    }
+    const addVacationEditTeacher = () => {
+        if (!editTeacher) return
+        const result = {...editTeacher}
+        result.vacations.push({startDate: '', endDate: ''})
+        setEditTeacher(result)
     }
 
     const handleGetShedules = async () => {
@@ -113,7 +155,8 @@ export default function Main () {
             ...schedule,
             pages: schedule.pages.map(page => ({
                 ...page,
-                squads: page.squads.map(squad => squad.id)
+                squads: page.squads.map(squad => squad.id),
+                semester: page.semester ? page.semester.id : undefined
             }))
         };
         const {data} = await axios.post<{data: string}>(PagesURl.SCHEDULE, transformedSchedule)
@@ -176,7 +219,8 @@ export default function Main () {
                 studyYear: freeYears[0], 
                 squads: [], 
                 start: new Date().toISOString(), 
-                end: new Date().toISOString()
+                end: new Date().toISOString(),
+                semester: undefined
             }
         ]}})
     }
@@ -185,11 +229,37 @@ export default function Main () {
             if (!prev) return undefined
             const result = cloneObject(prev)
             if (result.pages[index].studyYear !== year) {
-                result.pages[index] = {...result.pages[index], squads: []}
+                result.pages[index] = {...result.pages[index], squads: [], semester: undefined}
             }
             result.pages[index].studyYear = year
             return result
         })
+    }
+    const addNewSemesterToYear = (newSemestr: AddInputList, index: number) => {
+        setNewSchedule((prev)=>{
+            if (!prev) return undefined
+            const result = cloneObject(prev)
+            result.pages[index].semester = newSemestr
+            return result
+        })
+    }
+    const changeIsEditAudience = (index: number) => {
+        if (!allAudience) return
+        const newAudience = [...allAudience]
+        const targetAudience = newAudience[index]
+        let editFlag = false
+        const result = newAudience.map((el)=>{
+            if (el.isEdit && el.id !== targetAudience.id) {
+                editFlag = true
+                return {...el, isWarning: true}
+            }
+            return {...el, isWarning: false}
+        })
+        if (!editFlag) {
+            result[index].isEdit = true
+        }
+        console.log(result)
+        setAllAudience(result)
     }
 
     const updateSquards = (newList: ScheduleSquad[], yearIndex: number) => {
@@ -236,13 +306,6 @@ export default function Main () {
         handleGetAllTeachers()
     },[])
 
-    useEffect(()=>{
-        if (allAudience && allTeachers) {
-            handleGetAllAudience()
-            handleGetAllTeachers()
-        }
-    },[])
-
     if (!shedules || !allAudience || !allTeachers || !squads || !allDirections) {
         return <></>
     }
@@ -271,10 +334,13 @@ export default function Main () {
                         <h3 className={styles.container__subtitle}>Настройки</h3>
                         <SettingsList title='Настройка аудиторий'>
                             <>
-                                {allAudience.map((audience) => (
+                                {allAudience.map((audience, index) => (
                                     <HiddenInputBlock 
+                                        isEdit={audience.isEdit}
+                                        isWarning={audience.isWarning}
                                         key={audience.id} 
                                         value={audience.name} 
+                                        onEdit={()=>changeIsEditAudience(index)}
                                         onDelete={()=>{handleDeleteAudience(audience.id)}} 
                                         onEnter={(val) => {handleEditAudience(audience.id, val)}} 
                                     />
@@ -292,7 +358,13 @@ export default function Main () {
                                         onEdit={()=>setEditTeacher(teacher)}
                                     />
                                 ))}
-                                <Button onClick={()=>setNewTeacher({name: '', rank: ''})} size={'max'} variant={'whiteMain'}><Icon glyph='add' glyphColor='grey' /></Button>
+                                <Button 
+                                    onClick={()=>setNewTeacher({name: '', rank: '', vacations: []})} 
+                                    size={'max'} 
+                                    variant={'whiteMain'}
+                                >
+                                    <Icon glyph='add' glyphColor='grey' />
+                                </Button>
                             </>
                         </SettingsList>
                         <SettingsList title="Настройка взводов">
@@ -326,6 +398,13 @@ export default function Main () {
                                     allList={freeCoursesYear.map((year)=>({name: year, id: year}))} 
                                     changeInputList={(newList)=>addNewYearToYear(Number(newList[0].id), index)}
                                 />
+                                <AddInput
+                                    title='Семестр'
+                                    singleMode
+                                    selectedList={year.semester ? [year.semester] : []}
+                                    allList={year.studyYear === 1 ? SEMESTR_YEAR.filter((el)=>el.id === 0) : SEMESTR_YEAR}
+                                    changeInputList={(newList)=>addNewSemesterToYear(newList[0], index)}
+                                />
                                 {squads &&
                                 <AddInput
                                     title='Взвода'
@@ -354,6 +433,20 @@ export default function Main () {
                         <h2>Редактирование преподавателя</h2>
                         <Input value={editTeacher.name} placeholder='Фамилия' onChange={(val)=>setEditTeacher({...editTeacher, name: val})}/>
                         <Input value={editTeacher.rank} placeholder='Звание'  onChange={(val)=>setEditTeacher({...editTeacher, rank: val})}/>
+                        {editTeacher.vacations.map((el, index)=>(
+                            <VacationBlock
+                                key={`${el.startDate}--${el.endDate}`}
+                                title={`Отпуск ${index + 1}`}
+                                start={el.startDate}
+                                end={el.endDate}
+                                onChangeDate={(vacation)=>{editDateVacationEditTeacher(vacation, index)}}
+                                onDelete={()=>{deleteVacationEditTeacher(index)}}                            
+                            />
+                        ))}
+                        <Button onClick={addVacationEditTeacher} variant={'whiteMain'} textColor={'grey'} size={'max'}>
+                            <Icon glyph='add' glyphColor='grey'/>
+                            <p>Добавить отпуск</p>
+                        </Button>
                         <Button onClick={handleEditTeacher}>Изменить преподавателя</Button>
                     </div>
                 </PopupContainer>
@@ -364,6 +457,20 @@ export default function Main () {
                         <h2>Создание преподавателя</h2>
                         <Input value={newTeacher.name} placeholder='Фамилия' onChange={(val)=>setNewTeacher({...newTeacher, name: val})}/>
                         <Input value={newTeacher.rank} placeholder='Звание'  onChange={(val)=>setNewTeacher({...newTeacher, rank: val})}/>
+                        {newTeacher.vacations.map((el, index)=>(
+                            <VacationBlock
+                                key={`${el.startDate}--${el.endDate}`}
+                                title={`Отпуск ${index + 1}`}
+                                start={el.startDate}
+                                end={el.endDate}
+                                onChangeDate={(vacation)=>editDateVacationNewTeacher(vacation, index)}
+                                onDelete={()=>{deleteVacationNewTeacher(index)}}                            
+                            />
+                        ))}
+                        <Button onClick={addVacationNewTeacher} variant={'whiteMain'} textColor={'grey'} size={'max'}>
+                            <Icon glyph='add' glyphColor='grey'/>
+                            <p>Добавить отпуск</p>
+                        </Button>
                         <Button onClick={handleAddTeacher}>Создать преподавателя</Button>
                     </div>
                 </PopupContainer>

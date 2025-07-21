@@ -34,7 +34,8 @@ export function Input({ placeholder, value, required, type, maxValues, isError, 
   }
 
   const isValid = () => {
-    if (isError !== true) return true
+    if (isError === undefined) return true
+    else if (isError !== undefined) return !isError
     return validateChecker ? validateChecker(value) : value !== ''
   }
 
@@ -179,9 +180,10 @@ export function AddInput({ selectedList, changeInputList, allList, title, placeh
 type HiddenInputProps = {
   value: string
   onEnter: (newValue: string) => void
+  isWarning?: boolean
 }
 
-export function HiddenInput({value, onEnter}:HiddenInputProps) {
+export function HiddenInput({value, isWarning, onEnter}:HiddenInputProps) {
 
   const [editValue, setEditValue] = useState(value)
 
@@ -191,8 +193,13 @@ export function HiddenInput({value, onEnter}:HiddenInputProps) {
 
   return (
     <div className={styles.hiddenInput__line}>
-      <input className={styles.hiddenInput__input} value={editValue} onChange={(e) => setEditValue(e.target.value)} />
-      <div onClick={()=>onEnter(editValue)} className={styles.hiddenInput__enter}><Icon glyph='check' glyphColor='black' /></div>
+      <Input isError={isWarning} errorText='Сохраните изменения' value={editValue} onChange={setEditValue} />
+      <div 
+        onClick={()=>onEnter(editValue)} 
+        className={`${styles.hiddenInput__enter} ${isWarning && styles.hiddenInput__enter_error}`}
+      >
+          <Icon glyph='check' glyphColor={isWarning ? 'error' : 'black'} />
+      </div>
     </div>
   )
 }

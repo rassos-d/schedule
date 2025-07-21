@@ -1,3 +1,4 @@
+import { AddInputList } from "./input"
 import { SheduleLesson } from "./lesson"
 
 export type SmallShedule = {
@@ -13,6 +14,7 @@ export type CreateSchedule = {
 export type CreateScheduleYear = {
   studyYear: number, 
   squads: ScheduleSquad[], 
+  semester?: AddInputList
   start: string, 
   end: string
 }
@@ -30,9 +32,9 @@ export type Schedule = {
 type Squad = {
   id: string
   name: string
-  teacherName?: string
-  directionName?: string
-  audienceName?: string
+  daddy?: AddInputList
+  direction?: AddInputList
+  audience?: AddInputList
   events: Event
 }
 

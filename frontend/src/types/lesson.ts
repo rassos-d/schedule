@@ -11,9 +11,9 @@ export type Lesson = {
 export type FreeLesson = Omit<SheduleLesson, "number" | "date"> & {squardIndex: number}
 
 export type NewLesson = {
-  date: string
-  number: number
-  squardIndex: number
+  date?: string
+  number?: number
+  squard?: AddInputList
   lesson?: AddInputList
   teacher?: AddInputList
   audience?: AddInputList
@@ -34,10 +34,13 @@ export type NewLessonRequest = {
 
 export type SheduleLesson = {
   id: string,
-  teacherName?: string,
-  audienceName?: string,
-  lessonName?: string,
-  squadName?: string,
+  teacher?: AddInputList,
+  audience?: AddInputList,
+  lesson?: AddInputList,
+  squad: AddInputList,
+  theme?: AddInputList,
+  subject: AddInputList,
+  lessonType: number
   number: number,
   date: string
 }

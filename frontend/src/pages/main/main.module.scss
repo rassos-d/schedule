@@ -10,6 +10,7 @@
     display: grid;
     grid-template-columns: 40% 40%;
     column-gap: 50px;
+    justify-content: center;
   }
   &__shedules {
     border: 1px solid #000;

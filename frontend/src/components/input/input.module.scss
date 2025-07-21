@@ -118,4 +118,10 @@
     align-items: center;
     cursor: text;
   }
+  &__enter {
+    cursor: pointer;
+    &_error {
+      margin-bottom: 10px;
+    }
+  }
 }
