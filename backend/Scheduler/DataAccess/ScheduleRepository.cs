@@ -14,6 +14,14 @@ public class ScheduleRepository : BaseRepository
 
     public ScheduleRepository() : base("schedules")
     { }
+
+    public List<int> GetStudyYears(Guid scheduleId)
+    {
+        return GetAllFiles(scheduleId.ToString())
+            .Select(name => name.Split("/").Last().Split(".").First())
+            .Select(ConvertToStudyYear)
+            .ToList();
+    }
     
     public void SaveSchedule(Schedule schedule)
     {
@@ -26,6 +34,24 @@ public class ScheduleRepository : BaseRepository
         _schedulesCache[schedule.Id] = schedule;
     }
 
+    public Schedule GetSchedule(Guid scheduleId)
+    {
+        var name = GetAllScheduleInfos().First(x => x.Id == scheduleId).Name;
+        var studyYears = GetStudyYears(scheduleId);
+        var schedule = new Schedule
+        {
+            Id = scheduleId,
+            Name = name,
+        };
+
+        foreach (var studyYear in studyYears)
+        {
+            schedule.Pages.Add(GetSchedulePage(scheduleId, (StudyYear)studyYear));
+        }
+        
+        return schedule;
+    }
+    
     public void SaveSchedulePage(SchedulePage schedulePage)
     {
         GetAllScheduleInfos();
