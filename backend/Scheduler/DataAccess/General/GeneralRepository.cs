@@ -32,8 +32,8 @@ public abstract class GeneralRepository<T> : BaseRepository where T : EntityWith
 
     public virtual void Upsert(T entity)
     {
-        if (GetData(Data).Values.Any(x => x.Name == entity.Name))
-            throw new EntityAlreadyExistExceptions("Такое имя уже занято.");
+        // if (GetData(Data).Values.Count(x => x.Name == entity.Name) > 1)
+        //     throw new EntityAlreadyExistExceptions("Такое имя уже занято.");
         GetData(Data)[entity.Id] = entity;
     }
 

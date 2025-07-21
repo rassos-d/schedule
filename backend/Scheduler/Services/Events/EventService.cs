@@ -23,11 +23,11 @@ public class EventService(
     public CheckConflictResponse AddEvent(Guid scheduleId, StudyYear studyYear, Event newEvent)
     {
         var schedulePage = scheduleRepository.GetSchedulePage(scheduleId, studyYear);
-        if (schedulePage == null)
-            throw new EntityNotFoundException("Учебный год не найден.");
-
-        if (schedulePage.Events.Any(e => e.Date == newEvent.Date && e.Number == newEvent.Number))
-            throw new EntityNotFoundException("Пара с таким временем уже создана");
+        // if (schedulePage == null)
+        //     throw new EntityNotFoundException("Учебный год не найден.");
+        //
+        // if (schedulePage.Events.Any(e => e.Date == newEvent.Date && e.Number == newEvent.Number))
+        //     throw new EntityNotFoundException("Пара с таким временем уже создана");
 
         schedulePage.Events.Add(newEvent);
         scheduleRepository.SaveSchedulePage(schedulePage);

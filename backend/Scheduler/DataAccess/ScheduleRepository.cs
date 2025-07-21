@@ -41,8 +41,8 @@ public class ScheduleRepository : BaseRepository
     public Schedule GetSchedule(Guid scheduleId)
     {
         var scheduleInfo = GetAllScheduleInfos().FirstOrDefault(x => x.Id == scheduleId);
-        if (scheduleInfo is null)
-            throw new EntityNotFoundException(string.Format(ExceptionsCode.EntityNotFound, scheduleId));
+        // if (scheduleInfo is null)
+        //     throw new EntityNotFoundException(string.Format(ExceptionsCode.EntityNotFound, scheduleId));
         var studyYears = GetStudyYears(scheduleId);
         var schedule = new Schedule
         {
