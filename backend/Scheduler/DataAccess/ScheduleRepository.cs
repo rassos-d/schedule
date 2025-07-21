@@ -10,12 +10,14 @@ namespace Scheduler.DataAccess;
 
 public class ScheduleRepository : BaseRepository
 {
+    private readonly ILogger<ScheduleRepository> _logger;
     private readonly Dictionary<Guid, Schedule> _schedulesCache = new();
 
     private const string SchedulesFileName = "schedules.json";
 
-    public ScheduleRepository() : base("schedules")
+    public ScheduleRepository(ILogger<ScheduleRepository> logger) : base("schedules")
     {
+        _logger = logger;
         GetAllScheduleInfos();
     }
 
@@ -85,6 +87,7 @@ public class ScheduleRepository : BaseRepository
     {
         if (_schedulesCache.TryGetValue(id, out var schedule))
         {
+            
             var page = schedule.Pages.FirstOrDefault(p => p.StudyYear == studyYear);
             if (page is not null)
             {
