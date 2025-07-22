@@ -72,7 +72,7 @@ export function Input({ placeholder, value, required, type, maxValues, isError, 
         <input
           name={name}
           maxLength={maxValues} type={type} required={required}
-          className={`${styles.input} ${isError ? styles.input_error : ''}`}
+          className={`${styles.input} ${!isValid() ? styles.input_error : ''}`}
           placeholder={placeholder} value={value}
           onChange={(e) => { changeValue(e.target.value) }}
         /> :
@@ -141,7 +141,7 @@ export function AddInput({ selectedList, changeInputList, allList, title, placeh
     if (displayList) {
       return 'white'
     }
-    if (singleMode && selectedList[0]) {
+    if (selectedList[0]) {
       return 'white'
     }
     return 'grey'

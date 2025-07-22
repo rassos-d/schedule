@@ -165,7 +165,7 @@ export default function Main() {
                 semester: page.semester ? page.semester.id : undefined
             }))
         };
-        const { data } = await axios[schedule.isNew ? 'post' : 'put']<{ data: string }>(PagesURl.SCHEDULE + schedule.isNew ? '/full' : '', transformedSchedule)
+        const { data } = await axios[schedule.isNew ? 'post' : 'put']<{ data: string }>(PagesURl.SCHEDULE + !schedule.isNew ? '/full' : '', transformedSchedule)
         navigate(`/${data.data}`)
     }
     const handleGetEditSchedule = async (scheduleId: string) => {
@@ -416,11 +416,14 @@ export default function Main() {
             {newSchedule !== undefined &&
                 <PopupContainer onClose={() => {setNewSchedule(undefined);setIsEnableValidationCreateSchedule(false)}}>
                     <div className={styles.popup}>
-                        <h2>Создание расписания</h2>
+                        <h2>{newSchedule.isNew ? 'Создание' : 'Редактирование'} расписания</h2>
                         <div onClick={() => {setNewSchedule(undefined);setIsEnableValidationCreateSchedule(false)}} className={styles.popup__close}><Icon glyph='close' glyphColor='black' /></div>
                         <div style={{ width: '95%' }}><Input value={newSchedule.name} onChange={(value) => setNewSchedule({ ...newSchedule, name: value })} placeholder='Введите название' /></div>
                         {newSchedule.pages.map((year, index) => (
                             <div className={styles.popup__addList} key={year.studyYear}>
+                                <div>
+                                    <Icon glyph='trash' glyphColor='black'/>
+                                </div>
                                 <AddInput
                                     isError={isEnableValidationCreateSchedule}
                                     title='Год обучения'
@@ -456,7 +459,7 @@ export default function Main() {
                             </div>
                         ))}
                         {COURSES_YEAR.length > newSchedule.pages.length && <Button onClick={addNewYear}>Добавить год обучения</Button>}
-                        <Button onClick={() => handleCreateShedule(newSchedule)}>Создать расписание</Button>
+                        <Button onClick={() => handleCreateShedule(newSchedule)}>{newSchedule.isNew ? 'Создать' : 'Редактировать'} расписание</Button>
                     </div>
                 </PopupContainer>
             }
