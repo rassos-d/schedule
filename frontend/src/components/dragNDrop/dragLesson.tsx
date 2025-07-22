@@ -13,6 +13,8 @@ type LessonProps = {
   onStartDragging: (squardIndex:  number) => void
   onSelect: (lesson: SheduleLesson) => void
   onDelete: () => void
+  onDragging: (squardId: string) => void
+  onStopDragging: () => void
   date: string
   number: number
   squardIndex: number
@@ -25,7 +27,7 @@ type DropResult = {
   lesson?: SheduleLesson
 } | { activeSquardIndex: number }
 
-function LessonComponent({ lesson, date, number, squardIndex, isConflict, isNew, onMove, onStartDragging, onSelect, onDelete }: LessonProps) {
+function LessonComponent({ lesson, date, number, squardIndex, isConflict, isNew, onMove, onStartDragging, onSelect, onDelete, onDragging, onStopDragging }: LessonProps) {
 
   const ref = useRef<HTMLDivElement>(null)
   
@@ -48,11 +50,15 @@ function LessonComponent({ lesson, date, number, squardIndex, isConflict, isNew,
     item: lesson,
     end: (item, monitor) => {
       const dropResult = monitor.getDropResult<DropResult>();
+      onStopDragging()
       if (item && dropResult) {
         onMove(dropResult, date, number);
       }
     },
     collect: (monitor) => {
+      if (monitor.isDragging()) {
+        onDragging(lesson.squad.id.toString())
+      }
       return {isDragging: !!monitor.isDragging()}
     },
   }), [squardIndex, number, lesson]);

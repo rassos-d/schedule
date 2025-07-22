@@ -429,6 +429,8 @@ export default function ShedulePage() {
                                                 <div key={lesson.number} className={`${styles.table__lesson} ${lesson.number === 3 && styles.table__time_row_grey}`}>
                                                     {"id" in lesson ?
                                                         <DragLesson
+                                                            onDragging={onDragging}
+                                                            onStopDragging={onStopDragging}
                                                             isNew={createdLessonId === lesson.id}
                                                             onDelete={()=>{setConfirmDeleteEventId(lesson.id)}}
                                                             onSelect={onEditLesson}

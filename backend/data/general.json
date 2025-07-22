@@ -42,6 +42,22 @@
       "SubjectIds": [],
       "Name": "\u0439\u0446\u0443",
       "Id": "447a8f61-e5cc-4b92-ae8c-8c5144676542"
+    },
+    "2058d01f-e859-4f95-9cc9-ebd7c6bb2b3a": {
+      "Rank": "\u043F-\u043A",
+      "Vacations": [
+        {
+          "StartDate": "2025-01-22",
+          "EndDate": "2025-12-22"
+        },
+        {
+          "StartDate": "2024-01-22",
+          "EndDate": "2024-12-22"
+        }
+      ],
+      "SubjectIds": [],
+      "Name": "\u0416\u0443\u0440\u0430\u0432\u043B\u0451\u0432",
+      "Id": "2058d01f-e859-4f95-9cc9-ebd7c6bb2b3a"
     }
   }
 }
