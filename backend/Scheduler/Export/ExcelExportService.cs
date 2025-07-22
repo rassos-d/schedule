@@ -4,7 +4,6 @@ using Scheduler.Dto.Constants;
 using Scheduler.DataAccess;
 using Scheduler.DataAccess.General;
 using Scheduler.DataAccess.Plan;
-using Scheduler.Entities;
 using Scheduler.Entities.General;
 using Scheduler.Entities.Schedule;
 
@@ -12,29 +11,6 @@ namespace Scheduler.Export;
 
 public class ExcelExportService
 {
-    private readonly Dictionary<string, string> ShortToLongRank = new Dictionary<string, string>()
-    {
-        {"п/п-к", "подполковник"},
-        {"м-р", "майор"},
-        {"п-к", "полковник"},
-        {"к-н", "капитан"},
-        {"п/п-к.", "подполковник"},
-        {"м-р.", "майор"},
-        {"п-к.", "полковник"},
-        {"к-н.", "капитан"}
-    };
-
-    private readonly Dictionary<DayOfWeek, string> Day = new Dictionary<DayOfWeek, string>()
-    {
-        {DayOfWeek.Monday, "ПОНЕДЕЛЬНИК"},
-        {DayOfWeek.Tuesday, "ВТОРНИК"},
-        {DayOfWeek.Wednesday, "СРЕДА"},
-        {DayOfWeek.Thursday, "ЧЕТВЕРГ"},
-        {DayOfWeek.Friday, "ПЯТНИЦА"},
-        {DayOfWeek.Saturday, "СУББОТА"},
-        {DayOfWeek.Sunday, "ВОСКРЕСЕНИЕ"}
-    };
-
     private const string resultPath = "result.xlsx";
     private readonly string templatePath = Path.Combine("Export", "template.xlsx");
     private readonly ScheduleRepository scheduleRepository;
@@ -155,7 +131,7 @@ public class ExcelExportService
         var vucsText = string.Join(", ", squads
             .Select(x => x.DirectionName.Split('-').Last())
             .Where(x => !string.IsNullOrWhiteSpace(x)));
-        var dayText = Day[dates.First().DayOfWeek];
+        var dayText = dates.First().DayOfWeek.ToRussian();
 
         header.SetCellValue(0, 0, header.Text
             .Insert(yearsTextIndex, yearsText)
@@ -168,9 +144,9 @@ public class ExcelExportService
     private SquadExcel GetSquad(SchedulePage page, Squad squad)
     {
         var teacher = squad.DaddyId.HasValue ? teacherRepository.Get(squad.DaddyId.Value) : null;
+        var teacherRank = RankExpander.GetFullOrDefault(teacher?.Rank);
         var direction = squad.DirectionId.HasValue ? planRepository.GetDirection(squad.DirectionId.Value) : null;
 
-        var teacherRank = teacher is not null ? ShortToLongRank.GetValueOrDefault(teacher.Rank, teacher.Rank) : null;
         return new SquadExcel()
         {
             Name = squad.Name,
@@ -248,27 +224,5 @@ public class ExcelExportService
             var col = colByDate[date];
             cells.SetCellValue(heightOffset - 1, col, date.ToString("dd.MM"));
         }
-    }
-
-    private record Template
-    {
-        public required TemplateElement Header { get; init; }
-        public required TemplateElement Body { get; init; }
-        public required TemplateElement Footer { get; init; }
-
-        public record TemplateElement
-        {
-            public required ExcelWorksheet Sheet { get; init; }
-            public required ExcelRange Range { get; init; }
-            public required Size Size { get; init; }
-        }
-    }
-
-    private record SquadExcel
-    {
-        public required string Name { get; init; }
-        public required string DirectionName { get; init; }
-        public required string DaddyName { get; init; }
-        public required List<Event> Events { get; init; }
     }
 }

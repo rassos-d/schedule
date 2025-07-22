@@ -18,13 +18,18 @@ import { HiddenInputBlock } from '../../components/hiddenInputBlock/hiddenInputB
 import { Direction } from '../../types/directions'
 import { AddInputList } from '../../types/input'
 import { VacationBlock } from '../../components/vacationBlock/vacationBlock'
+import { isValidCreateSchedule } from '../../utils/validate'
+import { DeletePopup } from '../../components/deletePopup/deletePopup'
 
 const DEFAULT_AUDIENCE_NAME = 'Новая Аудитория'
 
 
-export default function Main () {
+export default function Main() {
 
     const navigate = useNavigate()
+
+    const [isEnableValidationCreateSchedule, setIsEnableValidationCreateSchedule] = useState(false)
+    const [confirmDeleteScheduleId, setConfirmDeleteScheduleId] = useState<string>()
 
     const [shedules, setShedules] = useState<SmallShedule[]>()
     const [newSchedule, setNewSchedule] = useState<CreateSchedule>()
@@ -35,21 +40,21 @@ export default function Main () {
     const [newSquad, setNewSquad] = useState<NewSquad>()
 
 
-    const [allAudience, setAllAudience] = useState<(Audience & {isEdit: boolean, isWarning: boolean})[]>()
+    const [allAudience, setAllAudience] = useState<(Audience & { isEdit: boolean, isWarning: boolean })[]>()
     const [allTeachers, setAllTeachers] = useState<Teacher[]>()
     const [allDirections, setAllDirections] = useState<Direction[]>()
     const [editTeacher, setEditTeacher] = useState<Teacher>()
     const [newTeacher, setNewTeacher] = useState<NewTeacher>()
 
     const handleGetAllDirections = async () => {
-        const {data} = await axios.get<Direction[]>(PagesURl.DIRECTION + '/find')
+        const { data } = await axios.get<Direction[]>(PagesURl.DIRECTION + '/find')
         //console.log(data)
         setAllDirections(data)
     }
 
     const handleGetAllAudience = async () => {
-        const {data} = await axios.get<Audience[]>(PagesURl.AUDIENCE)
-        const sortedAudience = data.sort((a, b)=>{
+        const { data } = await axios.get<Audience[]>(PagesURl.AUDIENCE)
+        const sortedAudience = data.sort((a, b) => {
             if (a.name === DEFAULT_AUDIENCE_NAME && b.name !== DEFAULT_AUDIENCE_NAME) {
                 return 1
             } else {
@@ -57,7 +62,7 @@ export default function Main () {
             }
         })
 
-        setAllAudience(sortedAudience.map((el)=>({...el, isEdit: false, isWarning: false})))
+        setAllAudience(sortedAudience.map((el) => ({ ...el, isEdit: false, isWarning: false })))
     }
     const handleAddAudience = async () => {
         await axios.post(PagesURl.AUDIENCE, {
@@ -78,7 +83,7 @@ export default function Main () {
     }
 
     const handleGetAllTeachers = async () => {
-        const {data } = await axios.get<Teacher[]>(PagesURl.TEACHER)
+        const { data } = await axios.get<Teacher[]>(PagesURl.TEACHER)
         //console.log(data)
         setAllTeachers(data)
     }
@@ -107,43 +112,43 @@ export default function Main () {
 
     const editDateVacationNewTeacher = (newVacation: Vacation, index: number) => {
         if (!newTeacher) return
-        const result = {...newTeacher}
+        const result = { ...newTeacher }
         result.vacations[index] = newVacation
         setNewTeacher(result)
     }
     const deleteVacationNewTeacher = (index: number) => {
         if (!newTeacher) return
-        const result = {...newTeacher}
+        const result = { ...newTeacher }
         result.vacations = removeElementAtIndex(result.vacations, index)
         setNewTeacher(result)
     }
     const addVacationNewTeacher = () => {
         if (!newTeacher) return
-        const result = {...newTeacher}
-        result.vacations.push({startDate: '', endDate: ''})
+        const result = { ...newTeacher }
+        result.vacations.push({ startDate: '', endDate: '' })
         setNewTeacher(result)
     }
     const editDateVacationEditTeacher = (newVacation: Vacation, index: number) => {
         if (!editTeacher) return
-        const result = {...editTeacher}
+        const result = { ...editTeacher }
         result.vacations[index] = newVacation
         setEditTeacher(result)
     }
     const deleteVacationEditTeacher = (index: number) => {
         if (!editTeacher) return
-        const result = {...editTeacher}
+        const result = { ...editTeacher }
         result.vacations = removeElementAtIndex(result.vacations, index)
         setEditTeacher(result)
     }
     const addVacationEditTeacher = () => {
         if (!editTeacher) return
-        const result = {...editTeacher}
-        result.vacations.push({startDate: '', endDate: ''})
+        const result = { ...editTeacher }
+        result.vacations.push({ startDate: '', endDate: '' })
         setEditTeacher(result)
     }
 
     const handleGetShedules = async () => {
-        const {data} = await axios.get<SmallShedule[]>(PagesURl.SCHEDULE + '/find')
+        const { data } = await axios.get<SmallShedule[]>(PagesURl.SCHEDULE + '/find')
         setShedules(data)
     }
     const handleDeleteSchedule = async (id: string) => {
@@ -151,6 +156,8 @@ export default function Main () {
         handleGetShedules()
     }
     const handleCreateShedule = async (schedule: CreateSchedule) => {
+        setIsEnableValidationCreateSchedule(true)
+        if (!isValidCreateSchedule(schedule)) return
         const transformedSchedule = {
             ...schedule,
             pages: schedule.pages.map(page => ({
@@ -159,21 +166,21 @@ export default function Main () {
                 semester: page.semester ? page.semester.id : undefined
             }))
         };
-        const {data} = await axios.post<{data: string}>(PagesURl.SCHEDULE, transformedSchedule)
+        const { data } = await axios.post<{ data: string }>(PagesURl.SCHEDULE, transformedSchedule)
         navigate(`/${data.data}`)
     }
 
 
     const handleGetAllSquads = async () => {
-        const {data} = await axios.get<Squad[]>(PagesURl.SQUAD)
+        const { data } = await axios.get<Squad[]>(PagesURl.SQUAD)
         setSquads(data)
     }
     const handleAddSquad = async () => {
         if (!newSquad) return
-        const {data} = await axios.post<{data: string}>(PagesURl.SQUAD, {
+        const { data } = await axios.post<{ data: string }>(PagesURl.SQUAD, {
             name: newSquad.name,
         })
-        handleEditSquad({...newSquad, id:data.data})
+        handleEditSquad({ ...newSquad, id: data.data })
         setNewSquad(undefined)
         handleGetAllSquads()
     }
@@ -205,38 +212,41 @@ export default function Main () {
     }
 
     const getFreeYears = (scheduleYears: CreateScheduleYear[]) => {
-        const newFreeYears = [...COURSES_YEAR, ...scheduleYears.map((year)=>year.studyYear)]
+        const newFreeYears = [...COURSES_YEAR, ...scheduleYears.map((year) => year.studyYear)]
         const unique = getUniqueElements(newFreeYears)
         return unique
     }
 
     const addNewYear = () => {
         if (!newSchedule) return
-        setNewSchedule((prev)=>{
-            if (!prev) return 
+        setNewSchedule((prev) => {
+            if (!prev) return
             const freeYears = getFreeYears(prev.pages)
-            return {...prev, pages: [...prev.pages, {
-                studyYear: freeYears[0], 
-                squads: [], 
-                start: new Date().toISOString(), 
-                end: new Date().toISOString(),
-                semester: undefined
+            return {
+                ...prev, pages: [...prev.pages, {
+                    studyYear: freeYears[0],
+                    squads: [],
+                    start: new Date().toISOString(),
+                    end: new Date().toISOString(),
+                    semester: undefined
+                }
+                ]
             }
-        ]}})
+        })
     }
     const addNewYearToYear = (year: number, index: number) => {
-        setNewSchedule((prev)=>{
+        setNewSchedule((prev) => {
             if (!prev) return undefined
             const result = cloneObject(prev)
             if (result.pages[index].studyYear !== year) {
-                result.pages[index] = {...result.pages[index], squads: [], semester: undefined}
+                result.pages[index] = { ...result.pages[index], squads: [], semester: undefined }
             }
             result.pages[index].studyYear = year
             return result
         })
     }
     const addNewSemesterToYear = (newSemestr: AddInputList, index: number) => {
-        setNewSchedule((prev)=>{
+        setNewSchedule((prev) => {
             if (!prev) return undefined
             const result = cloneObject(prev)
             result.pages[index].semester = newSemestr
@@ -248,12 +258,12 @@ export default function Main () {
         const newAudience = [...allAudience]
         const targetAudience = newAudience[index]
         let editFlag = false
-        const result = newAudience.map((el)=>{
+        const result = newAudience.map((el) => {
             if (el.isEdit && el.id !== targetAudience.id) {
                 editFlag = true
-                return {...el, isWarning: true}
+                return { ...el, isWarning: true }
             }
-            return {...el, isWarning: false}
+            return { ...el, isWarning: false }
         })
         if (!editFlag) {
             result[index].isEdit = true
@@ -263,7 +273,7 @@ export default function Main () {
     }
 
     const updateSquards = (newList: ScheduleSquad[], yearIndex: number) => {
-        setNewSchedule((prev)=>{
+        setNewSchedule((prev) => {
             if (!prev) return
             const newSchedule = cloneObject(prev)
             newSchedule.pages[yearIndex].squads = newList
@@ -271,7 +281,7 @@ export default function Main () {
         })
     }
     const updateDateYear = (newDate: string, isStart: boolean, yearIndex: number) => {
-        setNewSchedule((prev)=>{
+        setNewSchedule((prev) => {
             if (!prev) return
             const newSchedule = cloneObject(prev)
             newSchedule.pages[yearIndex][isStart ? 'start' : 'end'] = newDate
@@ -281,30 +291,31 @@ export default function Main () {
 
     const getEditSquad = (squad: Squad) => {
         if (!allTeachers || !allAudience || !allDirections) return
-        const teacher = allTeachers.find((teacher)=>teacher.id === squad.daddyId)
-        const fixedAudience = allAudience.find((audience)=>audience.id === squad.fixedAudienceId)
-        const direction = allDirections.find((direction)=>direction.id === squad.directionId)
-        setEditSquad({...squad,
-            studyYear: {id: squad.studyYear, name: squad.studyYear},
-            daddy: teacher ? {id: squad.daddyId, name: teacher.name} : undefined,
-            fixedAudience: fixedAudience ? {id: squad.fixedAudienceId, name: fixedAudience.name} : undefined,
-            direction: direction ? {id: squad.directionId, name: direction.name} : undefined
+        const teacher = allTeachers.find((teacher) => teacher.id === squad.daddyId)
+        const fixedAudience = allAudience.find((audience) => audience.id === squad.fixedAudienceId)
+        const direction = allDirections.find((direction) => direction.id === squad.directionId)
+        setEditSquad({
+            ...squad,
+            studyYear: { id: squad.studyYear, name: squad.studyYear },
+            daddy: teacher ? { id: squad.daddyId, name: teacher.name } : undefined,
+            fixedAudience: fixedAudience ? { id: squad.fixedAudienceId, name: fixedAudience.name } : undefined,
+            direction: direction ? { id: squad.directionId, name: direction.name } : undefined
         })
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         if (newSchedule) {
             setFreeCoursesYear(getFreeYears(newSchedule.pages))
         }
-    },[newSchedule])
+    }, [newSchedule])
 
-    useEffect(()=>{
+    useEffect(() => {
         handleGetAllDirections()
         handleGetAllSquads()
         handleGetShedules()
         handleGetAllAudience()
         handleGetAllTeachers()
-    },[])
+    }, [])
 
     if (!shedules || !allAudience || !allTeachers || !squads || !allDirections) {
         return <></>
@@ -324,28 +335,40 @@ export default function Main () {
                             {shedules.map((shedule) => (
                                 <div onClick={() => navigate(`/${shedule.id}`)} className={styles.container__shedule} key={shedule.id}>
                                     <p>{shedule.name}</p>
-                                    <div onClick={(e) => {e.stopPropagation(); handleDeleteSchedule(shedule.id) }}><Icon glyph='close' glyphColor='black' /></div>
+                                    <div className={styles.container__icons}>
+                                        <div onClick={(e) => { e.stopPropagation(); setNewSchedule(shedule) }}>
+                                            <Icon glyph='edit' glyphColor='black' />
+                                        </div>
+                                        <div onClick={(e) => { e.stopPropagation(); setConfirmDeleteScheduleId(shedule.id) }}>
+                                            <Icon glyph='close' glyphColor='black' />
+                                        </div>
+                                    </div>
                                 </div>
                             ))}
                         </div>
-                        <div onClick={() => setNewSchedule({ name: '', pages: [] })} className={styles.container__button}><Button>Создать новое</Button></div>
+                        <div 
+                            onClick={() => {setNewSchedule({ name: '', pages: [] });setIsEnableValidationCreateSchedule(false)}} 
+                            className={styles.container__button}
+                        >
+                            <Button>Создать новое</Button>
+                        </div>
                     </div>
                     <div className={styles.container__right}>
                         <h3 className={styles.container__subtitle}>Настройки</h3>
                         <SettingsList title='Настройка аудиторий'>
                             <>
                                 {allAudience.map((audience, index) => (
-                                    <HiddenInputBlock 
+                                    <HiddenInputBlock
                                         isEdit={audience.isEdit}
                                         isWarning={audience.isWarning}
-                                        key={audience.id} 
-                                        value={audience.name} 
-                                        onEdit={()=>changeIsEditAudience(index)}
-                                        onDelete={()=>{handleDeleteAudience(audience.id)}} 
-                                        onEnter={(val) => {handleEditAudience(audience.id, val)}} 
+                                        key={audience.id}
+                                        value={audience.name}
+                                        onEdit={() => changeIsEditAudience(index)}
+                                        onDelete={() => { handleDeleteAudience(audience.id) }}
+                                        onEnter={(val) => { handleEditAudience(audience.id, val) }}
                                     />
                                 ))}
-                                <Button onClick={handleAddAudience} size={'max'} variant={'whiteMain'}><Icon glyph='add' glyphColor='grey'/></Button>
+                                <Button onClick={handleAddAudience} size={'max'} variant={'whiteMain'}><Icon glyph='add' glyphColor='grey' /></Button>
                             </>
                         </SettingsList>
                         <SettingsList title='Настройка преподавателей'>
@@ -355,12 +378,12 @@ export default function Main () {
                                         key={teacher.id}
                                         value={`${teacher.rank} ${teacher.name}`}
                                         onDelete={() => { handleDeleteTeacher(teacher.id) }}
-                                        onEdit={()=>setEditTeacher(teacher)}
+                                        onEdit={() => setEditTeacher(teacher)}
                                     />
                                 ))}
-                                <Button 
-                                    onClick={()=>setNewTeacher({name: '', rank: '', vacations: []})} 
-                                    size={'max'} 
+                                <Button
+                                    onClick={() => setNewTeacher({ name: '', rank: '', vacations: [] })}
+                                    size={'max'}
                                     variant={'whiteMain'}
                                 >
                                     <Icon glyph='add' glyphColor='grey' />
@@ -369,106 +392,109 @@ export default function Main () {
                         </SettingsList>
                         <SettingsList title="Настройка взводов">
                             <>
-                                {squads.map((squad)=>(
+                                {squads.map((squad) => (
                                     <HiddenInputBlock
                                         key={squad.id}
                                         value={`${squad.name}`}
                                         onDelete={() => { handleDeleteSquad(squad.id) }}
-                                        onEdit={()=>getEditSquad(squad)}
+                                        onEdit={() => getEditSquad(squad)}
                                     />
                                 ))}
-                                <Button onClick={()=>setNewSquad({name: ''})} size={'max'} variant={'whiteMain'}><Icon glyph='add' glyphColor='grey' /></Button>
+                                <Button onClick={() => setNewSquad({ name: '' })} size={'max'} variant={'whiteMain'}><Icon glyph='add' glyphColor='grey' /></Button>
                             </>
                         </SettingsList>
                     </div>
                 </div>
             </div>
-            {newSchedule !== undefined && 
-                <PopupContainer onClose={()=>setNewSchedule(undefined)}>
+            {newSchedule !== undefined &&
+                <PopupContainer onClose={() => {setNewSchedule(undefined);setIsEnableValidationCreateSchedule(false)}}>
                     <div className={styles.popup}>
                         <h2>Создание расписания</h2>
-                        <div onClick={()=>setNewSchedule(undefined)} className={styles.popup__close}><Icon glyph='close' glyphColor='black'/></div>
-                        <div style={{width: '95%'}}><Input value={newSchedule.name} onChange={(value)=>setNewSchedule({...newSchedule, name: value})} placeholder='Введите название'/></div>
-                        {newSchedule.pages.map((year, index)=>(
+                        <div onClick={() => {setNewSchedule(undefined);setIsEnableValidationCreateSchedule(false)}} className={styles.popup__close}><Icon glyph='close' glyphColor='black' /></div>
+                        <div style={{ width: '95%' }}><Input value={newSchedule.name} onChange={(value) => setNewSchedule({ ...newSchedule, name: value })} placeholder='Введите название' /></div>
+                        {newSchedule.pages.map((year, index) => (
                             <div className={styles.popup__addList} key={year.studyYear}>
-                                <AddInput 
-                                    title='Год обучения' 
-                                    singleMode 
-                                    selectedList={[{name: year.studyYear, id: year.studyYear}]} 
-                                    allList={freeCoursesYear.map((year)=>({name: year, id: year}))} 
-                                    changeInputList={(newList)=>addNewYearToYear(Number(newList[0].id), index)}
+                                <AddInput
+                                    isError={isEnableValidationCreateSchedule}
+                                    title='Год обучения'
+                                    singleMode
+                                    selectedList={[{ name: year.studyYear, id: year.studyYear }]}
+                                    allList={freeCoursesYear.map((year) => ({ name: year, id: year }))}
+                                    changeInputList={(newList) => addNewYearToYear(Number(newList[0].id), index)}
                                 />
                                 <AddInput
                                     title='Семестр'
                                     singleMode
+                                    isError={isEnableValidationCreateSchedule}
                                     selectedList={year.semester ? [year.semester] : []}
-                                    allList={year.studyYear === 1 ? SEMESTR_YEAR.filter((el)=>el.id === 0) : SEMESTR_YEAR}
-                                    changeInputList={(newList)=>addNewSemesterToYear(newList[0], index)}
+                                    allList={year.studyYear === 1 ? SEMESTR_YEAR.filter((el) => el.id === 0) : SEMESTR_YEAR}
+                                    changeInputList={(newList) => addNewSemesterToYear(newList[0], index)}
                                 />
                                 {squads &&
-                                <AddInput
-                                    title='Взвода'
-                                    selectedList={year.squads}
-                                    allList={squads.filter((squad)=>squad.studyYear===year.studyYear)}
-                                    changeInputList={(newList)=>updateSquards(newList.map((item)=>({name: item.name.toString(), id: item.id.toString()})), index)}
-                                />}
+                                    <AddInput
+                                        title='Взвода'
+                                        isError={isEnableValidationCreateSchedule}
+                                        selectedList={year.squads}
+                                        allList={squads.filter((squad) => squad.studyYear === year.studyYear)}
+                                        changeInputList={(newList) => updateSquards(newList.map((item) => ({ name: item.name.toString(), id: item.id.toString() })), index)}
+                                    />}
                                 <div className={styles.popup__line}>
                                     <p>Дата первого занятия</p>
-                                    <Input value={year.start} type='date' onChange={(val)=>updateDateYear(val, true, index)}/>
+                                    <Input isError={isEnableValidationCreateSchedule} value={year.start} type='date' onChange={(val) => updateDateYear(val, true, index)} />
                                 </div>
                                 <div className={styles.popup__line}>
                                     <p>Дата последнего занятия</p>
-                                    <Input value={year.end} type='date' onChange={(val)=>updateDateYear(val, false, index)}/>
+                                    <Input isError={isEnableValidationCreateSchedule} value={year.end} type='date' onChange={(val) => updateDateYear(val, false, index)} />
                                 </div>
                             </div>
                         ))}
                         {COURSES_YEAR.length > newSchedule.pages.length && <Button onClick={addNewYear}>Добавить год обучения</Button>}
-                        <Button onClick={()=>handleCreateShedule(newSchedule)}>Создать расписание</Button>
+                        <Button onClick={() => handleCreateShedule(newSchedule)}>Создать расписание</Button>
                     </div>
                 </PopupContainer>
             }
-            {editTeacher && 
-                <PopupContainer onClose={()=>setEditTeacher(undefined)}>
+            {editTeacher &&
+                <PopupContainer onClose={() => setEditTeacher(undefined)}>
                     <div className={styles.edit}>
                         <h2>Редактирование преподавателя</h2>
-                        <Input value={editTeacher.name} placeholder='Фамилия' onChange={(val)=>setEditTeacher({...editTeacher, name: val})}/>
-                        <Input value={editTeacher.rank} placeholder='Звание'  onChange={(val)=>setEditTeacher({...editTeacher, rank: val})}/>
-                        {editTeacher.vacations.map((el, index)=>(
+                        <Input value={editTeacher.name} placeholder='Фамилия' onChange={(val) => setEditTeacher({ ...editTeacher, name: val })} />
+                        <Input value={editTeacher.rank} placeholder='Звание' onChange={(val) => setEditTeacher({ ...editTeacher, rank: val })} />
+                        {editTeacher.vacations.map((el, index) => (
                             <VacationBlock
                                 key={`${el.startDate}--${el.endDate}`}
                                 title={`Отпуск ${index + 1}`}
                                 start={el.startDate}
                                 end={el.endDate}
-                                onChangeDate={(vacation)=>{editDateVacationEditTeacher(vacation, index)}}
-                                onDelete={()=>{deleteVacationEditTeacher(index)}}                            
+                                onChangeDate={(vacation) => { editDateVacationEditTeacher(vacation, index) }}
+                                onDelete={() => { deleteVacationEditTeacher(index) }}
                             />
                         ))}
                         <Button onClick={addVacationEditTeacher} variant={'whiteMain'} textColor={'grey'} size={'max'}>
-                            <Icon glyph='add' glyphColor='grey'/>
+                            <Icon glyph='add' glyphColor='grey' />
                             <p>Добавить отпуск</p>
                         </Button>
                         <Button onClick={handleEditTeacher}>Изменить преподавателя</Button>
                     </div>
                 </PopupContainer>
             }
-            {newTeacher && 
-                <PopupContainer onClose={()=>setNewTeacher(undefined)}>
+            {newTeacher &&
+                <PopupContainer onClose={() => setNewTeacher(undefined)}>
                     <div className={styles.edit}>
                         <h2>Создание преподавателя</h2>
-                        <Input value={newTeacher.name} placeholder='Фамилия' onChange={(val)=>setNewTeacher({...newTeacher, name: val})}/>
-                        <Input value={newTeacher.rank} placeholder='Звание'  onChange={(val)=>setNewTeacher({...newTeacher, rank: val})}/>
-                        {newTeacher.vacations.map((el, index)=>(
+                        <Input value={newTeacher.name} placeholder='Фамилия' onChange={(val) => setNewTeacher({ ...newTeacher, name: val })} />
+                        <Input value={newTeacher.rank} placeholder='Звание' onChange={(val) => setNewTeacher({ ...newTeacher, rank: val })} />
+                        {newTeacher.vacations.map((el, index) => (
                             <VacationBlock
                                 key={`${el.startDate}--${el.endDate}`}
                                 title={`Отпуск ${index + 1}`}
                                 start={el.startDate}
                                 end={el.endDate}
-                                onChangeDate={(vacation)=>editDateVacationNewTeacher(vacation, index)}
-                                onDelete={()=>{deleteVacationNewTeacher(index)}}                            
+                                onChangeDate={(vacation) => editDateVacationNewTeacher(vacation, index)}
+                                onDelete={() => { deleteVacationNewTeacher(index) }}
                             />
                         ))}
                         <Button onClick={addVacationNewTeacher} variant={'whiteMain'} textColor={'grey'} size={'max'}>
-                            <Icon glyph='add' glyphColor='grey'/>
+                            <Icon glyph='add' glyphColor='grey' />
                             <p>Добавить отпуск</p>
                         </Button>
                         <Button onClick={handleAddTeacher}>Создать преподавателя</Button>
@@ -476,103 +502,111 @@ export default function Main () {
                 </PopupContainer>
             }
 
-            {editSquad && 
-                <PopupContainer onClose={()=>setEditSquad(undefined)}>
+            {editSquad &&
+                <PopupContainer onClose={() => setEditSquad(undefined)}>
                     <div className={styles.edit}>
                         <h2>Редактирование Взвода</h2>
-                        <Input value={editSquad.name} placeholder='Название' onChange={(val)=>setEditSquad({...editSquad, name: val})}/>
+                        <Input value={editSquad.name} placeholder='Название' onChange={(val) => setEditSquad({ ...editSquad, name: val })} />
                         <div className={styles.edit__line}>
                             <p>Год обучения</p>
-                            <AddInput 
+                            <AddInput
                                 selectedList={editSquad.studyYear ? [editSquad.studyYear] : []}
-                                allList={COURSES_YEAR.map((item)=>({id: item, name: item}))}
+                                allList={COURSES_YEAR.map((item) => ({ id: item, name: item }))}
                                 title='Выберите год обучения'
                                 singleMode
-                                changeInputList={(list)=>setEditSquad({...editSquad, studyYear: list[0]})}
+                                changeInputList={(list) => setEditSquad({ ...editSquad, studyYear: list[0] })}
                             />
                         </div>
                         <div className={styles.edit__line}>
                             <p>Ответственный преподаватель</p>
-                            <AddInput 
+                            <AddInput
                                 selectedList={editSquad.daddy ? [editSquad.daddy] : []}
                                 allList={allTeachers}
                                 title='Выберите ответственного преподавателя'
                                 singleMode
-                                changeInputList={(list)=>setEditSquad({...editSquad, daddy: list[0]})}
+                                changeInputList={(list) => setEditSquad({ ...editSquad, daddy: list[0] })}
                             />
                         </div>
                         <div className={styles.edit__line}>
                             <p>Аудитория</p>
-                            <AddInput 
+                            <AddInput
                                 selectedList={editSquad.fixedAudience ? [editSquad.fixedAudience] : []}
                                 allList={allAudience}
                                 title='Выберите аудиторию взвода'
                                 singleMode
-                                changeInputList={(list)=>setEditSquad({...editSquad, fixedAudience: list[0]})}
+                                changeInputList={(list) => setEditSquad({ ...editSquad, fixedAudience: list[0] })}
                             />
                         </div>
                         <div className={styles.edit__line}>
                             <p>Направление</p>
-                            <AddInput 
+                            <AddInput
                                 selectedList={editSquad.direction ? [editSquad.direction] : []}
                                 allList={allDirections}
                                 title='Выберите направление взвода'
                                 singleMode
-                                changeInputList={(list)=>setEditSquad({...editSquad, direction: list[0]})}
+                                changeInputList={(list) => setEditSquad({ ...editSquad, direction: list[0] })}
                             />
                         </div>
-                        <Button onClick={()=>handleEditSquad()}>Изменить взвод</Button>
+                        <Button onClick={() => handleEditSquad()}>Изменить взвод</Button>
                     </div>
                 </PopupContainer>
             }
-            {newSquad && 
-                <PopupContainer onClose={()=>setNewSquad(undefined)}>
+            {newSquad &&
+                <PopupContainer onClose={() => setNewSquad(undefined)}>
                     <div className={styles.edit}>
                         <h2>Создание Взвода</h2>
-                        <Input value={newSquad.name} placeholder='Название' onChange={(val)=>setNewSquad({...newSquad, name: val})}/>
+                        <Input value={newSquad.name} placeholder='Название' onChange={(val) => setNewSquad({ ...newSquad, name: val })} />
                         <div className={styles.edit__line}>
                             <p>Год обучения</p>
-                            <AddInput 
+                            <AddInput
                                 selectedList={newSquad.studyYear ? [newSquad.studyYear] : []}
-                                allList={COURSES_YEAR.map((item)=>({id: item, name: item}))}
+                                allList={COURSES_YEAR.map((item) => ({ id: item, name: item }))}
                                 title='Выберите год обучения'
                                 singleMode
-                                changeInputList={(list)=>setNewSquad({...newSquad, studyYear: list[0]})}
+                                changeInputList={(list) => setNewSquad({ ...newSquad, studyYear: list[0] })}
                             />
                         </div>
                         <div className={styles.edit__line}>
                             <p>Ответственный преподаватель</p>
-                            <AddInput 
+                            <AddInput
                                 selectedList={newSquad.daddy ? [newSquad.daddy] : []}
                                 allList={allTeachers}
                                 title='Выберите ответственного преподавателя'
                                 singleMode
-                                changeInputList={(list)=>setNewSquad({...newSquad, daddy: list[0]})}
+                                changeInputList={(list) => setNewSquad({ ...newSquad, daddy: list[0] })}
                             />
                         </div>
                         <div className={styles.edit__line}>
                             <p>Аудитория</p>
-                            <AddInput 
+                            <AddInput
                                 selectedList={newSquad.fixedAudience ? [newSquad.fixedAudience] : []}
                                 allList={allAudience}
                                 title='Выберите аудиторию взвода'
                                 singleMode
-                                changeInputList={(list)=>setNewSquad({...newSquad, fixedAudience: list[0]})}
+                                changeInputList={(list) => setNewSquad({ ...newSquad, fixedAudience: list[0] })}
                             />
                         </div>
                         <div className={styles.edit__line}>
                             <p>Направление</p>
-                            <AddInput 
+                            <AddInput
                                 selectedList={newSquad.direction ? [newSquad.direction] : []}
                                 allList={allDirections}
                                 title='Выберите направление взвода'
                                 singleMode
-                                changeInputList={(list)=>setNewSquad({...newSquad, direction: list[0]})}
+                                changeInputList={(list) => setNewSquad({ ...newSquad, direction: list[0] })}
                             />
                         </div>
                         <Button onClick={handleAddSquad}>Создать взвод</Button>
                     </div>
                 </PopupContainer>
+            }
+            {confirmDeleteScheduleId && 
+                <DeletePopup
+                    title='Удаление расписания'
+                    text='Вы уверены, что хотите удалить расписание?'
+                    onCancel={()=>setConfirmDeleteScheduleId(undefined)}
+                    onDelete={()=>handleDeleteSchedule(confirmDeleteScheduleId)}
+                />
             }
         </>
     )
