@@ -23,7 +23,7 @@ public class EventService(
     PlanRepository planRepository,
     SquadRepository squadRepository)
 {
-    public CheckConflictResponse AddEvent(Guid scheduleId, StudyYear studyYear, Event newEvent)
+    public AddEventRequest AddEvent(Guid scheduleId, StudyYear studyYear, Event newEvent)
     {
         var schedulePage = scheduleRepository.GetSchedulePage(scheduleId, studyYear);
         // if (schedulePage == null)
@@ -35,7 +35,7 @@ public class EventService(
         schedulePage.Events.Add(newEvent);
         scheduleRepository.SaveSchedulePage(schedulePage);
 
-        return CheckForConflict(schedulePage, newEvent.Id);
+        return new AddEventRequest(newEvent.Id, CheckForConflict(schedulePage, newEvent.Id));
     }
 
     public EventsResponse Get(Guid scheduleId, StudyYear studyYear, Guid id)
