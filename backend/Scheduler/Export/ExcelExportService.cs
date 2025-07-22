@@ -6,6 +6,9 @@ using Scheduler.DataAccess.General;
 using Scheduler.DataAccess.Plan;
 using Scheduler.Entities.General;
 using Scheduler.Entities.Schedule;
+using Scheduler.Entities.Plan;
+using Microsoft.OpenApi.Extensions;
+using Scheduler.Extensions;
 
 namespace Scheduler.Export;
 
@@ -204,12 +207,15 @@ public class ExcelExportService
                 var eventLocalPos = eventOffset * (@event.Number.Value - 1);
 
                 var subject = @event.SubjectId.HasValue ? planRepository.GetSubject(@event.SubjectId.Value) : null;
-                var theme = @event.ThemeId.HasValue ? planRepository.GetTheme(@event.ThemeId.Value) : null;
                 var audience = @event.AudienceId.HasValue ? audienceRepository.Get(@event.AudienceId.Value) : null;
                 var teacher = @event.TeacherId.HasValue ? teacherRepository.Get(@event.TeacherId.Value) : null;
 
+                var theme = @event.ThemeId.HasValue ? planRepository.GetTheme(@event.ThemeId.Value) : null;
+                var lesson = @event.LessonId.HasValue ? planRepository.GetLesson(@event.LessonId.Value) : null;
+                var themeText = $"т.{theme?.Number}/{lesson?.Number} {lesson?.Type.GetView()}";
+
                 cells.SetCellValue(heightOffset + eventLocalPos, eventCol, subject?.Name);
-                cells.SetCellValue(heightOffset + eventLocalPos + 1, eventCol, theme?.Name);
+                cells.SetCellValue(heightOffset + eventLocalPos + 1, eventCol, themeText);
                 cells.SetCellValue(heightOffset + eventLocalPos + 2, eventCol, audience?.Name);
                 cells.SetCellValue(heightOffset + eventLocalPos + 3, eventCol, string.Join(' ', new[] { teacher?.Rank, teacher?.Name }.Where(x => !string.IsNullOrEmpty(x))));
             }
