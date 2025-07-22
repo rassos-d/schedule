@@ -311,8 +311,7 @@ public class EventService(
             Squad = @event.SquadId.HasValue
                 ? ConvertToResponse(@event.SquadId.Value, squads.GetValueOrDefault(@event.SquadId.Value)?.Name)
                 : null,
-            Lesson = new LessonGetDto { Id = @event.LessonId, Name = lesson?.Name, Number = lesson?.Number, Type = lesson?.Type.GetView()},
-            LessonType = lesson?.Type,
+            Lesson = new LessonGetDto { Id = @event.LessonId, Name = lesson?.Name, Number = lesson?.Number, LessonType = lesson?.Type, Type = lesson?.Type.GetView()},
             Theme = new ThemeGetDto { Id = @event.ThemeId, Name = theme?.Name, Number = theme?.Number },
             Subject = ConvertToResponse(subject?.Id, subject?.GetShortName()),
         };

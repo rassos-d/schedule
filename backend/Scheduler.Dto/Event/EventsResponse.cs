@@ -18,8 +18,6 @@ public class EventsResponse
     
     public EntityWithNameGetDto? Subject { get; set; }
     
-    public LessonType? LessonType { get; set; }
-
     public int? Number { get; set; }
 
     public DateOnly? Date { get; set; }

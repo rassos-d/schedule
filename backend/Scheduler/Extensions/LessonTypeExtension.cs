@@ -14,6 +14,7 @@ public static class LessonTypeExtension
             LessonType.Seminar => "сем.",
             LessonType.Training => "трен.",
             LessonType.Weekend => "Выходной",
+            LessonType.SelfStudy => "СРС",
             _ => throw new ArgumentOutOfRangeException(nameof(type), type, null)
         };
     }
