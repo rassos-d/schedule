@@ -146,9 +146,9 @@ public class ExcelExportService
 
     private SquadExcel GetSquad(SchedulePage page, Squad squad)
     {
-        var teacher = squad.DaddyId.HasValue ? teacherRepository.Get(squad.DaddyId.Value) : null;
+        var teacher = GetOrDefault(squad.DaddyId, teacherRepository.Get);
         var teacherRank = RankExpander.GetFullOrDefault(teacher?.Rank);
-        var direction = squad.DirectionId.HasValue ? planRepository.GetDirection(squad.DirectionId.Value) : null;
+        var direction = GetOrDefault(squad.DirectionId, planRepository.GetDirection);
 
         return new SquadExcel()
         {
@@ -206,12 +206,12 @@ public class ExcelExportService
             {
                 var eventLocalPos = eventOffset * (@event.Number.Value - 1);
 
-                var subject = @event.SubjectId.HasValue ? planRepository.GetSubject(@event.SubjectId.Value) : null;
-                var audience = @event.AudienceId.HasValue ? audienceRepository.Get(@event.AudienceId.Value) : null;
-                var teacher = @event.TeacherId.HasValue ? teacherRepository.Get(@event.TeacherId.Value) : null;
+                var subject = GetOrDefault(@event.SubjectId, planRepository.GetSubject);
+                var audience = GetOrDefault(@event.AudienceId, audienceRepository.Get);
+                var teacher = GetOrDefault(@event.TeacherId, teacherRepository.Get);
 
-                var theme = @event.ThemeId.HasValue ? planRepository.GetTheme(@event.ThemeId.Value) : null;
-                var lesson = @event.LessonId.HasValue ? planRepository.GetLesson(@event.LessonId.Value) : null;
+                var theme = GetOrDefault(@event.ThemeId, planRepository.GetTheme);
+                var lesson = GetOrDefault(@event.LessonId, planRepository.GetLesson);
                 var themeText = $"т.{theme?.Number}/{lesson?.Number} {lesson?.Type.GetView()}";
 
                 cells.SetCellValue(heightOffset + eventLocalPos, eventCol, subject?.GetShortName());
@@ -231,4 +231,7 @@ public class ExcelExportService
             cells.SetCellValue(heightOffset - 1, col, date.ToString("dd.MM"));
         }
     }
+
+    private T1? GetOrDefault<T1, T2>(T2? input, Func<T2, T1> getter) where T2 : struct
+        => input.HasValue ? getter(input.Value) : default;
 }
