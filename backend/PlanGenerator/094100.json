@@ -1,0 +1,2218 @@
+{
+  "sections": [
+    {
+      "title": "Общевоенная подготовка",
+      "topics": [
+        {
+          "topic_number": 1,
+          "title": "Международное положение России",
+          "semester": 1,
+          "lessons": [
+            {
+              "lesson_number": 1,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Международное положение России.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 2,
+          "title": "Вооруженные силы в структуре государственных институтов",
+          "semester": 1,
+          "lessons": [
+            {
+              "lesson_number": 2,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Вооруженные силы в структуре государственных институтов.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 3,
+          "title": "История великих побед русской армии и флота",
+          "semester": 1,
+          "lessons": [
+            {
+              "lesson_number": 3,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Военные реформу в истории Российского государства.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 4,
+              "local_number": 2,
+              "type": "Лекция",
+              "title": "История великих побед русской армии и флота.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 4,
+          "title": "Правовые положения и порядок прохождения военной службы офицерским составом",
+          "semester": 1,
+          "lessons": [
+            {
+              "lesson_number": 5,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Правовые положения и порядок прохождения военной службы офицерским составом.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 5,
+          "title": "Международное гуманитарное право о законах войны",
+          "semester": 1,
+          "lessons": [
+            {
+              "lesson_number": 6,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Международное гуманитарное право о законах войны.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 6,
+          "title": "Организация воспитательной работы",
+          "semester": 1,
+          "lessons": [
+            {
+              "lesson_number": 7,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Организация воспитательной работы.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 7,
+          "title": "Особенности психологии личности и воинского коллектива",
+          "semester": 1,
+          "lessons": [
+            {
+              "lesson_number": 8,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Особенности психологии личности и воинского коллектива.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 9,
+              "local_number": 2,
+              "type": "Лекция",
+              "title": "Воинский коллектив.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 10,
+              "local_number": 3,
+              "type": "Лекция",
+              "title": "Морально-психологическая подготовка.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 1,
+          "title": "Общевоинские уставы Вооруженных Сил Российской Федерации, их основные требования и содержания",
+          "semester": 1,
+          "lessons": [
+            {
+              "lesson_number": 11,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Общевоинские уставы ВС РФ.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 2,
+          "title": "Права, обязанность и  ответственность военнослужащих",
+          "semester": 1,
+          "lessons": [
+            {
+              "lesson_number": 12,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Права, обязанность и  ответственность военнослужащих.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 3,
+          "title": "Военнослужащие и взаимоотношение между ними",
+          "semester": 1,
+          "lessons": [
+            {
+              "lesson_number": 13,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Военнослужащие и взаимоотношение между ними.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 4,
+          "title": "Размещение военнослужащих. Распределение времени и повседневный порядок",
+          "semester": 1,
+          "lessons": [
+            {
+              "lesson_number": 14,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Размещение военнослужащих. Распределение времени и повседневный порядок.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 5,
+          "title": "Суточный наряд",
+          "semester": 1,
+          "lessons": [
+            {
+              "lesson_number": 15,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Суточный наряд.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 6,
+          "title": "Безопасность военной службы",
+          "semester": 1,
+          "lessons": [
+            {
+              "lesson_number": 16,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Безопасность военной службы.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 7,
+          "title": "Воинская дисциплина",
+          "semester": 1,
+          "lessons": [
+            {
+              "lesson_number": 17,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Воинская дисциплина.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 8,
+          "title": "Организация и несение караульной службы",
+          "semester": 1,
+          "lessons": [
+            {
+              "lesson_number": 18,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Организация караульной службы и подготовка караула.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 19,
+              "local_number": 2,
+              "type": "Лекция",
+              "title": "Развод и смена караулов.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 1,
+          "title": "Общие положения Строевого устава",
+          "semester": 1,
+          "lessons": [
+            {
+              "lesson_number": 20,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Общие положения Строевого устава.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 2,
+          "title": "Строевые приемы и движение без оружия",
+          "semester": 1,
+          "lessons": [
+            {
+              "lesson_number": 1,
+              "local_number": 1,
+              "type": "Практическое занятие",
+              "title": "Строевые приемы и движение без оружия.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 2,
+              "local_number": 2,
+              "type": "Практическое занятие",
+              "title": "Движение строевым шагом.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 3,
+              "local_number": 3,
+              "type": "Практическое занятие",
+              "title": "Движение строевым шагом.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 4,
+              "local_number": 4,
+              "type": "Практическое занятие",
+              "title": "Выполнение воинского приветствия, выход из строя и возвращение в строй. Подход к начальнику и отход от него.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 3,
+          "title": "Строевые приемы и движение с оружием",
+          "semester": 1,
+          "lessons": [
+            {
+              "lesson_number": 5,
+              "local_number": 1,
+              "type": "Практическое занятие",
+              "title": "Строевые приемы и движение с оружием.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 6,
+              "local_number": 2,
+              "type": "Практическое занятие",
+              "title": "1. Строевые приемы и движение с оружием.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 4,
+          "title": "Строи подразделений",
+          "semester": 1,
+          "lessons": [
+            {
+              "lesson_number": 7,
+              "local_number": 1,
+              "type": "Практическое занятие",
+              "title": "Строи отделения, взвода.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 1,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Автомат Калашникова.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 2,
+              "local_number": 2,
+              "type": "Групповое занятие",
+              "title": "Пистолет Макарова (ПМ).",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 3,
+              "local_number": 3,
+              "type": "Групповое занятие",
+              "title": "Ручные осколочные гранаты.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 4,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Материальная часть приборов наблюдения и ночных прицелов.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 5,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Основы и правила стрельбы.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 6,
+              "local_number": 2,
+              "type": "Групповое занятие",
+              "title": "Основы и правила стрельбы.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 7,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Стрелковые тренировки",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 8,
+              "local_number": 2,
+              "type": "Практическое занятие",
+              "title": "Стрелковые тренировки",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 9,
+              "local_number": 3,
+              "type": "Практическое занятие",
+              "title": "Стрелковые тренировки",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Тактическая подготовка",
+      "topics": [
+        {
+          "topic_number": 1,
+          "title": "Вооруженные Силы Российской Федерации",
+          "semester": 2,
+          "lessons": [
+            {
+              "lesson_number": 1,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Вооруженные Силы Российской Федерации.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 2,
+              "local_number": 2,
+              "type": "Лекция",
+              "title": "Боевая готовность частей и подразделений.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 2,
+          "title": "Основы ведения современного общевойскового боя",
+          "semester": 2,
+          "lessons": [
+            {
+              "lesson_number": 3,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Основы ведения современного общевойскового боя.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 4,
+              "local_number": 2,
+              "type": "Лекция",
+              "title": "Мотострелковый взвод в обороне.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 5,
+              "local_number": 3,
+              "type": "Лекция",
+              "title": "Мотострелковый взвод в наступлении.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 1,
+              "local_number": 4,
+              "type": "Семинар",
+              "title": "1. Основы ведения современного общевойскового боя.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 3,
+          "title": "Действия солдата в бою",
+          "semester": 2,
+          "lessons": [
+            {
+              "lesson_number": 1,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Передвижение в бою.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 2,
+              "local_number": 2,
+              "type": "Групповое занятие",
+              "title": "Действия на боевых машинах.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 4,
+          "title": "Передвижение подразделений и расположение на месте",
+          "semester": 2,
+          "lessons": [
+            {
+              "lesson_number": 3,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Марш и перевозка подразделений.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 4,
+              "local_number": 2,
+              "type": "Групповое занятие",
+              "title": "Расположение на месте.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 1,
+          "title": "Ядерное, химическое, биологическое и зажигательное оружие вероятного противника",
+          "semester": 1,
+          "lessons": [
+            {
+              "lesson_number": 6,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Ядерное и химическое оружие вероятного противника.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 7,
+              "local_number": 2,
+              "type": "Лекция",
+              "title": "Биологическое и зажигательное оружие вероятного противника.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 2,
+          "title": "Средства индивидуальной и коллективной защиты",
+          "semester": 1,
+          "lessons": [
+            {
+              "lesson_number": 5,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Средства индивидуальной и коллективной защиты.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 1,
+              "local_number": 2,
+              "type": "Практическое занятие",
+              "title": "Применение средств индивидуальной защиты.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 2,
+              "local_number": 3,
+              "type": "Практическое занятие",
+              "title": "Применение средств индивидуальной защиты.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 3,
+          "title": "Приборы радиационной и химической разведки",
+          "semester": 1,
+          "lessons": [
+            {
+              "lesson_number": 6,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Приборы радиационной и химической разведки.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 4,
+          "title": "Приемы и способы действия личного состава на зараженной местности",
+          "semester": 1,
+          "lessons": [
+            {
+              "lesson_number": 7,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Специальная обработка личного состава и техники.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 3,
+              "local_number": 2,
+              "type": "Практическое занятие",
+              "title": "Действие личного состава на зараженной местности.",
+              "hours": 4.0,
+              "self_study_hours": 2.0
+            }
+          ]
+        },
+        {
+          "topic_number": 1,
+          "title": "Инженерное обеспечение боя",
+          "semester": 2,
+          "lessons": [
+            {
+              "lesson_number": 8,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Инженерное обеспечение боевых действий.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 2,
+          "title": "Взрывчатые вещества и заряды",
+          "semester": 2,
+          "lessons": [
+            {
+              "lesson_number": 8,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Взрывчатые вещества и заряды ВВ.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 3,
+          "title": "Способы взрывания",
+          "semester": 2,
+          "lessons": [
+            {
+              "lesson_number": 9,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Огневой способ взрывания.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 4,
+          "title": "Инженерные боеприпасы",
+          "semester": 2,
+          "lessons": [
+            {
+              "lesson_number": 10,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Минно-взрывные средства.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 11,
+              "local_number": 2,
+              "type": "Групповое занятие",
+              "title": "Минно-взрывные средства вероятного противника.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 5,
+          "title": "Инженерные заграждения",
+          "semester": 2,
+          "lessons": [
+            {
+              "lesson_number": 12,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Инженерные заграждения.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 6,
+          "title": "Разведка инженерных заграждений",
+          "semester": 2,
+          "lessons": [
+            {
+              "lesson_number": 13,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Разведка инженерных заграждений.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 1,
+          "title": "Ориентирование и движение на местности без карты",
+          "semester": 2,
+          "lessons": [
+            {
+              "lesson_number": 14,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Ориентирование на местности без карты.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 2,
+          "title": "Топографические карты и работа с ними",
+          "semester": 2,
+          "lessons": [
+            {
+              "lesson_number": 15,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Топографические карты.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 16,
+              "local_number": 2,
+              "type": "Групповое занятие",
+              "title": "Содержание топографических карт.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 3,
+          "title": "Ориентирование и движение на местности по карте",
+          "semester": 2,
+          "lessons": [
+            {
+              "lesson_number": 17,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Ориентирование по карте.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 4,
+          "title": "Определение по карте координат целей (объектов)",
+          "semester": 2,
+          "lessons": [
+            {
+              "lesson_number": 18,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Определение координат и целеуказание.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 5,
+          "title": "Движение по азимутам",
+          "semester": 2,
+          "lessons": [
+            {
+              "lesson_number": 19,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Подготовка данных для движения по азимутам.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 4,
+              "local_number": 2,
+              "type": "Практическое занятие",
+              "title": "Движение по азимутам.",
+              "hours": 4.0,
+              "self_study_hours": 2.0
+            }
+          ]
+        },
+        {
+          "topic_number": 6,
+          "title": "Рабочая карта командира",
+          "semester": 2,
+          "lessons": [
+            {
+              "lesson_number": 20,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Рабочая карта командира.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 5,
+              "local_number": 2,
+              "type": "Практическое занятие",
+              "title": "Подготовка и ведение рабочей карты командира.",
+              "hours": 4.0,
+              "self_study_hours": 2.0
+            }
+          ]
+        },
+        {
+          "topic_number": 1,
+          "title": "Оказание первой доврачебной помощи",
+          "semester": 2,
+          "lessons": [
+            {
+              "lesson_number": 21,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Оказание первой доврачебной помощи.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 22,
+              "local_number": 2,
+              "type": "Групповое занятие",
+              "title": "Оказание первой доврачебной помощи при травмах и термических поражениях.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 6,
+              "local_number": 3,
+              "type": "Практическое занятие",
+              "title": "Практическое оказание первой доврачебной помощи.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 23,
+              "local_number": 4,
+              "type": "Групповое занятие",
+              "title": "1. Первая доврачебная помощь при отравлении ядовитыми техническими жидкостями, угарным газом.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 1,
+          "title": "Выживание в экстремальных условиях",
+          "semester": 2,
+          "lessons": [
+            {
+              "lesson_number": 24,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Организация выживания.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 25,
+              "local_number": 2,
+              "type": "Групповое занятие",
+              "title": "Обеспечение водой и пищей.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 2,
+          "title": "Подготовка военнослужащих к действиям в экстремальных ситуациях",
+          "semester": 2,
+          "lessons": [
+            {
+              "lesson_number": 26,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Подготовка военнослужащих к действиям в экстремальных ситуациях.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 3,
+          "title": "Защита личного состава в чрезвычайных ситуациях",
+          "semester": 2,
+          "lessons": [
+            {
+              "lesson_number": 27,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Защита личного состава в чрезвычайных ситуациях.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Военноспециальная подготовка",
+      "topics": [
+        {
+          "topic_number": 1,
+          "title": "Материальная часть стрелкового оружия и гранатометов подразделений СпН",
+          "semester": 2,
+          "lessons": [
+            {
+              "lesson_number": 1,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Пулемет Калашникова ПКМ.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 2,
+              "local_number": 2,
+              "type": "Групповое занятие",
+              "title": "Снайперская винтовка Драгунова СВД.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 3,
+              "local_number": 3,
+              "type": "Групповое занятие",
+              "title": "Противотанковый гранатомёт РПГ-7.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 4,
+              "local_number": 4,
+              "type": "Групповое занятие",
+              "title": "Специальное оружие.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 5,
+              "local_number": 5,
+              "type": "Групповое занятие",
+              "title": "Противопехотные гранатомёты.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 6,
+              "local_number": 6,
+              "type": "Групповое занятие",
+              "title": "Тепловизионные приборы наблюдения.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 2,
+          "title": "Стрелковые тренировки",
+          "semester": 2,
+          "lessons": [
+            {
+              "lesson_number": 1,
+              "local_number": 1,
+              "type": "Практическое занятие",
+              "title": "Стрелковые тренировки.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 2,
+              "local_number": 1,
+              "type": "Практическое занятие",
+              "title": "Стрелковые тренировки.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 3,
+              "local_number": 1,
+              "type": "Практическое занятие",
+              "title": "Стрелковые тренировки.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 1,
+          "title": "Способы взрывания",
+          "semester": 3,
+          "lessons": [
+            {
+              "lesson_number": 7,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Огневой способ взрывания.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 7,
+              "local_number": 2,
+              "type": "Групповое занятие",
+              "title": "Электрический способ взрывания.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 2,
+          "title": "Расчет зарядов для подрывания элементов конструкций из дерева, металла, бетона, ж/бетона, камня",
+          "semester": 3,
+          "lessons": [
+            {
+              "lesson_number": 8,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Подрывание элементов конструкций из дерева и металла.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 9,
+              "local_number": 2,
+              "type": "Групповое занятие",
+              "title": "Подрывание элементов конструкций из бетона, ж/бетона, камня.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 3,
+          "title": "Средства взрывания",
+          "semester": 3,
+          "lessons": [
+            {
+              "lesson_number": 10,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Взрыватели мгновенного и замедленного действия.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 11,
+              "local_number": 2,
+              "type": "Групповое занятие",
+              "title": "Электронные взрыватели.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 4,
+          "title": "Инженерные боеприпасы и специальные заряды",
+          "semester": 3,
+          "lessons": [
+            {
+              "lesson_number": 12,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Противопехотные фугасные мины.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 13,
+              "local_number": 2,
+              "type": "Групповое занятие",
+              "title": "Противопехотные осколочные мины.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 14,
+              "local_number": 3,
+              "type": "Групповое занятие",
+              "title": "Объектные мины.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 15,
+              "local_number": 4,
+              "type": "Групповое занятие",
+              "title": "Мины-ловушки (сюрпризы).",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 16,
+              "local_number": 5,
+              "type": "Групповое занятие",
+              "title": "Специальные мины и заряды.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 5,
+          "title": "Правила транспортирования и хранения инженерных боеприпасов",
+          "semester": 3,
+          "lessons": [
+            {
+              "lesson_number": 17,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Транспортирование и хранение инженерных боеприпасов.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 1,
+          "title": "Объекты разведки и возможности обнаружения их физических проявлений",
+          "semester": 3,
+          "lessons": [
+            {
+              "lesson_number": 18,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Объекты разведки и возможности обнаружения их физических проявлений.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 2,
+          "title": "Технические средства разведки",
+          "semester": 3,
+          "lessons": [
+            {
+              "lesson_number": 19,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Аппаратура радиоразведки.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 4,
+              "local_number": 2,
+              "type": "Практическое занятие",
+              "title": "Применение аппаратуры радиоразведки.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 20,
+              "local_number": 3,
+              "type": "Групповое занятие",
+              "title": "Разведывательно-сигнализационная аппаратура.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 5,
+              "local_number": 4,
+              "type": "Практическое занятие",
+              "title": "Применение аппаратуры радиоразведки.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 21,
+              "local_number": 5,
+              "type": "Групповое занятие",
+              "title": "Аппаратура «УМИК».",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 6,
+              "local_number": 6,
+              "type": "Практическое занятие",
+              "title": "Применение аппаратуры радиоразведки.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 22,
+              "local_number": 7,
+              "type": "Групповое занятие",
+              "title": "Аппаратура «КРУС».",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 1,
+          "title": "Радиостанция Р-392АК2М «Арахис»",
+          "semester": 3,
+          "lessons": [
+            {
+              "lesson_number": 23,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Радиостанция Р-392АК2М «Арахис».",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 7,
+              "local_number": 2,
+              "type": "Практическое занятие",
+              "title": "Практическая работа на радиостанции Р-392АК2М «Арахис».",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 2,
+          "title": "Тема № 2. Радиостанция Р-353 НК «Намотка-КС»",
+          "semester": 3,
+          "lessons": [
+            {
+              "lesson_number": 24,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Радиостанция Р-353 НК «Намотка-КС».",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 8,
+              "local_number": 2,
+              "type": "Практическое занятие",
+              "title": "Практическая работа на радиостанции Р-353 НК «Намотка-КС».",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 3,
+          "title": "Тема № 2. Радиостанция «Северок-КМП»",
+          "semester": 3,
+          "lessons": [
+            {
+              "lesson_number": 25,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Радиостанция «Северок-КМП».",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 2,
+          "title": "Тема № 2. Радиостанция «Северок-КМП»",
+          "semester": 3,
+          "lessons": [
+            {
+              "lesson_number": 9,
+              "local_number": 2,
+              "type": "Практическое занятие",
+              "title": "Практическая работа на радиостанции «Северок-КМП».",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Тактикоспециальная подготовка",
+      "topics": [
+        {
+          "topic_number": 1,
+          "title": "Силы и средства специальной разведки и основы их боевого применения",
+          "semester": 3,
+          "lessons": [
+            {
+              "lesson_number": 1,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Силы и средства специальной разведки.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 2,
+          "title": "Подготовка разведывательных групп к выполнению боевых задач в тылу противника",
+          "semester": 3,
+          "lessons": [
+            {
+              "lesson_number": 2,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Подготовка разведывательных групп к выполнению боевых задач.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 1,
+              "local_number": 2,
+              "type": "Семинар",
+              "title": "1. Организация и проведение заблаговременной подготовки разведывательной группы.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 1,
+              "local_number": 3,
+              "type": "Практическое занятие",
+              "title": "Работа командира разведывательной группы после получения боевой задачи.",
+              "hours": 6.0,
+              "self_study_hours": 3.0
+            },
+            {
+              "lesson_number": 1,
+              "local_number": 4,
+              "type": "Групповое занятие",
+              "title": "Подготовка боевой экипировки.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 3,
+          "title": "Организация связи в разведывательной группе",
+          "semester": 3,
+          "lessons": [
+            {
+              "lesson_number": 2,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Организация связи.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 3,
+              "local_number": 2,
+              "type": "Групповое занятие",
+              "title": "Составление разведывательных донесений.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 4,
+          "title": "Пути и способы вывода разведывательных групп в тыл противника",
+          "semester": 3,
+          "lessons": [
+            {
+              "lesson_number": 3,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Вывод разведывательных групп в тыл противника.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 4,
+              "local_number": 2,
+              "type": "Групповое занятие",
+              "title": "Забазирование разведывательной группы.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 5,
+              "local_number": 3,
+              "type": "Групповое занятие",
+              "title": "Вывод разведывательной группы в тыл противника через государственную границу. 1. Вывод разведывательной группы в тыл противника через государственную границу. Выбор и изучение участков перехода.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 6,
+              "local_number": 4,
+              "type": "Групповое занятие",
+              "title": "Вывод (переброска) разведывательной группы в тыл противника в ходе боевых действий.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 2,
+              "local_number": 5,
+              "type": "Семинар",
+              "title": "1. Вывод разведывательной группы в тыл противника воздушным путем.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 5,
+          "title": "Действия разведывательной группы при передвижении в тылу противника",
+          "semester": 3,
+          "lessons": [
+            {
+              "lesson_number": 4,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Построение боевого порядка разведывательной группы.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 6,
+          "title": "Действия разведывательной группы в поиске",
+          "semester": 3,
+          "lessons": [
+            {
+              "lesson_number": 5,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Ведение поиска.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 3,
+              "local_number": 2,
+              "type": "Семинар",
+              "title": "1. Задачи, объекты и способы ведения поиска. Боевой порядок разведывательной группы в поиске.",
+              "hours": 2.0,
+              "self_study_hours": 0.0
+            }
+          ]
+        },
+        {
+          "topic_number": 6,
+          "title": "Действия разведывательной группы в поиске",
+          "semester": 4,
+          "lessons": [
+            {
+              "lesson_number": 2,
+              "local_number": 3,
+              "type": "Практическое занятие",
+              "title": "Работа командира разведывательной группы по организации поиска.",
+              "hours": 4.0,
+              "self_study_hours": 2.0
+            }
+          ]
+        },
+        {
+          "topic_number": 7,
+          "title": "Организация и ведение наблюдения",
+          "semester": 4,
+          "lessons": [
+            {
+              "lesson_number": 6,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Наблюдение.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 8,
+          "title": "Проведение специальных мероприятий в тылу противника",
+          "semester": 4,
+          "lessons": [
+            {
+              "lesson_number": 7,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Подготовка и устройство засады.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 8,
+              "local_number": 2,
+              "type": "Лекция",
+              "title": "Подготовка и проведение налета.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 9,
+              "local_number": 3,
+              "type": "Лекция",
+              "title": "Подготовка и проведение диверсии.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 4,
+              "local_number": 4,
+              "type": "Семинар",
+              "title": "1. Подготовка и оформление карты решения командира разведывательной группы.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 3,
+              "local_number": 5,
+              "type": "Практическое занятие",
+              "title": "Работа командира разведывательной группы по организации засады.",
+              "hours": 4.0,
+              "self_study_hours": 2.0
+            },
+            {
+              "lesson_number": 4,
+              "local_number": 6,
+              "type": "Практическое занятие",
+              "title": "Работа командира разведывательной группы по организации налета.",
+              "hours": 4.0,
+              "self_study_hours": 2.0
+            }
+          ]
+        },
+        {
+          "topic_number": 9,
+          "title": "Поиск и уничтожение ядерно-минных заграждений вероятного противника",
+          "semester": 4,
+          "lessons": [
+            {
+              "lesson_number": 10,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Разведка ядерно-минных заграждений противника.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 10,
+          "title": "Оборудование тайников",
+          "semester": 4,
+          "lessons": [
+            {
+              "lesson_number": 11,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Оборудование и использование тайников",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 11,
+          "title": "Организация и осуществление связи с агентурным источником",
+          "semester": 4,
+          "lessons": [
+            {
+              "lesson_number": 7,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Организация связи с агентурным источником.",
+              "hours": 4.0,
+              "self_study_hours": 2.0
+            },
+            {
+              "lesson_number": 5,
+              "local_number": 2,
+              "type": "Практическое занятие",
+              "title": "Организация связи через тайники.",
+              "hours": 6.0,
+              "self_study_hours": 3.0
+            },
+            {
+              "lesson_number": 6,
+              "local_number": 3,
+              "type": "Практическое занятие",
+              "title": "1. Проведение тайниковой операции (изъятие).",
+              "hours": 6.0,
+              "self_study_hours": 3.0
+            }
+          ]
+        },
+        {
+          "topic_number": 12,
+          "title": "Действия разведывательных групп в тылу противника с использованием партизанского (повстанческого) движения",
+          "semester": 4,
+          "lessons": [
+            {
+              "lesson_number": 12,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Партизанское (повстанческое) движение.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 13,
+          "title": "Прием личного состава и грузов в тылу противника",
+          "semester": 4,
+          "lessons": [
+            {
+              "lesson_number": 13,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Прием личного состава и грузов в тылу противника.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 5,
+              "local_number": 2,
+              "type": "Семинар",
+              "title": "1. Требования, предъявляемые к площадкам для приема разведчиков (грузов).",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 14,
+          "title": "Возвращение разведывательных групп в расположение своих войск",
+          "semester": 4,
+          "lessons": [
+            {
+              "lesson_number": 14,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Возвращение разведывательной группы.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 7,
+              "local_number": 2,
+              "type": "Практическое занятие",
+              "title": "Работа с разведывательной группой после ее возвращения.",
+              "hours": 4.0,
+              "self_study_hours": 2.0
+            }
+          ]
+        },
+        {
+          "topic_number": 15,
+          "title": "Выполнение боевых задач в зонах вооруженных конфликтов",
+          "semester": 4,
+          "lessons": [
+            {
+              "lesson_number": 15,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Применение разведывательных групп в вооруженных конфликтах.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 8,
+              "local_number": 2,
+              "type": "Групповое занятие",
+              "title": "Применение разведывательной группы в составе воздушных поисково – штурмовых групп.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 9,
+              "local_number": 3,
+              "type": "Групповое занятие",
+              "title": "Применение специальных транспортных средств.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 10,
+              "local_number": 4,
+              "type": "Групповое занятие",
+              "title": "Корректирование огня артиллерии и авиации.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 6,
+              "local_number": 5,
+              "type": "Семинар",
+              "title": "1. Способы выполнения разведывательных задач в зонах вооруженных конфликтов.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 16,
+          "title": "Методика проведения занятий по тактико-специальной подготовке",
+          "semester": 4,
+          "lessons": [
+            {
+              "lesson_number": 16,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Проведение занятий по тактико-специальной подготовке.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 1,
+          "title": "Объединенные вооруженные силы НАТО",
+          "semester": 4,
+          "lessons": [
+            {
+              "lesson_number": 17,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Организация Североатлантического договора (НАТО).",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 2,
+          "title": "Организация и вооружение соединений иностранных армий",
+          "semester": 4,
+          "lessons": [
+            {
+              "lesson_number": 18,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Соединения сухопутных войск США.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 19,
+              "local_number": 2,
+              "type": "Лекция",
+              "title": "Соединения сухопутных войск США.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 20,
+              "local_number": 3,
+              "type": "Лекция",
+              "title": "Соединения сухопутных войск ФРГ.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 21,
+              "local_number": 4,
+              "type": "Лекция",
+              "title": "Соединения сухопутных войск НОАК.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 7,
+              "local_number": 5,
+              "type": "Семинар",
+              "title": "1. Структура основных соединений вооруженных сил США.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 3,
+          "title": "Форма одежды, воинские звания и знаки различия военнослужащих иностранных армий. Опознавательные знаки военной техники",
+          "semester": 4,
+          "lessons": [
+            {
+              "lesson_number": 11,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Опознавательные знаки вооруженных сил США.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 12,
+              "local_number": 2,
+              "type": "Групповое занятие",
+              "title": "Опознавательные знаки вооруженных сил ФРГ.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 13,
+              "local_number": 3,
+              "type": "Групповое занятие",
+              "title": "Опознавательные знаки вооруженных сил КНР.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 4,
+          "title": "Объекты оперативного оборудования зарубежной части ТВД",
+          "semester": 4,
+          "lessons": [
+            {
+              "lesson_number": 14,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Пункты управления.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 15,
+              "local_number": 2,
+              "type": "Групповое занятие",
+              "title": "Пункты складирования и хранения ядерных боеприпасов.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 16,
+              "local_number": 3,
+              "type": "Групповое занятие",
+              "title": "Ракетные и артиллерийские системы.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 4,
+          "title": "Объекты оперативного оборудования зарубежной части ТВД",
+          "semester": 5,
+          "lessons": [
+            {
+              "lesson_number": 22,
+              "local_number": 4,
+              "type": "Лекция",
+              "title": "Разведывательно-ударные комплексы.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 8,
+              "local_number": 5,
+              "type": "Семинар",
+              "title": "1. Пункты управления соединений сухопутных войск иностранных армий, их разведывательные признаки.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 5,
+          "title": "Пункты управления авиацией и ПВО театра военных действий",
+          "semester": 5,
+          "lessons": [
+            {
+              "lesson_number": 23,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Пункты управления авиацией и ПВО.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 6,
+          "title": "Основные стационарные объекты оперативного оборудования зарубежной части ТВД",
+          "semester": 5,
+          "lessons": [
+            {
+              "lesson_number": 24,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Аэродромы.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 25,
+              "local_number": 2,
+              "type": "Лекция",
+              "title": "Объекты тыла.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 26,
+              "local_number": 3,
+              "type": "Лекция",
+              "title": "Военно-морские базы.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 9,
+              "local_number": 4,
+              "type": "Семинар",
+              "title": "1. Типы, основные элементы, уязвимые места современных аэродромов.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 7,
+          "title": "Силы специальных операций иностранных армий",
+          "semester": 5,
+          "lessons": [
+            {
+              "lesson_number": 27,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Силы специальных операций США.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 28,
+              "local_number": 2,
+              "type": "Лекция",
+              "title": "Силы специальных операций ВС ФРГ и НОАК.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 8,
+          "title": "Контрразведывательный режим и борьба с диверсионно-разведывательными группами",
+          "semester": 5,
+          "lessons": [
+            {
+              "lesson_number": 29,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Контрразведывательный режим.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 9,
+          "title": "Вооружение иностранных армий",
+          "semester": 5,
+          "lessons": [
+            {
+              "lesson_number": 17,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Вооружение иностранных армий.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 10,
+          "title": "Основные элементы оперативной обстановки зарубежной части ТВД и их влияние на деятельность разведывательных органов",
+          "semester": 5,
+          "lessons": [
+            {
+              "lesson_number": 30,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Изучение оперативной обстановки зарубежных ТВД.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 11,
+          "title": "Незаконные вооруженные формирования (НВФ)",
+          "semester": 5,
+          "lessons": [
+            {
+              "lesson_number": 31,
+              "local_number": 1,
+              "type": "Лекция",
+              "title": "Незаконные вооруженные формирования (НВФ).",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 1,
+              "local_number": 2,
+              "type": "Контро-льная работа",
+              "title": "Контрольное занятие по разделу «Иностранные армии и ТВД».",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Воздушнодесантная подготовка",
+      "topics": [
+        {
+          "topic_number": 1,
+          "title": "Материальная часть людских десантных парашютов и парашютных приборов",
+          "semester": 5,
+          "lessons": [
+            {
+              "lesson_number": 1,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Парашютная система Д-6 с.4",
+              "hours": 4.0,
+              "self_study_hours": 2.0
+            },
+            {
+              "lesson_number": 2,
+              "local_number": 2,
+              "type": "Групповое занятие",
+              "title": "Парашютные приборы.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 3,
+              "local_number": 3,
+              "type": "Групповое занятие",
+              "title": "Запасной парашют З-5.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 1,
+              "local_number": 4,
+              "type": "Контрольная работа",
+              "title": "Контрольно-проверочное занятие.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 2,
+          "title": "Укладка людских десантных парашютов",
+          "semester": 5,
+          "lessons": [
+            {
+              "lesson_number": 3,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Укладка основного парашюта.",
+              "hours": 6.0,
+              "self_study_hours": 3.0
+            },
+            {
+              "lesson_number": 1,
+              "local_number": 2,
+              "type": "Практическое занятие",
+              "title": "Укладка основного парашюта.",
+              "hours": 6.0,
+              "self_study_hours": 3.0
+            },
+            {
+              "lesson_number": 4,
+              "local_number": 3,
+              "type": "Групповое занятие",
+              "title": "Укладка запасного парашюта.",
+              "hours": 4.0,
+              "self_study_hours": 2.0
+            },
+            {
+              "lesson_number": 2,
+              "local_number": 4,
+              "type": "Практическое занятие",
+              "title": "Укладка людских десантных парашютов.",
+              "hours": 6.0,
+              "self_study_hours": 3.0
+            },
+            {
+              "lesson_number": 3,
+              "local_number": 5,
+              "type": "Практическое занятие",
+              "title": "Укладка людских десантных парашютов.",
+              "hours": 6.0,
+              "self_study_hours": 3.0
+            },
+            {
+              "lesson_number": 4,
+              "local_number": 6,
+              "type": "Практическое занятие",
+              "title": "Укладка людских десантных парашютов.",
+              "hours": 4.0,
+              "self_study_hours": 2.0
+            },
+            {
+              "lesson_number": 5,
+              "local_number": 7,
+              "type": "Практическое занятие",
+              "title": "Выполнение нормативов по ВДП.",
+              "hours": 4.0,
+              "self_study_hours": 2.0
+            }
+          ]
+        },
+        {
+          "topic_number": 3,
+          "title": "Теоретические основы прыжка с парашютом",
+          "semester": 5,
+          "lessons": [
+            {
+              "lesson_number": 4,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Теоретические основы прыжка с парашютом.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            },
+            {
+              "lesson_number": 5,
+              "local_number": 2,
+              "type": "Групповое занятие",
+              "title": "Организация и проведение прыжков с парашютом.",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 4,
+          "title": "Парашютно-десантная тара Занятие 1.",
+          "semester": 5,
+          "lessons": [
+            {
+              "lesson_number": 6,
+              "local_number": 1,
+              "type": "Групповое занятие",
+              "title": "Грузовой контейнер ГК-30У",
+              "hours": 2.0,
+              "self_study_hours": 1.0
+            }
+          ]
+        },
+        {
+          "topic_number": 4,
+          "title": "Парашютно-десантная тара Занятие 2.",
+          "semester": 5,
+          "lessons": [
+            {
+              "lesson_number": 7,
+              "local_number": 2,
+              "type": "Групповое занятие",
+              "title": "Грузовая тара",
+              "hours": 4.0,
+              "self_study_hours": 2.0
+            }
+          ]
+        },
+        {
+          "topic_number": 4,
+          "title": "Парашютно-десантная тара Занятие 3.",
+          "semester": 5,
+          "lessons": [
+            {
+              "lesson_number": 8,
+              "local_number": 3,
+              "type": "Практическое занятие",
+              "title": "Укладка парашютной системы ОКС-4 серии 4.",
+              "hours": 6.0,
+              "self_study_hours": 3.0
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
