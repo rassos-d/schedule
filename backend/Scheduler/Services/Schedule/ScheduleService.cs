@@ -48,10 +48,10 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
     public void FullUpdate(ScheduleUpdateDto dto)
     {
         var schedule = repo.GetSchedule(dto.Id);
-
+        schedule.Pages = [];
         foreach (var pageDto in dto.Pages)
         {
-            var existsPage = repo.GetSchedulePage(dto.Id, pageDto.StudyYear);
+            var existsPage = schedule.Pages.FirstOrDefault(page => page.ScheduleId == dto.Id);
             
             var dates = GetDatesForDayOfWeek(pageDto.Start, pageDto.End);
             var page = new SchedulePage 
@@ -61,9 +61,10 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
                 StudyYear = pageDto.StudyYear,
                 Squads = pageDto.Squads,
                 Dates = dates,
-                Events = existsPage.Events.ToList()
+                Events = existsPage is null ? [] : existsPage.Events.ToList()
             };
             schedule.Pages.Add(page);
+            eventGenerator.Generate(page);
         }
 
         repo.SaveSchedule(schedule);

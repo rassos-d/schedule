@@ -28,6 +28,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("*", policy =>
@@ -40,6 +41,8 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+app.UseCors("*");               
+
 app.UseMiddleware<ErrorHandlingMiddleware>();
 
 app.UseSwagger();
@@ -48,7 +51,6 @@ app.UseSwaggerUI(c =>
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Schedule API v1");
 });
 
-app.UseCors("*");               
 app.MapControllers();
 
 

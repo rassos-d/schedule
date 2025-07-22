@@ -62,11 +62,7 @@ public class ScheduleRepository : BaseRepository
     {
         GetAllScheduleInfos();
         var schedule = _schedulesCache[schedulePage.ScheduleId];
-        var page = schedule.Pages.FirstOrDefault(x => x.StudyYear == schedulePage.StudyYear);
-        if (page is not null)
-        {
-            schedule.Pages.Remove(page);
-        }
+        schedule.Pages.RemoveAll(x => x.StudyYear == schedulePage.StudyYear);
         
         schedule.Pages.Add(schedulePage);
         WriteSchedulePage(schedulePage);
