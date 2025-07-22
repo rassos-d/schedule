@@ -114,6 +114,7 @@ public class ExcelExportService
 
         // устанавливаем область печати
         sheet.PrinterSettings.PrintArea = sheet.Cells[1, 1, totalHeight, template.Body.Size.Width];
+        sheet.PrinterSettings.FitToPage = true;
     }
 
     private void FillHeader(IEnumerable<SquadExcel> squads, ExcelRange cells, List<DateOnly> dates, Semester semester)
