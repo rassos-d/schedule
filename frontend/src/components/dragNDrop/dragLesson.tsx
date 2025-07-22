@@ -30,6 +30,18 @@ function LessonComponent({ lesson, date, number, squardIndex, isConflict, onMove
   
   const [isHover, setIsHover] = useState(false)
 
+  const addClass = () => {
+    if (ref.current) {
+      ref.current.classList.add(styles.dragLessonContainer_new);
+
+      setTimeout(() => {
+        if (ref.current) {
+          ref.current.classList.remove(styles.dragLessonContainer_new);
+        }
+      }, 1000);
+    }
+  }
+
   const [{ isDragging }, drag] = useDrag(() => ({
     type: `LESSON-${squardIndex}`,
     item: lesson,
@@ -43,6 +55,7 @@ function LessonComponent({ lesson, date, number, squardIndex, isConflict, onMove
       return {isDragging: !!monitor.isDragging()}
     },
   }), [squardIndex, number, lesson]);
+
 
   const [, drop] = useDrop(() => ({
     accept: [`LESSON-${squardIndex}`, 'FREE'],
@@ -66,14 +79,23 @@ function LessonComponent({ lesson, date, number, squardIndex, isConflict, onMove
     }
   }, [isDragging])
 
+  useEffect(()=>{
+    if (ref.current && lesson.isUpdate) {
+      console.log('add')
+      addClass()
+    }
+  },[ref, lesson])
+
+
   return (
     <div 
+      ref={ref}
       onMouseEnter={()=>{setIsHover(true)}} 
       onMouseLeave={()=>setIsHover(false)} 
       onClick={()=>onSelect(lesson)} 
       className={`${styles.dragLessonContainer} ${isConflict && styles.dragLessonContainer_error}`}
     >
-      <div ref={ref} className={styles.dragLessonContainer__content} style={{ opacity: isDragging ? 0.5 : 1 }}>
+      <div className={styles.dragLessonContainer__content} style={{ opacity: isDragging ? 0.5 : 1 }}>
         {lesson.lesson && lesson.lesson.lessonType === 5 ? LESSON_TYPE[lesson.lesson.lessonType].shortName : ''}
         <p>{lesson.subject.name}</p>
         <p>{`

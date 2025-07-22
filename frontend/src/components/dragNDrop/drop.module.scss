@@ -15,6 +15,7 @@
 }
 
 .freeLesson {
+  position: relative;
   padding: 5px;
   display: flex;
   flex-direction: column;
@@ -26,6 +27,7 @@
 
 .dragLessonContainer {
   cursor: pointer;
+  transition: .4s;
   position: relative;
   width: 100%;
   height: 100%;
@@ -43,6 +45,16 @@
   }
   &_error {
     background-color: var(--dangerous-color);
+  }
+  &_new {
+    transition: .4s;
+    background-color: #ddd;
+  }
+}
+
+.dragLessonContainer {
+  &_new {
+    background-color: #ddd;
   }
   &__delete {
     position: absolute;

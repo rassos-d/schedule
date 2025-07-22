@@ -12,7 +12,7 @@ export function getSchedule (events: Event) {
         resultDay.push({number: num})
       }
     }
-    result[key] = resultDay.sort((a, b)=>a.number - b.number)
+    result[key] = resultDay.sort((a, b)=>a.number - b.number).map((el)=>({...el}))
   }
   return result  
 }

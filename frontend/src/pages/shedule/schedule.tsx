@@ -163,7 +163,9 @@ export default function ShedulePage() {
         }
         setErrorList(data.conflicts.conflictEventIds)
         if (data.conflicts.message) {
-            toast(data.conflicts.message)
+            toast(data.conflicts.message, {
+                autoClose: 10000
+            })
         }
         setFreeLessons(freeLessons)
         setShedule(getFullSchedule(data))
@@ -175,7 +177,9 @@ export default function ShedulePage() {
         })
         if (data.conflictEventIds) {
             setErrorList(data.conflictEventIds)
-            toast(data.message)
+            toast(data.message, {
+                autoClose: 10000
+            })
         }
     }
 
@@ -215,14 +219,14 @@ export default function ShedulePage() {
             const newShedule:Schedule = JSON.parse(JSON.stringify(prev))
             if (target.lesson !== undefined) {
                 const oldLesson = newShedule.squads[squardIndex].events[oldDate][oldNumber - 1]
-                newShedule.squads[squardIndex].events[target.date][target.number - 1] = {...oldLesson, number: target.lesson.number, date: target.lesson.date}
-                newShedule.squads[squardIndex].events[oldDate][oldNumber - 1] = {...target.lesson, number: oldLesson.number}
+                newShedule.squads[squardIndex].events[target.date][target.number - 1] = {...oldLesson, number: target.lesson.number, date: target.lesson.date, isUpdate: true}
+                newShedule.squads[squardIndex].events[oldDate][oldNumber - 1] = {...target.lesson, number: oldLesson.number, isUpdate: true}
                 handleUpdateScheduleTime({...oldLesson, number: target.lesson.number, date: target.lesson.date})
                 handleUpdateScheduleTime({...target.lesson, number: oldLesson.number, date: oldDate})
                 return newShedule
             }
-            newShedule.squads[squardIndex].events[target.date][target.number - 1] = {...oldLesson, number: target.number, date: target.date}
-            newShedule.squads[squardIndex].events[oldDate][oldNumber - 1] = {number: oldNumber}
+            newShedule.squads[squardIndex].events[target.date][target.number - 1] = {...oldLesson, number: target.number, date: target.date, isUpdate: true}
+            newShedule.squads[squardIndex].events[oldDate][oldNumber - 1] = {number: oldNumber, isUpdate: true}
             handleUpdateScheduleTime({...oldLesson, number: target.number, date: target.date})
             return newShedule
         })
@@ -232,13 +236,13 @@ export default function ShedulePage() {
         setFreeLessons((prev)=>{
             if (!prev) return
             const newLessons = [...prev]
-            newLessons.push({...lesson, squardIndex: activeSquardIndex})
+            newLessons.push({...lesson, squardIndex: activeSquardIndex, isUpdate: true})
             return newLessons
         })
         setShedule((prev)=>{
             const newShedule:Schedule = JSON.parse(JSON.stringify(prev))
-            newShedule.squads[activeSquardIndex].events[date][lesson.number - 1] = {number: lesson.number}
-            handleUpdateScheduleTime({...lesson, number: undefined, date: undefined})
+            newShedule.squads[activeSquardIndex].events[date][lesson.number - 1] = {number: lesson.number, isUpdate: true}
+            handleUpdateScheduleTime({...lesson, number: undefined, date: undefined, isUpdate: true})
             return newShedule
         })
     }
@@ -246,7 +250,7 @@ export default function ShedulePage() {
         if (!target.date) return
         setShedule((prev)=>{
             const newShedule:Schedule = JSON.parse(JSON.stringify(prev))
-            newShedule.squads[activeSquardIndex].events[target.date][target.number - 1] = {...lesson, number: target.number, date: target.date}
+            newShedule.squads[activeSquardIndex].events[target.date][target.number - 1] = {...lesson, number: target.number, date: target.date, isUpdate: true}
             handleUpdateScheduleTime({...lesson, number: target.number, date: target.date})
             return newShedule
         })
@@ -435,7 +439,12 @@ export default function ShedulePage() {
                             <DropZone activeSquardIndex={activeSquardIndex}>
                                 <div className={styles.sidebar__items}>
                                     {freeLessons.filter((lesson) => lesson.squardIndex === activeSquardIndex).map((lesson) => (
-                                        <DragFreeLesson key={lesson.id} lesson={lesson} squardIndex={activeSquardIndex} onMove={onMoveFreeToLesson} />
+                                        <DragFreeLesson 
+                                            onDelete={()=>{setConfirmDeleteEventId(lesson.id)}} 
+                                            key={lesson.id} lesson={lesson} 
+                                            squardIndex={activeSquardIndex} 
+                                            onMove={onMoveFreeToLesson} 
+                                        />
                                     ))}
                                 </div>
                             </DropZone>
@@ -455,7 +464,8 @@ export default function ShedulePage() {
                             <p className={styles.popup__title}>Взвод:</p>
                             <AddInput
                                 isError={displayErrorsEvent}
-                                minWidth={228}
+                                minWidth={275}
+                                maxWidth={275}
                                 selectedList={newLesson.squad ? [newLesson.squad] : []}
                                 allList={schedule.squads}
                                 singleMode
@@ -467,7 +477,8 @@ export default function ShedulePage() {
                             <p className={styles.popup__title}>Тип занятия:</p>
                             <AddInput
                                 isError={displayErrorsEvent}
-                                minWidth={228}
+                                minWidth={275}
+                                maxWidth={275}
                                 selectedList={newLesson.lessonType ? [newLesson.lessonType] : []}
                                 allList={LESSON_TYPE.map((el, index)=>({...el, id: index}))}
                                 singleMode
@@ -480,7 +491,8 @@ export default function ShedulePage() {
                             <AddInput
                                 isError={displayErrorsEvent}
                                 onSearch={(value)=>setSubjectSearch(value!== undefined ? value : '')}
-                                minWidth={228}
+                                minWidth={275}
+                                maxWidth={275}
                                 selectedList={newLesson.subject ? [newLesson.subject] : []}
                                 singleMode
                                 allList={subjects.filter((sub)=>sub.name.toLowerCase().includes(subjectSearch))}
@@ -493,7 +505,8 @@ export default function ShedulePage() {
                                 <p className={styles.popup__title}>Тема:</p>
                                 <AddInput
                                     isError={displayErrorsEvent}
-                                    minWidth={228}
+                                    minWidth={275}
+                                    maxWidth={275}
                                     selectedList={newLesson.theme ? [newLesson.theme] : []}
                                     singleMode
                                     allList={subjects.filter((subject)=>subject.id === newLesson.subject?.id)[0].themes}
@@ -507,7 +520,8 @@ export default function ShedulePage() {
                                 <p className={styles.popup__title}>Занятие:</p>
                                 <AddInput
                                     isError={displayErrorsEvent}
-                                    minWidth={228}
+                                    minWidth={275}
+                                    maxWidth={275}
                                     selectedList={newLesson.lesson ? [newLesson.lesson] : []}
                                     singleMode
                                     allList={getLessonsByTheme()}
@@ -520,7 +534,8 @@ export default function ShedulePage() {
                             <p className={styles.popup__title}>Преподаватель:</p>
                             <AddInput
                                 isError={displayErrorsEvent}
-                                minWidth={228}
+                                minWidth={275}
+                                maxWidth={275}
                                 selectedList={newLesson.teacher ? [newLesson.teacher] : []}
                                 singleMode
                                 allList={allTeachers}
@@ -532,7 +547,8 @@ export default function ShedulePage() {
                             <p className={styles.popup__title}>Аудитория:</p>
                             <AddInput
                                 isError={displayErrorsEvent}
-                                minWidth={228}
+                                minWidth={275}
+                                maxWidth={275}
                                 selectedList={newLesson.audience ? [newLesson.audience] : []}
                                 singleMode
                                 allList={allAudience}
@@ -550,7 +566,8 @@ export default function ShedulePage() {
                             <p className={styles.popup__title}>Время:</p>
                             <AddInput
                                 isError={displayErrorsEvent}
-                                minWidth={228}
+                                minWidth={275}
+                                maxWidth={275}
                                 selectedList={newLesson.number ? [{name: `${TIMES[newLesson.number - 1].number} ${TIMES[newLesson.number - 1].time}`, id: newLesson.number}] : []}
                                 singleMode
                                 allList={TIMES.map((el, index)=>({name: `${el.number} ${el.time}`, id: index + 1}))}

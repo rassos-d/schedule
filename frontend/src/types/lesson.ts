@@ -45,4 +45,5 @@ export type SheduleLesson = {
   subject: AddInputList,
   number: number,
   date: string
+  isUpdate: boolean
 }

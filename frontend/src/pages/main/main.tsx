@@ -468,7 +468,8 @@ export default function Main() {
                                         selectedList={year.squads}
                                         allList={squads.filter((squad) => squad.studyYear === year.studyYear)}
                                         changeInputList={(newList) => updateSquards(newList.map((item) => ({ name: item.name.toString(), id: item.id.toString() })), index)}
-                                    />}
+                                    />
+                                }
                                 <div className={styles.popup__line}>
                                     <p>Дата первого занятия</p>
                                     <Input isError={isEnableValidationCreateSchedule} value={year.start} type='date' onChange={(val) => updateDateYear(val, true, index)} />

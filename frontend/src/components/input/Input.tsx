@@ -91,6 +91,7 @@ type AddInputProps = {
   allList: AddInputList[]
   title: string
   minWidth?: number
+  maxWidth?: number
   placeholder?: string
   singleMode?: boolean
   displaySelected?: boolean
@@ -100,7 +101,7 @@ type AddInputProps = {
 }
 
 
-export function AddInput({ selectedList, changeInputList, allList, title, placeholder = 'Поиск', singleMode, totalParts, currentPart, minWidth, onSeeMore, onSearch, isError }: AddInputProps) {
+export function AddInput({ selectedList, changeInputList, allList, title, placeholder = 'Поиск', singleMode, totalParts, currentPart, maxWidth, minWidth, onSeeMore, onSearch, isError }: AddInputProps) {
 
   const [searchValue, setSearchValue] = useState('')
   const [displayList, setDisplayList] = useState(false)
@@ -153,7 +154,7 @@ export function AddInput({ selectedList, changeInputList, allList, title, placeh
   }
 
   return (
-    <div style={minWidth ? {minWidth: `${minWidth}px`}:{}} className={`${styles.list}`}>
+    <div style={{minWidth: `${minWidth ? minWidth + 'px' : 'auto'}`, maxWidth: `${maxWidth ? maxWidth + 'px' : 'auto'}`} } className={`${styles.list}`}>
       <div onClick={() => { setDisplayList(!displayList) }} className={`${styles.list__title} ${getTitleColor() === 'white' ? styles.list__title_active : ''} ${!isValid() ? styles.list__title_error : ''}`}>
         <p>{selectedList[0] && singleMode ? selectedList[0].name : title}</p>
         <Icon glyph={`arrow-${displayList ? 'up' : 'down'}`} glyphColor={getTitleColor()} />
