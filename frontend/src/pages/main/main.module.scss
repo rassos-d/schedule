@@ -40,6 +40,11 @@
     flex-direction: column;
     row-gap: 10px; 
   }
+  &__icons {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+  }
 }
 
 .popup {

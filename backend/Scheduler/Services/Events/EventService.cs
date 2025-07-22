@@ -190,26 +190,28 @@ public class EventService(
             .Count(e => e.AudienceId == updatedEvent.AudienceId && e.Date == updatedEvent.Date &&
                         e.Number == updatedEvent.Number) > 1;
 
-        var isTeacherInNotVacation = updatedEvent.TeacherId.HasValue
+        var isTeacherInVacation = updatedEvent.TeacherId.HasValue
                                      && teachers.TryGetValue(updatedEvent.TeacherId.Value, out var teacher)
-                                     && !teacher.Vacations.Any(vacation =>
+                                     && teacher.Vacations.Any(vacation =>
                                          vacation.StartDate <= updatedEvent.Date &&
                                          vacation.EndDate >= updatedEvent.Date);
-        if (!isConflictWithAudience && isTeacherInNotVacation && !isConflictWithTeacher)
+        if (!isConflictWithAudience && !isTeacherInVacation && !isConflictWithTeacher)
             return null;
-        var conflictTeacherString = isConflictWithTeacher
-            ? $"Конфликт с преподавателем {teachers[updatedEvent.TeacherId.Value].Name} во время {GetTimeByLessonNumber(updatedEvent.Number.Value)}."
+
+        var message = string.Empty;
+        message += isConflictWithTeacher
+            ? $"Преподаватель {teachers[updatedEvent.TeacherId.Value].Name} занят во время {GetTimeByLessonNumber(updatedEvent.Number.Value)}."
             : "";
 
-        var conflictAudienceString = isConflictWithAudience
-            ? $"Конфликт у аудитории {audiences[updatedEvent.AudienceId.Value]} во время {GetTimeByLessonNumber(updatedEvent.Number.Value)}."
+        message += isConflictWithAudience
+            ? $"Аудитория {audiences[updatedEvent.AudienceId.Value]} занята во время {GetTimeByLessonNumber(updatedEvent.Number.Value)}."
             : "";
 
-        var conflictVacationString = isTeacherInNotVacation
-            ? $"Конфликт у преподавателя {teachers[updatedEvent.TeacherId.Value].Name}. Преподаватель находится в отпуске."
+        message += isTeacherInVacation
+            ? $"Преподаватель {teachers[updatedEvent.TeacherId.Value].Name} находится в отпуске."
             : "";
-
-        return "ВНИМАНИЕ!!! " + conflictTeacherString + conflictAudienceString + conflictVacationString;
+        
+        return "ВНИМАНИЕ!!! " + message;
     }
 
     private string GetTimeByLessonNumber(int lessonNumber)
