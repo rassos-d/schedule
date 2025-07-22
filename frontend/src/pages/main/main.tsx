@@ -30,6 +30,7 @@ export default function Main() {
 
     const [isEnableValidationCreateSchedule, setIsEnableValidationCreateSchedule] = useState(false)
     const [confirmDeleteScheduleId, setConfirmDeleteScheduleId] = useState<string>()
+    const [confirmDeleteScheduleYearIndex, setConfirmDeleteScheduleYearIndex] = useState<number>()
 
     const [shedules, setShedules] = useState<SmallShedule[]>()
     const [newSchedule, setNewSchedule] = useState<CreateSchedule & {isNew: boolean}>()
@@ -157,6 +158,7 @@ export default function Main() {
     const handleCreateShedule = async (schedule: CreateSchedule & {isNew: boolean}) => {
         setIsEnableValidationCreateSchedule(true)
         if (!isValidCreateSchedule(schedule)) return
+        setIsEnableValidationCreateSchedule(false)
         const transformedSchedule = {
             ...schedule,
             pages: schedule.pages.map(page => ({
@@ -241,6 +243,15 @@ export default function Main() {
                     semester: undefined
                 }
                 ]
+            }
+        })
+    }
+    const deleteYear = (index: number) => {
+        if (!newSchedule) return
+        setNewSchedule((prev) => {
+            if (!prev) return
+            return {
+                ...prev, pages: removeElementAtIndex(prev.pages, index)
             }
         })
     }
@@ -424,8 +435,8 @@ export default function Main() {
                         <div style={{ width: '95%' }}><Input value={newSchedule.name} onChange={(value) => setNewSchedule({ ...newSchedule, name: value })} placeholder='Введите название' /></div>
                         {newSchedule.pages.map((year, index) => (
                             <div className={styles.popup__addList} key={year.studyYear}>
-                                <div>
-                                    <Icon glyph='trash' glyphColor='black'/>
+                                <div onClick={()=>setConfirmDeleteScheduleYearIndex(index)} className={styles.popup__delete}>
+                                    <Icon glyph='trash' glyphColor='error'/>
                                 </div>
                                 <AddInput
                                     isError={isEnableValidationCreateSchedule}
@@ -619,6 +630,14 @@ export default function Main() {
                     text='Вы уверены, что хотите удалить расписание?'
                     onCancel={()=>setConfirmDeleteScheduleId(undefined)}
                     onDelete={()=>handleDeleteSchedule(confirmDeleteScheduleId)}
+                />
+            }
+            {confirmDeleteScheduleYearIndex && 
+                <DeletePopup
+                    title='Удаление года обучения'
+                    text='Вы уверены, что хотите удалить год обучения?'
+                    onCancel={()=>setConfirmDeleteScheduleYearIndex(undefined)}
+                    onDelete={()=>deleteYear(confirmDeleteScheduleYearIndex)}
                 />
             }
         </>

@@ -75,6 +75,10 @@
     align-items: center;
     grid-template-columns: 200px 1fr;
   }
+  &__delete {
+    margin-left: auto;
+    cursor: pointer;
+  }
 }
 
 .edit {

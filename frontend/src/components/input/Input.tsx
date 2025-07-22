@@ -52,7 +52,7 @@ export function Input({ placeholder, value, required, type, maxValues, isError, 
   }, [textarea]);
 
   if (type === 'date') {
-    return <input type="date" value={value} className={`${styles.input} ${isError ? styles.input_error : ''}`} onChange={(e) => { changeValue(e.target.value) }} />
+    return <input type="date" value={value} className={`${styles.input} ${!isValid() ? styles.inputBlock_error : ''}`} onChange={(e) => { changeValue(e.target.value) }} />
   }
   if (type === 'time') {
     return <input
@@ -61,13 +61,13 @@ export function Input({ placeholder, value, required, type, maxValues, isError, 
       max="19:00"
       name={name}
       maxLength={maxValues} required={required}
-      className={`${styles.input} ${isError ? styles.input_error : ''}`}
+      className={`${styles.input} ${!isValid() ? styles.inputBlock_error : ''}`}
       placeholder={placeholder} value={value}
       onChange={(e) => { changeValue(e.target.value) }}
     />
   }
   return (
-    <div className={`${styles.inputBlock} ${!isValid() ? styles.inputBlock_error : ''}`}>
+    <div className={`${styles.inputBlock}`}>
       {type ?
         <input
           name={name}
