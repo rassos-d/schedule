@@ -165,7 +165,7 @@ public class EventService(
             .SelectMany(group =>
                 group.Select(e => e.Id))
             .ToList();
-        foreach (var e in schedulePage.Events)
+        foreach (var e in schedulePage.Events.Where(e => e.Date != null && e.Number != null))
         {
             if (e.TeacherId is not null && teachers.TryGetValue(e.TeacherId.Value, out var teacher))
             {
