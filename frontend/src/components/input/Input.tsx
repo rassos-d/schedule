@@ -100,7 +100,7 @@ type AddInputProps = {
 }
 
 
-export function AddInput({ selectedList, changeInputList, allList, title, placeholder, singleMode, totalParts, currentPart, minWidth, onSeeMore, onSearch, isError }: AddInputProps) {
+export function AddInput({ selectedList, changeInputList, allList, title, placeholder = 'Поиск', singleMode, totalParts, currentPart, minWidth, onSeeMore, onSearch, isError }: AddInputProps) {
 
   const [searchValue, setSearchValue] = useState('')
   const [displayList, setDisplayList] = useState(false)

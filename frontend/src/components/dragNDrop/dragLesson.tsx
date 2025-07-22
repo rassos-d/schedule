@@ -3,6 +3,7 @@ import styles from './drop.module.scss'
 import { useDrag, useDrop } from 'react-dnd'
 import { SheduleLesson } from '../../types/lesson'
 import { Icon } from '../icon'
+import { LESSON_TYPE } from '../../consts'
 
 type LessonProps = {
   lesson: SheduleLesson;
@@ -73,8 +74,11 @@ function LessonComponent({ lesson, date, number, squardIndex, isConflict, onMove
       className={`${styles.dragLessonContainer} ${isConflict && styles.dragLessonContainer_error}`}
     >
       <div ref={ref} className={styles.dragLessonContainer__content} style={{ opacity: isDragging ? 0.5 : 1 }}>
+        {lesson.lesson && lesson.lesson.lessonType === 5 ? LESSON_TYPE[lesson.lesson.lessonType].shortName : ''}
         <p>{lesson.subject.name}</p>
-        <p>{`${lesson.theme ? 'т. ' + lesson.theme.number + '/' : ''}${lesson.lesson ? lesson.lesson.number + ' ' + lesson.lesson.type : ''} `}</p>
+        <p>{`
+          ${lesson.theme ? 'т. ' + lesson.theme.number + '/' : ''}${lesson.lesson && lesson.lesson.number !== undefined ? lesson.lesson.number : ''}
+          ${lesson.lesson && lesson.lesson.lessonType !== 5 ? LESSON_TYPE[lesson.lesson.lessonType].shortName : ''} `}</p>
         <p>{lesson.audience?.name}</p>
         <p>{lesson.teacher?.name}</p>
       </div>

@@ -20,6 +20,7 @@ export type NewLesson = {
   audience?: AddInputList
   theme?:AddInputList
   subject?: AddInputList
+  lessonType?: AddInputList
 }
 
 export type NewLessonRequest = {
@@ -38,11 +39,10 @@ export type SheduleLesson = {
   id: string,
   teacher?: AddInputList,
   audience?: AddInputList,
-  lesson?: AddInputList & {number: number, type: string},
+  lesson?: AddInputList & {number: number, type: string, lessonType: number},
   squad: AddInputList,
   theme?: AddInputList & {number: number},
   subject: AddInputList,
-  lessonType: number
   number: number,
   date: string
 }

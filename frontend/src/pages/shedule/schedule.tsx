@@ -28,6 +28,8 @@ import { Subject } from '../../types/subject'
 import { AddInputList } from '../../types/input'
 import { cloneObject } from '../../utils'
 import { AxiosResponse } from 'axios'
+import { DeletePopup } from '../../components/deletePopup/deletePopup'
+import { LESSON_TYPE } from '../../consts'
 
 const TIMES = [
     {
@@ -64,6 +66,7 @@ export default function ShedulePage() {
 
     const sidebarRefIcon = useRef<HTMLDivElement>(null)
     const sidebarContentRef = useRef<HTMLDivElement>(null)
+    const containerRef = useRef<HTMLDivElement>(null)
 
     const [schedule, setShedule] = useState<Schedule>()
     const [errorList, setErrorList] = useState<string[]>([])
@@ -76,8 +79,13 @@ export default function ShedulePage() {
     const [allAudience, setAllAudience] = useState<Audience[]>()
     const [allSquads, setAllSquads] = useState<Squad[]>()
 
+    const [subjectSearch, setSubjectSearch] = useState('')
+
+    const [displayErrorsEvent, setDisplayErrorsEvent] = useState(false)
+
     const [activeSquardIndex, setActiveSquardIndex] = useState(0)
     const [freeLessons, setFreeLessons] = useState<FreeLesson[]>()
+    const [confirmDeleteEventId, setConfirmDeleteEventId] = useState<string>()
 
     const [newLesson, setNewLesson] = useState<NewLesson & {isNewLesson: boolean}>()
 
@@ -153,6 +161,10 @@ export default function ShedulePage() {
         for (const lesson of data.noName) {
             freeLessons.push(({...lesson, squardIndex: data.squads.findIndex((squad)=>squad.id === lesson.squad.id)}))
         }
+        setErrorList(data.conflicts.conflictEventIds)
+        if (data.conflicts.message) {
+            toast(data.conflicts.message)
+        }
         setFreeLessons(freeLessons)
         setShedule(getFullSchedule(data))
     }
@@ -168,7 +180,12 @@ export default function ShedulePage() {
     }
 
     const handleCreateLesson = async () => {
-        if (!newLesson || !checkLesson(newLesson) || !activeTab) return
+        if (!newLesson || !activeTab) return
+        if (!checkLesson(newLesson)) {
+            setDisplayErrorsEvent(true)
+            return
+        }
+        setDisplayErrorsEvent(false)
         await axios[newLesson.isNewLesson ? 'post' : 'put']<ResponseType, AxiosResponse<ResponseType>, NewLessonRequest>(
             PagesURl.EVENT + `${newLesson.id ? '/' + newLesson.id : ''}/schedules/${id}/${activeTab}`, {
             subjectId: newLesson.subject.id as string,
@@ -178,7 +195,8 @@ export default function ShedulePage() {
             squadId: newLesson.squad.id as string,
             audienceId: newLesson.audience.id as string,
             number: newLesson.number,
-            date: newLesson.date
+            date: newLesson.date,
+            lessonType: newLesson.lessonType.id as number
         })
         setNewLesson(undefined)
         handleGetSchedule(activeTab)
@@ -186,6 +204,7 @@ export default function ShedulePage() {
     const handleDeleteLesson = async (lessonId: string) => {
         if (!activeTab) return
         await axios.delete(PagesURl.EVENT + `/${lessonId}/schedules/${id}/${activeTab}`)
+        setConfirmDeleteEventId(undefined)
         handleGetSchedule(activeTab)
     }
 
@@ -240,20 +259,23 @@ export default function ShedulePage() {
     }
     const startDragging = (squardIndex: number) => {
         setActiveSquardIndex(squardIndex)
-        if (sidebarRefIcon.current && sidebarContentRef.current) {
+        if (sidebarRefIcon.current && sidebarContentRef.current && containerRef.current) {
             sidebarContentRef.current.classList.remove(styles.sidebar__content_close)
             sidebarRefIcon.current.classList.remove(styles.sidebar__icon_close)
+            containerRef.current.classList.add(styles.container_full)
         } 
     }
     const changeOpenSidebar = () => {
-        if (sidebarRefIcon.current && sidebarContentRef.current) {
+        if (sidebarRefIcon.current && sidebarContentRef.current && containerRef.current) {
             if (sidebarContentRef.current.classList.contains(styles.sidebar__content_close)) {
                 sidebarContentRef.current.classList.remove(styles.sidebar__content_close)
                 sidebarRefIcon.current.classList.remove(styles.sidebar__icon_close)
+                containerRef.current.classList.add(styles.container_full)
                 return
             }
             sidebarContentRef.current.classList.add(styles.sidebar__content_close)
             sidebarRefIcon.current.classList.add(styles.sidebar__icon_close)
+            containerRef.current.classList.remove(styles.container_full)
         } 
     }
 
@@ -327,7 +349,7 @@ export default function ShedulePage() {
             <Helmet>
                 <title>{`${schedule.name} ${activeTab} курс`}</title>
             </Helmet>
-            <div className={styles.container}>
+            <div  ref={containerRef} className={`${styles.container}`}>
                 <div className={styles.container__tabs}>
                     <Tabs onClick={setActiveTab} tabs={allTabs} activeTab={activeTab}/>
                 </div>
@@ -367,7 +389,7 @@ export default function ShedulePage() {
                                                 <div key={lesson.number} className={`${styles.table__lesson} ${lesson.number === 3 && styles.table__time_row_grey}`}>
                                                     {"id" in lesson ?
                                                         <DragLesson
-                                                            onDelete={()=>{handleDeleteLesson(lesson.id)}}
+                                                            onDelete={()=>{setConfirmDeleteEventId(lesson.id)}}
                                                             onSelect={onEditLesson}
                                                             isConflict={errorList.includes(lesson.id)}
                                                             squardIndex={squardIndex} 
@@ -432,6 +454,7 @@ export default function ShedulePage() {
                         <div className={styles.popup__line}>
                             <p className={styles.popup__title}>Взвод:</p>
                             <AddInput
+                                isError={displayErrorsEvent}
                                 minWidth={228}
                                 selectedList={newLesson.squad ? [newLesson.squad] : []}
                                 allList={schedule.squads}
@@ -441,12 +464,26 @@ export default function ShedulePage() {
                             />
                         </div>
                         <div className={styles.popup__line}>
+                            <p className={styles.popup__title}>Тип занятия:</p>
+                            <AddInput
+                                isError={displayErrorsEvent}
+                                minWidth={228}
+                                selectedList={newLesson.lessonType ? [newLesson.lessonType] : []}
+                                allList={LESSON_TYPE.map((el, index)=>({...el, id: index}))}
+                                singleMode
+                                title='Выберите тип занятия'
+                                changeInputList={(newlist)=>setNewLesson({...newLesson, lessonType: newlist[0]})}
+                            />
+                        </div>
+                        <div className={styles.popup__line}>
                             <p className={styles.popup__title}>Дисциплина:</p>
                             <AddInput
+                                isError={displayErrorsEvent}
+                                onSearch={(value)=>setSubjectSearch(value!== undefined ? value : '')}
                                 minWidth={228}
                                 selectedList={newLesson.subject ? [newLesson.subject] : []}
                                 singleMode
-                                allList={subjects}
+                                allList={subjects.filter((sub)=>sub.name.toLowerCase().includes(subjectSearch))}
                                 title='Выберите дисциплину'
                                 changeInputList={(newList)=>setNewLesson({...newLesson, subject: {...newList[0]}, theme: undefined})}
                             />
@@ -455,6 +492,7 @@ export default function ShedulePage() {
                             <div className={styles.popup__line}>
                                 <p className={styles.popup__title}>Тема:</p>
                                 <AddInput
+                                    isError={displayErrorsEvent}
                                     minWidth={228}
                                     selectedList={newLesson.theme ? [newLesson.theme] : []}
                                     singleMode
@@ -468,6 +506,7 @@ export default function ShedulePage() {
                             <div className={styles.popup__line}>
                                 <p className={styles.popup__title}>Занятие:</p>
                                 <AddInput
+                                    isError={displayErrorsEvent}
                                     minWidth={228}
                                     selectedList={newLesson.lesson ? [newLesson.lesson] : []}
                                     singleMode
@@ -480,6 +519,7 @@ export default function ShedulePage() {
                         <div className={styles.popup__line}>
                             <p className={styles.popup__title}>Преподаватель:</p>
                             <AddInput
+                                isError={displayErrorsEvent}
                                 minWidth={228}
                                 selectedList={newLesson.teacher ? [newLesson.teacher] : []}
                                 singleMode
@@ -491,6 +531,7 @@ export default function ShedulePage() {
                         <div className={styles.popup__line}>
                             <p className={styles.popup__title}>Аудитория:</p>
                             <AddInput
+                                isError={displayErrorsEvent}
                                 minWidth={228}
                                 selectedList={newLesson.audience ? [newLesson.audience] : []}
                                 singleMode
@@ -502,12 +543,13 @@ export default function ShedulePage() {
                         <div className={styles.popup__line}>
                             <p className={styles.popup__title}>Дата:</p>
                             <div className={styles.popup__text}>
-                                <Input type='date' value={newLesson.date ?? ''} onChange={(value)=>setNewLesson({...newLesson, date: value})}/>
+                                <Input isError={displayErrorsEvent} type='date' value={newLesson.date ?? ''} onChange={(value)=>setNewLesson({...newLesson, date: value})}/>
                             </div>
                         </div>
                         <div className={styles.popup__line}>
                             <p className={styles.popup__title}>Время:</p>
                             <AddInput
+                                isError={displayErrorsEvent}
                                 minWidth={228}
                                 selectedList={newLesson.number ? [{name: `${TIMES[newLesson.number - 1].number} ${TIMES[newLesson.number - 1].time}`, id: newLesson.number}] : []}
                                 singleMode
@@ -519,6 +561,14 @@ export default function ShedulePage() {
                         <Button onClick={handleCreateLesson} size={'max'}>Сохранить</Button>
                     </div>
                 </PopupContainer>
+            }
+            {confirmDeleteEventId!==undefined &&
+                <DeletePopup 
+                    title='Удаление пары'
+                    text='Вы уверены, что хотите удалить пару?'
+                    onCancel={()=>setConfirmDeleteEventId(undefined)}
+                    onDelete={()=>handleDeleteLesson(confirmDeleteEventId)}
+                />
             }
         </>
     )

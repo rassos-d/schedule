@@ -2,6 +2,9 @@
   position: relative;
   padding-bottom: 100px;
   padding-top: 60px;
+  &_full {
+    padding-bottom: 300px;
+  }
   &__tabs {
     display: flex;
     justify-content: center;

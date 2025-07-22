@@ -87,10 +87,17 @@
   flex-direction: column;
   padding: 30px;
   row-gap: 20px;
+  min-width: 400px;
   &__line {
     display: flex;
     flex-direction: column;
     row-gap: 5px;
     width: 100%;
+  }
+  &__close {
+    cursor: pointer;
+    position: absolute;
+    right: 25px;
+    top: 20px;
   }
 }

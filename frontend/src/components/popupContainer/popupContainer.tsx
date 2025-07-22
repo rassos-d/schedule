@@ -1,14 +1,16 @@
 import { useEffect, useRef, useState } from 'react'
 import styles from './popupContainer.module.scss'
 import useOutsideClick from '../../hooks/useClickOutside'
+import { Icon } from '../icon'
 
 type PopupContainerProps = {
   children: JSX.Element
   onClose?: () => void
   isActive?:boolean
+  displayClose?: boolean
 }
 
-export default function PopupContainer ({children, onClose, isActive}:PopupContainerProps) {
+export default function PopupContainer ({children, onClose, isActive, displayClose}:PopupContainerProps) {
   const popupRef = useRef<HTMLDivElement>(null)
   const [isMounted, setIsMounted] = useState(false);
 
@@ -41,6 +43,9 @@ export default function PopupContainer ({children, onClose, isActive}:PopupConta
     <div className={styles.container}>
       <div ref={popupRef} className={styles.container__content}>
         {children}
+        {displayClose && <div onClick={onClose} className={styles.container__close}>
+          <Icon glyph='close' glyphColor='black'/>
+        </div>}
       </div>
     </div>
   )

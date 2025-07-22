@@ -31,6 +31,9 @@ export default function Main() {
     const [isEnableValidationCreateSchedule, setIsEnableValidationCreateSchedule] = useState(false)
     const [confirmDeleteScheduleId, setConfirmDeleteScheduleId] = useState<string>()
     const [confirmDeleteScheduleYearIndex, setConfirmDeleteScheduleYearIndex] = useState<number>()
+    const [confirmDeleteAudienceId, setConfirmDeleteAudienceId] = useState<string>()
+    const [confirmDeleteTeacherId, setConfirmDeleteTeacherId] = useState<string>()
+    const [confirmDeleteSquadId, setConfirmDeleteSquadId] = useState<string>()
 
     const [shedules, setShedules] = useState<SmallShedule[]>()
     const [newSchedule, setNewSchedule] = useState<CreateSchedule & {isNew: boolean}>()
@@ -79,6 +82,7 @@ export default function Main() {
     }
     const handleDeleteAudience = async (id: string) => {
         await axios.delete(PagesURl.AUDIENCE + `/${id}`)
+        setConfirmDeleteAudienceId(undefined)
         handleGetAllAudience()
     }
 
@@ -107,6 +111,7 @@ export default function Main() {
     }
     const handleDeleteTeacher = async (id: string) => {
         await axios.delete(PagesURl.TEACHER + `/${id}`)
+        setConfirmDeleteTeacherId(undefined)
         handleGetAllTeachers()
     }
 
@@ -153,6 +158,7 @@ export default function Main() {
     }
     const handleDeleteSchedule = async (id: string) => {
         await axios.delete(PagesURl.SCHEDULE + `/${id}`)
+        setConfirmDeleteScheduleId(undefined)
         handleGetShedules()
     }
     const handleCreateShedule = async (schedule: CreateSchedule & {isNew: boolean}) => {
@@ -220,6 +226,7 @@ export default function Main() {
     }
     const handleDeleteSquad = async (id: string) => {
         await axios.delete(PagesURl.SQUAD + `/${id}`)
+        setConfirmDeleteSquadId(undefined)
         handleGetAllSquads()
     }
 
@@ -254,6 +261,7 @@ export default function Main() {
                 ...prev, pages: removeElementAtIndex(prev.pages, index)
             }
         })
+        setConfirmDeleteScheduleYearIndex(undefined)
     }
     const addNewYearToYear = (year: number, index: number) => {
         setNewSchedule((prev) => {
@@ -385,7 +393,7 @@ export default function Main() {
                                         key={audience.id}
                                         value={audience.name}
                                         onEdit={() => changeIsEditAudience(index)}
-                                        onDelete={() => { handleDeleteAudience(audience.id) }}
+                                        onDelete={() => { setConfirmDeleteAudienceId(audience.id) }}
                                         onEnter={(val) => { handleEditAudience(audience.id, val) }}
                                     />
                                 ))}
@@ -398,7 +406,7 @@ export default function Main() {
                                     <HiddenInputBlock
                                         key={teacher.id}
                                         value={`${teacher.rank} ${teacher.name}`}
-                                        onDelete={() => { handleDeleteTeacher(teacher.id) }}
+                                        onDelete={() => { setConfirmDeleteTeacherId(teacher.id) }}
                                         onEdit={() => setEditTeacher(teacher)}
                                     />
                                 ))}
@@ -417,7 +425,7 @@ export default function Main() {
                                     <HiddenInputBlock
                                         key={squad.id}
                                         value={`${squad.name}`}
-                                        onDelete={() => { handleDeleteSquad(squad.id) }}
+                                        onDelete={() => { setConfirmDeleteSquadId(squad.id) }}
                                         onEdit={() => getEditSquad(squad)}
                                     />
                                 ))}
@@ -428,14 +436,13 @@ export default function Main() {
                 </div>
             </div>
             {newSchedule !== undefined &&
-                <PopupContainer onClose={() => {setNewSchedule(undefined);setIsEnableValidationCreateSchedule(false)}}>
+                <PopupContainer displayClose onClose={() => {setNewSchedule(undefined);setIsEnableValidationCreateSchedule(false)}} isActive={confirmDeleteScheduleYearIndex === undefined}>
                     <div className={styles.popup}>
                         <h2>{newSchedule.isNew ? 'Создание' : 'Редактирование'} расписания</h2>
-                        <div onClick={() => {setNewSchedule(undefined);setIsEnableValidationCreateSchedule(false)}} className={styles.popup__close}><Icon glyph='close' glyphColor='black' /></div>
                         <div style={{ width: '95%' }}><Input value={newSchedule.name} onChange={(value) => setNewSchedule({ ...newSchedule, name: value })} placeholder='Введите название' /></div>
                         {newSchedule.pages.map((year, index) => (
                             <div className={styles.popup__addList} key={year.studyYear}>
-                                <div onClick={()=>setConfirmDeleteScheduleYearIndex(index)} className={styles.popup__delete}>
+                                <div onClick={(e)=>{e.stopPropagation();setConfirmDeleteScheduleYearIndex(index)}} className={styles.popup__delete}>
                                     <Icon glyph='trash' glyphColor='error'/>
                                 </div>
                                 <AddInput
@@ -478,7 +485,7 @@ export default function Main() {
                 </PopupContainer>
             }
             {editTeacher &&
-                <PopupContainer onClose={() => setEditTeacher(undefined)}>
+                <PopupContainer displayClose onClose={() => setEditTeacher(undefined)}>
                     <div className={styles.edit}>
                         <h2>Редактирование преподавателя</h2>
                         <Input value={editTeacher.name} placeholder='Фамилия' onChange={(val) => setEditTeacher({ ...editTeacher, name: val })} />
@@ -502,7 +509,7 @@ export default function Main() {
                 </PopupContainer>
             }
             {newTeacher &&
-                <PopupContainer onClose={() => setNewTeacher(undefined)}>
+                <PopupContainer displayClose onClose={() => setNewTeacher(undefined)}>
                     <div className={styles.edit}>
                         <h2>Создание преподавателя</h2>
                         <Input value={newTeacher.name} placeholder='Фамилия' onChange={(val) => setNewTeacher({ ...newTeacher, name: val })} />
@@ -527,7 +534,7 @@ export default function Main() {
             }
 
             {editSquad &&
-                <PopupContainer onClose={() => setEditSquad(undefined)}>
+                <PopupContainer onClose={() => setEditSquad(undefined)} displayClose>
                     <div className={styles.edit}>
                         <h2>Редактирование Взвода</h2>
                         <Input value={editSquad.name} placeholder='Название' onChange={(val) => setEditSquad({ ...editSquad, name: val })} />
@@ -576,7 +583,7 @@ export default function Main() {
                 </PopupContainer>
             }
             {newSquad &&
-                <PopupContainer onClose={() => setNewSquad(undefined)}>
+                <PopupContainer displayClose onClose={() => setNewSquad(undefined)}>
                     <div className={styles.edit}>
                         <h2>Создание Взвода</h2>
                         <Input value={newSquad.name} placeholder='Название' onChange={(val) => setNewSquad({ ...newSquad, name: val })} />
@@ -632,12 +639,36 @@ export default function Main() {
                     onDelete={()=>handleDeleteSchedule(confirmDeleteScheduleId)}
                 />
             }
-            {confirmDeleteScheduleYearIndex && 
+            {confirmDeleteScheduleYearIndex!==undefined && 
                 <DeletePopup
                     title='Удаление года обучения'
                     text='Вы уверены, что хотите удалить год обучения?'
                     onCancel={()=>setConfirmDeleteScheduleYearIndex(undefined)}
                     onDelete={()=>deleteYear(confirmDeleteScheduleYearIndex)}
+                />
+            }
+            {confirmDeleteAudienceId && 
+                <DeletePopup
+                    title='Удаление аудитории'
+                    text='Вы уверены, что хотите удалить аудиторию?'
+                    onCancel={()=>setConfirmDeleteAudienceId(undefined)}
+                    onDelete={()=>handleDeleteAudience(confirmDeleteAudienceId)}
+                />
+            }
+            {confirmDeleteTeacherId && 
+                <DeletePopup
+                    title='Удаление преподавателя'
+                    text='Вы уверены, что хотите удалить преподавателя?'
+                    onCancel={()=>setConfirmDeleteTeacherId(undefined)}
+                    onDelete={()=>handleDeleteTeacher(confirmDeleteTeacherId)}
+                />
+            }
+            {confirmDeleteSquadId && 
+                <DeletePopup
+                    title='Удаление взвода'
+                    text='Вы уверены, что хотите удалить взвод?'
+                    onCancel={()=>setConfirmDeleteSquadId(undefined)}
+                    onDelete={()=>handleDeleteSquad(confirmDeleteSquadId)}
                 />
             }
         </>

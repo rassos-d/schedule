@@ -42,6 +42,7 @@ export type Schedule = {
   name: string
   squads: Squad[]
   noName: Omit<SheduleLesson, 'number' | 'date'>[]
+  conflicts: Conflict
 }
 
 type Squad = {
@@ -56,6 +57,11 @@ type Squad = {
 export type ChangeLessonReponse = {
   conflictEventIds: string[]
   message?: string
+}
+
+export type Conflict = {
+  message?: string
+  conflictEventIds: string[]
 }
 
 export type Event = Record<string, (SheduleLesson | {number: number})[]>
