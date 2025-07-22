@@ -141,45 +141,42 @@ public class EventService(
         var groupsByTime = schedulePage
             .Events
             .Where(e => e is { Date: not null, Number: not null })
-            .GroupBy(e => (e.Date, EventNumber: e.Number))
+            .GroupBy(e => (e.Date, e.Number))
             .Where(g => g.Count() > 1);
 
-        var conflictGroups = new List<IGrouping<(DateOnly? Date, int? EventNumber), Event>>();
-
+        var conflictEvents = new List<Event>();
         foreach (var timeGroup in groupsByTime)
         {
             var teacherConflicts = timeGroup
-                .GroupBy(e => e.TeacherId)
-                .Where(g => g.Count() > 1);
+                .Where(g => g.TeacherId.HasValue)
+                .GroupBy(e => e.TeacherId!.Value)
+                .Where(g => g.Count() > 1).ToList();
 
             var roomConflicts = timeGroup
+                .Where(e => e.AudienceId.HasValue)
                 .GroupBy(e => e.AudienceId)
-                .Where(g => g.Count() > 1);
+                .Where(g => g.Count() > 1).ToList();
 
-            if (teacherConflicts.Any() || roomConflicts.Any())
-            {
-                conflictGroups.Add(timeGroup);
-            }
+            if (teacherConflicts.Count > 0)
+                conflictEvents.AddRange(teacherConflicts.SelectMany(g => g.Select(e => e)));
+            if (roomConflicts.Count > 0)
+                conflictEvents.AddRange(roomConflicts.SelectMany(g => g.Select(e => e)));
         }
 
-        var conflictEventIds = conflictGroups
-            .SelectMany(group =>
-                group.Select(e => e.Id))
-            .ToList();
+        conflictEvents = conflictEvents.Distinct().ToList();
         foreach (var e in schedulePage.Events.Where(e => e.Date != null && e.Number != null))
         {
             if (e.TeacherId is not null && teachers.TryGetValue(e.TeacherId.Value, out var teacher))
             {
                 if (teacher.Vacations.Any(v => v.StartDate <= e.Date && e.Date <= v.EndDate))
-                    conflictEventIds.Add(e.Id);
+                    conflictEvents.Add(e);
             }
         }
         
-        var conflictEvents = schedulePage.Events.Where(e => conflictEventIds.Contains(e.Id)).ToList();
         return new CheckConflictResponse
         {
-            ConflictEventIds = conflictEventIds,
-            Message = CreateMessage(schedulePage.Events, conflictEvents.ToList(), updatedEvent, teachers, audienceNames)
+            ConflictEventIds = conflictEvents.ConvertAll(e => e.Id),
+            Message = CreateMessage(schedulePage.Events, conflictEvents, updatedEvent, teachers, audienceNames)
         };
     }
 
@@ -208,16 +205,16 @@ public class EventService(
             return null;
 
         var message = string.Empty;
-        message += isConflictWithTeacher
-            ? $"Преподаватель {teachers[updatedEvent.TeacherId.Value].Name} занят во время {GetTimeByLessonNumber(updatedEvent.Number.Value)}."
+        message += isConflictWithTeacher && updatedEvent.TeacherId.HasValue && teachers.TryGetValue(updatedEvent.TeacherId.Value, out var teacher1)
+            ? $"Преподаватель {teacher1.Name} занят во время {GetTimeByLessonNumber(updatedEvent.Number.Value)}."
             : "";
 
-        message += isConflictWithAudience
-            ? $"Аудитория {audiences[updatedEvent.AudienceId.Value]} занята во время {GetTimeByLessonNumber(updatedEvent.Number.Value)}."
+        message += isConflictWithAudience && updatedEvent.AudienceId.HasValue && audiences.TryGetValue(updatedEvent.AudienceId.Value, out var audienceName)
+            ? $"Аудитория {audienceName} занята во время {GetTimeByLessonNumber(updatedEvent.Number.Value)}."
             : "";
 
-        message += isTeacherInVacation
-            ? $"Преподаватель {teachers[updatedEvent.TeacherId.Value].Name} находится в отпуске."
+        message += isTeacherInVacation && updatedEvent.TeacherId.HasValue && teachers.TryGetValue(updatedEvent.TeacherId.Value, out var teacher2)
+            ? $"Преподаватель {teacher2.Name} находится в отпуске."
             : "";
         
         return "ВНИМАНИЕ!!! " + message;

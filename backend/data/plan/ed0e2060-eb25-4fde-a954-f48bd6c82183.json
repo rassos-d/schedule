@@ -1,27 +1,27 @@
 {
-  "Id": "cfc93994-afdd-4f3c-9243-5a06f49eaa5d",
+  "Id": "ed0e2060-eb25-4fde-a954-f48bd6c82183",
   "Name": "ВУС-094100",
   "Subjects": [
     {
       "Name": "Общевоенная подготовка",
-      "DirectionId": "cfc93994-afdd-4f3c-9243-5a06f49eaa5d",
-      "Id": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
+      "DirectionId": "ed0e2060-eb25-4fde-a954-f48bd6c82183",
+      "Id": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
       "Themes": [
         {
           "Semester": 1,
           "Number": 1,
           "Name": "Международное положение России",
-          "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-          "Id": "c5a24bba-527d-46ca-8363-124b7be5d7b4",
+          "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+          "Id": "36c569f0-2e4d-4db1-85e2-3328b69c2589",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 1,
               "Name": "Международное положение России.",
               "Type": 1,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "c5a24bba-527d-46ca-8363-124b7be5d7b4",
-              "Id": "175eb462-1a5a-4e37-8bce-a2daeabbde20"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "36c569f0-2e4d-4db1-85e2-3328b69c2589",
+              "Id": "21a2654d-2728-4dd9-9308-2c9357f7582a"
             }
           ]
         },
@@ -29,17 +29,17 @@
           "Semester": 1,
           "Number": 2,
           "Name": "Вооруженные силы в структуре государственных институтов",
-          "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-          "Id": "6d695b9c-0304-49a7-bb2c-f6c4a37fd08c",
+          "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+          "Id": "d26d987b-02af-4562-969e-69f75fbc463a",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 2,
               "Name": "Вооруженные силы в структуре государственных институтов.",
               "Type": 1,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "6d695b9c-0304-49a7-bb2c-f6c4a37fd08c",
-              "Id": "f9f2139d-7ff2-4edc-83fd-676658b37bf9"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "d26d987b-02af-4562-969e-69f75fbc463a",
+              "Id": "27bac62c-fc92-455c-9cd9-628d159afcb4"
             }
           ]
         },
@@ -47,26 +47,26 @@
           "Semester": 1,
           "Number": 3,
           "Name": "История великих побед русской армии и флота",
-          "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-          "Id": "2f684100-e45d-4583-9d14-cc3947d840eb",
+          "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+          "Id": "fd1b7877-d8f6-4cd9-896a-c20bbb8f7501",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 3,
               "Name": "Военные реформу в истории Российского государства.",
               "Type": 1,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "2f684100-e45d-4583-9d14-cc3947d840eb",
-              "Id": "56d9819c-be5c-413e-af44-0003e235f031"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "fd1b7877-d8f6-4cd9-896a-c20bbb8f7501",
+              "Id": "6e3a4493-2a38-4305-91fe-b0f8b4ff059d"
             },
             {
               "SelfStudyHours": 1,
               "Number": 4,
               "Name": "История великих побед русской армии и флота.",
               "Type": 1,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "2f684100-e45d-4583-9d14-cc3947d840eb",
-              "Id": "750bfa16-619a-4a3f-b2d5-2f204450dc39"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "fd1b7877-d8f6-4cd9-896a-c20bbb8f7501",
+              "Id": "2ce9e5b1-9f99-4702-93b2-d20e3c2bb4c9"
             }
           ]
         },
@@ -74,17 +74,17 @@
           "Semester": 1,
           "Number": 4,
           "Name": "Правовые положения и порядок прохождения военной службы офицерским составом",
-          "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-          "Id": "bb5e92e2-f768-408e-8fa6-d6c79d42c403",
+          "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+          "Id": "98d7bc47-417f-4b5e-b317-de8c78e76338",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 5,
               "Name": "Правовые положения и порядок прохождения военной службы офицерским составом.",
               "Type": 1,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "bb5e92e2-f768-408e-8fa6-d6c79d42c403",
-              "Id": "2df0d5a7-1dde-44a4-88fe-9484590e1428"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "98d7bc47-417f-4b5e-b317-de8c78e76338",
+              "Id": "2b045386-6256-4113-a97e-5355c27ccdc3"
             }
           ]
         },
@@ -92,17 +92,17 @@
           "Semester": 1,
           "Number": 5,
           "Name": "Международное гуманитарное право о законах войны",
-          "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-          "Id": "5e4fe782-e60b-4263-acbc-733123160045",
+          "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+          "Id": "eb185828-083d-488a-a182-c97ff91f7ce0",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 6,
               "Name": "Международное гуманитарное право о законах войны.",
               "Type": 1,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "5e4fe782-e60b-4263-acbc-733123160045",
-              "Id": "91c4facb-9960-4c17-8092-f456484b394f"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "eb185828-083d-488a-a182-c97ff91f7ce0",
+              "Id": "89909276-4eef-43b2-aa14-55589565bbb1"
             }
           ]
         },
@@ -110,17 +110,17 @@
           "Semester": 1,
           "Number": 6,
           "Name": "Организация воспитательной работы",
-          "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-          "Id": "944a863e-e0c8-447f-81b0-3b0f29803565",
+          "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+          "Id": "82393412-e385-4714-9739-c7e75c0a7593",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 7,
               "Name": "Организация воспитательной работы.",
               "Type": 1,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "944a863e-e0c8-447f-81b0-3b0f29803565",
-              "Id": "226a82d7-05dd-4863-9136-de7e27fd66af"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "82393412-e385-4714-9739-c7e75c0a7593",
+              "Id": "9b6799a8-64b9-4297-9a35-654aa8e0ae57"
             }
           ]
         },
@@ -128,35 +128,35 @@
           "Semester": 1,
           "Number": 7,
           "Name": "Особенности психологии личности и воинского коллектива",
-          "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-          "Id": "c4744ea1-7b7e-4d35-ac58-97c757c11cb3",
+          "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+          "Id": "1a171bc3-cd88-4d6e-8463-6c5723c33c2f",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 8,
               "Name": "Особенности психологии личности и воинского коллектива.",
               "Type": 1,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "c4744ea1-7b7e-4d35-ac58-97c757c11cb3",
-              "Id": "baa13c59-6b2f-4f80-bb96-7ceb8c0eab7a"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "1a171bc3-cd88-4d6e-8463-6c5723c33c2f",
+              "Id": "9e5e6f7e-fd48-4f03-b02c-089c29a68383"
             },
             {
               "SelfStudyHours": 1,
               "Number": 9,
               "Name": "Воинский коллектив.",
               "Type": 1,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "c4744ea1-7b7e-4d35-ac58-97c757c11cb3",
-              "Id": "a088d227-3c36-49f5-826a-d539b300a92b"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "1a171bc3-cd88-4d6e-8463-6c5723c33c2f",
+              "Id": "e530182b-a6b8-4b32-9594-ce6280bc935e"
             },
             {
               "SelfStudyHours": 1,
               "Number": 10,
               "Name": "Морально-психологическая подготовка.",
               "Type": 1,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "c4744ea1-7b7e-4d35-ac58-97c757c11cb3",
-              "Id": "c902a2d0-08bf-40ba-9e2f-5a71417f1176"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "1a171bc3-cd88-4d6e-8463-6c5723c33c2f",
+              "Id": "480c7108-650a-443b-b3b1-11107cd51dc7"
             }
           ]
         },
@@ -164,17 +164,17 @@
           "Semester": 1,
           "Number": 1,
           "Name": "Общевоинские уставы Вооруженных Сил Российской Федерации, их основные требования и содержания",
-          "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-          "Id": "6c1c99f1-fa99-4e3c-9815-e5eabf0bea2f",
+          "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+          "Id": "511b3eba-46ed-4d01-9784-7f23e4c71424",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 11,
               "Name": "Общевоинские уставы ВС РФ.",
               "Type": 1,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "6c1c99f1-fa99-4e3c-9815-e5eabf0bea2f",
-              "Id": "d0b8989a-3f15-4139-80c8-c0fbfc482ab0"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "511b3eba-46ed-4d01-9784-7f23e4c71424",
+              "Id": "06a7bffb-166a-4934-8e46-eebc85a07ff4"
             }
           ]
         },
@@ -182,17 +182,17 @@
           "Semester": 1,
           "Number": 2,
           "Name": "Права, обязанность и  ответственность военнослужащих",
-          "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-          "Id": "0ad778f9-ca83-404c-89a0-576b2d0915b9",
+          "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+          "Id": "c0660bc6-2a27-4b74-9a9a-1db2fec914db",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 12,
               "Name": "Права, обязанность и  ответственность военнослужащих.",
               "Type": 1,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "0ad778f9-ca83-404c-89a0-576b2d0915b9",
-              "Id": "331c0532-3d16-4f8c-ac53-b51b9ba187c9"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "c0660bc6-2a27-4b74-9a9a-1db2fec914db",
+              "Id": "246142d3-5b27-4745-9a30-daecca811183"
             }
           ]
         },
@@ -200,17 +200,17 @@
           "Semester": 1,
           "Number": 3,
           "Name": "Военнослужащие и взаимоотношение между ними",
-          "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-          "Id": "67183ada-5fee-487b-a8aa-d9ef8b96545a",
+          "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+          "Id": "b7756655-a451-4af3-aefe-9bd057bef473",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 13,
               "Name": "Военнослужащие и взаимоотношение между ними.",
               "Type": 1,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "67183ada-5fee-487b-a8aa-d9ef8b96545a",
-              "Id": "d3edc585-45e2-4a7e-864a-9188bc1296f7"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "b7756655-a451-4af3-aefe-9bd057bef473",
+              "Id": "3597d99d-76d1-4254-a6c7-e4e2e9132b6f"
             }
           ]
         },
@@ -218,17 +218,17 @@
           "Semester": 1,
           "Number": 4,
           "Name": "Размещение военнослужащих. Распределение времени и повседневный порядок",
-          "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-          "Id": "8c2d2c98-d560-4393-92dc-c3cb253fa146",
+          "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+          "Id": "b4f66be2-77c5-4faa-8fd2-d9d58d0350a3",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 14,
               "Name": "Размещение военнослужащих. Распределение времени и повседневный порядок.",
               "Type": 1,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "8c2d2c98-d560-4393-92dc-c3cb253fa146",
-              "Id": "26496735-2947-4a3f-a36f-21f05a3b8c07"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "b4f66be2-77c5-4faa-8fd2-d9d58d0350a3",
+              "Id": "03153778-f77e-4edc-a66f-8201c7edc70f"
             }
           ]
         },
@@ -236,17 +236,17 @@
           "Semester": 1,
           "Number": 5,
           "Name": "Суточный наряд",
-          "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-          "Id": "ea621f6c-9ff9-483b-832a-bd827e34f7eb",
+          "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+          "Id": "c0ee8104-9877-4542-a7be-14ca32c00b27",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 15,
               "Name": "Суточный наряд.",
               "Type": 1,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "ea621f6c-9ff9-483b-832a-bd827e34f7eb",
-              "Id": "bdb57841-80f6-4e2c-9932-a1e7ac0c88e4"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "c0ee8104-9877-4542-a7be-14ca32c00b27",
+              "Id": "5ec341fb-7b9a-4f67-9a95-c9824e4300ce"
             }
           ]
         },
@@ -254,17 +254,17 @@
           "Semester": 1,
           "Number": 6,
           "Name": "Безопасность военной службы",
-          "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-          "Id": "72b450a8-8c58-42ea-9bac-0fbfaa9d83c3",
+          "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+          "Id": "e3983cc3-3cd3-4ef1-b0bd-d717ae2b4331",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 16,
               "Name": "Безопасность военной службы.",
               "Type": 1,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "72b450a8-8c58-42ea-9bac-0fbfaa9d83c3",
-              "Id": "85b775fe-cd51-4d3e-8021-6095f52d06ba"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "e3983cc3-3cd3-4ef1-b0bd-d717ae2b4331",
+              "Id": "509d66f5-26ff-4195-9315-79f9dbcc86fd"
             }
           ]
         },
@@ -272,17 +272,17 @@
           "Semester": 1,
           "Number": 7,
           "Name": "Воинская дисциплина",
-          "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-          "Id": "07f26d84-dc7b-4fba-96d7-24b4c72592a1",
+          "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+          "Id": "ea6d821a-6f4d-486f-9f6d-9083e0fc0907",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 17,
               "Name": "Воинская дисциплина.",
               "Type": 1,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "07f26d84-dc7b-4fba-96d7-24b4c72592a1",
-              "Id": "855cdfea-9534-419e-934a-a8b9c8a9637f"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "ea6d821a-6f4d-486f-9f6d-9083e0fc0907",
+              "Id": "6098f685-a9c1-43a3-afc9-ab59efadfff9"
             }
           ]
         },
@@ -290,26 +290,26 @@
           "Semester": 1,
           "Number": 8,
           "Name": "Организация и несение караульной службы",
-          "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-          "Id": "86d53412-ec2e-4bb3-9b2a-b21ed6fff107",
+          "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+          "Id": "c225d6aa-d986-44d9-93e3-5b8d375c9d9e",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 18,
               "Name": "Организация караульной службы и подготовка караула.",
               "Type": 1,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "86d53412-ec2e-4bb3-9b2a-b21ed6fff107",
-              "Id": "59aeb936-4b71-4ba1-8c62-e2c91a9faf29"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "c225d6aa-d986-44d9-93e3-5b8d375c9d9e",
+              "Id": "8dcf69ba-ee0d-4627-8462-07aa51b218d1"
             },
             {
               "SelfStudyHours": 1,
               "Number": 19,
               "Name": "Развод и смена караулов.",
               "Type": 1,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "86d53412-ec2e-4bb3-9b2a-b21ed6fff107",
-              "Id": "03974280-b1d8-4c66-8f61-1e0195e28539"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "c225d6aa-d986-44d9-93e3-5b8d375c9d9e",
+              "Id": "9d9dc5e2-5f02-4cc4-af2e-52982b077953"
             }
           ]
         },
@@ -317,17 +317,17 @@
           "Semester": 1,
           "Number": 1,
           "Name": "Общие положения Строевого устава",
-          "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-          "Id": "d7edd13a-d2a8-4436-aa50-87ca7668c526",
+          "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+          "Id": "0efb2075-1601-48ff-bd18-838a235fbe5c",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 20,
               "Name": "Общие положения Строевого устава.",
               "Type": 1,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "d7edd13a-d2a8-4436-aa50-87ca7668c526",
-              "Id": "e2a7e115-4a9a-4409-818a-599e5d6ef117"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "0efb2075-1601-48ff-bd18-838a235fbe5c",
+              "Id": "3d4c8cea-30d5-4a01-b673-5364c400c222"
             }
           ]
         },
@@ -335,44 +335,44 @@
           "Semester": 1,
           "Number": 2,
           "Name": "Строевые приемы и движение без оружия",
-          "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-          "Id": "6ccd948b-698f-4b0f-9e3a-d27608381974",
+          "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+          "Id": "932ef961-7450-4027-9cc0-c9849b5212d4",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 1,
               "Name": "Строевые приемы и движение без оружия.",
               "Type": 2,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "6ccd948b-698f-4b0f-9e3a-d27608381974",
-              "Id": "0753267a-eafa-42b1-ba19-59105b6c39dc"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "932ef961-7450-4027-9cc0-c9849b5212d4",
+              "Id": "6acc569e-fdde-4531-9ee9-eebc0c7b6978"
             },
             {
               "SelfStudyHours": 1,
               "Number": 2,
               "Name": "Движение строевым шагом.",
               "Type": 2,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "6ccd948b-698f-4b0f-9e3a-d27608381974",
-              "Id": "8543f9ad-4fd2-47a2-b159-6f9434e5a398"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "932ef961-7450-4027-9cc0-c9849b5212d4",
+              "Id": "823d66ac-9b25-447e-b4f8-463e7b107b1b"
             },
             {
               "SelfStudyHours": 1,
               "Number": 3,
               "Name": "Движение строевым шагом.",
               "Type": 2,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "6ccd948b-698f-4b0f-9e3a-d27608381974",
-              "Id": "8496419d-a2df-4f42-9363-52715beaf57f"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "932ef961-7450-4027-9cc0-c9849b5212d4",
+              "Id": "ad173893-7e7e-4c5b-a847-4c45e5e11fc4"
             },
             {
               "SelfStudyHours": 1,
               "Number": 4,
               "Name": "Выполнение воинского приветствия, выход из строя и возвращение в строй. Подход к начальнику и отход от него.",
               "Type": 2,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "6ccd948b-698f-4b0f-9e3a-d27608381974",
-              "Id": "1a474946-4993-48f8-b766-1c7a3223fd0f"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "932ef961-7450-4027-9cc0-c9849b5212d4",
+              "Id": "cae53406-ca8e-4a39-85ae-a6adc3b7c811"
             }
           ]
         },
@@ -380,26 +380,26 @@
           "Semester": 1,
           "Number": 3,
           "Name": "Строевые приемы и движение с оружием",
-          "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-          "Id": "569328f0-d4d1-4f3c-b10f-1f7f70560733",
+          "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+          "Id": "373ee65f-4958-466d-a13e-4c1ec613306f",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 5,
               "Name": "Строевые приемы и движение с оружием.",
               "Type": 2,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "569328f0-d4d1-4f3c-b10f-1f7f70560733",
-              "Id": "57e6d237-9a3d-4010-81d6-98c8c0fdfebc"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "373ee65f-4958-466d-a13e-4c1ec613306f",
+              "Id": "2470c797-274c-40c9-9c95-87894fb2944c"
             },
             {
               "SelfStudyHours": 1,
               "Number": 6,
               "Name": "1. Строевые приемы и движение с оружием.",
               "Type": 2,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "569328f0-d4d1-4f3c-b10f-1f7f70560733",
-              "Id": "eb4c63b8-a8c0-42b4-96f7-75218490d52b"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "373ee65f-4958-466d-a13e-4c1ec613306f",
+              "Id": "f0d4c451-6424-418c-9440-37087e295b9e"
             }
           ]
         },
@@ -407,98 +407,98 @@
           "Semester": 1,
           "Number": 4,
           "Name": "Строи подразделений",
-          "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-          "Id": "fef219be-1349-48cf-94fc-198ab7f38634",
+          "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+          "Id": "b5e3795b-a515-4fd5-b199-aba7c2b60578",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 7,
               "Name": "Строи отделения, взвода.",
               "Type": 2,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "fef219be-1349-48cf-94fc-198ab7f38634",
-              "Id": "89b35a80-22aa-4bd9-9a2d-48074672c5c9"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "b5e3795b-a515-4fd5-b199-aba7c2b60578",
+              "Id": "cde922c6-6f97-4563-b735-412487a7576e"
             },
             {
               "SelfStudyHours": 1,
               "Number": 1,
               "Name": "Автомат Калашникова.",
               "Type": 3,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "fef219be-1349-48cf-94fc-198ab7f38634",
-              "Id": "853d4f29-6ad6-4669-a955-78711739f20a"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "b5e3795b-a515-4fd5-b199-aba7c2b60578",
+              "Id": "6be93a3c-862b-4be6-b3e4-88dd1613fcbf"
             },
             {
               "SelfStudyHours": 1,
               "Number": 2,
               "Name": "Пистолет Макарова (ПМ).",
               "Type": 3,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "fef219be-1349-48cf-94fc-198ab7f38634",
-              "Id": "9c7f28eb-1155-4c35-bf87-0652d6dbb281"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "b5e3795b-a515-4fd5-b199-aba7c2b60578",
+              "Id": "404591a4-f61b-4150-be37-1c838f3ab1dc"
             },
             {
               "SelfStudyHours": 1,
               "Number": 3,
               "Name": "Ручные осколочные гранаты.",
               "Type": 3,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "fef219be-1349-48cf-94fc-198ab7f38634",
-              "Id": "921ffe7a-f9ad-4245-8218-28e7848dd1eb"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "b5e3795b-a515-4fd5-b199-aba7c2b60578",
+              "Id": "7d3eb347-0298-44e8-917b-554edb894fe0"
             },
             {
               "SelfStudyHours": 1,
               "Number": 4,
               "Name": "Материальная часть приборов наблюдения и ночных прицелов.",
               "Type": 3,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "fef219be-1349-48cf-94fc-198ab7f38634",
-              "Id": "d987d363-c4a7-4da4-886e-eaa42b32889f"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "b5e3795b-a515-4fd5-b199-aba7c2b60578",
+              "Id": "f66d9a26-128a-465f-bb31-68b7e4eed284"
             },
             {
               "SelfStudyHours": 1,
               "Number": 5,
               "Name": "Основы и правила стрельбы.",
               "Type": 3,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "fef219be-1349-48cf-94fc-198ab7f38634",
-              "Id": "3999c537-f31d-4d58-b322-17b369a0cb59"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "b5e3795b-a515-4fd5-b199-aba7c2b60578",
+              "Id": "291a4b3d-5302-406f-bee5-996653537a26"
             },
             {
               "SelfStudyHours": 1,
               "Number": 6,
               "Name": "Основы и правила стрельбы.",
               "Type": 3,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "fef219be-1349-48cf-94fc-198ab7f38634",
-              "Id": "ce85eb04-b828-473f-a922-6345f1f3f5be"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "b5e3795b-a515-4fd5-b199-aba7c2b60578",
+              "Id": "b3beb770-0894-4e39-94af-b497f7d18e1d"
             },
             {
               "SelfStudyHours": 1,
               "Number": 7,
               "Name": "Стрелковые тренировки",
               "Type": 3,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "fef219be-1349-48cf-94fc-198ab7f38634",
-              "Id": "149765a9-7c95-4206-a4a5-7fc1545cc010"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "b5e3795b-a515-4fd5-b199-aba7c2b60578",
+              "Id": "aa9ca589-7c97-4102-b31e-afdbfddb03ee"
             },
             {
               "SelfStudyHours": 1,
               "Number": 8,
               "Name": "Стрелковые тренировки",
               "Type": 2,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "fef219be-1349-48cf-94fc-198ab7f38634",
-              "Id": "39a1a966-5387-4200-a3c1-fe107f588fea"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "b5e3795b-a515-4fd5-b199-aba7c2b60578",
+              "Id": "18086ae9-ad97-4cbd-b32b-82726fc7b317"
             },
             {
               "SelfStudyHours": 1,
               "Number": 9,
               "Name": "Стрелковые тренировки",
               "Type": 2,
-              "SubjectId": "8a54c6b6-607b-49cf-8536-98b0b2f52516",
-              "ThemeId": "fef219be-1349-48cf-94fc-198ab7f38634",
-              "Id": "c181e5d2-5e28-4046-aac5-35f845744a22"
+              "SubjectId": "64841d5a-ac9e-4c7f-b6e0-7e24fe17fec2",
+              "ThemeId": "b5e3795b-a515-4fd5-b199-aba7c2b60578",
+              "Id": "3c05b049-2d4d-44a1-ab1a-a85a42f1cf38"
             }
           ]
         }
@@ -506,33 +506,33 @@
     },
     {
       "Name": "Тактическая подготовка",
-      "DirectionId": "cfc93994-afdd-4f3c-9243-5a06f49eaa5d",
-      "Id": "c373c67b-be52-4372-8e4b-495dbc453a77",
+      "DirectionId": "ed0e2060-eb25-4fde-a954-f48bd6c82183",
+      "Id": "8fde251b-2aaf-478c-8fcf-547101c7621f",
       "Themes": [
         {
           "Semester": 2,
           "Number": 1,
           "Name": "Вооруженные Силы Российской Федерации",
-          "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-          "Id": "b5ccbb3d-d05f-47c9-ba82-07c8f694d29e",
+          "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+          "Id": "8990a5a4-860d-4f7e-bebe-0ae3d545343c",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 1,
               "Name": "Вооруженные Силы Российской Федерации.",
               "Type": 1,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "b5ccbb3d-d05f-47c9-ba82-07c8f694d29e",
-              "Id": "b0c44348-7d85-49e0-96b4-bf1ec127c71a"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "8990a5a4-860d-4f7e-bebe-0ae3d545343c",
+              "Id": "1e86ebac-741e-4237-8496-d3152f174706"
             },
             {
               "SelfStudyHours": 1,
               "Number": 2,
               "Name": "Боевая готовность частей и подразделений.",
               "Type": 1,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "b5ccbb3d-d05f-47c9-ba82-07c8f694d29e",
-              "Id": "43a8e803-37b7-46f4-b893-06e13dbb4bdf"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "8990a5a4-860d-4f7e-bebe-0ae3d545343c",
+              "Id": "d8e84015-0fb9-4db2-bd29-1489565a443c"
             }
           ]
         },
@@ -540,44 +540,44 @@
           "Semester": 2,
           "Number": 2,
           "Name": "Основы ведения современного общевойскового боя",
-          "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-          "Id": "1787001e-ef8c-4885-8bd9-2e05ab2042d4",
+          "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+          "Id": "de2f6b17-f43b-4f4d-ad98-140c4fce34af",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 3,
               "Name": "Основы ведения современного общевойскового боя.",
               "Type": 1,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "1787001e-ef8c-4885-8bd9-2e05ab2042d4",
-              "Id": "69b6c464-3b63-45e4-91be-78a97559a5c2"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "de2f6b17-f43b-4f4d-ad98-140c4fce34af",
+              "Id": "fcc31db4-51a2-495e-be39-e1d7fbe290f2"
             },
             {
               "SelfStudyHours": 1,
               "Number": 4,
               "Name": "Мотострелковый взвод в обороне.",
               "Type": 1,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "1787001e-ef8c-4885-8bd9-2e05ab2042d4",
-              "Id": "14e7c91b-04fd-45f6-9b89-24d287785199"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "de2f6b17-f43b-4f4d-ad98-140c4fce34af",
+              "Id": "504991a1-8482-4995-8550-2869e097b843"
             },
             {
               "SelfStudyHours": 1,
               "Number": 5,
               "Name": "Мотострелковый взвод в наступлении.",
               "Type": 1,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "1787001e-ef8c-4885-8bd9-2e05ab2042d4",
-              "Id": "ffe8935c-035c-41f0-9f78-2f8636f850b7"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "de2f6b17-f43b-4f4d-ad98-140c4fce34af",
+              "Id": "259f8153-3bb2-416f-8b27-9f2074c00835"
             },
             {
               "SelfStudyHours": 1,
               "Number": 1,
               "Name": "1. Основы ведения современного общевойскового боя.",
               "Type": 0,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "1787001e-ef8c-4885-8bd9-2e05ab2042d4",
-              "Id": "e28e19cf-5ef8-493d-a77c-478ad0851f6a"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "de2f6b17-f43b-4f4d-ad98-140c4fce34af",
+              "Id": "dc54b23a-90aa-4bb1-b9d9-a08f5a4a9572"
             }
           ]
         },
@@ -585,26 +585,26 @@
           "Semester": 2,
           "Number": 3,
           "Name": "Действия солдата в бою",
-          "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-          "Id": "6ef67bb0-26ea-4599-be07-8bd3119a60ee",
+          "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+          "Id": "e315f552-79f7-49b0-88b1-f470a217c812",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 1,
               "Name": "Передвижение в бою.",
               "Type": 3,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "6ef67bb0-26ea-4599-be07-8bd3119a60ee",
-              "Id": "50f53ff0-201b-47eb-b23c-2e03ff035f77"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "e315f552-79f7-49b0-88b1-f470a217c812",
+              "Id": "67c44f3a-5cc3-4329-85c0-84b0f2dcd6dd"
             },
             {
               "SelfStudyHours": 1,
               "Number": 2,
               "Name": "Действия на боевых машинах.",
               "Type": 3,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "6ef67bb0-26ea-4599-be07-8bd3119a60ee",
-              "Id": "aa2bd9c0-3e05-4df1-8137-e0d017586d79"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "e315f552-79f7-49b0-88b1-f470a217c812",
+              "Id": "f152c3a6-7b1d-465b-b345-bff95e7d595b"
             }
           ]
         },
@@ -612,26 +612,26 @@
           "Semester": 2,
           "Number": 4,
           "Name": "Передвижение подразделений и расположение на месте",
-          "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-          "Id": "d885f353-3242-417d-a78b-056a8fa401d4",
+          "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+          "Id": "830fb38f-4bc2-4a5c-9adf-248b245c18b9",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 3,
               "Name": "Марш и перевозка подразделений.",
               "Type": 3,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "d885f353-3242-417d-a78b-056a8fa401d4",
-              "Id": "43b750af-6a38-4d81-969c-c871c73b1365"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "830fb38f-4bc2-4a5c-9adf-248b245c18b9",
+              "Id": "4b4173e8-48b8-4c9a-acd8-a0e800c03e57"
             },
             {
               "SelfStudyHours": 1,
               "Number": 4,
               "Name": "Расположение на месте.",
               "Type": 3,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "d885f353-3242-417d-a78b-056a8fa401d4",
-              "Id": "08512cfd-9980-4ff9-9215-a0bc5c7e25f0"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "830fb38f-4bc2-4a5c-9adf-248b245c18b9",
+              "Id": "576c7122-7186-4fcc-ab7d-1df86098e2fe"
             }
           ]
         },
@@ -639,26 +639,26 @@
           "Semester": 1,
           "Number": 1,
           "Name": "Ядерное, химическое, биологическое и зажигательное оружие вероятного противника",
-          "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-          "Id": "5b59e1fc-71c0-4307-981b-ff9fc59b8753",
+          "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+          "Id": "8368afe6-5994-4c40-a0ae-160e7ccadbf9",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 6,
               "Name": "Ядерное и химическое оружие вероятного противника.",
               "Type": 1,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "5b59e1fc-71c0-4307-981b-ff9fc59b8753",
-              "Id": "1c129c7a-250d-4e57-bd0e-447cc2fbe6aa"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "8368afe6-5994-4c40-a0ae-160e7ccadbf9",
+              "Id": "19c4117b-b6f8-4b12-af81-0f37dadbe3db"
             },
             {
               "SelfStudyHours": 1,
               "Number": 7,
               "Name": "Биологическое и зажигательное оружие вероятного противника.",
               "Type": 1,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "5b59e1fc-71c0-4307-981b-ff9fc59b8753",
-              "Id": "1b466249-9a30-4e3e-baf6-6a03783109b8"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "8368afe6-5994-4c40-a0ae-160e7ccadbf9",
+              "Id": "519941e3-e179-4e26-8c0a-d054bd61c208"
             }
           ]
         },
@@ -666,35 +666,35 @@
           "Semester": 1,
           "Number": 2,
           "Name": "Средства индивидуальной и коллективной защиты",
-          "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-          "Id": "619d580b-f258-45ff-ab70-91d728c9e422",
+          "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+          "Id": "d072e134-d819-4cbd-a54a-72ea4c72c35f",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 5,
               "Name": "Средства индивидуальной и коллективной защиты.",
               "Type": 3,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "619d580b-f258-45ff-ab70-91d728c9e422",
-              "Id": "409523dd-7286-4a19-826f-1faae948f699"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "d072e134-d819-4cbd-a54a-72ea4c72c35f",
+              "Id": "57b5dd34-06d0-40c7-8f5a-7c766ecb0baa"
             },
             {
               "SelfStudyHours": 1,
               "Number": 1,
               "Name": "Применение средств индивидуальной защиты.",
               "Type": 2,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "619d580b-f258-45ff-ab70-91d728c9e422",
-              "Id": "faa21a48-14ef-48e7-a051-ed9f494907ac"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "d072e134-d819-4cbd-a54a-72ea4c72c35f",
+              "Id": "52adab8a-46e1-4d4b-860b-fa7dca284642"
             },
             {
               "SelfStudyHours": 1,
               "Number": 2,
               "Name": "Применение средств индивидуальной защиты.",
               "Type": 2,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "619d580b-f258-45ff-ab70-91d728c9e422",
-              "Id": "7e5403ee-f5b4-4713-a367-1b2baf42075a"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "d072e134-d819-4cbd-a54a-72ea4c72c35f",
+              "Id": "3625a2d7-7f58-4d05-879d-47c6bdd94d42"
             }
           ]
         },
@@ -702,17 +702,17 @@
           "Semester": 1,
           "Number": 3,
           "Name": "Приборы радиационной и химической разведки",
-          "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-          "Id": "8b8af511-16df-442c-83e1-d5172d70d80e",
+          "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+          "Id": "f835d387-c8c5-46b9-aa0c-cb9bd09a22b7",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 6,
               "Name": "Приборы радиационной и химической разведки.",
               "Type": 3,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "8b8af511-16df-442c-83e1-d5172d70d80e",
-              "Id": "46c5a1ce-7635-4e28-825c-a1c7423b749e"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "f835d387-c8c5-46b9-aa0c-cb9bd09a22b7",
+              "Id": "59d27167-4906-4c01-9610-a1c9df71ae69"
             }
           ]
         },
@@ -720,26 +720,26 @@
           "Semester": 1,
           "Number": 4,
           "Name": "Приемы и способы действия личного состава на зараженной местности",
-          "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-          "Id": "6461d817-a97d-4db6-9f27-b258b8a75ae4",
+          "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+          "Id": "500c53cf-28f1-4929-9d95-28826f1d5f61",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 7,
               "Name": "Специальная обработка личного состава и техники.",
               "Type": 3,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "6461d817-a97d-4db6-9f27-b258b8a75ae4",
-              "Id": "fbbb1680-3286-4da6-99e6-8e0d859969c1"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "500c53cf-28f1-4929-9d95-28826f1d5f61",
+              "Id": "f6f33cf3-f61f-4fef-b17c-8efd5b11af00"
             },
             {
               "SelfStudyHours": 2,
               "Number": 3,
               "Name": "Действие личного состава на зараженной местности.",
               "Type": 2,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "6461d817-a97d-4db6-9f27-b258b8a75ae4",
-              "Id": "4e9073e3-58b4-4eee-b2f1-89f22a200dea"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "500c53cf-28f1-4929-9d95-28826f1d5f61",
+              "Id": "c103578d-0e99-4c4e-8eb1-a68b19b23c1e"
             }
           ]
         },
@@ -747,17 +747,17 @@
           "Semester": 2,
           "Number": 1,
           "Name": "Инженерное обеспечение боя",
-          "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-          "Id": "983dcddf-8d12-4ce6-8542-7f1813ab13a7",
+          "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+          "Id": "6c727220-7205-45fb-899c-31f46f02ef75",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 8,
               "Name": "Инженерное обеспечение боевых действий.",
               "Type": 1,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "983dcddf-8d12-4ce6-8542-7f1813ab13a7",
-              "Id": "3ac37426-4b02-4ca1-b349-5c7395796b70"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "6c727220-7205-45fb-899c-31f46f02ef75",
+              "Id": "79cbf0b2-4470-43c1-a4c9-154f17bffc1e"
             }
           ]
         },
@@ -765,17 +765,17 @@
           "Semester": 2,
           "Number": 2,
           "Name": "Взрывчатые вещества и заряды",
-          "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-          "Id": "ac474cbd-eeb0-4f58-8698-a9ceacec305e",
+          "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+          "Id": "adbf38c3-56a1-4c6c-991c-cbce6c091ccb",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 8,
               "Name": "Взрывчатые вещества и заряды ВВ.",
               "Type": 3,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "ac474cbd-eeb0-4f58-8698-a9ceacec305e",
-              "Id": "2b5444aa-6c7d-448b-bef8-344cb0d8f37e"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "adbf38c3-56a1-4c6c-991c-cbce6c091ccb",
+              "Id": "783e9895-d991-4283-b0e6-ce0cec378fb7"
             }
           ]
         },
@@ -783,17 +783,17 @@
           "Semester": 2,
           "Number": 3,
           "Name": "Способы взрывания",
-          "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-          "Id": "2689bbca-9c95-4ed2-831b-5266fc3524ca",
+          "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+          "Id": "10ea8e28-d11b-431b-8589-dd4751cd3238",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 9,
               "Name": "Огневой способ взрывания.",
               "Type": 3,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "2689bbca-9c95-4ed2-831b-5266fc3524ca",
-              "Id": "fdf239ac-6e40-4f87-a3c1-29568becd9be"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "10ea8e28-d11b-431b-8589-dd4751cd3238",
+              "Id": "53677753-31cc-4d0a-89f6-bca099c094d8"
             }
           ]
         },
@@ -801,26 +801,26 @@
           "Semester": 2,
           "Number": 4,
           "Name": "Инженерные боеприпасы",
-          "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-          "Id": "fac4d50f-7b8b-4d48-8391-1ffa126ed9fd",
+          "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+          "Id": "88bee385-d07c-4995-8acd-a064d0adb0e4",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 10,
               "Name": "Минно-взрывные средства.",
               "Type": 3,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "fac4d50f-7b8b-4d48-8391-1ffa126ed9fd",
-              "Id": "468da50c-6ece-4ccb-8f2b-97c0840a359d"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "88bee385-d07c-4995-8acd-a064d0adb0e4",
+              "Id": "d90943de-e83e-46b5-a914-a7bd0a167500"
             },
             {
               "SelfStudyHours": 1,
               "Number": 11,
               "Name": "Минно-взрывные средства вероятного противника.",
               "Type": 3,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "fac4d50f-7b8b-4d48-8391-1ffa126ed9fd",
-              "Id": "723805ce-fc8b-49b5-9859-5e4c98a6a3b4"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "88bee385-d07c-4995-8acd-a064d0adb0e4",
+              "Id": "5dc7080d-3238-4692-9119-e0c89a03cb4d"
             }
           ]
         },
@@ -828,17 +828,17 @@
           "Semester": 2,
           "Number": 5,
           "Name": "Инженерные заграждения",
-          "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-          "Id": "34ae5307-5482-480f-882a-9e5263d82eea",
+          "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+          "Id": "f141b6a1-e30d-4d1f-ab19-d837d4e8e278",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 12,
               "Name": "Инженерные заграждения.",
               "Type": 3,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "34ae5307-5482-480f-882a-9e5263d82eea",
-              "Id": "81f290e4-ad28-4f49-b11b-6f56ab10f6ff"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "f141b6a1-e30d-4d1f-ab19-d837d4e8e278",
+              "Id": "bd357f25-16cc-49ac-9aaf-c9bfeab730a6"
             }
           ]
         },
@@ -846,17 +846,17 @@
           "Semester": 2,
           "Number": 6,
           "Name": "Разведка инженерных заграждений",
-          "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-          "Id": "0f4462be-4ea5-4c4b-b6e8-608bebbe5b20",
+          "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+          "Id": "a3cf2ef4-85e8-4a7b-bd9e-20f5398b55a6",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 13,
               "Name": "Разведка инженерных заграждений.",
               "Type": 3,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "0f4462be-4ea5-4c4b-b6e8-608bebbe5b20",
-              "Id": "9ae43d21-2fc5-4b97-a826-379f39014c03"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "a3cf2ef4-85e8-4a7b-bd9e-20f5398b55a6",
+              "Id": "2226ed42-bf3d-4300-ae01-911326098cb0"
             }
           ]
         },
@@ -864,17 +864,17 @@
           "Semester": 2,
           "Number": 1,
           "Name": "Ориентирование и движение на местности без карты",
-          "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-          "Id": "b7f43bc6-af31-4d3f-a8e4-0f1d52e016eb",
+          "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+          "Id": "98328c13-64a5-4dc3-9cb2-1d3e50b52e46",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 14,
               "Name": "Ориентирование на местности без карты.",
               "Type": 3,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "b7f43bc6-af31-4d3f-a8e4-0f1d52e016eb",
-              "Id": "4b8cfee1-43dc-4581-95bd-2e4000e574a3"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "98328c13-64a5-4dc3-9cb2-1d3e50b52e46",
+              "Id": "7cf3a9e7-3e62-4063-a907-79c16f7b87e3"
             }
           ]
         },
@@ -882,26 +882,26 @@
           "Semester": 2,
           "Number": 2,
           "Name": "Топографические карты и работа с ними",
-          "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-          "Id": "e4354736-a20e-465a-9c53-89b57fc004ba",
+          "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+          "Id": "9a66c7c8-f334-40c6-b9de-1d996f649529",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 15,
               "Name": "Топографические карты.",
               "Type": 3,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "e4354736-a20e-465a-9c53-89b57fc004ba",
-              "Id": "8ac7952c-6fb0-46e9-844e-863ea29f1787"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "9a66c7c8-f334-40c6-b9de-1d996f649529",
+              "Id": "7e06f50e-6b8c-4002-8372-baf7ff3f51d5"
             },
             {
               "SelfStudyHours": 1,
               "Number": 16,
               "Name": "Содержание топографических карт.",
               "Type": 3,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "e4354736-a20e-465a-9c53-89b57fc004ba",
-              "Id": "3238a080-b173-4cdd-8d49-c0e76b5bc2af"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "9a66c7c8-f334-40c6-b9de-1d996f649529",
+              "Id": "4a15b4f2-702a-4317-ac23-55aeb5336159"
             }
           ]
         },
@@ -909,17 +909,17 @@
           "Semester": 2,
           "Number": 3,
           "Name": "Ориентирование и движение на местности по карте",
-          "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-          "Id": "71561ca5-9082-4449-ac38-68bc8f91f978",
+          "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+          "Id": "3a320228-4fa7-43fe-8412-a082c8311fe6",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 17,
               "Name": "Ориентирование по карте.",
               "Type": 3,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "71561ca5-9082-4449-ac38-68bc8f91f978",
-              "Id": "f9aea716-ac24-483a-a9d3-de219b9ab10f"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "3a320228-4fa7-43fe-8412-a082c8311fe6",
+              "Id": "378d4c0a-00b3-499b-a0cb-745ff896dc2a"
             }
           ]
         },
@@ -927,17 +927,17 @@
           "Semester": 2,
           "Number": 4,
           "Name": "Определение по карте координат целей (объектов)",
-          "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-          "Id": "f4a4f02e-ea0e-4fc6-8fd5-5f2dd50b37cf",
+          "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+          "Id": "5cd4690e-1fdf-4aba-b2d1-fd8dd260773f",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 18,
               "Name": "Определение координат и целеуказание.",
               "Type": 3,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "f4a4f02e-ea0e-4fc6-8fd5-5f2dd50b37cf",
-              "Id": "77250d35-bd56-43ae-a1cc-3d1f187842f6"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "5cd4690e-1fdf-4aba-b2d1-fd8dd260773f",
+              "Id": "55b23faa-0c24-4b0c-82c3-8efccf8ac26f"
             }
           ]
         },
@@ -945,26 +945,26 @@
           "Semester": 2,
           "Number": 5,
           "Name": "Движение по азимутам",
-          "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-          "Id": "8a79b963-4e2e-4ba9-98be-3c9a951071f5",
+          "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+          "Id": "4ccf1152-e890-4585-a7ff-ad58e4236b18",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 19,
               "Name": "Подготовка данных для движения по азимутам.",
               "Type": 3,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "8a79b963-4e2e-4ba9-98be-3c9a951071f5",
-              "Id": "d46802f8-9ba5-4f4e-b519-568df57d4249"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "4ccf1152-e890-4585-a7ff-ad58e4236b18",
+              "Id": "49456b3c-f2da-49f1-bbab-537b998acbcc"
             },
             {
               "SelfStudyHours": 2,
               "Number": 4,
               "Name": "Движение по азимутам.",
               "Type": 2,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "8a79b963-4e2e-4ba9-98be-3c9a951071f5",
-              "Id": "92b52236-ea45-4217-a11b-2dcc702b15b2"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "4ccf1152-e890-4585-a7ff-ad58e4236b18",
+              "Id": "3d4961bf-08ec-4c10-bb14-e8e39791e223"
             }
           ]
         },
@@ -972,26 +972,26 @@
           "Semester": 2,
           "Number": 6,
           "Name": "Рабочая карта командира",
-          "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-          "Id": "3b38ee12-4c84-4961-bfac-c8883df2a8bb",
+          "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+          "Id": "63900d82-c11d-4927-859d-98908f50ff21",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 20,
               "Name": "Рабочая карта командира.",
               "Type": 3,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "3b38ee12-4c84-4961-bfac-c8883df2a8bb",
-              "Id": "d5b52772-6aa2-48bf-8727-3689fc40fc5e"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "63900d82-c11d-4927-859d-98908f50ff21",
+              "Id": "d51f687c-ca78-416a-9bb3-40f63abedbf9"
             },
             {
               "SelfStudyHours": 2,
               "Number": 5,
               "Name": "Подготовка и ведение рабочей карты командира.",
               "Type": 2,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "3b38ee12-4c84-4961-bfac-c8883df2a8bb",
-              "Id": "3a126226-74d0-45a5-844d-722c62da5e92"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "63900d82-c11d-4927-859d-98908f50ff21",
+              "Id": "ae304ea1-92da-4e44-aacc-8fecd124ed66"
             }
           ]
         },
@@ -999,44 +999,44 @@
           "Semester": 2,
           "Number": 1,
           "Name": "Оказание первой доврачебной помощи",
-          "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-          "Id": "b63e1567-dce4-426c-9c42-e1f3090be88d",
+          "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+          "Id": "33d77ca7-e83f-4654-afd1-8509861e86c4",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 21,
               "Name": "Оказание первой доврачебной помощи.",
               "Type": 3,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "b63e1567-dce4-426c-9c42-e1f3090be88d",
-              "Id": "51ba0c9e-e0b2-433f-a896-a726ab619350"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "33d77ca7-e83f-4654-afd1-8509861e86c4",
+              "Id": "bf32ff58-90e4-4345-859c-c90c7fb9531b"
             },
             {
               "SelfStudyHours": 1,
               "Number": 22,
               "Name": "Оказание первой доврачебной помощи при травмах и термических поражениях.",
               "Type": 3,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "b63e1567-dce4-426c-9c42-e1f3090be88d",
-              "Id": "c71bb221-a818-4ba1-9c48-ebd0beef87fb"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "33d77ca7-e83f-4654-afd1-8509861e86c4",
+              "Id": "cefe266f-6732-48c6-91ec-3a16a1704290"
             },
             {
               "SelfStudyHours": 1,
               "Number": 6,
               "Name": "Практическое оказание первой доврачебной помощи.",
               "Type": 2,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "b63e1567-dce4-426c-9c42-e1f3090be88d",
-              "Id": "2bbb076d-542e-442f-a48c-56f2b2bf9aed"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "33d77ca7-e83f-4654-afd1-8509861e86c4",
+              "Id": "0cc22dc3-5ba9-46cb-a7b0-842ecd470d2a"
             },
             {
               "SelfStudyHours": 1,
               "Number": 23,
               "Name": "1. Первая доврачебная помощь при отравлении ядовитыми техническими жидкостями, угарным газом.",
               "Type": 3,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "b63e1567-dce4-426c-9c42-e1f3090be88d",
-              "Id": "1de55f44-8442-482c-8ccb-113b93b29a8a"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "33d77ca7-e83f-4654-afd1-8509861e86c4",
+              "Id": "503765a6-251d-4d9a-b09c-d6685f86b117"
             }
           ]
         },
@@ -1044,26 +1044,26 @@
           "Semester": 2,
           "Number": 1,
           "Name": "Выживание в экстремальных условиях",
-          "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-          "Id": "71b0a7bf-f3a0-4af4-99a2-24fc42d955d0",
+          "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+          "Id": "013be2a9-b0f0-47fb-af40-b39cf3fecb44",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 24,
               "Name": "Организация выживания.",
               "Type": 3,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "71b0a7bf-f3a0-4af4-99a2-24fc42d955d0",
-              "Id": "62726047-d1c2-4191-ba83-24d783a57318"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "013be2a9-b0f0-47fb-af40-b39cf3fecb44",
+              "Id": "cfc754e5-7e7a-4295-9c21-a6ef905ffbb4"
             },
             {
               "SelfStudyHours": 1,
               "Number": 25,
               "Name": "Обеспечение водой и пищей.",
               "Type": 3,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "71b0a7bf-f3a0-4af4-99a2-24fc42d955d0",
-              "Id": "cadadef0-681f-4ad3-bd9f-e114d29fa171"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "013be2a9-b0f0-47fb-af40-b39cf3fecb44",
+              "Id": "19f702c1-9d61-4c86-87f5-f1a158a647da"
             }
           ]
         },
@@ -1071,17 +1071,17 @@
           "Semester": 2,
           "Number": 2,
           "Name": "Подготовка военнослужащих к действиям в экстремальных ситуациях",
-          "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-          "Id": "af34bab3-d273-49e5-972e-2f4d09682c64",
+          "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+          "Id": "cc4b3fd5-e576-4373-acc8-42c34e108f72",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 26,
               "Name": "Подготовка военнослужащих к действиям в экстремальных ситуациях.",
               "Type": 3,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "af34bab3-d273-49e5-972e-2f4d09682c64",
-              "Id": "1e7603d6-c406-4189-92d5-2c6b57742c70"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "cc4b3fd5-e576-4373-acc8-42c34e108f72",
+              "Id": "17fec822-a728-45fc-a4cc-7bf3e28ac4b8"
             }
           ]
         },
@@ -1089,17 +1089,17 @@
           "Semester": 2,
           "Number": 3,
           "Name": "Защита личного состава в чрезвычайных ситуациях",
-          "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-          "Id": "d34b7fff-b269-48d5-a3cf-25fd06887ceb",
+          "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+          "Id": "8cf8be08-3f47-4c16-a489-343d015849dc",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 27,
               "Name": "Защита личного состава в чрезвычайных ситуациях.",
               "Type": 3,
-              "SubjectId": "c373c67b-be52-4372-8e4b-495dbc453a77",
-              "ThemeId": "d34b7fff-b269-48d5-a3cf-25fd06887ceb",
-              "Id": "c9413286-4d74-4d16-955c-ca98d4147b86"
+              "SubjectId": "8fde251b-2aaf-478c-8fcf-547101c7621f",
+              "ThemeId": "8cf8be08-3f47-4c16-a489-343d015849dc",
+              "Id": "01162de9-14a9-4d17-b097-94e105fc5180"
             }
           ]
         }
@@ -1107,69 +1107,69 @@
     },
     {
       "Name": "Военноспециальная подготовка",
-      "DirectionId": "cfc93994-afdd-4f3c-9243-5a06f49eaa5d",
-      "Id": "5843563a-dfb8-4529-bf70-61066cfd0303",
+      "DirectionId": "ed0e2060-eb25-4fde-a954-f48bd6c82183",
+      "Id": "80ba9927-b159-483c-b08d-93aef21b96a8",
       "Themes": [
         {
           "Semester": 2,
           "Number": 1,
           "Name": "Материальная часть стрелкового оружия и гранатометов подразделений СпН",
-          "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-          "Id": "09126ad7-3c6c-455e-b9a5-45908b306eae",
+          "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+          "Id": "f432e293-ed7c-4f8b-8b14-f9f94e16f6a8",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 1,
               "Name": "Пулемет Калашникова ПКМ.",
               "Type": 3,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "09126ad7-3c6c-455e-b9a5-45908b306eae",
-              "Id": "669dbf77-19bf-4515-b58e-a83ea5bc3cf5"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "f432e293-ed7c-4f8b-8b14-f9f94e16f6a8",
+              "Id": "d66dfab6-e236-4ef6-bfe5-177bf720de83"
             },
             {
               "SelfStudyHours": 1,
               "Number": 2,
               "Name": "Снайперская винтовка Драгунова СВД.",
               "Type": 3,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "09126ad7-3c6c-455e-b9a5-45908b306eae",
-              "Id": "1d3d92a7-f410-4356-b8c2-bd12a8afd5db"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "f432e293-ed7c-4f8b-8b14-f9f94e16f6a8",
+              "Id": "06770050-6a8f-43dd-bc48-f4a5430699e9"
             },
             {
               "SelfStudyHours": 1,
               "Number": 3,
               "Name": "Противотанковый гранатомёт РПГ-7.",
               "Type": 3,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "09126ad7-3c6c-455e-b9a5-45908b306eae",
-              "Id": "bf8c2e72-3a35-4f2d-bf93-1a38750f10a1"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "f432e293-ed7c-4f8b-8b14-f9f94e16f6a8",
+              "Id": "cddd52e1-37f7-4afc-9090-385dc6ef70f7"
             },
             {
               "SelfStudyHours": 1,
               "Number": 4,
               "Name": "Специальное оружие.",
               "Type": 3,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "09126ad7-3c6c-455e-b9a5-45908b306eae",
-              "Id": "4d47420b-090c-4652-b03d-9c97f65811f1"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "f432e293-ed7c-4f8b-8b14-f9f94e16f6a8",
+              "Id": "5a5551b3-0cac-45ce-a102-0dcdae7cf3ef"
             },
             {
               "SelfStudyHours": 1,
               "Number": 5,
               "Name": "Противопехотные гранатомёты.",
               "Type": 3,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "09126ad7-3c6c-455e-b9a5-45908b306eae",
-              "Id": "65d869f3-aee0-44f3-8c97-7b076cb3159d"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "f432e293-ed7c-4f8b-8b14-f9f94e16f6a8",
+              "Id": "1e791f3d-62df-4d78-a1e2-c809fe6c38cc"
             },
             {
               "SelfStudyHours": 1,
               "Number": 6,
               "Name": "Тепловизионные приборы наблюдения.",
               "Type": 3,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "09126ad7-3c6c-455e-b9a5-45908b306eae",
-              "Id": "65cdf83d-8666-4872-8977-f8a4115227f0"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "f432e293-ed7c-4f8b-8b14-f9f94e16f6a8",
+              "Id": "9cdbf84f-d04b-4ac1-a80a-d344006f7f8e"
             }
           ]
         },
@@ -1177,35 +1177,35 @@
           "Semester": 2,
           "Number": 2,
           "Name": "Стрелковые тренировки",
-          "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-          "Id": "3abed7d9-05c1-4d47-8035-1d2c8408c856",
+          "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+          "Id": "350fcc68-147d-410b-be0c-8ff48835e0c6",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 1,
               "Name": "Стрелковые тренировки.",
               "Type": 2,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "3abed7d9-05c1-4d47-8035-1d2c8408c856",
-              "Id": "cc622d42-24bf-4110-9da4-7d971a7481e4"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "350fcc68-147d-410b-be0c-8ff48835e0c6",
+              "Id": "4233ab88-2108-4beb-953e-f31e57257787"
             },
             {
               "SelfStudyHours": 1,
               "Number": 2,
               "Name": "Стрелковые тренировки.",
               "Type": 2,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "3abed7d9-05c1-4d47-8035-1d2c8408c856",
-              "Id": "f86e4239-c3f1-4ab2-b470-a11548e5fa0e"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "350fcc68-147d-410b-be0c-8ff48835e0c6",
+              "Id": "ae8bd762-c52f-4dc0-83d0-ced2a9e161c9"
             },
             {
               "SelfStudyHours": 1,
               "Number": 3,
               "Name": "Стрелковые тренировки.",
               "Type": 2,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "3abed7d9-05c1-4d47-8035-1d2c8408c856",
-              "Id": "c1a59bc9-d11e-4a4e-950b-03609ee0bf73"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "350fcc68-147d-410b-be0c-8ff48835e0c6",
+              "Id": "3f5f5051-6892-4200-a63a-d59567e3f793"
             }
           ]
         },
@@ -1213,26 +1213,26 @@
           "Semester": 3,
           "Number": 1,
           "Name": "Способы взрывания",
-          "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-          "Id": "2f00df0a-5409-4cc7-a2e2-42f844a40a5d",
+          "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+          "Id": "37cced8f-59cd-42f9-8426-cd615473725f",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 7,
               "Name": "Огневой способ взрывания.",
               "Type": 3,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "2f00df0a-5409-4cc7-a2e2-42f844a40a5d",
-              "Id": "a25b378b-519b-4fd5-b740-a50dec494f2a"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "37cced8f-59cd-42f9-8426-cd615473725f",
+              "Id": "e7bac8a8-0f5d-41a4-8b2d-4451e7c10f50"
             },
             {
               "SelfStudyHours": 1,
               "Number": 7,
               "Name": "Электрический способ взрывания.",
               "Type": 3,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "2f00df0a-5409-4cc7-a2e2-42f844a40a5d",
-              "Id": "216d77f1-8a6f-40f6-9d40-a3d77c8eec5c"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "37cced8f-59cd-42f9-8426-cd615473725f",
+              "Id": "f818fa80-6f31-478f-bc92-604a61f43aec"
             }
           ]
         },
@@ -1240,26 +1240,26 @@
           "Semester": 3,
           "Number": 2,
           "Name": "Расчет зарядов для подрывания элементов конструкций из дерева, металла, бетона, ж/бетона, камня",
-          "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-          "Id": "f373738a-913c-4090-b013-8fec519cb68b",
+          "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+          "Id": "7f4a69d0-27c5-4bef-86c3-a0f25619e5fc",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 8,
               "Name": "Подрывание элементов конструкций из дерева и металла.",
               "Type": 3,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "f373738a-913c-4090-b013-8fec519cb68b",
-              "Id": "2d5cb3d2-9621-4700-a92b-416e72a4df35"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "7f4a69d0-27c5-4bef-86c3-a0f25619e5fc",
+              "Id": "4c1fbce5-400d-4f08-af67-fd3aab4fca76"
             },
             {
               "SelfStudyHours": 1,
               "Number": 9,
               "Name": "Подрывание элементов конструкций из бетона, ж/бетона, камня.",
               "Type": 3,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "f373738a-913c-4090-b013-8fec519cb68b",
-              "Id": "bc047e7c-3963-4621-9549-e4a0e82484f3"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "7f4a69d0-27c5-4bef-86c3-a0f25619e5fc",
+              "Id": "0ab123f5-ec6f-4548-9540-61beb8a28126"
             }
           ]
         },
@@ -1267,26 +1267,26 @@
           "Semester": 3,
           "Number": 3,
           "Name": "Средства взрывания",
-          "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-          "Id": "4f4adec8-c168-484b-aadf-8a1741b06cd5",
+          "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+          "Id": "4b57f87b-5d9d-44d0-8545-6734c02ccc52",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 10,
               "Name": "Взрыватели мгновенного и замедленного действия.",
               "Type": 3,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "4f4adec8-c168-484b-aadf-8a1741b06cd5",
-              "Id": "c42ed52b-0a40-459b-98ae-1ec717920a02"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "4b57f87b-5d9d-44d0-8545-6734c02ccc52",
+              "Id": "7ef7c629-1132-4beb-b724-de9bf1b23f7e"
             },
             {
               "SelfStudyHours": 1,
               "Number": 11,
               "Name": "Электронные взрыватели.",
               "Type": 3,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "4f4adec8-c168-484b-aadf-8a1741b06cd5",
-              "Id": "a4395b99-d906-438a-ba73-30cc50cec613"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "4b57f87b-5d9d-44d0-8545-6734c02ccc52",
+              "Id": "afd83959-dc7f-43b8-aa1b-e2c195fe0ebb"
             }
           ]
         },
@@ -1294,53 +1294,53 @@
           "Semester": 3,
           "Number": 4,
           "Name": "Инженерные боеприпасы и специальные заряды",
-          "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-          "Id": "d3e61928-719a-432b-ab67-ee0e92035699",
+          "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+          "Id": "56a3417d-f694-4783-babe-a84deac49755",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 12,
               "Name": "Противопехотные фугасные мины.",
               "Type": 3,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "d3e61928-719a-432b-ab67-ee0e92035699",
-              "Id": "12c6fdeb-bfea-4af2-bf13-7561d645e933"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "56a3417d-f694-4783-babe-a84deac49755",
+              "Id": "ec91c7b4-2f89-404c-9b85-b2beb83cc721"
             },
             {
               "SelfStudyHours": 1,
               "Number": 13,
               "Name": "Противопехотные осколочные мины.",
               "Type": 3,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "d3e61928-719a-432b-ab67-ee0e92035699",
-              "Id": "4fe02ded-b5cf-473b-9318-8304dd61b976"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "56a3417d-f694-4783-babe-a84deac49755",
+              "Id": "f65ebc2f-84ef-4dc1-a5aa-368c40625c87"
             },
             {
               "SelfStudyHours": 1,
               "Number": 14,
               "Name": "Объектные мины.",
               "Type": 3,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "d3e61928-719a-432b-ab67-ee0e92035699",
-              "Id": "d1f42939-3c9a-40d8-b76f-159b475b4ef6"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "56a3417d-f694-4783-babe-a84deac49755",
+              "Id": "7575ceb9-8211-49aa-8c08-3006fac0494a"
             },
             {
               "SelfStudyHours": 1,
               "Number": 15,
               "Name": "Мины-ловушки (сюрпризы).",
               "Type": 3,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "d3e61928-719a-432b-ab67-ee0e92035699",
-              "Id": "6d71732b-b045-454f-80f7-62a0c3cda3fd"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "56a3417d-f694-4783-babe-a84deac49755",
+              "Id": "a7e64db3-0bfe-420c-aba3-a7495b8be54d"
             },
             {
               "SelfStudyHours": 1,
               "Number": 16,
               "Name": "Специальные мины и заряды.",
               "Type": 3,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "d3e61928-719a-432b-ab67-ee0e92035699",
-              "Id": "f916d2bd-c548-4c31-b2d8-eef75cd897be"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "56a3417d-f694-4783-babe-a84deac49755",
+              "Id": "c8881ee2-3b6d-4873-bd8c-bb7641459bdd"
             }
           ]
         },
@@ -1348,17 +1348,17 @@
           "Semester": 3,
           "Number": 5,
           "Name": "Правила транспортирования и хранения инженерных боеприпасов",
-          "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-          "Id": "04165852-bbc3-473d-8e94-519dbf75b211",
+          "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+          "Id": "7eef1335-f0fd-4858-b105-90d6f79d8306",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 17,
               "Name": "Транспортирование и хранение инженерных боеприпасов.",
               "Type": 3,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "04165852-bbc3-473d-8e94-519dbf75b211",
-              "Id": "59d34026-a940-4f41-b0f2-d01bf63352f3"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "7eef1335-f0fd-4858-b105-90d6f79d8306",
+              "Id": "caf86a29-b6cd-4946-82f7-e5b62381764f"
             }
           ]
         },
@@ -1366,17 +1366,17 @@
           "Semester": 3,
           "Number": 1,
           "Name": "Объекты разведки и возможности обнаружения их физических проявлений",
-          "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-          "Id": "72a7255d-15fd-4b49-9558-1c59af273cca",
+          "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+          "Id": "f6be7f0e-7da2-480f-bec1-1e037a79ec4c",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 18,
               "Name": "Объекты разведки и возможности обнаружения их физических проявлений.",
               "Type": 3,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "72a7255d-15fd-4b49-9558-1c59af273cca",
-              "Id": "9b59c627-99df-4bb7-84ef-ef99568e4de0"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "f6be7f0e-7da2-480f-bec1-1e037a79ec4c",
+              "Id": "aa79b06d-b0de-4f7e-97b1-9df4f0da25ae"
             }
           ]
         },
@@ -1384,71 +1384,71 @@
           "Semester": 3,
           "Number": 2,
           "Name": "Технические средства разведки",
-          "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-          "Id": "72b9312a-31ab-471a-b9a8-f467c3542c9e",
+          "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+          "Id": "89b276b7-9390-43f1-babd-7c24e8addb42",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 19,
               "Name": "Аппаратура радиоразведки.",
               "Type": 3,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "72b9312a-31ab-471a-b9a8-f467c3542c9e",
-              "Id": "a87e363e-8a3e-47b8-9bea-853a3f89567b"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "89b276b7-9390-43f1-babd-7c24e8addb42",
+              "Id": "f5f17fb8-d931-4cd7-9fb0-6de200852695"
             },
             {
               "SelfStudyHours": 1,
               "Number": 4,
               "Name": "Применение аппаратуры радиоразведки.",
               "Type": 2,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "72b9312a-31ab-471a-b9a8-f467c3542c9e",
-              "Id": "901b9d3b-bbee-47d3-b0b4-7a788a349633"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "89b276b7-9390-43f1-babd-7c24e8addb42",
+              "Id": "dbb27dd9-94dc-4223-990e-c3dfe2332612"
             },
             {
               "SelfStudyHours": 1,
               "Number": 20,
               "Name": "Разведывательно-сигнализационная аппаратура.",
               "Type": 3,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "72b9312a-31ab-471a-b9a8-f467c3542c9e",
-              "Id": "6399e839-cd0c-4f9b-9107-9b11dba18839"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "89b276b7-9390-43f1-babd-7c24e8addb42",
+              "Id": "1c5e34c9-a1b4-413b-836d-ea22142cfa63"
             },
             {
               "SelfStudyHours": 1,
               "Number": 5,
               "Name": "Применение аппаратуры радиоразведки.",
               "Type": 2,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "72b9312a-31ab-471a-b9a8-f467c3542c9e",
-              "Id": "1e166a9a-5ba1-4b43-adcb-06d8801c51e9"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "89b276b7-9390-43f1-babd-7c24e8addb42",
+              "Id": "b00c2ffb-16f5-4a31-a1f5-ec2760183d1c"
             },
             {
               "SelfStudyHours": 1,
               "Number": 21,
               "Name": "Аппаратура «УМИК».",
               "Type": 3,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "72b9312a-31ab-471a-b9a8-f467c3542c9e",
-              "Id": "65f26155-e5f3-4259-b2f8-2958c8969445"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "89b276b7-9390-43f1-babd-7c24e8addb42",
+              "Id": "8158e0d7-6a62-48f0-9eb3-4387fcab64cc"
             },
             {
               "SelfStudyHours": 1,
               "Number": 6,
               "Name": "Применение аппаратуры радиоразведки.",
               "Type": 2,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "72b9312a-31ab-471a-b9a8-f467c3542c9e",
-              "Id": "9eb41f8b-0cf4-48a2-bf76-8efb895e65ec"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "89b276b7-9390-43f1-babd-7c24e8addb42",
+              "Id": "0c2506fd-7452-4302-9f23-11dfa21196d3"
             },
             {
               "SelfStudyHours": 1,
               "Number": 22,
               "Name": "Аппаратура «КРУС».",
               "Type": 3,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "72b9312a-31ab-471a-b9a8-f467c3542c9e",
-              "Id": "895ad586-cac0-42ee-a5e8-74eb275bf21e"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "89b276b7-9390-43f1-babd-7c24e8addb42",
+              "Id": "243846fe-65c9-4d04-a67b-368c57a0ef3a"
             }
           ]
         },
@@ -1456,26 +1456,26 @@
           "Semester": 3,
           "Number": 1,
           "Name": "Радиостанция Р-392АК2М «Арахис»",
-          "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-          "Id": "020a652a-cf34-4a98-be3c-6329edd7359d",
+          "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+          "Id": "745cd6ce-e29f-47e7-a637-b5e043ce9a41",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 23,
               "Name": "Радиостанция Р-392АК2М «Арахис».",
               "Type": 3,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "020a652a-cf34-4a98-be3c-6329edd7359d",
-              "Id": "1b3f6f85-5086-4d9e-a410-503ba58395aa"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "745cd6ce-e29f-47e7-a637-b5e043ce9a41",
+              "Id": "a1427284-3525-43c1-bdcc-f95bb92be51c"
             },
             {
               "SelfStudyHours": 1,
               "Number": 7,
               "Name": "Практическая работа на радиостанции Р-392АК2М «Арахис».",
               "Type": 2,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "020a652a-cf34-4a98-be3c-6329edd7359d",
-              "Id": "4bd0ae7b-c4f8-46d5-a3e2-41973f28474f"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "745cd6ce-e29f-47e7-a637-b5e043ce9a41",
+              "Id": "9d855600-685f-47c3-8872-7c6fa9030391"
             }
           ]
         },
@@ -1483,26 +1483,26 @@
           "Semester": 3,
           "Number": 2,
           "Name": "Тема № 2. Радиостанция Р-353 НК «Намотка-КС»",
-          "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-          "Id": "94a5e3da-27ee-4ebe-b757-a9b751eaa0f5",
+          "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+          "Id": "c5c22da9-070d-466d-9f27-527d73cfaf3e",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 24,
               "Name": "Радиостанция Р-353 НК «Намотка-КС».",
               "Type": 3,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "94a5e3da-27ee-4ebe-b757-a9b751eaa0f5",
-              "Id": "02476240-0627-4cfd-9a44-33d2aa1137a9"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "c5c22da9-070d-466d-9f27-527d73cfaf3e",
+              "Id": "c154ff28-23e7-4b47-835e-8db9ad823fff"
             },
             {
               "SelfStudyHours": 1,
               "Number": 8,
               "Name": "Практическая работа на радиостанции Р-353 НК «Намотка-КС».",
               "Type": 2,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "94a5e3da-27ee-4ebe-b757-a9b751eaa0f5",
-              "Id": "037cd1bb-c9f6-45ce-9918-9e6d9f26bc88"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "c5c22da9-070d-466d-9f27-527d73cfaf3e",
+              "Id": "2b09388c-e9aa-441b-89e3-c9f11990144c"
             }
           ]
         },
@@ -1510,17 +1510,17 @@
           "Semester": 3,
           "Number": 3,
           "Name": "Тема № 2. Радиостанция «Северок-КМП»",
-          "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-          "Id": "6d7dd70c-2340-4dc8-a629-3bb4aa03b5a4",
+          "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+          "Id": "383b89fe-406a-44ab-9c34-ba01fc3bda05",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 25,
               "Name": "Радиостанция «Северок-КМП».",
               "Type": 3,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "6d7dd70c-2340-4dc8-a629-3bb4aa03b5a4",
-              "Id": "f8a5208c-266c-473c-90de-740104b7ea76"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "383b89fe-406a-44ab-9c34-ba01fc3bda05",
+              "Id": "2b86359e-36d9-494b-bf8d-377d7b7a83d8"
             }
           ]
         },
@@ -1528,17 +1528,17 @@
           "Semester": 3,
           "Number": 2,
           "Name": "Тема № 2. Радиостанция «Северок-КМП»",
-          "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-          "Id": "613ced90-f399-40ef-af0b-6b89421820fa",
+          "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+          "Id": "dd8b17e2-7a25-40da-af29-0fcc0b6d3b3a",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 9,
               "Name": "Практическая работа на радиостанции «Северок-КМП».",
               "Type": 2,
-              "SubjectId": "5843563a-dfb8-4529-bf70-61066cfd0303",
-              "ThemeId": "613ced90-f399-40ef-af0b-6b89421820fa",
-              "Id": "f78f2944-004b-4c69-87a6-a10954d70535"
+              "SubjectId": "80ba9927-b159-483c-b08d-93aef21b96a8",
+              "ThemeId": "dd8b17e2-7a25-40da-af29-0fcc0b6d3b3a",
+              "Id": "09b350b5-9eb2-421a-ab42-8b78e862e049"
             }
           ]
         }
@@ -1546,24 +1546,24 @@
     },
     {
       "Name": "Тактикоспециальная подготовка",
-      "DirectionId": "cfc93994-afdd-4f3c-9243-5a06f49eaa5d",
-      "Id": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
+      "DirectionId": "ed0e2060-eb25-4fde-a954-f48bd6c82183",
+      "Id": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
       "Themes": [
         {
           "Semester": 3,
           "Number": 1,
           "Name": "Силы и средства специальной разведки и основы их боевого применения",
-          "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-          "Id": "6971c454-d9e8-4a78-bafc-7fdb69d91696",
+          "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+          "Id": "7e91f94a-dede-49dc-b790-d118d8f375c6",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 1,
               "Name": "Силы и средства специальной разведки.",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "6971c454-d9e8-4a78-bafc-7fdb69d91696",
-              "Id": "f7c8e258-ae7c-4b16-812c-7acc5f9e2b54"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "7e91f94a-dede-49dc-b790-d118d8f375c6",
+              "Id": "c15b13dc-0d12-4583-a076-c86d56648523"
             }
           ]
         },
@@ -1571,44 +1571,44 @@
           "Semester": 3,
           "Number": 2,
           "Name": "Подготовка разведывательных групп к выполнению боевых задач в тылу противника",
-          "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-          "Id": "f83e7268-ff55-4b04-8898-25e5fe6452eb",
+          "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+          "Id": "70699277-8cb7-47c7-b9a1-3872472a05ea",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 2,
               "Name": "Подготовка разведывательных групп к выполнению боевых задач.",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "f83e7268-ff55-4b04-8898-25e5fe6452eb",
-              "Id": "5c189e30-418b-4282-84f2-20ecdbe6ccdb"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "70699277-8cb7-47c7-b9a1-3872472a05ea",
+              "Id": "b9870e1d-cc96-46fd-9753-9345d316da0a"
             },
             {
               "SelfStudyHours": 1,
               "Number": 1,
               "Name": "1. Организация и проведение заблаговременной подготовки разведывательной группы.",
               "Type": 0,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "f83e7268-ff55-4b04-8898-25e5fe6452eb",
-              "Id": "6c14f6ae-8581-455c-a0e2-f0bb700bb915"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "70699277-8cb7-47c7-b9a1-3872472a05ea",
+              "Id": "656514aa-c65d-4c0d-a58e-87e7f845ec52"
             },
             {
               "SelfStudyHours": 3,
               "Number": 1,
               "Name": "Работа командира разведывательной группы после получения боевой задачи.",
               "Type": 2,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "f83e7268-ff55-4b04-8898-25e5fe6452eb",
-              "Id": "fd07bca5-b590-4c6b-8a1a-c96e823111b5"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "70699277-8cb7-47c7-b9a1-3872472a05ea",
+              "Id": "d3f60a18-2e61-45e1-939e-5c131a44a36a"
             },
             {
               "SelfStudyHours": 1,
               "Number": 1,
               "Name": "Подготовка боевой экипировки.",
               "Type": 3,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "f83e7268-ff55-4b04-8898-25e5fe6452eb",
-              "Id": "37fba17e-7efb-4cc6-aa5b-833603993b6e"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "70699277-8cb7-47c7-b9a1-3872472a05ea",
+              "Id": "6b0e41cd-9d36-4600-b214-f3851f6ac01c"
             }
           ]
         },
@@ -1616,26 +1616,26 @@
           "Semester": 3,
           "Number": 3,
           "Name": "Организация связи в разведывательной группе",
-          "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-          "Id": "7abf4c5e-cd77-433f-bda0-655039d6b94a",
+          "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+          "Id": "4a9cfeae-7b54-4440-9754-4e30a453b754",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 2,
               "Name": "Организация связи.",
               "Type": 3,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "7abf4c5e-cd77-433f-bda0-655039d6b94a",
-              "Id": "b08a82ee-219d-4ff9-9b9e-84282a64eb5d"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "4a9cfeae-7b54-4440-9754-4e30a453b754",
+              "Id": "99470aaf-9a11-4890-97d4-a29511362fc8"
             },
             {
               "SelfStudyHours": 1,
               "Number": 3,
               "Name": "Составление разведывательных донесений.",
               "Type": 3,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "7abf4c5e-cd77-433f-bda0-655039d6b94a",
-              "Id": "52dfad38-941a-4851-837c-d7c6ed49f21e"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "4a9cfeae-7b54-4440-9754-4e30a453b754",
+              "Id": "a1051382-4033-45f7-8934-3b8bd714e107"
             }
           ]
         },
@@ -1643,53 +1643,53 @@
           "Semester": 3,
           "Number": 4,
           "Name": "Пути и способы вывода разведывательных групп в тыл противника",
-          "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-          "Id": "973751b9-8b62-4635-a22e-86fcb132997e",
+          "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+          "Id": "0c543d5a-3af7-42cf-8cdd-37176869a3a3",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 3,
               "Name": "Вывод разведывательных групп в тыл противника.",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "973751b9-8b62-4635-a22e-86fcb132997e",
-              "Id": "ef4a9355-af26-409a-9c2b-545ac102d1fc"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "0c543d5a-3af7-42cf-8cdd-37176869a3a3",
+              "Id": "ce12cb85-46c2-4a3d-9399-223dfb0d08e2"
             },
             {
               "SelfStudyHours": 1,
               "Number": 4,
               "Name": "Забазирование разведывательной группы.",
               "Type": 3,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "973751b9-8b62-4635-a22e-86fcb132997e",
-              "Id": "78895d9d-20fe-46f2-a16d-5eddbf9bea5b"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "0c543d5a-3af7-42cf-8cdd-37176869a3a3",
+              "Id": "18c3f180-010a-4177-a2ed-d7ef11d13d3e"
             },
             {
               "SelfStudyHours": 1,
               "Number": 5,
               "Name": "Вывод разведывательной группы в тыл противника через государственную границу. 1. Вывод разведывательной группы в тыл противника через государственную границу. Выбор и изучение участков перехода.",
               "Type": 3,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "973751b9-8b62-4635-a22e-86fcb132997e",
-              "Id": "e04305fb-20e6-40c7-99fe-5d0b6e87e88e"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "0c543d5a-3af7-42cf-8cdd-37176869a3a3",
+              "Id": "6eaae1cb-e40e-41c4-978d-0e8a8ef167ec"
             },
             {
               "SelfStudyHours": 1,
               "Number": 6,
               "Name": "Вывод (переброска) разведывательной группы в тыл противника в ходе боевых действий.",
               "Type": 3,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "973751b9-8b62-4635-a22e-86fcb132997e",
-              "Id": "2852f74e-f894-44cc-ae54-bd1438b9bd6e"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "0c543d5a-3af7-42cf-8cdd-37176869a3a3",
+              "Id": "bc1ba672-38b2-4654-bd58-2e648ef10ed4"
             },
             {
               "SelfStudyHours": 1,
               "Number": 2,
               "Name": "1. Вывод разведывательной группы в тыл противника воздушным путем.",
               "Type": 0,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "973751b9-8b62-4635-a22e-86fcb132997e",
-              "Id": "1b2b47f9-fae5-4ec9-85f9-df16a9ae2e73"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "0c543d5a-3af7-42cf-8cdd-37176869a3a3",
+              "Id": "05e02889-46fd-4005-a0c1-9ba2c57c9028"
             }
           ]
         },
@@ -1697,17 +1697,17 @@
           "Semester": 3,
           "Number": 5,
           "Name": "Действия разведывательной группы при передвижении в тылу противника",
-          "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-          "Id": "63034a83-d835-4661-972a-145e4b9ba3d4",
+          "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+          "Id": "4d1e0807-b90c-41de-af63-75ca0c89c009",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 4,
               "Name": "Построение боевого порядка разведывательной группы.",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "63034a83-d835-4661-972a-145e4b9ba3d4",
-              "Id": "9cd1c4b4-ff7e-4cd7-9260-fff9a62b9419"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "4d1e0807-b90c-41de-af63-75ca0c89c009",
+              "Id": "438b10b9-19c7-4771-a327-5bc1d9c0f602"
             }
           ]
         },
@@ -1715,26 +1715,26 @@
           "Semester": 3,
           "Number": 6,
           "Name": "Действия разведывательной группы в поиске",
-          "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-          "Id": "b1ad6ab3-7165-4913-b9ef-37337a5eec9f",
+          "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+          "Id": "fecf70e9-8340-4ecd-99fd-b97049b961d0",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 5,
               "Name": "Ведение поиска.",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "b1ad6ab3-7165-4913-b9ef-37337a5eec9f",
-              "Id": "d699240c-4b53-42bb-a89e-7cc3c8907a79"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "fecf70e9-8340-4ecd-99fd-b97049b961d0",
+              "Id": "af2fdeff-7e8b-4676-9427-b0db18b218d0"
             },
             {
               "SelfStudyHours": 0,
               "Number": 3,
               "Name": "1. Задачи, объекты и способы ведения поиска. Боевой порядок разведывательной группы в поиске.",
               "Type": 0,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "b1ad6ab3-7165-4913-b9ef-37337a5eec9f",
-              "Id": "c93f922d-c2fd-4e6b-a051-786b7ca91006"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "fecf70e9-8340-4ecd-99fd-b97049b961d0",
+              "Id": "3657ea23-8072-4327-b263-7bc9877336e0"
             }
           ]
         },
@@ -1742,17 +1742,17 @@
           "Semester": 4,
           "Number": 6,
           "Name": "Действия разведывательной группы в поиске",
-          "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-          "Id": "794b1646-004f-49b7-a612-8c19fe87aa70",
+          "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+          "Id": "af0ebe81-2d72-4b5f-bfb6-9cb659698847",
           "Lessons": [
             {
               "SelfStudyHours": 2,
               "Number": 2,
               "Name": "Работа командира разведывательной группы по организации поиска.",
               "Type": 2,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "794b1646-004f-49b7-a612-8c19fe87aa70",
-              "Id": "c011a0e4-93f7-47d6-bf6f-57fd12976055"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "af0ebe81-2d72-4b5f-bfb6-9cb659698847",
+              "Id": "13cf4be6-9ac2-4be6-ac25-6eadb160f69d"
             }
           ]
         },
@@ -1760,17 +1760,17 @@
           "Semester": 4,
           "Number": 7,
           "Name": "Организация и ведение наблюдения",
-          "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-          "Id": "270d2bd8-4ba0-40de-a9df-6726a7822c8c",
+          "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+          "Id": "377a5eff-c8bd-439c-957f-71ae912fdbf0",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 6,
               "Name": "Наблюдение.",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "270d2bd8-4ba0-40de-a9df-6726a7822c8c",
-              "Id": "ba79f252-3a44-4b29-a112-40cf850ad86a"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "377a5eff-c8bd-439c-957f-71ae912fdbf0",
+              "Id": "28fe2ce5-cb4d-4955-afc8-02214ef264eb"
             }
           ]
         },
@@ -1778,62 +1778,62 @@
           "Semester": 4,
           "Number": 8,
           "Name": "Проведение специальных мероприятий в тылу противника",
-          "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-          "Id": "eacc5685-199c-4947-8054-b513a6c18eb8",
+          "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+          "Id": "d8a9f6a7-b570-41b9-831e-ebc4a5d54a8f",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 7,
               "Name": "Подготовка и устройство засады.",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "eacc5685-199c-4947-8054-b513a6c18eb8",
-              "Id": "1de8d75e-65cf-465d-918b-bb247771cc1c"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "d8a9f6a7-b570-41b9-831e-ebc4a5d54a8f",
+              "Id": "29b9b706-a6f2-4b72-aece-3c78702c4690"
             },
             {
               "SelfStudyHours": 1,
               "Number": 8,
               "Name": "Подготовка и проведение налета.",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "eacc5685-199c-4947-8054-b513a6c18eb8",
-              "Id": "7f4007bd-42f5-4ae1-84d1-939a56fd58c1"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "d8a9f6a7-b570-41b9-831e-ebc4a5d54a8f",
+              "Id": "23ac2f93-0e81-4392-ac0a-b1c658299ad7"
             },
             {
               "SelfStudyHours": 1,
               "Number": 9,
               "Name": "Подготовка и проведение диверсии.",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "eacc5685-199c-4947-8054-b513a6c18eb8",
-              "Id": "c27ffc0b-0875-4199-958c-01a41a37b9c1"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "d8a9f6a7-b570-41b9-831e-ebc4a5d54a8f",
+              "Id": "59ced2de-2216-49c5-84f1-b72ceb35aa78"
             },
             {
               "SelfStudyHours": 1,
               "Number": 4,
               "Name": "1. Подготовка и оформление карты решения командира разведывательной группы.",
               "Type": 0,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "eacc5685-199c-4947-8054-b513a6c18eb8",
-              "Id": "64b326c7-55f4-4c13-879b-0a262cffaf3f"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "d8a9f6a7-b570-41b9-831e-ebc4a5d54a8f",
+              "Id": "760399c9-938f-4767-b170-74ab91461fb8"
             },
             {
               "SelfStudyHours": 2,
               "Number": 3,
               "Name": "Работа командира разведывательной группы по организации засады.",
               "Type": 2,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "eacc5685-199c-4947-8054-b513a6c18eb8",
-              "Id": "883305c6-9aff-463d-b922-e5098a039ac8"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "d8a9f6a7-b570-41b9-831e-ebc4a5d54a8f",
+              "Id": "b9dee537-b08f-41d3-9f91-e7f8e4e7b0c3"
             },
             {
               "SelfStudyHours": 2,
               "Number": 4,
               "Name": "Работа командира разведывательной группы по организации налета.",
               "Type": 2,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "eacc5685-199c-4947-8054-b513a6c18eb8",
-              "Id": "fe68c134-7764-471f-b1dc-db7fdc65a478"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "d8a9f6a7-b570-41b9-831e-ebc4a5d54a8f",
+              "Id": "308f2471-eb79-4af9-9e25-3125e66d163a"
             }
           ]
         },
@@ -1841,17 +1841,17 @@
           "Semester": 4,
           "Number": 9,
           "Name": "Поиск и уничтожение ядерно-минных заграждений вероятного противника",
-          "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-          "Id": "01b22482-e4a6-46d4-b177-622a8a3a26a2",
+          "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+          "Id": "bd18190f-553f-40d4-9def-b02bb486b2e1",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 10,
               "Name": "Разведка ядерно-минных заграждений противника.",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "01b22482-e4a6-46d4-b177-622a8a3a26a2",
-              "Id": "6d99636e-68e4-465c-90ac-c474adabe7d5"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "bd18190f-553f-40d4-9def-b02bb486b2e1",
+              "Id": "1fa026af-98a0-4da0-b8ce-735b9baeeccf"
             }
           ]
         },
@@ -1859,17 +1859,17 @@
           "Semester": 4,
           "Number": 10,
           "Name": "Оборудование тайников",
-          "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-          "Id": "b457ab55-b1c1-40d7-8ee6-e15ce7add5f5",
+          "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+          "Id": "14825c69-5f62-465a-8fb5-a4f2a41cfbed",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 11,
               "Name": "Оборудование и использование тайников",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "b457ab55-b1c1-40d7-8ee6-e15ce7add5f5",
-              "Id": "14d59eb0-e427-4a94-a0ab-1507709575c5"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "14825c69-5f62-465a-8fb5-a4f2a41cfbed",
+              "Id": "a5c96752-1d5d-4a93-8edf-31f233951587"
             }
           ]
         },
@@ -1877,35 +1877,35 @@
           "Semester": 4,
           "Number": 11,
           "Name": "Организация и осуществление связи с агентурным источником",
-          "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-          "Id": "cbb20345-e0a6-405f-b6b6-d595c067d2f3",
+          "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+          "Id": "67c0442f-fe40-4f2d-b401-02e9c2cddcb2",
           "Lessons": [
             {
               "SelfStudyHours": 2,
               "Number": 7,
               "Name": "Организация связи с агентурным источником.",
               "Type": 3,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "cbb20345-e0a6-405f-b6b6-d595c067d2f3",
-              "Id": "b3e95220-305e-4500-9b83-54541dd30a7c"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "67c0442f-fe40-4f2d-b401-02e9c2cddcb2",
+              "Id": "b4401505-d2f1-4429-af88-721f1de8bc80"
             },
             {
               "SelfStudyHours": 3,
               "Number": 5,
               "Name": "Организация связи через тайники.",
               "Type": 2,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "cbb20345-e0a6-405f-b6b6-d595c067d2f3",
-              "Id": "df07ccdc-7466-4ee9-9655-e69f8970ab3d"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "67c0442f-fe40-4f2d-b401-02e9c2cddcb2",
+              "Id": "c435040e-1bb0-4290-9e54-6a8079422a48"
             },
             {
               "SelfStudyHours": 3,
               "Number": 6,
               "Name": "1. Проведение тайниковой операции (изъятие).",
               "Type": 2,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "cbb20345-e0a6-405f-b6b6-d595c067d2f3",
-              "Id": "8f73e6b0-89aa-4d00-831a-6e7785369d0e"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "67c0442f-fe40-4f2d-b401-02e9c2cddcb2",
+              "Id": "9e3ca344-0f0f-44d8-ab8f-98b0e97175f1"
             }
           ]
         },
@@ -1913,17 +1913,17 @@
           "Semester": 4,
           "Number": 12,
           "Name": "Действия разведывательных групп в тылу противника с использованием партизанского (повстанческого) движения",
-          "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-          "Id": "edb0abdf-50f8-46b8-beac-7db3e2eb0503",
+          "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+          "Id": "33e0cd76-75d3-451d-b7c6-0fe10ba4e050",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 12,
               "Name": "Партизанское (повстанческое) движение.",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "edb0abdf-50f8-46b8-beac-7db3e2eb0503",
-              "Id": "dd0f275f-ddef-492d-bd28-e18c65e218c4"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "33e0cd76-75d3-451d-b7c6-0fe10ba4e050",
+              "Id": "78153aea-44f0-4b97-908e-0b060d9ae535"
             }
           ]
         },
@@ -1931,26 +1931,26 @@
           "Semester": 4,
           "Number": 13,
           "Name": "Прием личного состава и грузов в тылу противника",
-          "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-          "Id": "f3f23897-b548-4387-bb0d-4f796e265935",
+          "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+          "Id": "eb490eaf-0c9c-4c93-85d4-4121328a2807",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 13,
               "Name": "Прием личного состава и грузов в тылу противника.",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "f3f23897-b548-4387-bb0d-4f796e265935",
-              "Id": "4725a749-4735-42a4-9f0d-290637b9ccf7"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "eb490eaf-0c9c-4c93-85d4-4121328a2807",
+              "Id": "c97074b4-8263-4f95-8e4e-6093fd86f123"
             },
             {
               "SelfStudyHours": 1,
               "Number": 5,
               "Name": "1. Требования, предъявляемые к площадкам для приема разведчиков (грузов).",
               "Type": 0,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "f3f23897-b548-4387-bb0d-4f796e265935",
-              "Id": "9380a6d6-ac54-4a49-8a25-f79524d3c165"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "eb490eaf-0c9c-4c93-85d4-4121328a2807",
+              "Id": "fb5d8334-af8d-41c5-8110-0c31deaf5720"
             }
           ]
         },
@@ -1958,26 +1958,26 @@
           "Semester": 4,
           "Number": 14,
           "Name": "Возвращение разведывательных групп в расположение своих войск",
-          "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-          "Id": "0c691b2b-8b4d-4022-b90f-68c1b8a3a205",
+          "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+          "Id": "64ff8092-b8b8-43a9-9f4f-5a2104dc43e1",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 14,
               "Name": "Возвращение разведывательной группы.",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "0c691b2b-8b4d-4022-b90f-68c1b8a3a205",
-              "Id": "d7cc2d4e-aa61-46ed-9b2e-f18ca9129847"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "64ff8092-b8b8-43a9-9f4f-5a2104dc43e1",
+              "Id": "40640c2e-1932-47c7-8231-dc7c3e14764c"
             },
             {
               "SelfStudyHours": 2,
               "Number": 7,
               "Name": "Работа с разведывательной группой после ее возвращения.",
               "Type": 2,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "0c691b2b-8b4d-4022-b90f-68c1b8a3a205",
-              "Id": "a7d5c0dc-b8b2-448c-911f-4a3dff8b7d7b"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "64ff8092-b8b8-43a9-9f4f-5a2104dc43e1",
+              "Id": "119d5cb2-c2bd-4712-8237-e0c7ea90962a"
             }
           ]
         },
@@ -1985,53 +1985,53 @@
           "Semester": 4,
           "Number": 15,
           "Name": "Выполнение боевых задач в зонах вооруженных конфликтов",
-          "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-          "Id": "c5da0909-03f8-4d74-943a-f5656749a74f",
+          "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+          "Id": "f9e816f9-9c14-47fc-826d-9820f4e9109a",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 15,
               "Name": "Применение разведывательных групп в вооруженных конфликтах.",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "c5da0909-03f8-4d74-943a-f5656749a74f",
-              "Id": "3f340628-68f1-40b5-9a09-4890e06835c5"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "f9e816f9-9c14-47fc-826d-9820f4e9109a",
+              "Id": "bc78fff6-a88b-4af9-be92-a6fb76de0a06"
             },
             {
               "SelfStudyHours": 1,
               "Number": 8,
               "Name": "Применение разведывательной группы в составе воздушных поисково – штурмовых групп.",
               "Type": 3,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "c5da0909-03f8-4d74-943a-f5656749a74f",
-              "Id": "33354462-519c-476c-87d5-327a64d01576"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "f9e816f9-9c14-47fc-826d-9820f4e9109a",
+              "Id": "2ab1cdb2-ccc6-466c-9560-a8123a4a7f5f"
             },
             {
               "SelfStudyHours": 1,
               "Number": 9,
               "Name": "Применение специальных транспортных средств.",
               "Type": 3,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "c5da0909-03f8-4d74-943a-f5656749a74f",
-              "Id": "5fe97087-6b61-40ed-9299-3e8cd927c720"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "f9e816f9-9c14-47fc-826d-9820f4e9109a",
+              "Id": "281acea6-3753-4975-a1c6-42a0ad76599e"
             },
             {
               "SelfStudyHours": 1,
               "Number": 10,
               "Name": "Корректирование огня артиллерии и авиации.",
               "Type": 3,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "c5da0909-03f8-4d74-943a-f5656749a74f",
-              "Id": "2c4d0eb4-53ee-46ce-a0c3-6bef9384e943"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "f9e816f9-9c14-47fc-826d-9820f4e9109a",
+              "Id": "d32daeb9-b581-4a7d-8843-c0740598d926"
             },
             {
               "SelfStudyHours": 1,
               "Number": 6,
               "Name": "1. Способы выполнения разведывательных задач в зонах вооруженных конфликтов.",
               "Type": 0,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "c5da0909-03f8-4d74-943a-f5656749a74f",
-              "Id": "a55262c0-311d-4e5a-a3ee-ee46ef86d30f"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "f9e816f9-9c14-47fc-826d-9820f4e9109a",
+              "Id": "55a0b598-66d3-4074-bcea-cac6b441da2d"
             }
           ]
         },
@@ -2039,17 +2039,17 @@
           "Semester": 4,
           "Number": 16,
           "Name": "Методика проведения занятий по тактико-специальной подготовке",
-          "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-          "Id": "8519d6d9-6e99-4494-b0d2-19cce977f685",
+          "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+          "Id": "aa473b6a-9aa7-40c5-b9af-e18bdf1c69ff",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 16,
               "Name": "Проведение занятий по тактико-специальной подготовке.",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "8519d6d9-6e99-4494-b0d2-19cce977f685",
-              "Id": "670d72be-1035-4fb8-b7b1-9192f850b51e"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "aa473b6a-9aa7-40c5-b9af-e18bdf1c69ff",
+              "Id": "06b3de9c-80da-47d5-9004-8148915fa6de"
             }
           ]
         },
@@ -2057,17 +2057,17 @@
           "Semester": 4,
           "Number": 1,
           "Name": "Объединенные вооруженные силы НАТО",
-          "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-          "Id": "ff514552-80bf-4d57-ae72-df4f53fa7a37",
+          "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+          "Id": "a8ac2f3b-e6e1-4fbf-81b9-e6b8d0f50999",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 17,
               "Name": "Организация Североатлантического договора (НАТО).",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "ff514552-80bf-4d57-ae72-df4f53fa7a37",
-              "Id": "11381be6-a422-42ec-bf51-69a0f1b7c789"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "a8ac2f3b-e6e1-4fbf-81b9-e6b8d0f50999",
+              "Id": "829200b4-afa8-4d88-8c5b-8fe8b3e1ebad"
             }
           ]
         },
@@ -2075,53 +2075,53 @@
           "Semester": 4,
           "Number": 2,
           "Name": "Организация и вооружение соединений иностранных армий",
-          "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-          "Id": "38aa5d42-674b-4296-88ab-e6e876df21a2",
+          "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+          "Id": "cbaacca0-44e8-4c3f-9d0e-99f4b9195b92",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 18,
               "Name": "Соединения сухопутных войск США.",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "38aa5d42-674b-4296-88ab-e6e876df21a2",
-              "Id": "a6e279bc-d18f-4feb-adbb-659fea8f7ffd"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "cbaacca0-44e8-4c3f-9d0e-99f4b9195b92",
+              "Id": "6dcf03fb-62cb-4af4-97af-9fb2fee5f151"
             },
             {
               "SelfStudyHours": 1,
               "Number": 19,
               "Name": "Соединения сухопутных войск США.",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "38aa5d42-674b-4296-88ab-e6e876df21a2",
-              "Id": "9e4348da-f606-41ba-bfe3-6e7cb55338e4"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "cbaacca0-44e8-4c3f-9d0e-99f4b9195b92",
+              "Id": "243d60f1-75ce-4b1b-b9a6-7c2bad138c56"
             },
             {
               "SelfStudyHours": 1,
               "Number": 20,
               "Name": "Соединения сухопутных войск ФРГ.",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "38aa5d42-674b-4296-88ab-e6e876df21a2",
-              "Id": "68d67598-75a8-4833-aa63-de4d53bf9c89"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "cbaacca0-44e8-4c3f-9d0e-99f4b9195b92",
+              "Id": "57c4790c-80d4-455d-99e2-96535af6c6b2"
             },
             {
               "SelfStudyHours": 1,
               "Number": 21,
               "Name": "Соединения сухопутных войск НОАК.",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "38aa5d42-674b-4296-88ab-e6e876df21a2",
-              "Id": "11689648-4a8d-4e9b-b78c-99464361285c"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "cbaacca0-44e8-4c3f-9d0e-99f4b9195b92",
+              "Id": "dc898ecd-1039-4216-9bc7-1db20cf0a206"
             },
             {
               "SelfStudyHours": 1,
               "Number": 7,
               "Name": "1. Структура основных соединений вооруженных сил США.",
               "Type": 0,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "38aa5d42-674b-4296-88ab-e6e876df21a2",
-              "Id": "cfad9607-c394-4f70-8dcc-569d146facfd"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "cbaacca0-44e8-4c3f-9d0e-99f4b9195b92",
+              "Id": "40deda31-17e9-4688-ae68-7f583046f9d1"
             }
           ]
         },
@@ -2129,35 +2129,35 @@
           "Semester": 4,
           "Number": 3,
           "Name": "Форма одежды, воинские звания и знаки различия военнослужащих иностранных армий. Опознавательные знаки военной техники",
-          "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-          "Id": "a2e375ed-3257-408e-8dbd-fe2fd48c57a1",
+          "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+          "Id": "6c946aae-c682-4f7e-b23e-6e3863880c20",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 11,
               "Name": "Опознавательные знаки вооруженных сил США.",
               "Type": 3,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "a2e375ed-3257-408e-8dbd-fe2fd48c57a1",
-              "Id": "6285ec13-8fbe-4dda-a300-3a040384e25d"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "6c946aae-c682-4f7e-b23e-6e3863880c20",
+              "Id": "01168a9e-e712-40ff-a4d5-6ffcdc905543"
             },
             {
               "SelfStudyHours": 1,
               "Number": 12,
               "Name": "Опознавательные знаки вооруженных сил ФРГ.",
               "Type": 3,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "a2e375ed-3257-408e-8dbd-fe2fd48c57a1",
-              "Id": "4c706f82-2050-4cf5-856b-7c408556ed7c"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "6c946aae-c682-4f7e-b23e-6e3863880c20",
+              "Id": "a99b598f-1d5f-4397-a960-daa58dcc96d5"
             },
             {
               "SelfStudyHours": 1,
               "Number": 13,
               "Name": "Опознавательные знаки вооруженных сил КНР.",
               "Type": 3,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "a2e375ed-3257-408e-8dbd-fe2fd48c57a1",
-              "Id": "ee3af0c0-99f5-4510-83f5-1843e0878c39"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "6c946aae-c682-4f7e-b23e-6e3863880c20",
+              "Id": "79556b25-0820-4ca7-ae55-7df7c29a954e"
             }
           ]
         },
@@ -2165,35 +2165,35 @@
           "Semester": 4,
           "Number": 4,
           "Name": "Объекты оперативного оборудования зарубежной части ТВД",
-          "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-          "Id": "301983aa-df3b-477b-b049-7721fa98ab46",
+          "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+          "Id": "27626ec9-6634-4130-b417-5840d8b6a9d4",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 14,
               "Name": "Пункты управления.",
               "Type": 3,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "301983aa-df3b-477b-b049-7721fa98ab46",
-              "Id": "1fd709b4-639d-475b-8a0d-6139564280c6"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "27626ec9-6634-4130-b417-5840d8b6a9d4",
+              "Id": "52507a05-d936-4bf9-825f-6857274c7a6a"
             },
             {
               "SelfStudyHours": 1,
               "Number": 15,
               "Name": "Пункты складирования и хранения ядерных боеприпасов.",
               "Type": 3,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "301983aa-df3b-477b-b049-7721fa98ab46",
-              "Id": "9fdc07ea-8354-4b9e-88ac-7b3212db04f5"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "27626ec9-6634-4130-b417-5840d8b6a9d4",
+              "Id": "262f8fe1-28d0-4c78-8087-79139f0fd90c"
             },
             {
               "SelfStudyHours": 1,
               "Number": 16,
               "Name": "Ракетные и артиллерийские системы.",
               "Type": 3,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "301983aa-df3b-477b-b049-7721fa98ab46",
-              "Id": "d2f219f7-1196-4c53-a60e-f92cdb53fec5"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "27626ec9-6634-4130-b417-5840d8b6a9d4",
+              "Id": "0ff2569f-5188-41d4-a29d-7f0f5b02e54f"
             }
           ]
         },
@@ -2201,26 +2201,26 @@
           "Semester": 5,
           "Number": 4,
           "Name": "Объекты оперативного оборудования зарубежной части ТВД",
-          "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-          "Id": "b9cb0310-ad1f-4c5c-a64f-3c61399cd47a",
+          "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+          "Id": "af6fc16f-5834-4e9d-ab5d-9dad9586d474",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 22,
               "Name": "Разведывательно-ударные комплексы.",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "b9cb0310-ad1f-4c5c-a64f-3c61399cd47a",
-              "Id": "6c942d6f-e4cd-435e-982b-42bd511d68b1"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "af6fc16f-5834-4e9d-ab5d-9dad9586d474",
+              "Id": "43c1aa6b-5e4d-4abc-a949-d963e447d2b6"
             },
             {
               "SelfStudyHours": 1,
               "Number": 8,
               "Name": "1. Пункты управления соединений сухопутных войск иностранных армий, их разведывательные признаки.",
               "Type": 0,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "b9cb0310-ad1f-4c5c-a64f-3c61399cd47a",
-              "Id": "27eac75c-49f8-40b0-a494-7c76e8f4689b"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "af6fc16f-5834-4e9d-ab5d-9dad9586d474",
+              "Id": "ce72f6f7-ac58-4734-a6b4-9dd7c1530cc4"
             }
           ]
         },
@@ -2228,17 +2228,17 @@
           "Semester": 5,
           "Number": 5,
           "Name": "Пункты управления авиацией и ПВО театра военных действий",
-          "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-          "Id": "7666e51a-d2d1-4225-a0c5-60e94bd2ca0c",
+          "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+          "Id": "1ed5ec30-ccd0-450a-9b4a-7acc7eb750d7",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 23,
               "Name": "Пункты управления авиацией и ПВО.",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "7666e51a-d2d1-4225-a0c5-60e94bd2ca0c",
-              "Id": "fd4423fa-9e8c-4c21-8fa8-e053494877a3"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "1ed5ec30-ccd0-450a-9b4a-7acc7eb750d7",
+              "Id": "f591974e-ae09-490d-baaf-0b75161726ca"
             }
           ]
         },
@@ -2246,44 +2246,44 @@
           "Semester": 5,
           "Number": 6,
           "Name": "Основные стационарные объекты оперативного оборудования зарубежной части ТВД",
-          "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-          "Id": "7df0910b-6d38-49a2-b368-44ecb7abd9d7",
+          "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+          "Id": "26f931cd-ee79-4cc9-99b6-5fffb00f06d8",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 24,
               "Name": "Аэродромы.",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "7df0910b-6d38-49a2-b368-44ecb7abd9d7",
-              "Id": "38948698-b958-4dc8-98d7-1d10b8659e49"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "26f931cd-ee79-4cc9-99b6-5fffb00f06d8",
+              "Id": "c2c861e4-58d5-4946-823f-38b2eccfb2e3"
             },
             {
               "SelfStudyHours": 1,
               "Number": 25,
               "Name": "Объекты тыла.",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "7df0910b-6d38-49a2-b368-44ecb7abd9d7",
-              "Id": "b39e7c71-e1a8-4afb-803b-ce43c7e90a2e"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "26f931cd-ee79-4cc9-99b6-5fffb00f06d8",
+              "Id": "3023c901-6058-4c3e-9f50-fea57e6bace2"
             },
             {
               "SelfStudyHours": 1,
               "Number": 26,
               "Name": "Военно-морские базы.",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "7df0910b-6d38-49a2-b368-44ecb7abd9d7",
-              "Id": "d0f43064-8711-47ad-ba31-36d0d8039f93"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "26f931cd-ee79-4cc9-99b6-5fffb00f06d8",
+              "Id": "a04742d8-918a-4c19-b22d-1dcf55f562b5"
             },
             {
               "SelfStudyHours": 1,
               "Number": 9,
               "Name": "1. Типы, основные элементы, уязвимые места современных аэродромов.",
               "Type": 0,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "7df0910b-6d38-49a2-b368-44ecb7abd9d7",
-              "Id": "3db2ff53-2447-41e9-8aa9-3d7d4380c044"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "26f931cd-ee79-4cc9-99b6-5fffb00f06d8",
+              "Id": "8782b0a5-52b3-4eb9-846a-5bfc53faa474"
             }
           ]
         },
@@ -2291,26 +2291,26 @@
           "Semester": 5,
           "Number": 7,
           "Name": "Силы специальных операций иностранных армий",
-          "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-          "Id": "7496e163-88a9-4864-9b42-fda2f4559711",
+          "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+          "Id": "22dedd4f-e404-43a4-a9dc-1595a83db5d1",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 27,
               "Name": "Силы специальных операций США.",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "7496e163-88a9-4864-9b42-fda2f4559711",
-              "Id": "ad26e05d-48f5-459f-98ef-edfac1264f13"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "22dedd4f-e404-43a4-a9dc-1595a83db5d1",
+              "Id": "55d31e10-a30f-4f71-8f68-99e739ae5015"
             },
             {
               "SelfStudyHours": 1,
               "Number": 28,
               "Name": "Силы специальных операций ВС ФРГ и НОАК.",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "7496e163-88a9-4864-9b42-fda2f4559711",
-              "Id": "8b3e5142-c591-45e0-832c-8e8831014f66"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "22dedd4f-e404-43a4-a9dc-1595a83db5d1",
+              "Id": "db5cfd0a-4e89-437c-8471-88acce45e7f4"
             }
           ]
         },
@@ -2318,17 +2318,17 @@
           "Semester": 5,
           "Number": 8,
           "Name": "Контрразведывательный режим и борьба с диверсионно-разведывательными группами",
-          "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-          "Id": "fe667d3d-444c-408b-8a32-18ca21510d76",
+          "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+          "Id": "0033de98-1ea8-4faa-9c39-5320d789ee5e",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 29,
               "Name": "Контрразведывательный режим.",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "fe667d3d-444c-408b-8a32-18ca21510d76",
-              "Id": "f9fe79ec-265b-425b-ac9c-c0328a21f017"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "0033de98-1ea8-4faa-9c39-5320d789ee5e",
+              "Id": "121fedae-702a-4acd-9122-f6dbb7ddd2b3"
             }
           ]
         },
@@ -2336,17 +2336,17 @@
           "Semester": 5,
           "Number": 9,
           "Name": "Вооружение иностранных армий",
-          "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-          "Id": "01aa2cc1-fd7b-4628-9609-d1c7f9db6634",
+          "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+          "Id": "3cac933e-ab08-4d97-9772-f702d98d4aee",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 17,
               "Name": "Вооружение иностранных армий.",
               "Type": 3,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "01aa2cc1-fd7b-4628-9609-d1c7f9db6634",
-              "Id": "1362dc50-0101-464d-b64a-c8fe125f1a9a"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "3cac933e-ab08-4d97-9772-f702d98d4aee",
+              "Id": "d0cabb52-050c-4bef-b191-fac5fdc2668c"
             }
           ]
         },
@@ -2354,17 +2354,17 @@
           "Semester": 5,
           "Number": 10,
           "Name": "Основные элементы оперативной обстановки зарубежной части ТВД и их влияние на деятельность разведывательных органов",
-          "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-          "Id": "7ca6e3de-18fe-4598-9e53-e16f0e6f7c8b",
+          "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+          "Id": "c83819df-08b2-43e4-935d-327179c67e68",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 30,
               "Name": "Изучение оперативной обстановки зарубежных ТВД.",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "7ca6e3de-18fe-4598-9e53-e16f0e6f7c8b",
-              "Id": "1bc71a65-6446-47ab-96f3-a21a16e616cb"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "c83819df-08b2-43e4-935d-327179c67e68",
+              "Id": "09ad566d-f5d6-437a-b7c8-1ebb4d1ca729"
             }
           ]
         },
@@ -2372,26 +2372,26 @@
           "Semester": 5,
           "Number": 11,
           "Name": "Незаконные вооруженные формирования (НВФ)",
-          "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-          "Id": "c55e5ade-81e3-4fc9-9237-8cfea000b31e",
+          "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+          "Id": "2380ff88-9ddd-4845-9236-935c9b808dd7",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 31,
               "Name": "Незаконные вооруженные формирования (НВФ).",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "c55e5ade-81e3-4fc9-9237-8cfea000b31e",
-              "Id": "8b1523f2-71df-4fdd-860a-fced4bd53efb"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "2380ff88-9ddd-4845-9236-935c9b808dd7",
+              "Id": "5c47b033-53b9-47ef-846c-d6bb16c1fff6"
             },
             {
               "SelfStudyHours": 1,
               "Number": 1,
               "Name": "Контрольное занятие по разделу «Иностранные армии и ТВД».",
               "Type": 1,
-              "SubjectId": "9e6cdb39-8208-41e9-b1eb-dfe99c008746",
-              "ThemeId": "c55e5ade-81e3-4fc9-9237-8cfea000b31e",
-              "Id": "47733ac0-3b84-4455-a020-26920d469be2"
+              "SubjectId": "9e9fbe0d-1c68-4263-b4b1-cd0f0a1eaed2",
+              "ThemeId": "2380ff88-9ddd-4845-9236-935c9b808dd7",
+              "Id": "401f13fc-6bfb-4b56-9028-697f4a52d18f"
             }
           ]
         }
@@ -2399,51 +2399,51 @@
     },
     {
       "Name": "Воздушнодесантная подготовка",
-      "DirectionId": "cfc93994-afdd-4f3c-9243-5a06f49eaa5d",
-      "Id": "46469ec1-b128-40fd-80a3-60f5e79600ee",
+      "DirectionId": "ed0e2060-eb25-4fde-a954-f48bd6c82183",
+      "Id": "3a68da67-463a-4b0d-a11e-68158706e21a",
       "Themes": [
         {
           "Semester": 5,
           "Number": 1,
           "Name": "Материальная часть людских десантных парашютов и парашютных приборов",
-          "SubjectId": "46469ec1-b128-40fd-80a3-60f5e79600ee",
-          "Id": "133a82a4-a156-473b-a282-61a2ab853dbe",
+          "SubjectId": "3a68da67-463a-4b0d-a11e-68158706e21a",
+          "Id": "f5e5d112-602e-421f-9d37-5b8d600851d2",
           "Lessons": [
             {
               "SelfStudyHours": 2,
               "Number": 1,
               "Name": "Парашютная система Д-6 с.4",
               "Type": 3,
-              "SubjectId": "46469ec1-b128-40fd-80a3-60f5e79600ee",
-              "ThemeId": "133a82a4-a156-473b-a282-61a2ab853dbe",
-              "Id": "de699f36-f02e-4006-8b92-21fb0c66fbaa"
+              "SubjectId": "3a68da67-463a-4b0d-a11e-68158706e21a",
+              "ThemeId": "f5e5d112-602e-421f-9d37-5b8d600851d2",
+              "Id": "60bc3515-9529-4057-aef1-536535d58b0d"
             },
             {
               "SelfStudyHours": 1,
               "Number": 2,
               "Name": "Парашютные приборы.",
               "Type": 3,
-              "SubjectId": "46469ec1-b128-40fd-80a3-60f5e79600ee",
-              "ThemeId": "133a82a4-a156-473b-a282-61a2ab853dbe",
-              "Id": "f4e069ff-9110-4928-9232-0e4dd104b612"
+              "SubjectId": "3a68da67-463a-4b0d-a11e-68158706e21a",
+              "ThemeId": "f5e5d112-602e-421f-9d37-5b8d600851d2",
+              "Id": "1a531e1b-ac86-4769-92ab-c60445ce0ddb"
             },
             {
               "SelfStudyHours": 1,
               "Number": 3,
               "Name": "Запасной парашют З-5.",
               "Type": 3,
-              "SubjectId": "46469ec1-b128-40fd-80a3-60f5e79600ee",
-              "ThemeId": "133a82a4-a156-473b-a282-61a2ab853dbe",
-              "Id": "88660460-3d5b-4b87-88ae-9a8b66c43e59"
+              "SubjectId": "3a68da67-463a-4b0d-a11e-68158706e21a",
+              "ThemeId": "f5e5d112-602e-421f-9d37-5b8d600851d2",
+              "Id": "34a6084e-b472-4713-98d3-49023a576e52"
             },
             {
               "SelfStudyHours": 1,
               "Number": 1,
               "Name": "Контрольно-проверочное занятие.",
               "Type": 1,
-              "SubjectId": "46469ec1-b128-40fd-80a3-60f5e79600ee",
-              "ThemeId": "133a82a4-a156-473b-a282-61a2ab853dbe",
-              "Id": "1755b164-6edc-4c7f-992d-f768d533a11e"
+              "SubjectId": "3a68da67-463a-4b0d-a11e-68158706e21a",
+              "ThemeId": "f5e5d112-602e-421f-9d37-5b8d600851d2",
+              "Id": "a9a02c75-a09a-47ea-9422-42d907571f88"
             }
           ]
         },
@@ -2451,71 +2451,71 @@
           "Semester": 5,
           "Number": 2,
           "Name": "Укладка людских десантных парашютов",
-          "SubjectId": "46469ec1-b128-40fd-80a3-60f5e79600ee",
-          "Id": "60f15147-ecc0-461b-ac4a-a95b3140564b",
+          "SubjectId": "3a68da67-463a-4b0d-a11e-68158706e21a",
+          "Id": "8e8d98da-4a48-4bb9-9ec2-027c3d79bc3b",
           "Lessons": [
             {
               "SelfStudyHours": 3,
               "Number": 3,
               "Name": "Укладка основного парашюта.",
               "Type": 3,
-              "SubjectId": "46469ec1-b128-40fd-80a3-60f5e79600ee",
-              "ThemeId": "60f15147-ecc0-461b-ac4a-a95b3140564b",
-              "Id": "42062883-e9f9-470e-8e55-49cd4beb93a2"
+              "SubjectId": "3a68da67-463a-4b0d-a11e-68158706e21a",
+              "ThemeId": "8e8d98da-4a48-4bb9-9ec2-027c3d79bc3b",
+              "Id": "afbe8b40-b497-487d-8678-9c0dee981b92"
             },
             {
               "SelfStudyHours": 3,
               "Number": 1,
               "Name": "Укладка основного парашюта.",
               "Type": 2,
-              "SubjectId": "46469ec1-b128-40fd-80a3-60f5e79600ee",
-              "ThemeId": "60f15147-ecc0-461b-ac4a-a95b3140564b",
-              "Id": "14983d35-1d27-49d2-91ca-af72af42c15c"
+              "SubjectId": "3a68da67-463a-4b0d-a11e-68158706e21a",
+              "ThemeId": "8e8d98da-4a48-4bb9-9ec2-027c3d79bc3b",
+              "Id": "10ab442d-91c2-4f10-b7dd-b3558afb8dd3"
             },
             {
               "SelfStudyHours": 2,
               "Number": 4,
               "Name": "Укладка запасного парашюта.",
               "Type": 3,
-              "SubjectId": "46469ec1-b128-40fd-80a3-60f5e79600ee",
-              "ThemeId": "60f15147-ecc0-461b-ac4a-a95b3140564b",
-              "Id": "01d6f634-9ed0-4d96-9fbc-bf8428f62f48"
+              "SubjectId": "3a68da67-463a-4b0d-a11e-68158706e21a",
+              "ThemeId": "8e8d98da-4a48-4bb9-9ec2-027c3d79bc3b",
+              "Id": "abcd21a7-5201-4183-85aa-20299f933d51"
             },
             {
               "SelfStudyHours": 3,
               "Number": 2,
               "Name": "Укладка людских десантных парашютов.",
               "Type": 2,
-              "SubjectId": "46469ec1-b128-40fd-80a3-60f5e79600ee",
-              "ThemeId": "60f15147-ecc0-461b-ac4a-a95b3140564b",
-              "Id": "a418d34a-1910-4ecb-9955-72d1d9c1d29e"
+              "SubjectId": "3a68da67-463a-4b0d-a11e-68158706e21a",
+              "ThemeId": "8e8d98da-4a48-4bb9-9ec2-027c3d79bc3b",
+              "Id": "61a21ac4-ca12-4a5b-a926-168d7829c948"
             },
             {
               "SelfStudyHours": 3,
               "Number": 3,
               "Name": "Укладка людских десантных парашютов.",
               "Type": 2,
-              "SubjectId": "46469ec1-b128-40fd-80a3-60f5e79600ee",
-              "ThemeId": "60f15147-ecc0-461b-ac4a-a95b3140564b",
-              "Id": "09a552d9-7b96-4fdc-9f55-9a1c2586f25e"
+              "SubjectId": "3a68da67-463a-4b0d-a11e-68158706e21a",
+              "ThemeId": "8e8d98da-4a48-4bb9-9ec2-027c3d79bc3b",
+              "Id": "950fddfa-e1f1-4bc8-9aa0-78a1b3d48aba"
             },
             {
               "SelfStudyHours": 2,
               "Number": 4,
               "Name": "Укладка людских десантных парашютов.",
               "Type": 2,
-              "SubjectId": "46469ec1-b128-40fd-80a3-60f5e79600ee",
-              "ThemeId": "60f15147-ecc0-461b-ac4a-a95b3140564b",
-              "Id": "fddb0742-d5d7-4efe-917b-5279c6093656"
+              "SubjectId": "3a68da67-463a-4b0d-a11e-68158706e21a",
+              "ThemeId": "8e8d98da-4a48-4bb9-9ec2-027c3d79bc3b",
+              "Id": "ad8c53ca-5bbe-461b-8d31-17996bd4c679"
             },
             {
               "SelfStudyHours": 2,
               "Number": 5,
               "Name": "Выполнение нормативов по ВДП.",
               "Type": 2,
-              "SubjectId": "46469ec1-b128-40fd-80a3-60f5e79600ee",
-              "ThemeId": "60f15147-ecc0-461b-ac4a-a95b3140564b",
-              "Id": "2ddd9820-f2fd-4a45-a4fa-5086216e4e8b"
+              "SubjectId": "3a68da67-463a-4b0d-a11e-68158706e21a",
+              "ThemeId": "8e8d98da-4a48-4bb9-9ec2-027c3d79bc3b",
+              "Id": "f4cb8489-e616-44da-a44c-150e7da8d81f"
             }
           ]
         },
@@ -2523,26 +2523,26 @@
           "Semester": 5,
           "Number": 3,
           "Name": "Теоретические основы прыжка с парашютом",
-          "SubjectId": "46469ec1-b128-40fd-80a3-60f5e79600ee",
-          "Id": "9ce9f954-4da6-46a3-adef-35658b08bcfe",
+          "SubjectId": "3a68da67-463a-4b0d-a11e-68158706e21a",
+          "Id": "b85ed14c-d08a-406f-b2d4-cbee8efe5c3b",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 4,
               "Name": "Теоретические основы прыжка с парашютом.",
               "Type": 3,
-              "SubjectId": "46469ec1-b128-40fd-80a3-60f5e79600ee",
-              "ThemeId": "9ce9f954-4da6-46a3-adef-35658b08bcfe",
-              "Id": "1ddcc7ff-d980-474a-9aa0-7ae34aeddb32"
+              "SubjectId": "3a68da67-463a-4b0d-a11e-68158706e21a",
+              "ThemeId": "b85ed14c-d08a-406f-b2d4-cbee8efe5c3b",
+              "Id": "2af7a362-1430-4360-9b00-be5d868ad4ee"
             },
             {
               "SelfStudyHours": 1,
               "Number": 5,
               "Name": "Организация и проведение прыжков с парашютом.",
               "Type": 3,
-              "SubjectId": "46469ec1-b128-40fd-80a3-60f5e79600ee",
-              "ThemeId": "9ce9f954-4da6-46a3-adef-35658b08bcfe",
-              "Id": "f2f82096-cc11-4ffa-8927-61c8c2e90332"
+              "SubjectId": "3a68da67-463a-4b0d-a11e-68158706e21a",
+              "ThemeId": "b85ed14c-d08a-406f-b2d4-cbee8efe5c3b",
+              "Id": "da93ac97-7dd6-4f7d-98ab-9ec48c0e78d7"
             }
           ]
         },
@@ -2550,17 +2550,17 @@
           "Semester": 5,
           "Number": 4,
           "Name": "Парашютно-десантная тара Занятие 1.",
-          "SubjectId": "46469ec1-b128-40fd-80a3-60f5e79600ee",
-          "Id": "e2a5e20d-44d9-4e9e-bd35-ac720278a465",
+          "SubjectId": "3a68da67-463a-4b0d-a11e-68158706e21a",
+          "Id": "943bb9d7-9bc6-481a-b214-9a77173040c2",
           "Lessons": [
             {
               "SelfStudyHours": 1,
               "Number": 6,
               "Name": "Грузовой контейнер ГК-30У",
               "Type": 3,
-              "SubjectId": "46469ec1-b128-40fd-80a3-60f5e79600ee",
-              "ThemeId": "e2a5e20d-44d9-4e9e-bd35-ac720278a465",
-              "Id": "8f757acc-3239-4417-8844-63f4d930ac88"
+              "SubjectId": "3a68da67-463a-4b0d-a11e-68158706e21a",
+              "ThemeId": "943bb9d7-9bc6-481a-b214-9a77173040c2",
+              "Id": "1c9e4288-ac92-4de2-a760-f37fd4ad4b7d"
             }
           ]
         },
@@ -2568,17 +2568,17 @@
           "Semester": 5,
           "Number": 4,
           "Name": "Парашютно-десантная тара Занятие 2.",
-          "SubjectId": "46469ec1-b128-40fd-80a3-60f5e79600ee",
-          "Id": "02a81ae2-dd83-41d9-a10d-1eb7377836c1",
+          "SubjectId": "3a68da67-463a-4b0d-a11e-68158706e21a",
+          "Id": "6b312920-cc2e-4d0e-9396-20b006a2dafc",
           "Lessons": [
             {
               "SelfStudyHours": 2,
               "Number": 7,
               "Name": "Грузовая тара",
               "Type": 3,
-              "SubjectId": "46469ec1-b128-40fd-80a3-60f5e79600ee",
-              "ThemeId": "02a81ae2-dd83-41d9-a10d-1eb7377836c1",
-              "Id": "c02b109c-901f-42af-a276-141d3db0a8de"
+              "SubjectId": "3a68da67-463a-4b0d-a11e-68158706e21a",
+              "ThemeId": "6b312920-cc2e-4d0e-9396-20b006a2dafc",
+              "Id": "c96825f7-a258-4501-aabb-905b31a5c69a"
             }
           ]
         },
@@ -2586,17 +2586,17 @@
           "Semester": 5,
           "Number": 4,
           "Name": "Парашютно-десантная тара Занятие 3.",
-          "SubjectId": "46469ec1-b128-40fd-80a3-60f5e79600ee",
-          "Id": "ebb09547-723e-4ed5-99d0-63efeb74af0a",
+          "SubjectId": "3a68da67-463a-4b0d-a11e-68158706e21a",
+          "Id": "1a006e1c-7f69-4f50-966a-6b9cdc04a32c",
           "Lessons": [
             {
               "SelfStudyHours": 3,
               "Number": 8,
               "Name": "Укладка парашютной системы ОКС-4 серии 4.",
               "Type": 2,
-              "SubjectId": "46469ec1-b128-40fd-80a3-60f5e79600ee",
-              "ThemeId": "ebb09547-723e-4ed5-99d0-63efeb74af0a",
-              "Id": "5c592d2d-e818-4736-934a-229f0ab43f82"
+              "SubjectId": "3a68da67-463a-4b0d-a11e-68158706e21a",
+              "ThemeId": "1a006e1c-7f69-4f50-966a-6b9cdc04a32c",
+              "Id": "7ed4eb07-722a-4671-bc68-3fe3e64d073b"
             }
           ]
         }

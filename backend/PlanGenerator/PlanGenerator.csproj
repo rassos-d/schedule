@@ -6,14 +6,16 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+  
 
   <ItemGroup>
-    <None Remove="tp.json" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
+  
 
   <ItemGroup>
     <None Remove="093300.json" />
-    <Content Include="093700.json">
+    <Content Include="093300.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Remove="093700.json" />
@@ -28,10 +30,6 @@
     <Content Include="493000.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
 </Project>

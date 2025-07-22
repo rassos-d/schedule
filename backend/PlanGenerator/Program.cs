@@ -14,7 +14,7 @@ class Program
             Directory.CreateDirectory(Plan);    
         }
         
-        var files = new[] { "093700", "094100", "493000" };
+        var files = new[] { "093300", "093700", "094100", "493000" };
         var directions = new List<Tuple<Guid, string>>();
         foreach (var file in files)
         {

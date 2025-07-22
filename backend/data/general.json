@@ -1,59 +1,74 @@
 {
-  "Audiences": {
-    "56eed200-51bd-4cd1-ac27-3796147d7de5": {
-      "Name": "\u0412\u041E-404",
-      "Id": "56eed200-51bd-4cd1-ac27-3796147d7de5"
-    },
-    "3229f141-9514-4e0a-b338-0e2edd647bcf": {
-      "Name": "\u0432\u043E-321",
-      "Id": "3229f141-9514-4e0a-b338-0e2edd647bcf"
-    }
-  },
-  "Squads": {
-    "4e462003-6eab-4b2c-a9e8-824da76f72b9": {
-      "StudyYear": 3,
-      "DaddyId": "67a5e7b0-31f0-4ff3-ab48-ec213b672911",
-      "FixedAudienceId": "56eed200-51bd-4cd1-ac27-3796147d7de5",
-      "DirectionId": "327d6009-995b-405a-a79a-c5fb97800c14",
-      "Name": "\u0414-323",
-      "Id": "4e462003-6eab-4b2c-a9e8-824da76f72b9"
-    },
-    "56bceb7c-de95-4635-b45a-120ba5927e7f": {
-      "StudyYear": 2,
-      "DaddyId": "2807621e-c153-4320-ba9f-03d9d88d7458",
-      "FixedAudienceId": "3229f141-9514-4e0a-b338-0e2edd647bcf",
-      "DirectionId": "cfc93994-afdd-4f3c-9243-5a06f49eaa5d",
-      "Name": "A-222",
-      "Id": "56bceb7c-de95-4635-b45a-120ba5927e7f"
-    },
-    "b1f01c20-98ff-4d64-80a6-2fe80a4d5ab7": {
-      "StudyYear": 2,
-      "DaddyId": "fd0f57c2-cbf7-4a94-8b93-de0dc6d4e0f0",
-      "FixedAudienceId": "56eed200-51bd-4cd1-ac27-3796147d7de5",
-      "DirectionId": "cfc93994-afdd-4f3c-9243-5a06f49eaa5d",
-      "Name": "\u0414-224",
-      "Id": "b1f01c20-98ff-4d64-80a6-2fe80a4d5ab7"
-    }
-  },
+  "Audiences": {},
+  "Squads": {},
   "Teachers": {
-    "447a8f61-e5cc-4b92-ae8c-8c5144676542": {
-      "Rank": "\u0439\u0446\u0443\u0439\u0446\u0443",
+    "665d2bf4-cd33-4126-99dc-4e0ae8e1e97b": {
+      "Rank": "\u043F/\u043F-\u043A",
       "Vacations": [],
       "SubjectIds": [],
-      "Name": "\u0439\u0446\u0443",
-      "Id": "447a8f61-e5cc-4b92-ae8c-8c5144676542"
+      "Name": "\u0428\u0435\u0432\u0447\u0443\u043A \u0410.\u0412.",
+      "Id": "665d2bf4-cd33-4126-99dc-4e0ae8e1e97b"
     },
-    "2058d01f-e859-4f95-9cc9-ebd7c6bb2b3a": {
-      "Rank": "\u043F-\u043A",
+    "35ac3693-627c-4186-989e-a6d2fb85997e": {
+      "Rank": "\u043F/\u043F-\u043A",
+      "Vacations": [],
+      "SubjectIds": [],
+      "Name": "\u041F\u043E\u043F\u043E\u0432 \u0414.\u0410.",
+      "Id": "35ac3693-627c-4186-989e-a6d2fb85997e"
+    },
+    "0c3d1846-0275-4c92-a3aa-0a8c52f0e0bf": {
+      "Rank": "\u043F/\u043F-\u043A",
+      "Vacations": [],
+      "SubjectIds": [],
+      "Name": "\u0418\u0432\u0430\u043D\u043E\u0432 \u0410.\u0421.",
+      "Id": "0c3d1846-0275-4c92-a3aa-0a8c52f0e0bf"
+    },
+    "59b44e67-77b4-41fc-8855-68fa8c079ff7": {
+      "Rank": "\u043F/\u043F-\u043A",
+      "Vacations": [],
+      "SubjectIds": [],
+      "Name": "\u0418\u0432\u0430\u043D\u043E\u0432 \u0420.\u0410.",
+      "Id": "59b44e67-77b4-41fc-8855-68fa8c079ff7"
+    },
+    "fa5186f0-b807-47bc-95c4-856d01df73f0": {
+      "Rank": "\u043F/\u043F-\u043A",
+      "Vacations": [],
+      "SubjectIds": [],
+      "Name": "\u0424\u0440\u043E\u043B\u043E\u0432 \u0418.\u0412.",
+      "Id": "fa5186f0-b807-47bc-95c4-856d01df73f0"
+    },
+    "0635c269-8b96-4246-9ddc-75ea52b7747a": {
+      "Rank": "\u043F/\u043F-\u043A",
       "Vacations": [
         {
-          "StartDate": "2025-01-22",
-          "EndDate": "2025-12-22"
+          "StartDate": "2026-03-01",
+          "EndDate": "2026-03-31"
         }
       ],
       "SubjectIds": [],
-      "Name": "\u0416\u0443\u0440\u0430\u0432\u043B\u0451\u0432",
-      "Id": "2058d01f-e859-4f95-9cc9-ebd7c6bb2b3a"
+      "Name": "\u0412\u0430\u0440\u043B\u0430\u043C\u043E\u0432 \u0412.\u0410.",
+      "Id": "0635c269-8b96-4246-9ddc-75ea52b7747a"
+    },
+    "b2d80f1a-ec2d-45e7-a3df-1e731661bce3": {
+      "Rank": "\u043F-\u043A",
+      "Vacations": [],
+      "SubjectIds": [],
+      "Name": "\u0413\u0430\u0448\u0435\u0432 \u0414.\u041D.",
+      "Id": "b2d80f1a-ec2d-45e7-a3df-1e731661bce3"
+    },
+    "0ce95bbe-89f4-4c2d-9462-983fb67cd837": {
+      "Rank": "\u043F-\u043A",
+      "Vacations": [],
+      "SubjectIds": [],
+      "Name": "\u041A\u0438\u0437\u044E\u043D \u041D.\u041D.",
+      "Id": "0ce95bbe-89f4-4c2d-9462-983fb67cd837"
+    },
+    "0c7b1c41-b722-4c29-828f-e5bed5c5ad7e": {
+      "Rank": "\u043F-\u043A",
+      "Vacations": [],
+      "SubjectIds": [],
+      "Name": "\u0414\u043E\u043D\u0447\u0435\u043D\u043A\u043E \u0418.\u0410.",
+      "Id": "0c7b1c41-b722-4c29-828f-e5bed5c5ad7e"
     }
   }
 }
