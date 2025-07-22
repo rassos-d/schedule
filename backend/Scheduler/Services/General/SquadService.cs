@@ -1,16 +1,16 @@
+using Scheduler.DataAccess;
 using Scheduler.DataAccess.General;
-using Scheduler.Dto;
 using Scheduler.Dto.Constants;
 using Scheduler.Dto.General.Squad;
 using Scheduler.Entities.General;
 
 namespace Scheduler.Services.General;
 
-public class SquadService(SquadRepository repo)
+public class SquadService(SquadRepository squadRepository, ScheduleRepository scheduleRepository)
 {
     public List<Squad> Find(StudyYear? studyYear)
     {
-        var squads = repo.GetAll();
+        var squads = squadRepository.GetAll();
         if (studyYear is not null)
         {
             squads = squads.Where(s => s.StudyYear == studyYear).ToList();
@@ -22,14 +22,14 @@ public class SquadService(SquadRepository repo)
     public Guid Create(SquadRequest dto)
     {
         var squad = new Squad { Name = dto.Name, DirectionId = dto.DirectionId };
-        repo.Upsert(squad);
-        repo.SaveChanges();
+        squadRepository.Upsert(squad);
+        squadRepository.SaveChanges();
         return squad.Id;
     }
     
     public bool Update(SquadUpdateDto dto)
     {
-        var squad = repo.Get(dto.Id);
+        var squad = squadRepository.Get(dto.Id);
 
         if (squad == null)
         {
@@ -49,6 +49,7 @@ public class SquadService(SquadRepository repo)
         if (dto.DaddyId is not null)
         {
             squad.DaddyId = dto.DaddyId.Data;
+            UpdateEventInAllSchedules(dto.Id, dto.DaddyId.Data!.Value);
         }
 
         if (dto.FixedAudienceId is not null)
@@ -61,13 +62,45 @@ public class SquadService(SquadRepository repo)
             squad.StudyYear = dto.StudyYear.Data;
         }
         
-        repo.Upsert(squad);
-        repo.SaveChanges();
+        squadRepository.Upsert(squad);
+        squadRepository.SaveChanges();
         return true;
     }
 
     public void Delete(Guid id)
     {
-        repo.Delete(id);
+        squadRepository.Delete(id);
     }
+
+    private void UpdateEventInAllSchedules(Guid squadId, Guid daddyId)
+    {
+        var scheduleInfos = scheduleRepository.GetAllScheduleInfos();
+        try
+        {
+            foreach (var scheduleInfo in scheduleInfos)
+            {
+                foreach (var studyYear in scheduleRepository.GetStudyYears(scheduleInfo.Id))
+                {
+                    var schedulePage = scheduleRepository.GetSchedulePage(scheduleInfo.Id, (StudyYear)studyYear);
+                    if (schedulePage.Squads.Contains(squadId))
+                    {
+                        foreach (var e in schedulePage.Events)
+                        {
+                            if (e.SquadId == squadId)
+                            {
+                                e.TeacherId ??= daddyId;
+                            }
+                        }
+                    }
+
+                    scheduleRepository.SaveSchedulePage(schedulePage);
+                }
+            }
+        }
+        catch (Exception)
+        {
+            // ignored
+        }
+    }
+
 }
