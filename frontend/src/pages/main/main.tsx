@@ -165,13 +165,16 @@ export default function Main() {
                 semester: page.semester ? page.semester.id : undefined
             }))
         };
-        const { data } = await axios[schedule.isNew ? 'post' : 'put']<{ data: string }>(PagesURl.SCHEDULE + !schedule.isNew ? '/full' : '', transformedSchedule)
-        navigate(`/${data.data}`)
+        const { data } = await axios[schedule.isNew ? 'post' : 'put']<{ data: string }>(PagesURl.SCHEDULE + (!schedule.isNew ? '/full' : ''), transformedSchedule)
+        setNewSchedule(undefined)
+        if (transformedSchedule.isNew) {
+            navigate(`/${data.data}`)
+        }
     }
     const handleGetEditSchedule = async (scheduleId: string) => {
         if (!squads) return
         const {data} = await axios.get<UpdateSchedule>(PagesURl.SCHEDULE + `/${scheduleId}/update-info`)
-        setNewSchedule({...data, isNew: false, pages: data.pages.map((page)=>{
+        setNewSchedule({...data, isNew: false, id: scheduleId, pages: data.pages.map((page)=>{
             const activeSquads = squads.filter((el)=>page.squads.includes(el.id))
             return {...page, squads: activeSquads, semester: SEMESTR_YEAR.filter((el)=>el.id === page.semester)[0]}
         })})

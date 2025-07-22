@@ -8,6 +8,7 @@ export type SmallShedule = {
 
 export type CreateSchedule = {
   name: string
+  id?: string
   pages: CreateScheduleYear[]
 }
 
@@ -20,6 +21,7 @@ export type CreateScheduleYear = {
 }
 
 export type UpdateSchedule = {
+  id: string
   name: string
   pages: UpdateScheduleYear[]
 }
