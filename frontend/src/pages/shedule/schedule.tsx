@@ -319,10 +319,6 @@ export default function ShedulePage() {
         }
     },[activeTab])
 
-    useEffect(()=>{
-        console.log(newLesson)
-    }, [newLesson])
-
 
     if (!schedule || !freeLessons || !allTabs || !activeTab || !allTeachers || !allSquads || !allAudience) return <></>
 

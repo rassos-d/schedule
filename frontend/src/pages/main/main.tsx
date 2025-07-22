@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async'
 import styles from './main.module.scss'
 import axios, { PagesURl } from '../../services/api/api'
 import { useEffect, useState } from 'react'
-import { CreateSchedule, CreateScheduleYear, ScheduleSquad, SmallShedule } from '../../types/schedule'
+import { CreateSchedule, CreateScheduleYear, ScheduleSquad, SmallShedule, UpdateSchedule } from '../../types/schedule'
 import { Icon } from '../../components/icon'
 import { Button } from '../../components/button/button'
 import PopupContainer from '../../components/popupContainer/popupContainer'
@@ -32,7 +32,7 @@ export default function Main() {
     const [confirmDeleteScheduleId, setConfirmDeleteScheduleId] = useState<string>()
 
     const [shedules, setShedules] = useState<SmallShedule[]>()
-    const [newSchedule, setNewSchedule] = useState<CreateSchedule>()
+    const [newSchedule, setNewSchedule] = useState<CreateSchedule & {isNew: boolean}>()
     const [freeCoursesYear, setFreeCoursesYear] = useState(COURSES_YEAR)
 
     const [squads, setSquads] = useState<Squad[]>()
@@ -51,7 +51,6 @@ export default function Main() {
         //console.log(data)
         setAllDirections(data)
     }
-
     const handleGetAllAudience = async () => {
         const { data } = await axios.get<Audience[]>(PagesURl.AUDIENCE)
         const sortedAudience = data.sort((a, b) => {
@@ -155,7 +154,7 @@ export default function Main() {
         await axios.delete(PagesURl.SCHEDULE + `/${id}`)
         handleGetShedules()
     }
-    const handleCreateShedule = async (schedule: CreateSchedule) => {
+    const handleCreateShedule = async (schedule: CreateSchedule & {isNew: boolean}) => {
         setIsEnableValidationCreateSchedule(true)
         if (!isValidCreateSchedule(schedule)) return
         const transformedSchedule = {
@@ -166,8 +165,16 @@ export default function Main() {
                 semester: page.semester ? page.semester.id : undefined
             }))
         };
-        const { data } = await axios.post<{ data: string }>(PagesURl.SCHEDULE, transformedSchedule)
+        const { data } = await axios[schedule.isNew ? 'post' : 'put']<{ data: string }>(PagesURl.SCHEDULE + schedule.isNew ? '/full' : '', transformedSchedule)
         navigate(`/${data.data}`)
+    }
+    const handleGetEditSchedule = async (scheduleId: string) => {
+        if (!squads) return
+        const {data} = await axios.get<UpdateSchedule>(PagesURl.SCHEDULE + `/${scheduleId}/update-info`)
+        setNewSchedule({...data, isNew: false, pages: data.pages.map((page)=>{
+            const activeSquads = squads.filter((el)=>page.squads.includes(el.id))
+            return {...page, squads: activeSquads, semester: SEMESTR_YEAR.filter((el)=>el.id === page.semester)[0]}
+        })})
     }
 
 
@@ -336,7 +343,7 @@ export default function Main() {
                                 <div onClick={() => navigate(`/${shedule.id}`)} className={styles.container__shedule} key={shedule.id}>
                                     <p>{shedule.name}</p>
                                     <div className={styles.container__icons}>
-                                        <div onClick={(e) => { e.stopPropagation(); setNewSchedule(shedule) }}>
+                                        <div onClick={(e) => { e.stopPropagation(); handleGetEditSchedule(shedule.id) }}>
                                             <Icon glyph='edit' glyphColor='black' />
                                         </div>
                                         <div onClick={(e) => { e.stopPropagation(); setConfirmDeleteScheduleId(shedule.id) }}>
@@ -347,7 +354,7 @@ export default function Main() {
                             ))}
                         </div>
                         <div 
-                            onClick={() => {setNewSchedule({ name: '', pages: [] });setIsEnableValidationCreateSchedule(false)}} 
+                            onClick={() => {setNewSchedule({ name: '', pages: [], isNew: true });setIsEnableValidationCreateSchedule(false)}} 
                             className={styles.container__button}
                         >
                             <Button>Создать новое</Button>

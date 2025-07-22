@@ -19,6 +19,19 @@ export type CreateScheduleYear = {
   end: string
 }
 
+export type UpdateSchedule = {
+  name: string
+  pages: UpdateScheduleYear[]
+}
+
+export type UpdateScheduleYear = {
+  studyYear: number, 
+  squads: string[], 
+  semester: number
+  start: string, 
+  end: string
+}
+
 export type ScheduleSquad = {name: string, id: string}
 
 

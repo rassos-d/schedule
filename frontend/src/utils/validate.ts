@@ -20,4 +20,5 @@ export function isValidCreateSchedule (schedule: CreateSchedule) {
       return false
     }
   }
+  return true
 }
