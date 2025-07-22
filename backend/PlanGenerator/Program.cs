@@ -14,7 +14,7 @@ class Program
             Directory.CreateDirectory(Plan);    
         }
         
-        var files = new[] { "093300", "093700", "094100", "493000" };
+        var files = new[] { "093700", "094100", "493000" };
         var directions = new List<Tuple<Guid, string>>();
         foreach (var file in files)
         {
@@ -52,7 +52,6 @@ class Program
             var subjectId = Guid.NewGuid();
             var subjectObj = new JObject
             {
-                ["Semester"] = section["semester"]?.Value<int>(),
                 ["Name"] = section["title"],
                 ["DirectionId"] = directionId,
                 ["Id"] = subjectId
@@ -64,6 +63,7 @@ class Program
                 var themeId = Guid.NewGuid();
                 var themeObj = new JObject
                 {
+                    ["Semester"] = topic["semester"]?.Value<int>(),
                     ["Number"] = topic["topic_number"]?.ToObject<int>(),
                     ["Name"] = topic["title"]?.ToString(),
                     ["SubjectId"] = subjectId,
