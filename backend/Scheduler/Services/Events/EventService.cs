@@ -123,11 +123,12 @@ public class EventService(
             NoName = schedulePage.Events
                 .Where(e => e.Date == null && e.Number == null)
                 .Select(e => ConvertToEvent(e, teacherNames, audienceNames, squads, lessons))
-                .ToList()
+                .ToList(),
+            Conflicts = CheckForConflict(schedulePage)
         };
     }
 
-    private CheckConflictResponse CheckForConflict(SchedulePage schedulePage, Guid updatedEvent)
+    private CheckConflictResponse CheckForConflict(SchedulePage schedulePage, Guid? updatedEvent = null)
     {
         var teacherNames = teacherRepository.GetAll()
             .ToDictionary(t => t.Id, t => t);
@@ -176,9 +177,11 @@ public class EventService(
         };
     }
 
-    private string? CreateMessage(List<Event> events, Guid updatedEventId, Dictionary<Guid, Teacher> teachers,
+    private string? CreateMessage(List<Event> events, Guid? updatedEventId, Dictionary<Guid, Teacher> teachers,
         Dictionary<Guid, string> audiences)
     {
+        if (!updatedEventId.HasValue)
+            return null;
         var updatedEvent = events.First(e => e.Id == updatedEventId);
         if (updatedEvent.Date == null && updatedEvent.Number == null)
             return null;

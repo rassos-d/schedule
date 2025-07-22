@@ -74,4 +74,11 @@ public class ScheduleController(ScheduleService service) : ControllerBase
         service.DeleteSchedulePage(scheduleId, studyYear);
         return NoContent();
     }
+
+    [HttpGet("{scheduleId:guid}/update-info")]
+    public IActionResult GetUpdateInfo(Guid scheduleId)
+    {
+        var info = service.GetUpdateInfo(scheduleId);
+        return Ok(info);
+    }
 }
