@@ -10,14 +10,12 @@ namespace Scheduler.DataAccess;
 
 public class ScheduleRepository : BaseRepository
 {
-    private readonly ILogger<ScheduleRepository> _logger;
     private readonly Dictionary<Guid, Schedule> _schedulesCache = new();
 
     private const string SchedulesFileName = "schedules.json";
 
-    public ScheduleRepository(ILogger<ScheduleRepository> logger) : base("schedules")
+    public ScheduleRepository() : base("schedules")
     {
-        _logger = logger;
         GetAllScheduleInfos();
     }
 

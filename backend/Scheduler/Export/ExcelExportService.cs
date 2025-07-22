@@ -12,7 +12,7 @@ namespace Scheduler.Export;
 
 public class ExcelExportService
 {
-    private readonly Dictionary<string, string> ShortNamesToLongNames = new Dictionary<string, string>()
+    private readonly Dictionary<string, string> ShortToLongRank = new Dictionary<string, string>()
     {
         {"п/п-к", "подполковник"},
         {"м-р", "майор"},
@@ -170,7 +170,7 @@ public class ExcelExportService
         var teacher = squad.DaddyId.HasValue ? teacherRepository.Get(squad.DaddyId.Value) : null;
         var direction = squad.DirectionId.HasValue ? planRepository.GetDirection(squad.DirectionId.Value) : null;
 
-        var teacherRank = ShortNamesToLongNames!.GetValueOrDefault(teacher?.Rank, teacher?.Rank);
+        var teacherRank = teacher is not null ? ShortToLongRank.GetValueOrDefault(teacher.Rank, teacher.Rank) : null;
         return new SquadExcel()
         {
             Name = squad.Name,
