@@ -123,7 +123,8 @@ public class EventService(
             NoName = schedulePage.Events
                 .Where(e => e.Date == null && e.Number == null)
                 .Select(e => ConvertToEvent(e, teacherNames, audienceNames, squads, lessons))
-                .ToList()
+                .ToList(),
+            Conflicts = CheckForConflict(schedulePage, Guid.Empty)
         };
     }
 
