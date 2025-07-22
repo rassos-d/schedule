@@ -8,6 +8,7 @@ import { LESSON_TYPE } from '../../consts'
 type LessonProps = {
   lesson: SheduleLesson;
   isConflict?: boolean
+  isNew?: boolean
   onMove: (target: DropResult, date: string, number: number) => void;
   onStartDragging: (squardIndex:  number) => void
   onSelect: (lesson: SheduleLesson) => void
@@ -24,7 +25,7 @@ type DropResult = {
   lesson?: SheduleLesson
 } | { activeSquardIndex: number }
 
-function LessonComponent({ lesson, date, number, squardIndex, isConflict, onMove, onStartDragging, onSelect, onDelete }: LessonProps) {
+function LessonComponent({ lesson, date, number, squardIndex, isConflict, isNew, onMove, onStartDragging, onSelect, onDelete }: LessonProps) {
 
   const ref = useRef<HTMLDivElement>(null)
   
@@ -38,7 +39,7 @@ function LessonComponent({ lesson, date, number, squardIndex, isConflict, onMove
         if (ref.current) {
           ref.current.classList.remove(styles.dragLessonContainer_new);
         }
-      }, 1000);
+      }, 2000);
     }
   }
 
@@ -80,11 +81,10 @@ function LessonComponent({ lesson, date, number, squardIndex, isConflict, onMove
   }, [isDragging])
 
   useEffect(()=>{
-    if (ref.current && lesson.isUpdate) {
-      console.log('add')
+    if (ref.current && lesson.isUpdate || isNew) {
       addClass()
     }
-  },[ref, lesson])
+  },[])
 
 
   return (

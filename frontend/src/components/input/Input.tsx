@@ -13,11 +13,13 @@ type InputProps = {
   maxValues?: number
   isError?: boolean
   errorText?: string
+  startDate?: string
+  endDate?: string
   onChange: (value: string) => void
   validateChecker?: (value: string) => boolean
 }
 
-export function Input({ placeholder, value, required, type, maxValues, isError, onChange, name, validateChecker, errorText }: InputProps) {
+export function Input({ placeholder, value, required, type, maxValues, isError, onChange, name, validateChecker, errorText, startDate, endDate }: InputProps) {
 
   const textarea = useRef<HTMLTextAreaElement>(null)
   const [rows, setRows] = useState(1);
@@ -52,7 +54,7 @@ export function Input({ placeholder, value, required, type, maxValues, isError, 
   }, [textarea]);
 
   if (type === 'date') {
-    return <input type="date" value={value} className={`${styles.input} ${!isValid() ? styles.inputBlock_error : ''}`} onChange={(e) => { changeValue(e.target.value) }} />
+    return <input min={startDate} max={endDate} type="date" value={value} className={`${styles.input} ${!isValid() ? styles.inputBlock_error : ''}`} onChange={(e) => { changeValue(e.target.value) }} />
   }
   if (type === 'time') {
     return <input
@@ -87,6 +89,7 @@ type AddInputProps = {
   changeInputList: (newList: AddInputList[]) => void
   onSeeMore?: (searchValue?: string) => void
   onSearch?: (searchValue?: string) => void
+  enableSearch?: boolean
   selectedList: AddInputList[]
   allList: AddInputList[]
   title: string
@@ -101,7 +104,7 @@ type AddInputProps = {
 }
 
 
-export function AddInput({ selectedList, changeInputList, allList, title, placeholder = 'Поиск', singleMode, totalParts, currentPart, maxWidth, minWidth, onSeeMore, onSearch, isError }: AddInputProps) {
+export function AddInput({ selectedList, changeInputList, allList, title, placeholder = 'Поиск', singleMode, totalParts, currentPart, maxWidth, minWidth, onSeeMore, onSearch, isError, enableSearch }: AddInputProps) {
 
   const [searchValue, setSearchValue] = useState('')
   const [displayList, setDisplayList] = useState(false)
@@ -160,13 +163,13 @@ export function AddInput({ selectedList, changeInputList, allList, title, placeh
         <Icon glyph={`arrow-${displayList ? 'up' : 'down'}`} glyphColor={getTitleColor()} />
       </div>
       {displayList && <div className={styles.list__list}>
-        {onSearch &&
+        {(onSearch || enableSearch) &&
           <div className={styles.list__line}>
             <Icon glyph='search' glyphColor='grey' />
             <input value={searchValue} onChange={(e) => { changeSearchValue(e.target.value) }} placeholder={`${placeholder}...`} className={styles.list__search} />
             {searchValue !== '' && <img onClick={() => { changeSearchValue('') }} className={styles.input__clear} src='/icons/close.svg' />}
           </div>}
-        {allList.map((el) => (
+        {allList.filter((el)=>(enableSearch ? el.name.toString().toLowerCase().includes(searchValue.toLowerCase()) : true)).map((el) => (
           <div key={el.id} onClick={() => { changeList(el) }} className={styles.list__line}>
             <img src={`/icons/${singleMode ? 'radioButton' : 'checkbox'}/${selectedList.findIndex((item) => item.id === el.id) !== -1 ? 'active' : 'disable'}.svg`} />
             <p>{el.name}</p>

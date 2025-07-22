@@ -2,9 +2,9 @@ namespace Scheduler.Dto.Constants;
 
 public enum Semester
 {
-    First,
-    Second,
-    Third,
-    Fourth,
-    Fiveth,
+    First = 1,
+    Second = 2,
+    Third = 3,
+    Fourth = 4,
+    Fiveth = 5,
 }

@@ -1,3 +1,4 @@
+using Scheduler.Dto.Constants;
 using Scheduler.Entities.Base;
 
 namespace Scheduler.Entities.Plan;
@@ -5,6 +6,8 @@ namespace Scheduler.Entities.Plan;
 public class Theme : EntityWithName
 {
     public int Number { get; set; }
+    
+    public Semester Semester { get; set; }
 
     public Guid SubjectId { get; set; }
     

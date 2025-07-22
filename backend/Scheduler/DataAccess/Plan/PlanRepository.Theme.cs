@@ -16,6 +16,7 @@ public partial class PlanRepository
         {
             subject.Themes.Add(theme);
         }
+
         SaveChanges();
     }
 
@@ -37,10 +38,15 @@ public partial class PlanRepository
         {
             theme.Number = dto.Number.Value;
         }
-        
+
+        if (dto.Semester is not null)
+        {
+            theme.Semester = dto.Semester.Value;
+        }
+
         SaveChanges();
     }
-    
+
     public List<Theme> FindThemes(Guid? subjectId = null, Guid? directionId = null, Semester? semester = null)
     {
         var themes = Subjects.SelectMany(x => x.Themes);
@@ -51,17 +57,14 @@ public partial class PlanRepository
             themes = themes.Where(t => t.SubjectId == subjectId);
         }
 
-        if(directionId.HasValue || semester.HasValue)
+        if (semester.HasValue)
         {
-            if(directionId.HasValue)
-            {
-                subjects = subjects.Where(s => s.DirectionId == directionId);
-            }
-            if(semester.HasValue)
-            {
-                subjects = subjects.Where(s => s.Semester == semester);
-            }
+            themes = themes.Where(t => t.Semester == semester);
+        }
 
+        if (directionId.HasValue)
+        {
+            subjects = subjects.Where(s => s.DirectionId == directionId);
             themes = themes.Where(t => subjects.Select(s => s.Id).Contains(t.SubjectId));
         }
 
@@ -71,20 +74,16 @@ public partial class PlanRepository
     public List<Theme> FindThemesForSemester(Guid directionId, Semester semester)
     {
         var direction = GetDirection(directionId)!;
-        var subjects = direction.Subjects.Where(s => s.Semester == semester).ToList();
-        var themes = subjects
+        var themes = direction.Subjects
             .SelectMany(x => x.Themes)
-            .Where(t => subjects
-                .Select(s => s.Id)
-                .Contains(t.SubjectId)
-            );
+            .Where(t => t.Semester == semester);
         return themes.ToList();
     }
 
     public void DeleteTheme(Guid id)
     {
         var subject = Subjects.FirstOrDefault(s => s.Themes.Any(t => t.Id == id))
-            ?? FindSubjects().FirstOrDefault(s => s.Themes.Any(t => t.Id == id));
+                      ?? FindSubjects().FirstOrDefault(s => s.Themes.Any(t => t.Id == id));
         if (subject == null)
         {
             return;

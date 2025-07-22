@@ -8,6 +8,8 @@ import { Icon } from '../icon'
 type LessonProps = {
   lesson: FreeLesson;
   onMove: (target:DropResult, lesson: FreeLesson) => void;
+  onDragging: (squardId: string) => void
+  onStopDragging: () => void
   onDelete: () => void
   squardIndex: number
 }
@@ -18,7 +20,7 @@ type DropResult = {
   number: number;
 }
 
-function LessonComponent({ lesson, squardIndex, onMove, onDelete }: LessonProps) {
+function LessonComponent({ lesson, squardIndex, onMove, onDelete, onDragging, onStopDragging }: LessonProps) {
 
   const ref = useRef<HTMLDivElement>(null)
 
@@ -29,11 +31,16 @@ function LessonComponent({ lesson, squardIndex, onMove, onDelete }: LessonProps)
     item: lesson,
     end: (item, monitor) => {
       const dropResult = monitor.getDropResult<DropResult>();
+      onStopDragging()
       if (item && dropResult) {
         onMove(dropResult, lesson);
       }
     },
     collect: (monitor) => {
+      if (monitor.isDragging()) {
+        console.log(monitor)
+        onDragging(lesson.squad.id.toString())
+      }
       return {isDragging: !!monitor.isDragging()}
     },
   }), [squardIndex]);
@@ -55,6 +62,7 @@ function LessonComponent({ lesson, squardIndex, onMove, onDelete }: LessonProps)
       addClass()
     }
   },[ref, lesson])
+
 
 
   return (

@@ -1,0 +1,2588 @@
+{
+  "Id": "327d6009-995b-405a-a79a-c5fb97800c14",
+  "Name": "ВУС-493000",
+  "Subjects": [
+    {
+      "Name": "Общевоенная подготовка",
+      "DirectionId": "327d6009-995b-405a-a79a-c5fb97800c14",
+      "Id": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+      "Themes": [
+        {
+          "Semester": 1,
+          "Number": 1,
+          "Name": "Международное положение России",
+          "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+          "Id": "aad2acbc-dd7c-4d4d-9979-46d73f945c26",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 1,
+              "Name": "Международное положение России.",
+              "Type": 1,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "aad2acbc-dd7c-4d4d-9979-46d73f945c26",
+              "Id": "803410a9-df72-4abb-98a0-2c5d71ce2c2f"
+            }
+          ]
+        },
+        {
+          "Semester": 1,
+          "Number": 2,
+          "Name": "Вооруженные силы в структуре государственных институтов",
+          "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+          "Id": "d36aa51a-5a0b-4c3b-9ee6-211791e10e2e",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 2,
+              "Name": "Вооруженные силы в структуре государственных институтов.",
+              "Type": 1,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "d36aa51a-5a0b-4c3b-9ee6-211791e10e2e",
+              "Id": "71f9f492-9e45-4f63-ba13-edc2e2a908ff"
+            }
+          ]
+        },
+        {
+          "Semester": 1,
+          "Number": 3,
+          "Name": "История великих побед русской армии и флота",
+          "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+          "Id": "6661c0c0-2262-41f9-a576-cb8ee4176d15",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 3,
+              "Name": "Военные реформу в истории Российского государства.",
+              "Type": 1,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "6661c0c0-2262-41f9-a576-cb8ee4176d15",
+              "Id": "90e9c999-7a52-4959-94f5-594c2d0ad0fb"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 4,
+              "Name": "История великих побед русской армии и флота.",
+              "Type": 1,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "6661c0c0-2262-41f9-a576-cb8ee4176d15",
+              "Id": "4ab63949-c225-4f9d-9cef-e8e56297a285"
+            }
+          ]
+        },
+        {
+          "Semester": 1,
+          "Number": 4,
+          "Name": "Правовые положения и порядок прохождения военной службы офицерским составом",
+          "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+          "Id": "9a7eeca1-e7a3-4d91-8113-ae5b5fe16f7c",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 5,
+              "Name": "Правовые положения и порядок прохождения военной службы офицерским составом.",
+              "Type": 1,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "9a7eeca1-e7a3-4d91-8113-ae5b5fe16f7c",
+              "Id": "76236a85-edb2-4403-9eb6-c720bb487bfc"
+            }
+          ]
+        },
+        {
+          "Semester": 1,
+          "Number": 5,
+          "Name": "Международное гуманитарное право о законах войны",
+          "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+          "Id": "3478dc6d-d660-497c-8825-f0057d9e6444",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 6,
+              "Name": "Международное гуманитарное право о законах войны.",
+              "Type": 1,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "3478dc6d-d660-497c-8825-f0057d9e6444",
+              "Id": "d97d4cea-04a5-4644-90f6-4d05343b37da"
+            }
+          ]
+        },
+        {
+          "Semester": 1,
+          "Number": 6,
+          "Name": "Организация воспитательной работы",
+          "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+          "Id": "4ae6fbfd-f3fa-4ba4-8eff-dc0825093b76",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 7,
+              "Name": "Организация воспитательной работы.",
+              "Type": 1,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "4ae6fbfd-f3fa-4ba4-8eff-dc0825093b76",
+              "Id": "fdf69b5c-57ea-4d9d-8ef5-a4b23731d88f"
+            }
+          ]
+        },
+        {
+          "Semester": 1,
+          "Number": 7,
+          "Name": "Особенности психологии личности и воинского коллектива",
+          "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+          "Id": "6d0f2795-c3e6-4d39-aacf-ed8a6d5240e1",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 8,
+              "Name": "Особенности психологии личности и воинского коллектива.",
+              "Type": 1,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "6d0f2795-c3e6-4d39-aacf-ed8a6d5240e1",
+              "Id": "b9ca6945-9313-406f-8cc3-5b23896b353f"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 9,
+              "Name": "Воинский коллектив.",
+              "Type": 1,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "6d0f2795-c3e6-4d39-aacf-ed8a6d5240e1",
+              "Id": "962a681f-2a45-4e9a-9700-33a157afb0b0"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 10,
+              "Name": "Морально-психологическая подготовка.",
+              "Type": 1,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "6d0f2795-c3e6-4d39-aacf-ed8a6d5240e1",
+              "Id": "59071791-d489-41db-a16b-82c8f075c15c"
+            }
+          ]
+        },
+        {
+          "Semester": 1,
+          "Number": 1,
+          "Name": "Общевоинские уставы Вооруженных Сил Российской Федерации, их основные требования и содержания",
+          "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+          "Id": "91415a67-3e27-4b08-8dd7-b363fbddaa13",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 11,
+              "Name": "Общевоинские уставы ВС РФ.",
+              "Type": 1,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "91415a67-3e27-4b08-8dd7-b363fbddaa13",
+              "Id": "48eb4a28-b44e-4400-bf51-404cb6332bd0"
+            }
+          ]
+        },
+        {
+          "Semester": 1,
+          "Number": 2,
+          "Name": "Права, обязанность и ответственность военнослужащих",
+          "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+          "Id": "1b38ad9c-d06a-4d59-bec4-05e9267ad5cd",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 12,
+              "Name": "Права, обязанность и ответственность военнослужащих.",
+              "Type": 1,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "1b38ad9c-d06a-4d59-bec4-05e9267ad5cd",
+              "Id": "3e869169-957e-4f2b-9179-fb0c748d7db1"
+            }
+          ]
+        },
+        {
+          "Semester": 1,
+          "Number": 3,
+          "Name": "Военнослужащие и взаимоотношение между ними",
+          "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+          "Id": "c9cdd91a-1adc-4539-a72c-afe0a8712b1f",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 13,
+              "Name": "Военнослужащие и взаимоотношение между ними.",
+              "Type": 1,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "c9cdd91a-1adc-4539-a72c-afe0a8712b1f",
+              "Id": "57f9d76f-c372-4f25-9590-3139fe064b41"
+            }
+          ]
+        },
+        {
+          "Semester": 1,
+          "Number": 4,
+          "Name": "Размещение военнослужащих. Распределение времени и повседневный порядок",
+          "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+          "Id": "3032a940-be2b-4400-9fcd-b8c5a9b68e14",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 14,
+              "Name": "Размещение военнослужащих. Распределение времени и повседневный порядок.",
+              "Type": 1,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "3032a940-be2b-4400-9fcd-b8c5a9b68e14",
+              "Id": "db8fc65b-bcbf-4e71-8902-908125679405"
+            }
+          ]
+        },
+        {
+          "Semester": 1,
+          "Number": 5,
+          "Name": "Суточный наряд",
+          "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+          "Id": "a844954a-8f09-47fc-8af2-ccb7eae2077a",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 15,
+              "Name": "Суточный наряд.",
+              "Type": 1,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "a844954a-8f09-47fc-8af2-ccb7eae2077a",
+              "Id": "d0931517-16c4-410c-968d-db2afc4c279f"
+            }
+          ]
+        },
+        {
+          "Semester": 1,
+          "Number": 6,
+          "Name": "Безопасность военной службы",
+          "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+          "Id": "b9d6f925-fa2a-4ac4-8ae1-e3a8f23c0d3d",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 16,
+              "Name": "Безопасность военной службы.",
+              "Type": 1,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "b9d6f925-fa2a-4ac4-8ae1-e3a8f23c0d3d",
+              "Id": "7e0e59ea-482b-4797-a32e-35de18993bb0"
+            }
+          ]
+        },
+        {
+          "Semester": 1,
+          "Number": 7,
+          "Name": "Воинская дисциплина",
+          "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+          "Id": "7a67d648-1200-409f-8632-9483d334fa61",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 17,
+              "Name": "Воинская дисциплина.",
+              "Type": 1,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "7a67d648-1200-409f-8632-9483d334fa61",
+              "Id": "a7453ec7-9db1-4909-a179-095c1a728b3d"
+            }
+          ]
+        },
+        {
+          "Semester": 1,
+          "Number": 8,
+          "Name": "Организация и несение караульной службы",
+          "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+          "Id": "c3a26657-70f9-4ef2-8fb4-6cce80dfa5c9",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 18,
+              "Name": "Организация караульной службы и подготовка караула.",
+              "Type": 1,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "c3a26657-70f9-4ef2-8fb4-6cce80dfa5c9",
+              "Id": "c3bf19a6-69ef-4e02-a888-05b753c19b80"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 19,
+              "Name": "Развод и смена караулов.",
+              "Type": 1,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "c3a26657-70f9-4ef2-8fb4-6cce80dfa5c9",
+              "Id": "141e2d3b-8faa-4823-961e-5de706fc563e"
+            }
+          ]
+        },
+        {
+          "Semester": 1,
+          "Number": 1,
+          "Name": "Общие положения Строевого устава",
+          "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+          "Id": "62db97f5-3d98-449d-b15f-01062008717d",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 20,
+              "Name": "Общие положения Строевого устава.",
+              "Type": 1,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "62db97f5-3d98-449d-b15f-01062008717d",
+              "Id": "2e85a4af-c25d-4fca-bfce-1ffc4632f2a7"
+            }
+          ]
+        },
+        {
+          "Semester": 1,
+          "Number": 2,
+          "Name": "Строевые приемы и движение без оружия",
+          "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+          "Id": "6ae64e07-34cd-4d7d-a960-69dcc2afaeb9",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 1,
+              "Name": "Строевые приемы и движение без оружия.",
+              "Type": 2,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "6ae64e07-34cd-4d7d-a960-69dcc2afaeb9",
+              "Id": "c3598191-079b-4b1a-803b-e50f93e3adf5"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 2,
+              "Name": "Движение строевым шагом.",
+              "Type": 2,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "6ae64e07-34cd-4d7d-a960-69dcc2afaeb9",
+              "Id": "e65c3f25-2daf-4a7a-ac83-6b0bb3b1e4a0"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 3,
+              "Name": "Движение строевым шагом.",
+              "Type": 2,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "6ae64e07-34cd-4d7d-a960-69dcc2afaeb9",
+              "Id": "8d7b5aa0-f6d3-49b1-a151-f51fbd4a5bc3"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 4,
+              "Name": "Выполнение воинского приветствия, выход из строя и возвращение в строй. Подход к начальнику и отход от него.",
+              "Type": 2,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "6ae64e07-34cd-4d7d-a960-69dcc2afaeb9",
+              "Id": "9b21177e-5ef6-4cf1-890c-60c822a4df2f"
+            }
+          ]
+        },
+        {
+          "Semester": 1,
+          "Number": 3,
+          "Name": "Строевые приемы и движение с оружием",
+          "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+          "Id": "97db7561-0417-4fe5-b229-bd27b0f7530d",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 5,
+              "Name": "Строевые приемы и движение с оружием.",
+              "Type": 2,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "97db7561-0417-4fe5-b229-bd27b0f7530d",
+              "Id": "abdf6efc-5c8c-4c30-8f48-6ee0aacc0716"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 6,
+              "Name": "Строевые приемы и движение с оружием.",
+              "Type": 2,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "97db7561-0417-4fe5-b229-bd27b0f7530d",
+              "Id": "f9127687-8f7d-418d-87e9-20f7d285b711"
+            }
+          ]
+        },
+        {
+          "Semester": 1,
+          "Number": 4,
+          "Name": "Строи подразделений",
+          "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+          "Id": "46b4406c-009a-4ade-8ae6-0eb45dc43aa8",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 7,
+              "Name": "Строи отделения, взвода.",
+              "Type": 2,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "46b4406c-009a-4ade-8ae6-0eb45dc43aa8",
+              "Id": "e3cde453-0e8c-44bd-8387-0d7dade3c415"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 1,
+              "Name": "Автомат Калашникова.",
+              "Type": 3,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "46b4406c-009a-4ade-8ae6-0eb45dc43aa8",
+              "Id": "e5bbd05c-1b69-45bc-bae6-7f47e33174bd"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 2,
+              "Name": "Пистолет Макарова (ПМ).",
+              "Type": 3,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "46b4406c-009a-4ade-8ae6-0eb45dc43aa8",
+              "Id": "82e2f6ea-131d-483a-a336-fbe3559f9c16"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 3,
+              "Name": "Ручные осколочные гранаты.",
+              "Type": 3,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "46b4406c-009a-4ade-8ae6-0eb45dc43aa8",
+              "Id": "f5bd298f-3896-4dba-900f-5c98aa009e1c"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 4,
+              "Name": "Материальная часть приборов наблюдения и ночных прицелов.",
+              "Type": 3,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "46b4406c-009a-4ade-8ae6-0eb45dc43aa8",
+              "Id": "98fedb6a-3890-4d8d-844a-983d86faef16"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 5,
+              "Name": "Основы и правила стрельбы.",
+              "Type": 3,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "46b4406c-009a-4ade-8ae6-0eb45dc43aa8",
+              "Id": "17020991-1536-466d-9614-d4908ea8b117"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 6,
+              "Name": "Основы и правила стрельбы.",
+              "Type": 3,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "46b4406c-009a-4ade-8ae6-0eb45dc43aa8",
+              "Id": "3c170ad8-5ffe-4fb5-9e7e-e84c8de21cad"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 7,
+              "Name": "Стрелковые тренировки",
+              "Type": 3,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "46b4406c-009a-4ade-8ae6-0eb45dc43aa8",
+              "Id": "695a5712-02fc-4797-890a-bdeffc2e354a"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 8,
+              "Name": "Стрелковые тренировки",
+              "Type": 2,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "46b4406c-009a-4ade-8ae6-0eb45dc43aa8",
+              "Id": "9714b720-67bd-4269-a662-a3c6f729c684"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 9,
+              "Name": "Стрелковые тренировки",
+              "Type": 2,
+              "SubjectId": "c3ed9f7e-a65f-461a-a5e5-7af0242c9dc8",
+              "ThemeId": "46b4406c-009a-4ade-8ae6-0eb45dc43aa8",
+              "Id": "a147e573-8b3c-4a18-a7b5-f83945f8b051"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Тактическая подготовка",
+      "DirectionId": "327d6009-995b-405a-a79a-c5fb97800c14",
+      "Id": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+      "Themes": [
+        {
+          "Semester": 2,
+          "Number": 1,
+          "Name": "Вооруженные Силы Российской Федерации",
+          "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+          "Id": "de809b12-b613-472f-a154-526a3405d20e",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 1,
+              "Name": "Вооруженные Силы Российской Федерации.",
+              "Type": 1,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "de809b12-b613-472f-a154-526a3405d20e",
+              "Id": "7c8e9e8c-ee2b-4aeb-9362-8caa92e35c0e"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 2,
+              "Name": "Боевая готовность частей и подразделений.",
+              "Type": 1,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "de809b12-b613-472f-a154-526a3405d20e",
+              "Id": "b5a2858f-ec5d-4f4d-a6cd-c6f808bad06c"
+            }
+          ]
+        },
+        {
+          "Semester": 2,
+          "Number": 2,
+          "Name": "Основы ведения современного общевойскового боя",
+          "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+          "Id": "98de8081-6992-4a58-9187-6e83c7642a0a",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 3,
+              "Name": "Основы ведения современного общевойскового боя.",
+              "Type": 1,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "98de8081-6992-4a58-9187-6e83c7642a0a",
+              "Id": "a0501066-1e3e-4bbd-bb6f-53b8a327d4da"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 4,
+              "Name": "Мотострелковый взвод в обороне.",
+              "Type": 1,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "98de8081-6992-4a58-9187-6e83c7642a0a",
+              "Id": "d239a513-b20a-47d1-9f6e-93e874eb2afb"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 5,
+              "Name": "Мотострелковый взвод в наступлении.",
+              "Type": 1,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "98de8081-6992-4a58-9187-6e83c7642a0a",
+              "Id": "a3b00485-1c3d-4d37-a8e4-cbf742535f41"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 1,
+              "Name": "1. Обсуждение вопросов семинара.",
+              "Type": 0,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "98de8081-6992-4a58-9187-6e83c7642a0a",
+              "Id": "fc67f57b-d502-48ad-bb9a-a29382da455a"
+            }
+          ]
+        },
+        {
+          "Semester": 2,
+          "Number": 3,
+          "Name": "Действия солдата в бою",
+          "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+          "Id": "8dceef11-ee32-4c51-9282-7b9be8e69c06",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 1,
+              "Name": "Передвижение в бою.",
+              "Type": 3,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "8dceef11-ee32-4c51-9282-7b9be8e69c06",
+              "Id": "b62402c5-9a53-476f-8c93-1ff9d87e5964"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 2,
+              "Name": "Действия на боевых машинах.",
+              "Type": 3,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "8dceef11-ee32-4c51-9282-7b9be8e69c06",
+              "Id": "3573ddc7-9dff-4dfd-a093-8a5a1faf0d8d"
+            }
+          ]
+        },
+        {
+          "Semester": 2,
+          "Number": 4,
+          "Name": "Передвижение подразделений и расположение на месте",
+          "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+          "Id": "ea2552b5-827b-4643-838c-ce3136018d1e",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 3,
+              "Name": "Марш и перевозка подразделений.",
+              "Type": 3,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "ea2552b5-827b-4643-838c-ce3136018d1e",
+              "Id": "ac39b118-cb6e-4720-a6cf-b9b9c971fd20"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 4,
+              "Name": "Расположение на месте.",
+              "Type": 3,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "ea2552b5-827b-4643-838c-ce3136018d1e",
+              "Id": "f7f7bb17-de6d-4f0f-a57f-8709d8ccc18b"
+            }
+          ]
+        },
+        {
+          "Semester": 1,
+          "Number": 1,
+          "Name": "Ядерное, химическое, биологическое и зажигательное оружие вероятного противника",
+          "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+          "Id": "710e347c-707c-4eb8-925b-98feede760d7",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 6,
+              "Name": "Ядерное и химическое оружие вероятного противника.",
+              "Type": 1,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "710e347c-707c-4eb8-925b-98feede760d7",
+              "Id": "12a91e68-2a31-4ee3-8164-d1e03a9bc53d"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 7,
+              "Name": "Биологическое и зажигательное оружие вероятного противника.",
+              "Type": 1,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "710e347c-707c-4eb8-925b-98feede760d7",
+              "Id": "7dedc02a-3f70-4bfc-bc0c-aa03a56f5f99"
+            }
+          ]
+        },
+        {
+          "Semester": 1,
+          "Number": 2,
+          "Name": "Средства индивидуальной и коллективной защиты",
+          "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+          "Id": "22da455d-e9ba-4972-b2df-62e93ba59b1d",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 5,
+              "Name": "Средства индивидуальной и коллективной защиты.",
+              "Type": 3,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "22da455d-e9ba-4972-b2df-62e93ba59b1d",
+              "Id": "216eba6b-e757-40f8-a676-c28c8717255e"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 1,
+              "Name": "Применение средств индивидуальной защиты.",
+              "Type": 2,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "22da455d-e9ba-4972-b2df-62e93ba59b1d",
+              "Id": "4f799bf9-6162-4e24-adf1-7d32a1d8043d"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 2,
+              "Name": "Применение средств индивидуальной защиты.",
+              "Type": 2,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "22da455d-e9ba-4972-b2df-62e93ba59b1d",
+              "Id": "3c4e27ad-3e8f-457b-9203-c85500a5f105"
+            }
+          ]
+        },
+        {
+          "Semester": 1,
+          "Number": 3,
+          "Name": "Приборы радиационной и химической разведки",
+          "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+          "Id": "6b661aef-8312-4bb6-8379-2ae059a68be8",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 6,
+              "Name": "Приборы радиационной и химической разведки.",
+              "Type": 3,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "6b661aef-8312-4bb6-8379-2ae059a68be8",
+              "Id": "7c9edc78-e392-4158-8898-e1e33d863a96"
+            }
+          ]
+        },
+        {
+          "Semester": 1,
+          "Number": 4,
+          "Name": "Приемы и способы действия личного состава на зараженной местности",
+          "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+          "Id": "0d05832a-7b51-4f5b-ad70-210709e598e2",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 7,
+              "Name": "Специальная обработка личного состава и техники.",
+              "Type": 3,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "0d05832a-7b51-4f5b-ad70-210709e598e2",
+              "Id": "885e6031-881a-496e-ab0a-c9b37805d657"
+            },
+            {
+              "SelfStudyHours": 2,
+              "Number": 3,
+              "Name": "Действие личного состава на зараженной местности.",
+              "Type": 2,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "0d05832a-7b51-4f5b-ad70-210709e598e2",
+              "Id": "3e471f8d-6dd5-4e28-8c7d-1626c88cffb4"
+            }
+          ]
+        },
+        {
+          "Semester": 2,
+          "Number": 1,
+          "Name": "Инженерное обеспечение боя",
+          "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+          "Id": "96be23c2-bab6-43b3-b952-817ef0953152",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 8,
+              "Name": "Инженерное обеспечение боевых действий.",
+              "Type": 1,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "96be23c2-bab6-43b3-b952-817ef0953152",
+              "Id": "fcc36488-2a5e-4cac-a9e6-211ef526c75f"
+            }
+          ]
+        },
+        {
+          "Semester": 2,
+          "Number": 2,
+          "Name": "Взрывчатые вещества и заряды",
+          "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+          "Id": "2416794f-d15d-40bb-b357-e12a2535eb10",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 8,
+              "Name": "Взрывчатые вещества и заряды ВВ.",
+              "Type": 3,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "2416794f-d15d-40bb-b357-e12a2535eb10",
+              "Id": "e066318f-757f-47eb-9a60-ce9afd07ce10"
+            }
+          ]
+        },
+        {
+          "Semester": 2,
+          "Number": 3,
+          "Name": "Способы взрывания",
+          "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+          "Id": "e12ad831-67c3-430d-8f0c-a04aae991b59",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 9,
+              "Name": "Огневой способ взрывания.",
+              "Type": 3,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "e12ad831-67c3-430d-8f0c-a04aae991b59",
+              "Id": "33f281d9-4f90-4e8a-954a-833d953991e2"
+            }
+          ]
+        },
+        {
+          "Semester": 2,
+          "Number": 4,
+          "Name": "Инженерные боеприпасы",
+          "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+          "Id": "481d1aae-b654-4951-b783-5332448010e1",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 10,
+              "Name": "Минно-взрывные средства.",
+              "Type": 3,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "481d1aae-b654-4951-b783-5332448010e1",
+              "Id": "aa2e1c0d-479b-4330-8d1e-0a5f853245c6"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 11,
+              "Name": "Минно-взрывные средства вероятного противника.",
+              "Type": 3,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "481d1aae-b654-4951-b783-5332448010e1",
+              "Id": "2ea7b266-1f4b-45e5-8984-c7315bdde1f3"
+            }
+          ]
+        },
+        {
+          "Semester": 2,
+          "Number": 5,
+          "Name": "Инженерные заграждения",
+          "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+          "Id": "393203a2-da07-40c6-87a4-c276f6f030f3",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 12,
+              "Name": "Инженерные заграждения.",
+              "Type": 3,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "393203a2-da07-40c6-87a4-c276f6f030f3",
+              "Id": "cbbe0802-da24-488e-81b2-734b34094b0c"
+            }
+          ]
+        },
+        {
+          "Semester": 2,
+          "Number": 1,
+          "Name": "Ориентирование и движение на местности без карты",
+          "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+          "Id": "f53ecdc4-c672-44cc-8ea2-0b8971172612",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 13,
+              "Name": "Ориентирование на местности без карты.",
+              "Type": 3,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "f53ecdc4-c672-44cc-8ea2-0b8971172612",
+              "Id": "9b025d87-c11c-45c4-bc5d-ca6bd962743e"
+            }
+          ]
+        },
+        {
+          "Semester": 2,
+          "Number": 2,
+          "Name": "Топографические карты и работа с ними",
+          "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+          "Id": "7dbbfc47-0a84-4781-b623-f5c87165cccc",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 14,
+              "Name": "Топографические карты.",
+              "Type": 3,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "7dbbfc47-0a84-4781-b623-f5c87165cccc",
+              "Id": "e23c4f58-f065-4903-ae90-0dfc7a2765e3"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 15,
+              "Name": "Содержание топографических карт.",
+              "Type": 3,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "7dbbfc47-0a84-4781-b623-f5c87165cccc",
+              "Id": "8e98d7d2-0dd9-495c-96d8-1cd446d747af"
+            }
+          ]
+        },
+        {
+          "Semester": 2,
+          "Number": 3,
+          "Name": "Ориентирование и движение на местности по карте",
+          "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+          "Id": "7127e21e-96f2-4088-acb9-eaa04c6f555d",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 16,
+              "Name": "Ориентирование по карте.",
+              "Type": 3,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "7127e21e-96f2-4088-acb9-eaa04c6f555d",
+              "Id": "6bfc01df-202c-45f2-99bf-474cc3ff5f38"
+            }
+          ]
+        },
+        {
+          "Semester": 2,
+          "Number": 4,
+          "Name": "Определение по карте координат целей (объектов)",
+          "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+          "Id": "5727a977-e219-42e2-9545-c1324d0857aa",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 17,
+              "Name": "Определение координат и целеуказание.",
+              "Type": 3,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "5727a977-e219-42e2-9545-c1324d0857aa",
+              "Id": "29e9e2e1-74ac-43ae-80b1-7e0227b67183"
+            }
+          ]
+        },
+        {
+          "Semester": 2,
+          "Number": 5,
+          "Name": "Движение по азимутам",
+          "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+          "Id": "54a87abe-3038-48a6-afa0-b420867ccd6c",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 18,
+              "Name": "Подготовка данных для движения по азимутам.",
+              "Type": 3,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "54a87abe-3038-48a6-afa0-b420867ccd6c",
+              "Id": "649eb312-c946-4c99-aa92-b128e649a598"
+            },
+            {
+              "SelfStudyHours": 2,
+              "Number": 4,
+              "Name": "Движение по азимутам.",
+              "Type": 2,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "54a87abe-3038-48a6-afa0-b420867ccd6c",
+              "Id": "7760bc21-057e-4b92-82c3-6d8d4ed224fc"
+            }
+          ]
+        },
+        {
+          "Semester": 2,
+          "Number": 6,
+          "Name": "Рабочая карта командира",
+          "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+          "Id": "20a6409d-6405-4b79-801d-1dd638f85cf5",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 19,
+              "Name": "Рабочая карта командира.",
+              "Type": 3,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "20a6409d-6405-4b79-801d-1dd638f85cf5",
+              "Id": "179d48c4-0750-49d9-a476-6d1c4cd31137"
+            }
+          ]
+        },
+        {
+          "Semester": 2,
+          "Number": 1,
+          "Name": "Оказание первой доврачебной помощи",
+          "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+          "Id": "0146df36-7500-4e02-8c4d-5cd04f2223ed",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 20,
+              "Name": "Оказание первой доврачебной помощи.",
+              "Type": 3,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "0146df36-7500-4e02-8c4d-5cd04f2223ed",
+              "Id": "6ba37f45-fd13-4c35-b221-0b92476775ed"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 21,
+              "Name": "Оказание первой доврачебной помощи при травмах и термических поражениях.",
+              "Type": 3,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "0146df36-7500-4e02-8c4d-5cd04f2223ed",
+              "Id": "026b99ab-0d15-4443-bb00-7a3e7adbf32c"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 6,
+              "Name": "Практическое оказание первой доврачебной помощи.",
+              "Type": 2,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "0146df36-7500-4e02-8c4d-5cd04f2223ed",
+              "Id": "121763d4-a541-4b38-a38a-35e187184d4f"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 22,
+              "Name": "1. Первая доврачебная помощь при отравлении ядовитыми техническими жидкостями, угарным газом.",
+              "Type": 3,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "0146df36-7500-4e02-8c4d-5cd04f2223ed",
+              "Id": "2965be9d-090b-4e04-8cd4-0867b38292a5"
+            }
+          ]
+        },
+        {
+          "Semester": 2,
+          "Number": 1,
+          "Name": "Выживание в экстремальных условиях",
+          "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+          "Id": "8cde0f44-94cd-45f9-95d8-57875db7e682",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 23,
+              "Name": "Организация выживания.",
+              "Type": 3,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "8cde0f44-94cd-45f9-95d8-57875db7e682",
+              "Id": "f39502de-ea9d-4bad-9dc4-ca140cd80bbe"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 24,
+              "Name": "Обеспечение водой и пищей.",
+              "Type": 3,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "8cde0f44-94cd-45f9-95d8-57875db7e682",
+              "Id": "1fcf1f7f-2341-4318-96cb-93d253576a6a"
+            }
+          ]
+        },
+        {
+          "Semester": 2,
+          "Number": 2,
+          "Name": "Подготовка военнослужащих к действиям в экстремальных ситуациях",
+          "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+          "Id": "90cf86c6-7721-4681-b14c-827108be5cb7",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 25,
+              "Name": "Подготовка военнослужащих к действиям в экстремальных ситуациях.",
+              "Type": 3,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "90cf86c6-7721-4681-b14c-827108be5cb7",
+              "Id": "4c22de4b-b3b9-462a-aae9-19530a6958e9"
+            }
+          ]
+        },
+        {
+          "Semester": 2,
+          "Number": 3,
+          "Name": "Защита личного состава в чрезвычайных ситуациях",
+          "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+          "Id": "6c4c9892-50c2-41b4-8278-d60ad79e5950",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 26,
+              "Name": "Защита личного состава в чрезвычайных ситуациях.",
+              "Type": 3,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "6c4c9892-50c2-41b4-8278-d60ad79e5950",
+              "Id": "db70dd79-f210-4eb8-ac59-6a0da1b4edfa"
+            }
+          ]
+        },
+        {
+          "Semester": 2,
+          "Number": 1,
+          "Name": "Вооруженные силы США",
+          "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+          "Id": "a3b2e183-5e89-4a62-aa24-2275add3bb86",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 27,
+              "Name": "Вооруженные силы США.",
+              "Type": 3,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "a3b2e183-5e89-4a62-aa24-2275add3bb86",
+              "Id": "75721557-e2d0-460c-af8e-a8c834c494e8"
+            }
+          ]
+        },
+        {
+          "Semester": 2,
+          "Number": 2,
+          "Name": "Вооруженные силы ФРГ",
+          "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+          "Id": "19e94a9d-40e0-4ffb-8691-c732a00d5101",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 28,
+              "Name": "Вооруженные силы ФРГ.",
+              "Type": 3,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "19e94a9d-40e0-4ffb-8691-c732a00d5101",
+              "Id": "6319eb2a-99c8-4cee-b62c-505855094e21"
+            }
+          ]
+        },
+        {
+          "Semester": 2,
+          "Number": 3,
+          "Name": "Вооруженные силы КНР",
+          "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+          "Id": "c29aa0c5-d7bd-4f90-b1ed-e99644ddf748",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 29,
+              "Name": "Вооруженные силы КНР.",
+              "Type": 3,
+              "SubjectId": "f5513759-f12c-4ff4-a66c-cd4b7af79dea",
+              "ThemeId": "c29aa0c5-d7bd-4f90-b1ed-e99644ddf748",
+              "Id": "a0e89a93-223c-47b8-be21-b486e816239f"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Военноспециальная подготовка",
+      "DirectionId": "327d6009-995b-405a-a79a-c5fb97800c14",
+      "Id": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+      "Themes": [
+        {
+          "Semester": 2,
+          "Number": 1,
+          "Name": "Информатизация общества",
+          "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+          "Id": "7a5dccb5-b8d9-4036-bcf4-5d3a852a4d02",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 1,
+              "Name": "Занятие 1",
+              "Type": 3,
+              "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+              "ThemeId": "7a5dccb5-b8d9-4036-bcf4-5d3a852a4d02",
+              "Id": "dee2e97f-a772-47af-82b3-7c9fbbb1f35f"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 2,
+              "Name": "Занятие 2",
+              "Type": 3,
+              "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+              "ThemeId": "7a5dccb5-b8d9-4036-bcf4-5d3a852a4d02",
+              "Id": "327ec4e3-5223-4302-897c-a57bb547bce4"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 3,
+              "Name": "Занятие 3",
+              "Type": 3,
+              "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+              "ThemeId": "7a5dccb5-b8d9-4036-bcf4-5d3a852a4d02",
+              "Id": "fffa2e39-1fda-4ea4-9337-eee62c09822e"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 4,
+              "Name": "Занятие 4",
+              "Type": 3,
+              "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+              "ThemeId": "7a5dccb5-b8d9-4036-bcf4-5d3a852a4d02",
+              "Id": "2fa03182-56d7-4cc1-80cf-2e5935a39932"
+            }
+          ]
+        },
+        {
+          "Semester": 2,
+          "Number": 2,
+          "Name": "Языки, методы и инструментальные средства программирования",
+          "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+          "Id": "eecad07c-ac9b-4648-bad1-e81f993de06c",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 5,
+              "Name": "Занятие 5",
+              "Type": 3,
+              "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+              "ThemeId": "eecad07c-ac9b-4648-bad1-e81f993de06c",
+              "Id": "055a33ec-b60b-4b00-9a62-e01d7fefa570"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 6,
+              "Name": "Занятие 6",
+              "Type": 3,
+              "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+              "ThemeId": "eecad07c-ac9b-4648-bad1-e81f993de06c",
+              "Id": "27679570-0952-46a4-ac2e-1359b1aaf277"
+            }
+          ]
+        },
+        {
+          "Semester": 2,
+          "Number": 3,
+          "Name": "Геоинформационные системы",
+          "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+          "Id": "815bc553-cb4f-4769-bf63-cd6e1577b5b2",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 7,
+              "Name": "Занятие 7",
+              "Type": 3,
+              "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+              "ThemeId": "815bc553-cb4f-4769-bf63-cd6e1577b5b2",
+              "Id": "5786045e-6005-4324-8826-daec6d73649f"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 8,
+              "Name": "Занятие 8",
+              "Type": 3,
+              "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+              "ThemeId": "815bc553-cb4f-4769-bf63-cd6e1577b5b2",
+              "Id": "a4c0ca1f-4e52-409c-9fc6-8c759f948749"
+            }
+          ]
+        },
+        {
+          "Semester": 2,
+          "Number": 4,
+          "Name": "Установка и настройка программного обеспечения",
+          "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+          "Id": "9ecf6f57-964f-49ea-8527-2fa11e8faa22",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 9,
+              "Name": "Занятие 9",
+              "Type": 3,
+              "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+              "ThemeId": "9ecf6f57-964f-49ea-8527-2fa11e8faa22",
+              "Id": "460c107f-cf27-4801-9791-e81c36ce6c50"
+            }
+          ]
+        },
+        {
+          "Semester": 3,
+          "Number": 4,
+          "Name": "Установка и настройка программного обеспечения",
+          "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+          "Id": "a323c075-3006-4f74-9abb-ca0c8b9fa8a4",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 1,
+              "Name": "Занятие 1",
+              "Type": 2,
+              "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+              "ThemeId": "a323c075-3006-4f74-9abb-ca0c8b9fa8a4",
+              "Id": "b724bc29-ab77-4444-a34a-22945b93ce00"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 2,
+              "Name": "Занятие 2",
+              "Type": 2,
+              "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+              "ThemeId": "a323c075-3006-4f74-9abb-ca0c8b9fa8a4",
+              "Id": "9c4fa9ae-6044-4188-98b1-16f1f2963587"
+            }
+          ]
+        },
+        {
+          "Semester": 3,
+          "Number": 5,
+          "Name": "Программное обеспечения для обработки электронной документации",
+          "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+          "Id": "ba5495ec-5d11-442d-b832-8bd22bd83667",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 10,
+              "Name": "Занятие 10",
+              "Type": 3,
+              "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+              "ThemeId": "ba5495ec-5d11-442d-b832-8bd22bd83667",
+              "Id": "a30c0d5a-db93-4b9b-9afa-05e4a21e36c8"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 3,
+              "Name": "Занятие 3",
+              "Type": 2,
+              "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+              "ThemeId": "ba5495ec-5d11-442d-b832-8bd22bd83667",
+              "Id": "5c541e69-1dc5-4a15-93af-8d52c98fc714"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 4,
+              "Name": "Занятие 4",
+              "Type": 2,
+              "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+              "ThemeId": "ba5495ec-5d11-442d-b832-8bd22bd83667",
+              "Id": "0d4ba20f-3d0c-45cc-953d-3a87ed6694de"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 5,
+              "Name": "Занятие 5",
+              "Type": 2,
+              "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+              "ThemeId": "ba5495ec-5d11-442d-b832-8bd22bd83667",
+              "Id": "083246e3-8e7c-4739-b0bc-83cf0a1c1da9"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 6,
+              "Name": "Занятие 6",
+              "Type": 2,
+              "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+              "ThemeId": "ba5495ec-5d11-442d-b832-8bd22bd83667",
+              "Id": "a1df0e57-c8da-46c5-9a48-0f4faaf8fddf"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 7,
+              "Name": "Занятие 7",
+              "Type": 2,
+              "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+              "ThemeId": "ba5495ec-5d11-442d-b832-8bd22bd83667",
+              "Id": "b1734a07-37a3-40a8-a77a-2644914e1b75"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 8,
+              "Name": "Занятие 8",
+              "Type": 2,
+              "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+              "ThemeId": "ba5495ec-5d11-442d-b832-8bd22bd83667",
+              "Id": "4efd9d50-2492-474d-aada-563417192447"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 9,
+              "Name": "Занятие 9",
+              "Type": 2,
+              "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+              "ThemeId": "ba5495ec-5d11-442d-b832-8bd22bd83667",
+              "Id": "41e66102-105c-4d47-8f77-1253209d32ff"
+            }
+          ]
+        },
+        {
+          "Semester": 3,
+          "Number": 6,
+          "Name": "Программное обеспечения для обработки изображений",
+          "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+          "Id": "07cc29e5-b328-4bc1-8658-bbdf24cd81af",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 11,
+              "Name": "Занятие 11",
+              "Type": 3,
+              "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+              "ThemeId": "07cc29e5-b328-4bc1-8658-bbdf24cd81af",
+              "Id": "fa05f17c-335c-4a5e-bf36-ec97305af36b"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 10,
+              "Name": "Занятие 10",
+              "Type": 2,
+              "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+              "ThemeId": "07cc29e5-b328-4bc1-8658-bbdf24cd81af",
+              "Id": "cc92169b-871b-42d0-bab6-cd28de5d8469"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 11,
+              "Name": "Занятие 11",
+              "Type": 2,
+              "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+              "ThemeId": "07cc29e5-b328-4bc1-8658-bbdf24cd81af",
+              "Id": "5cdcda09-dbf3-4351-8e59-1928a4c0f29f"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 12,
+              "Name": "Занятие 12",
+              "Type": 2,
+              "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+              "ThemeId": "07cc29e5-b328-4bc1-8658-bbdf24cd81af",
+              "Id": "46fcae33-bcde-43d2-a8d8-0242df6e89fb"
+            }
+          ]
+        },
+        {
+          "Semester": 3,
+          "Number": 7,
+          "Name": "Программное обеспечения для обработки видео",
+          "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+          "Id": "0f5b8047-87c1-451e-85ab-1ed0c22565c7",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 12,
+              "Name": "Занятие 12",
+              "Type": 3,
+              "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+              "ThemeId": "0f5b8047-87c1-451e-85ab-1ed0c22565c7",
+              "Id": "be796731-5392-44e2-a96c-e5315dae2f8c"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 13,
+              "Name": "Занятие 13",
+              "Type": 2,
+              "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+              "ThemeId": "0f5b8047-87c1-451e-85ab-1ed0c22565c7",
+              "Id": "127e9455-64cd-4578-b63c-235d5cf2b847"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 14,
+              "Name": "Занятие 14",
+              "Type": 2,
+              "SubjectId": "e49bce4e-3c99-4c6a-ab54-65bcbb78fd3f",
+              "ThemeId": "0f5b8047-87c1-451e-85ab-1ed0c22565c7",
+              "Id": "3d57e18c-6eff-43cc-8c79-cedcbd3ae155"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Военнотехническая подготовка",
+      "DirectionId": "327d6009-995b-405a-a79a-c5fb97800c14",
+      "Id": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+      "Themes": [
+        {
+          "Semester": 3,
+          "Number": 1,
+          "Name": "Специальные технические средства",
+          "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+          "Id": "0dc967f2-ea61-4128-8fc9-e2d4bf027742",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 1,
+              "Name": "Специальные технические средства.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "0dc967f2-ea61-4128-8fc9-e2d4bf027742",
+              "Id": "d861afb8-811a-4575-938d-086fd12c2048"
+            }
+          ]
+        },
+        {
+          "Semester": 3,
+          "Number": 2,
+          "Name": "Аппаратные средства телекоммуникационных систем",
+          "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+          "Id": "a32f9301-83a0-4de4-8c26-d37cd8e85c92",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 2,
+              "Name": "Телекоммуникационные системы.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "a32f9301-83a0-4de4-8c26-d37cd8e85c92",
+              "Id": "c8e3d2f7-c827-46c1-8c65-f207ccbd7c56"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 3,
+              "Name": "Коммутация в сетях.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "a32f9301-83a0-4de4-8c26-d37cd8e85c92",
+              "Id": "6e3c4042-b81f-43cc-b522-fdbc48f5a046"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 4,
+              "Name": "Маршрутизация пакетов в сетях.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "a32f9301-83a0-4de4-8c26-d37cd8e85c92",
+              "Id": "e0681d74-1d4d-4635-8913-479d179a5e17"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 5,
+              "Name": "Защита от ошибок в сетях.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "a32f9301-83a0-4de4-8c26-d37cd8e85c92",
+              "Id": "5d5f2caf-3560-4dbb-86cd-a84dcb8a56b6"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 6,
+              "Name": "Сети и технологии Х.25 и Frame Relay.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "a32f9301-83a0-4de4-8c26-d37cd8e85c92",
+              "Id": "a685c0c8-cf26-418c-b35d-f684bdd8f900"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 7,
+              "Name": "Сети и технологии ISDN и SDH.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "a32f9301-83a0-4de4-8c26-d37cd8e85c92",
+              "Id": "1f7f906f-a086-4477-ac39-b3a24e53b4b9"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 8,
+              "Name": "Сети и технологии ATM.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "a32f9301-83a0-4de4-8c26-d37cd8e85c92",
+              "Id": "25c91799-3031-456d-a879-6d5dbc3ec137"
+            }
+          ]
+        },
+        {
+          "Semester": 3,
+          "Number": 3,
+          "Name": "Программно-аппаратные средства защиты информации",
+          "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+          "Id": "ebf8dd46-b59f-48b7-ba6b-751627dce968",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 9,
+              "Name": "Средства защиты информации.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "ebf8dd46-b59f-48b7-ba6b-751627dce968",
+              "Id": "0e3f71c1-de3e-4a58-b1bb-d01b14e5e17f"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 10,
+              "Name": "Средства криптографической защиты информации.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "ebf8dd46-b59f-48b7-ba6b-751627dce968",
+              "Id": "b1d3d749-d470-4893-af64-896632c5cf57"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 11,
+              "Name": "Система защиты конфиденциальной информации PGP.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "ebf8dd46-b59f-48b7-ba6b-751627dce968",
+              "Id": "3cb1d273-fbf6-4e98-a40a-da6e28e4bfdb"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 12,
+              "Name": "Система защиты конфиденциальной информации PGP.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "ebf8dd46-b59f-48b7-ba6b-751627dce968",
+              "Id": "6633a7cb-a12f-456d-9c55-97dc1775ec59"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 1,
+              "Name": "Работа с системой защиты конфиденциальной информации PGP.",
+              "Type": 2,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "ebf8dd46-b59f-48b7-ba6b-751627dce968",
+              "Id": "233a320d-c4dd-45d6-b93b-80422d8b60e1"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 13,
+              "Name": "Система защиты конфиденциальной информации «StrongDisk».",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "ebf8dd46-b59f-48b7-ba6b-751627dce968",
+              "Id": "d4b1414c-1bb6-4f32-88be-c2ba3f2dbee0"
+            },
+            {
+              "SelfStudyHours": 2,
+              "Number": 14,
+              "Name": "Система защиты конфиденциальной информации «StrongDisk».",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "ebf8dd46-b59f-48b7-ba6b-751627dce968",
+              "Id": "e5335ddb-25ed-4efa-86bf-40d0ce7f1f13"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 2,
+              "Name": "Система защиты конфиденциальной информации «StrongDisk».",
+              "Type": 2,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "ebf8dd46-b59f-48b7-ba6b-751627dce968",
+              "Id": "1674a733-b51b-415d-84a2-d40c8536e01c"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 15,
+              "Name": "Система защиты корпоративной информации «Secret Disk».",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "ebf8dd46-b59f-48b7-ba6b-751627dce968",
+              "Id": "e62952b8-eb58-481a-95c0-5c2e096e568c"
+            },
+            {
+              "SelfStudyHours": 2,
+              "Number": 16,
+              "Name": "Система защиты корпоративной информации «Secret Disk».",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "ebf8dd46-b59f-48b7-ba6b-751627dce968",
+              "Id": "be478409-f8ba-4486-b0a3-db7855619441"
+            },
+            {
+              "SelfStudyHours": 2,
+              "Number": 3,
+              "Name": "Система защиты корпоративной информации «Secret Disk».",
+              "Type": 2,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "ebf8dd46-b59f-48b7-ba6b-751627dce968",
+              "Id": "949561e9-f65c-4af9-8347-899554532da9"
+            }
+          ]
+        },
+        {
+          "Semester": 3,
+          "Number": 4,
+          "Name": "Меры противодействия несанкционированному доступу",
+          "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+          "Id": "db9b12f1-aa5e-4c92-a771-aad4809ffe23",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 17,
+              "Name": "Идентификация и аутентификация пользователей.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "db9b12f1-aa5e-4c92-a771-aad4809ffe23",
+              "Id": "b3479269-c686-4626-8f92-583b5e9546bb"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 18,
+              "Name": "Ограничение доступа на вход в систему.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "db9b12f1-aa5e-4c92-a771-aad4809ffe23",
+              "Id": "4e895434-da36-4082-8078-5aee341eb8e4"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 19,
+              "Name": "Разграничение доступа.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "db9b12f1-aa5e-4c92-a771-aad4809ffe23",
+              "Id": "d9457fa1-b89e-4640-8471-65db883c0d59"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 20,
+              "Name": "Регистрация событий (аудит).",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "db9b12f1-aa5e-4c92-a771-aad4809ffe23",
+              "Id": "43175582-eecd-47ee-bdf1-c7d1c43e37bd"
+            }
+          ]
+        },
+        {
+          "Semester": 3,
+          "Number": 5,
+          "Name": "Модель защищенной компьютерной системы",
+          "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+          "Id": "dc996b70-c85e-48d0-a0a6-3e2b6b0d3b90",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 21,
+              "Name": "Модель защищенной компьютерной системы.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "dc996b70-c85e-48d0-a0a6-3e2b6b0d3b90",
+              "Id": "c8d3b9e5-e871-4fdb-849e-ad8f8596ed81"
+            }
+          ]
+        },
+        {
+          "Semester": 4,
+          "Number": 6,
+          "Name": "Системы защиты информации от несанкционированного доступа",
+          "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+          "Id": "b66fa6db-fb5b-421b-986a-25d6825b5ee2",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 22,
+              "Name": "Система защиты информации от несанкционированного доступа «Страж NT».",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "b66fa6db-fb5b-421b-986a-25d6825b5ee2",
+              "Id": "026d7ed6-1a1c-42a9-a3dc-fa43f877fabd"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 23,
+              "Name": "Система защиты информации от несанкционированного доступа «Страж NT».",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "b66fa6db-fb5b-421b-986a-25d6825b5ee2",
+              "Id": "98daf959-c268-4ab7-94f7-f0352b423501"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 24,
+              "Name": "Система защиты информации от несанкционированного доступа «Страж NT».",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "b66fa6db-fb5b-421b-986a-25d6825b5ee2",
+              "Id": "8f671557-fcca-4c1c-a634-b7d66b0a2a57"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 25,
+              "Name": "Система защиты информации от несанкционированного доступа «Dallas Lock».",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "b66fa6db-fb5b-421b-986a-25d6825b5ee2",
+              "Id": "859996b1-edf7-44b1-b934-e8101c01a3c4"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 26,
+              "Name": "Система защиты информации от несанкционированного доступа «Страж NT».",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "b66fa6db-fb5b-421b-986a-25d6825b5ee2",
+              "Id": "61a2a1f0-022a-4c4f-8aa9-e088b7a2566b"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 27,
+              "Name": "Система защиты информации от несанкционированного доступа «Страж NT».",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "b66fa6db-fb5b-421b-986a-25d6825b5ee2",
+              "Id": "bac86787-e287-42e6-bd5a-cc2e66cb6e36"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 28,
+              "Name": "Система защиты информации от несанкционированного доступа «Страж NT».",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "b66fa6db-fb5b-421b-986a-25d6825b5ee2",
+              "Id": "68952ab5-e189-4499-a9d9-9c136db70049"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 29,
+              "Name": "Система защиты информации «Secret NET 5.0-C».",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "b66fa6db-fb5b-421b-986a-25d6825b5ee2",
+              "Id": "d2bd284e-2f14-4629-93d8-5fa52dedf3bd"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 30,
+              "Name": "Система защиты информации «Secret NET 5.0-C».",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "b66fa6db-fb5b-421b-986a-25d6825b5ee2",
+              "Id": "9fd375e9-a5c5-4bd9-92e5-7e72397778cd"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 31,
+              "Name": "Система защиты информации «Secret NET 5.0-C».",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "b66fa6db-fb5b-421b-986a-25d6825b5ee2",
+              "Id": "f96642d4-ec19-4d8c-8fb6-78b9a88ba88f"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 32,
+              "Name": "Система защиты информации «Secret NET 5.0-C».",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "b66fa6db-fb5b-421b-986a-25d6825b5ee2",
+              "Id": "2b614b52-ffa9-49a5-a689-2cc726d6cbb1"
+            },
+            {
+              "SelfStudyHours": 2,
+              "Number": 4,
+              "Name": "Инсталляция и настройка программных средств защиты от несанкционированного доступа.",
+              "Type": 2,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "b66fa6db-fb5b-421b-986a-25d6825b5ee2",
+              "Id": "a4876a53-a488-4e5b-8e5f-94d3d0f71ecb"
+            }
+          ]
+        },
+        {
+          "Semester": 4,
+          "Number": 7,
+          "Name": "Применение беспилотных летательных аппаратов (БПЛА) вертолетного типа",
+          "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+          "Id": "f6bc3cd7-46e7-42ac-b0aa-fb13ef0dea9b",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 33,
+              "Name": "Подготовка к первому полету.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "f6bc3cd7-46e7-42ac-b0aa-fb13ef0dea9b",
+              "Id": "dbc13876-5455-4597-8522-3eee88ae7235"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 5,
+              "Name": "Тренировка в управлении БПЛА на симуляторе.",
+              "Type": 2,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "f6bc3cd7-46e7-42ac-b0aa-fb13ef0dea9b",
+              "Id": "52aeb00c-618f-47d2-995a-0814af974b64"
+            },
+            {
+              "SelfStudyHours": 2,
+              "Number": 6,
+              "Name": "Тренировка в управлении БПЛА на местности.",
+              "Type": 2,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "f6bc3cd7-46e7-42ac-b0aa-fb13ef0dea9b",
+              "Id": "872e1c02-e762-4e4a-b3fa-ff1a60e0aa56"
+            }
+          ]
+        },
+        {
+          "Semester": 4,
+          "Number": 8,
+          "Name": "Средства организации виртуальных частных сетей",
+          "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+          "Id": "63467a04-b9f8-4e42-96b2-24a109626da4",
+          "Lessons": [
+            {
+              "SelfStudyHours": 0,
+              "Number": 34,
+              "Name": "Организация виртуальных частных сетей.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "63467a04-b9f8-4e42-96b2-24a109626da4",
+              "Id": "6e380b71-b8f5-4ec7-a905-afa51a0ac5a0"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 35,
+              "Name": "Организация VPN средствами протокола PPTP.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "63467a04-b9f8-4e42-96b2-24a109626da4",
+              "Id": "bdbf11b6-e396-4f63-99ca-95b1c9363ea7"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 36,
+              "Name": "Защита данных на сетевом уровне.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "63467a04-b9f8-4e42-96b2-24a109626da4",
+              "Id": "41604bf9-49dd-4aa8-bcd3-3de2c5f33b6c"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 37,
+              "Name": "Организация VPN средствами СЗИ VipNet.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "63467a04-b9f8-4e42-96b2-24a109626da4",
+              "Id": "09a23be6-5403-4a44-b062-07d8a83c87a6"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 38,
+              "Name": "Использование протокола IPSec для защиты сетей.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "63467a04-b9f8-4e42-96b2-24a109626da4",
+              "Id": "0f10a05f-a120-4189-b7be-7d0aeef01ebb"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 39,
+              "Name": "Организация VPN средствами СЗИ StrongNet.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "63467a04-b9f8-4e42-96b2-24a109626da4",
+              "Id": "4ebf992d-9102-4d2b-a6c3-e5777f20e5b5"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 40,
+              "Name": "Система телекоммуникационной связи «Роспись».",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "63467a04-b9f8-4e42-96b2-24a109626da4",
+              "Id": "5085fa43-a005-4897-b74e-49030cb41d20"
+            }
+          ]
+        },
+        {
+          "Semester": 4,
+          "Number": 6,
+          "Name": "Средства организации виртуальных частных сетей",
+          "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+          "Id": "791b087a-e3dd-45f0-b784-de147d329ef2",
+          "Lessons": [
+            {
+              "SelfStudyHours": 2,
+              "Number": 41,
+              "Name": "Переносной абонентский пункт СТС",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "791b087a-e3dd-45f0-b784-de147d329ef2",
+              "Id": "5880f35a-a06c-438a-886c-41832400430e"
+            },
+            {
+              "SelfStudyHours": 2,
+              "Number": 7,
+              "Name": "Применение СТС «Роспись».",
+              "Type": 2,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "791b087a-e3dd-45f0-b784-de147d329ef2",
+              "Id": "2fe5539d-af81-4e46-9f30-062d391aedae"
+            }
+          ]
+        },
+        {
+          "Semester": 4,
+          "Number": 9,
+          "Name": "Сеть Интернет",
+          "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+          "Id": "2acc76df-e911-4e9b-ae5e-93b55ba8fb01",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 42,
+              "Name": "Структура сети Интернет.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "2acc76df-e911-4e9b-ae5e-93b55ba8fb01",
+              "Id": "d90797b0-2939-48ff-978c-f70deb693180"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 43,
+              "Name": "Работа сети Интернет.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "2acc76df-e911-4e9b-ae5e-93b55ba8fb01",
+              "Id": "c0cc3944-bfe9-4c29-b0e7-fbce2f7c2360"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 44,
+              "Name": "Основные требования безопасности и защиты информации при работе в сети Интернет.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "2acc76df-e911-4e9b-ae5e-93b55ba8fb01",
+              "Id": "b0a8777f-8f5b-4c58-b866-62ac972b36a7"
+            }
+          ]
+        },
+        {
+          "Semester": 4,
+          "Number": 10,
+          "Name": "Техническая эксплуатация специальных технических средств",
+          "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+          "Id": "bccd8bf2-6c38-4c84-89d5-e3f56b836218",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 45,
+              "Name": "Организация технического обслуживания.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "bccd8bf2-6c38-4c84-89d5-e3f56b836218",
+              "Id": "780b5af3-41d9-449d-a7e8-330b8318c5b9"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 46,
+              "Name": "Освидетельствование и ввод в эксплуатацию специальных технических средств.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "bccd8bf2-6c38-4c84-89d5-e3f56b836218",
+              "Id": "1f3cfce0-f7b6-4a7f-9c5d-184badd6a4b3"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 47,
+              "Name": "Задачи технического обслуживания.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "bccd8bf2-6c38-4c84-89d5-e3f56b836218",
+              "Id": "ca59cc98-96c6-48b6-8c11-d0d1e60b50c3"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 48,
+              "Name": "Организация работ по ТО.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "bccd8bf2-6c38-4c84-89d5-e3f56b836218",
+              "Id": "5c41ebee-0d70-4906-9bd6-d90766fd4dcd"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 8,
+              "Name": "Выполнение работ по техническому обслуживанию.",
+              "Type": 2,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "bccd8bf2-6c38-4c84-89d5-e3f56b836218",
+              "Id": "ed3e2f02-b8fa-42aa-a72f-67b14ddd4a33"
+            },
+            {
+              "SelfStudyHours": 2,
+              "Number": 49,
+              "Name": "Система ремонта.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "bccd8bf2-6c38-4c84-89d5-e3f56b836218",
+              "Id": "0ed88cae-6a7a-4a83-9182-0784670364b0"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 9,
+              "Name": "Методика ремонта специальных технических средств.",
+              "Type": 2,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "bccd8bf2-6c38-4c84-89d5-e3f56b836218",
+              "Id": "25e4cb6e-8884-434d-b61d-4934f99ed0d0"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 50,
+              "Name": "Хранение специальных технических средств.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "bccd8bf2-6c38-4c84-89d5-e3f56b836218",
+              "Id": "3f45a238-5266-4e32-b3dc-3f5c60f3f251"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 51,
+              "Name": "Планирование и учет эксплуатации специальных технических средств.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "bccd8bf2-6c38-4c84-89d5-e3f56b836218",
+              "Id": "ca098a0d-8472-45de-9670-e7608a6cc7b2"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 52,
+              "Name": "Рекламационная работа.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "bccd8bf2-6c38-4c84-89d5-e3f56b836218",
+              "Id": "381aa3ab-8219-4f41-879b-a4301585c84c"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 53,
+              "Name": "Контроль технического обеспечения.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "bccd8bf2-6c38-4c84-89d5-e3f56b836218",
+              "Id": "7adb6894-03bb-4da5-b5aa-7c0b4684e494"
+            },
+            {
+              "SelfStudyHours": 2,
+              "Number": 54,
+              "Name": "Допуск личного состава к эксплуатации специальных технических средств.",
+              "Type": 3,
+              "SubjectId": "9e9b8e7f-c4b8-4020-b430-e22ed9423557",
+              "ThemeId": "bccd8bf2-6c38-4c84-89d5-e3f56b836218",
+              "Id": "23a7e2b1-1748-46b2-97c5-02976d8b5045"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "Организация военно  профессиональной деятельности",
+      "DirectionId": "327d6009-995b-405a-a79a-c5fb97800c14",
+      "Id": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+      "Themes": [
+        {
+          "Semester": 5,
+          "Number": 1,
+          "Name": "Документы по разработке программной продукции",
+          "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+          "Id": "d1ae4663-e814-4f11-a527-10c07bb7e369",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 1,
+              "Name": "Занятие 1",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "d1ae4663-e814-4f11-a527-10c07bb7e369",
+              "Id": "3cc356d0-7421-4071-93a8-b61ea960b33e"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 2,
+              "Name": "Занятие 2",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "d1ae4663-e814-4f11-a527-10c07bb7e369",
+              "Id": "cc70bdd8-b70b-4576-b546-c1b51c51a4fd"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 3,
+              "Name": "Занятие 3",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "d1ae4663-e814-4f11-a527-10c07bb7e369",
+              "Id": "7371c71c-a0aa-413d-b249-ff4b4916ee72"
+            }
+          ]
+        },
+        {
+          "Semester": 5,
+          "Number": 2,
+          "Name": "Требования ГОСТ по разработке, оформлению и применению программной продукции",
+          "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+          "Id": "0a1dec2c-5047-44cc-92bc-3bd24a06ab6f",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 4,
+              "Name": "Занятие 4",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "0a1dec2c-5047-44cc-92bc-3bd24a06ab6f",
+              "Id": "30362823-3208-4833-ba82-fcefe219dde4"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 5,
+              "Name": "Занятие 5",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "0a1dec2c-5047-44cc-92bc-3bd24a06ab6f",
+              "Id": "7062d1c5-1224-4caa-a87b-5b66a9536309"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 6,
+              "Name": "Занятие 6",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "0a1dec2c-5047-44cc-92bc-3bd24a06ab6f",
+              "Id": "4a24aa4a-69b0-4802-8e2a-c2a52403bff6"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 1,
+              "Name": "Занятие 1",
+              "Type": 1,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "0a1dec2c-5047-44cc-92bc-3bd24a06ab6f",
+              "Id": "df6213b2-b26f-43f5-935f-e976fdeeaa84"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 7,
+              "Name": "Занятие 7",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "0a1dec2c-5047-44cc-92bc-3bd24a06ab6f",
+              "Id": "66c4b429-afbb-4830-9fce-8747462b8410"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 2,
+              "Name": "Занятие 2",
+              "Type": 1,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "0a1dec2c-5047-44cc-92bc-3bd24a06ab6f",
+              "Id": "7f8a2cee-265f-4bde-abdf-134985ea44c3"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 8,
+              "Name": "Занятие 8",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "0a1dec2c-5047-44cc-92bc-3bd24a06ab6f",
+              "Id": "ad04dfb8-99bc-4bd2-ae4e-aa466fdbf241"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 3,
+              "Name": "Занятие 3",
+              "Type": 1,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "0a1dec2c-5047-44cc-92bc-3bd24a06ab6f",
+              "Id": "7a20ac77-a27d-4152-a8e4-b78a9e27c94b"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 9,
+              "Name": "Занятие 9",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "0a1dec2c-5047-44cc-92bc-3bd24a06ab6f",
+              "Id": "487662e3-5c59-464f-a35c-69955f517921"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 4,
+              "Name": "Занятие 4",
+              "Type": 1,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "0a1dec2c-5047-44cc-92bc-3bd24a06ab6f",
+              "Id": "02853ccb-ad1d-4f03-913f-f3117c701c43"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 10,
+              "Name": "Занятие 10",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "0a1dec2c-5047-44cc-92bc-3bd24a06ab6f",
+              "Id": "ec8dff5d-a964-4051-bf90-957c79848889"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 11,
+              "Name": "Занятие 11",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "0a1dec2c-5047-44cc-92bc-3bd24a06ab6f",
+              "Id": "e2200027-8616-41b6-8c1e-572614b14f40"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 5,
+              "Name": "Занятие 5",
+              "Type": 1,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "0a1dec2c-5047-44cc-92bc-3bd24a06ab6f",
+              "Id": "1018cbd2-81c4-430f-9477-b0370620c1d0"
+            }
+          ]
+        },
+        {
+          "Semester": 5,
+          "Number": 3,
+          "Name": "Требования по защите информации на объектах вычислительной техники",
+          "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+          "Id": "ec648088-32a5-4fb8-a954-f33f99f6015f",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 12,
+              "Name": "Занятие 12",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "ec648088-32a5-4fb8-a954-f33f99f6015f",
+              "Id": "c18cbcfd-f4a0-4f22-9057-12d7ba7b61c0"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 13,
+              "Name": "Занятие 13",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "ec648088-32a5-4fb8-a954-f33f99f6015f",
+              "Id": "efae9803-4ecd-4fd8-b1df-ac3dfd3ae7db"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 14,
+              "Name": "Занятие 14",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "ec648088-32a5-4fb8-a954-f33f99f6015f",
+              "Id": "bc86cfad-3654-4484-9471-5b190c490f39"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 15,
+              "Name": "Занятие 15",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "ec648088-32a5-4fb8-a954-f33f99f6015f",
+              "Id": "363945ae-becb-4af5-a3da-67f4c04e3016"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 6,
+              "Name": "Занятие 6",
+              "Type": 1,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "ec648088-32a5-4fb8-a954-f33f99f6015f",
+              "Id": "bfe7559c-d6fa-4866-92ff-29e59464a7be"
+            }
+          ]
+        },
+        {
+          "Semester": 5,
+          "Number": 4,
+          "Name": "Требования по организации применения средств защиты информации",
+          "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+          "Id": "8e57d213-0ca9-4d13-b8c3-b60755a47b21",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 16,
+              "Name": "Занятие 16",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "8e57d213-0ca9-4d13-b8c3-b60755a47b21",
+              "Id": "6b74538b-3784-4545-8803-7037bc2288df"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 17,
+              "Name": "Занятие 17",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "8e57d213-0ca9-4d13-b8c3-b60755a47b21",
+              "Id": "e36c42b7-3780-4e44-9332-46108e2e33b1"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 18,
+              "Name": "Занятие 18",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "8e57d213-0ca9-4d13-b8c3-b60755a47b21",
+              "Id": "67b3c501-857c-4242-bba0-8390ae84cd15"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 19,
+              "Name": "Занятие 19",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "8e57d213-0ca9-4d13-b8c3-b60755a47b21",
+              "Id": "e39dda08-2225-444a-9bf9-8d6a40939e9e"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 20,
+              "Name": "Занятие 20",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "8e57d213-0ca9-4d13-b8c3-b60755a47b21",
+              "Id": "91f596d9-82fb-427c-997e-a5d48d78b7fa"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 21,
+              "Name": "Занятие 21",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "8e57d213-0ca9-4d13-b8c3-b60755a47b21",
+              "Id": "f2f8d33a-9dfc-43fa-90e5-05ad26d44b4f"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 22,
+              "Name": "Занятие 22",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "8e57d213-0ca9-4d13-b8c3-b60755a47b21",
+              "Id": "e63f2be8-6625-4480-8634-8802e4326de5"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 23,
+              "Name": "Занятие 23",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "8e57d213-0ca9-4d13-b8c3-b60755a47b21",
+              "Id": "ebf5105d-82d6-47d3-a419-b92d5a841c2c"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 24,
+              "Name": "Занятие 24",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "8e57d213-0ca9-4d13-b8c3-b60755a47b21",
+              "Id": "67d4bf5c-8a46-4e6c-86ae-7c4788da8681"
+            }
+          ]
+        },
+        {
+          "Semester": 5,
+          "Number": 5,
+          "Name": "Сертификация программных средств",
+          "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+          "Id": "c885118f-b6e3-4581-91ea-ae62ef928143",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 25,
+              "Name": "Занятие 25",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "c885118f-b6e3-4581-91ea-ae62ef928143",
+              "Id": "a3e62c8a-7a70-43d4-b3fc-4bc373e11120"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 26,
+              "Name": "Занятие 26",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "c885118f-b6e3-4581-91ea-ae62ef928143",
+              "Id": "23308806-f88e-4671-bbb1-876fa9cd36e3"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 27,
+              "Name": "Занятие 27",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "c885118f-b6e3-4581-91ea-ae62ef928143",
+              "Id": "d868d617-9ded-43fe-9c1f-2a6a332e28ae"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 7,
+              "Name": "Занятие 7",
+              "Type": 1,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "c885118f-b6e3-4581-91ea-ae62ef928143",
+              "Id": "1059142e-6d0d-4def-bf1e-f7f528c3b748"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 28,
+              "Name": "Занятие 28",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "c885118f-b6e3-4581-91ea-ae62ef928143",
+              "Id": "3a286f79-d3dd-4668-94cf-879b2891f9c9"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 29,
+              "Name": "Занятие 29",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "c885118f-b6e3-4581-91ea-ae62ef928143",
+              "Id": "5f7a3379-ee06-4545-94c1-4b88b8c90d03"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 30,
+              "Name": "Занятие 30",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "c885118f-b6e3-4581-91ea-ae62ef928143",
+              "Id": "747e62e2-0e07-4e0d-95ee-aac3363cd0b3"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 31,
+              "Name": "Занятие 31",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "c885118f-b6e3-4581-91ea-ae62ef928143",
+              "Id": "ef3f139d-d5e9-425d-a5dd-3f297192748d"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 32,
+              "Name": "Занятие 32",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "c885118f-b6e3-4581-91ea-ae62ef928143",
+              "Id": "9658b01f-cb47-4c12-9d9d-f522f7207e6b"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 33,
+              "Name": "Занятие 33",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "c885118f-b6e3-4581-91ea-ae62ef928143",
+              "Id": "31ccce33-4504-4fac-8db6-c3f4be88ddbc"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 34,
+              "Name": "Занятие 34",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "c885118f-b6e3-4581-91ea-ae62ef928143",
+              "Id": "d40d5246-e06f-47d6-9f5b-51d085989e79"
+            }
+          ]
+        },
+        {
+          "Semester": 5,
+          "Number": 6,
+          "Name": "Среды разработки программной продукции",
+          "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+          "Id": "51acae26-fc85-4ad8-9a48-950c1ccdaca0",
+          "Lessons": [
+            {
+              "SelfStudyHours": 1,
+              "Number": 35,
+              "Name": "Занятие 35",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "51acae26-fc85-4ad8-9a48-950c1ccdaca0",
+              "Id": "561a67a2-45d0-4213-8342-c659dc0ee441"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 8,
+              "Name": "Занятие 8",
+              "Type": 1,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "51acae26-fc85-4ad8-9a48-950c1ccdaca0",
+              "Id": "af75ad0e-e777-4f28-b20d-219d0018ccae"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 36,
+              "Name": "Занятие 36",
+              "Type": 3,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "51acae26-fc85-4ad8-9a48-950c1ccdaca0",
+              "Id": "948de191-9a4c-47e5-9645-1d8e2d7d7bc1"
+            },
+            {
+              "SelfStudyHours": 1,
+              "Number": 9,
+              "Name": "Занятие 9",
+              "Type": 1,
+              "SubjectId": "d0bf2590-bc00-4ab1-a87d-5cd337b90a48",
+              "ThemeId": "51acae26-fc85-4ad8-9a48-950c1ccdaca0",
+              "Id": "9397d109-2b27-4e62-ae10-e665124845e1"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

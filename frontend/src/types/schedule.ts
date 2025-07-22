@@ -39,6 +39,7 @@ export type ScheduleSquad = {name: string, id: string}
 
 export type Schedule = {
   scheduleId: string
+  semester: number
   name: string
   squads: Squad[]
   noName: Omit<SheduleLesson, 'number' | 'date'>[]

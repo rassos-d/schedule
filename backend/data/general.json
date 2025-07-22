@@ -10,101 +10,29 @@
     }
   },
   "Squads": {
-    "a600afa2-6766-424c-9753-48bd90cdbd53": {
+    "4e462003-6eab-4b2c-a9e8-824da76f72b9": {
       "StudyYear": 3,
-      "DaddyId": "2a3986de-82e8-4acf-945a-e98bf9c41c07",
-      "FixedAudienceId": "926ec57f-cce6-40ea-9d25-71e1268cf53c",
-      "DirectionId": "8cabf75c-6170-480b-b6d4-5ffe46f2f403",
+      "DaddyId": "67a5e7b0-31f0-4ff3-ab48-ec213b672911",
+      "FixedAudienceId": "56eed200-51bd-4cd1-ac27-3796147d7de5",
+      "DirectionId": "327d6009-995b-405a-a79a-c5fb97800c14",
       "Name": "\u0414-323",
-      "Id": "a600afa2-6766-424c-9753-48bd90cdbd53"
+      "Id": "4e462003-6eab-4b2c-a9e8-824da76f72b9"
     },
-    "04ccea2d-52cf-41e2-bd8e-08c7f4808e76": {
-      "StudyYear": 3,
-      "DaddyId": "0a32e0ba-b333-4f6c-98e3-0f0ebf52c95b",
-      "FixedAudienceId": "38543d2e-6cab-4a8d-a33c-d764e396938c",
-      "DirectionId": "25d50ba3-0d9f-4617-97a6-f9d46c70c371",
-      "Name": "\u0420-3231",
-      "Id": "04ccea2d-52cf-41e2-bd8e-08c7f4808e76"
-    },
-    "22aab331-f6b3-45cc-ba10-7f30e638ede9": {
-      "StudyYear": 3,
-      "DaddyId": "a5ec9e3f-f2d4-45c1-9c79-a5b11d2ec076",
-      "FixedAudienceId": "81986808-92c2-4c1a-95d7-551a8a00a42a",
-      "DirectionId": "25d50ba3-0d9f-4617-97a6-f9d46c70c371",
-      "Name": "\u0420-3232",
-      "Id": "22aab331-f6b3-45cc-ba10-7f30e638ede9"
-    },
-    "7fc5679c-3b8f-4ecd-87f7-1f95f133e92d": {
-      "StudyYear": 3,
-      "DaddyId": "0624c36e-71a2-44a8-8ce0-c943446750fc",
-      "FixedAudienceId": "f54d0865-8243-4a7d-9af1-8b8c75e07acd",
-      "DirectionId": "89c25fa8-563b-46db-8346-ea28065a6eaa",
-      "Name": "\u0410-323",
-      "Id": "7fc5679c-3b8f-4ecd-87f7-1f95f133e92d"
-    },
-    "958ae4ba-522b-4956-8c82-646c22658607": {
+    "56bceb7c-de95-4635-b45a-120ba5927e7f": {
       "StudyYear": 2,
-      "DaddyId": "1a771285-4b1b-45e7-b154-d34f86a491ce",
-      "FixedAudienceId": "926ec57f-cce6-40ea-9d25-71e1268cf53c",
-      "DirectionId": "8cabf75c-6170-480b-b6d4-5ffe46f2f403",
+      "DaddyId": "2807621e-c153-4320-ba9f-03d9d88d7458",
+      "FixedAudienceId": "3229f141-9514-4e0a-b338-0e2edd647bcf",
+      "DirectionId": "cfc93994-afdd-4f3c-9243-5a06f49eaa5d",
+      "Name": "A-222",
+      "Id": "56bceb7c-de95-4635-b45a-120ba5927e7f"
+    },
+    "b1f01c20-98ff-4d64-80a6-2fe80a4d5ab7": {
+      "StudyYear": 2,
+      "DaddyId": "fd0f57c2-cbf7-4a94-8b93-de0dc6d4e0f0",
+      "FixedAudienceId": "56eed200-51bd-4cd1-ac27-3796147d7de5",
+      "DirectionId": "cfc93994-afdd-4f3c-9243-5a06f49eaa5d",
       "Name": "\u0414-224",
-      "Id": "958ae4ba-522b-4956-8c82-646c22658607"
-    },
-    "436a3b10-51ff-4ef2-8185-ac227d1efef9": {
-      "StudyYear": 2,
-      "DaddyId": "0a32e0ba-b333-4f6c-98e3-0f0ebf52c95b",
-      "FixedAudienceId": "1a3800d4-039d-47e5-99c5-411117c4c713",
-      "DirectionId": "25d50ba3-0d9f-4617-97a6-f9d46c70c371",
-      "Name": "\u0420-2241",
-      "Id": "436a3b10-51ff-4ef2-8185-ac227d1efef9"
-    },
-    "3225ac07-9795-439b-a42f-2f8f6fc5a66b": {
-      "StudyYear": 2,
-      "DaddyId": "a5ec9e3f-f2d4-45c1-9c79-a5b11d2ec076",
-      "FixedAudienceId": "a5b5b465-1ffa-49fd-af25-74edd3a014dc",
-      "DirectionId": "25d50ba3-0d9f-4617-97a6-f9d46c70c371",
-      "Name": "\u0420-2242",
-      "Id": "3225ac07-9795-439b-a42f-2f8f6fc5a66b"
-    },
-    "377138a7-d271-44c3-961f-1717b26290df": {
-      "StudyYear": 2,
-      "DaddyId": "0624c36e-71a2-44a8-8ce0-c943446750fc",
-      "FixedAudienceId": "f54d0865-8243-4a7d-9af1-8b8c75e07acd",
-      "DirectionId": "89c25fa8-563b-46db-8346-ea28065a6eaa",
-      "Name": "\u0410-224",
-      "Id": "377138a7-d271-44c3-961f-1717b26290df"
-    },
-    "e82c44c6-e892-48a5-acf8-1f20871a804b": {
-      "StudyYear": 1,
-      "DaddyId": "0624c36e-71a2-44a8-8ce0-c943446750fc",
-      "FixedAudienceId": "f54d0865-8243-4a7d-9af1-8b8c75e07acd",
-      "DirectionId": "89c25fa8-563b-46db-8346-ea28065a6eaa",
-      "Name": "\u0410-125",
-      "Id": "e82c44c6-e892-48a5-acf8-1f20871a804b"
-    },
-    "57ecdaab-6e1f-4c17-a4a0-f049bb279fd3": {
-      "StudyYear": 1,
-      "DaddyId": "0a32e0ba-b333-4f6c-98e3-0f0ebf52c95b",
-      "FixedAudienceId": "1a3800d4-039d-47e5-99c5-411117c4c713",
-      "DirectionId": "25d50ba3-0d9f-4617-97a6-f9d46c70c371",
-      "Name": "\u0420-1251",
-      "Id": "57ecdaab-6e1f-4c17-a4a0-f049bb279fd3"
-    },
-    "9cfa9af6-1894-4ac6-a531-46ea1ba88bff": {
-      "StudyYear": 1,
-      "DaddyId": "a5ec9e3f-f2d4-45c1-9c79-a5b11d2ec076",
-      "FixedAudienceId": "a5b5b465-1ffa-49fd-af25-74edd3a014dc",
-      "DirectionId": "25d50ba3-0d9f-4617-97a6-f9d46c70c371",
-      "Name": "\u0420-1252",
-      "Id": "9cfa9af6-1894-4ac6-a531-46ea1ba88bff"
-    },
-    "2f9f01ef-1107-46ec-82e0-54da74b57922": {
-      "StudyYear": null,
-      "DaddyId": null,
-      "FixedAudienceId": null,
-      "DirectionId": null,
-      "Name": "\u0414-125",
-      "Id": "2f9f01ef-1107-46ec-82e0-54da74b57922"
+      "Id": "b1f01c20-98ff-4d64-80a6-2fe80a4d5ab7"
     }
   },
   "Teachers": {

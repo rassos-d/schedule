@@ -1,3 +1,5 @@
-namespace Scheduler.Dto.Theme;
+using Scheduler.Dto.Constants;
 
-public record ThemeCreateDto(string Name, int Number, Guid SubjectId);
+namespace Scheduler.Dto.Plan.Theme;
+
+public record ThemeCreateDto(string Name, int Number, Guid SubjectId, Semester Semester);

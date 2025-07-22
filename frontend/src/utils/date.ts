@@ -369,3 +369,54 @@ export function isStrictTimeFormat(timeString: string): boolean {
   return hours >= 0 && hours <= 23 && 
          minutes >= 0 && minutes <= 59;
 }
+
+
+export function getSemesterStartDate(semester: number): string {
+    const today = new Date();
+    let targetDate: Date;
+
+    if (semester === 1) { 
+        targetDate = new Date(today.getFullYear(), 8, 1);
+        
+        if (today > targetDate) {
+            targetDate = new Date(today.getFullYear() + 1, 8, 1);
+        }
+    } else { 
+        targetDate = new Date(today.getFullYear(), 0, 1);
+
+        if (today > targetDate) {
+            targetDate = new Date(today.getFullYear() + 1, 0, 1);
+        }
+    }
+    const year = targetDate.getFullYear();
+    const month = String(targetDate.getMonth() + 1).padStart(2, '0');
+    const day = String(targetDate.getDate()).padStart(2, '0');
+
+    return `${year}-${month}-${day}`;
+}
+
+export function getSemesterEndDate(semester: number): string {
+    const today = new Date();
+    let targetDate: Date;
+
+    if (semester === 0) {
+        targetDate = new Date(today.getFullYear(), 5, 30); 
+        
+
+        if (today > targetDate) {
+            targetDate = new Date(today.getFullYear() + 1, 5, 30);
+        }
+    } else {
+        targetDate = new Date(today.getFullYear(), 11, 31);
+        
+        if (today > targetDate) {
+            targetDate = new Date(today.getFullYear() + 1, 11, 31);
+        }
+    }
+
+    const year = targetDate.getFullYear();
+    const month = String(targetDate.getMonth() + 1).padStart(2, '0');
+    const day = String(targetDate.getDate()).padStart(2, '0');
+
+    return `${year}-${month}-${day}`;
+}

@@ -20,6 +20,7 @@ import { AddInputList } from '../../types/input'
 import { VacationBlock } from '../../components/vacationBlock/vacationBlock'
 import { isValidCreateSchedule } from '../../utils/validate'
 import { DeletePopup } from '../../components/deletePopup/deletePopup'
+import { getSemesterStartDate } from '../../utils/date'
 
 const DEFAULT_AUDIENCE_NAME = 'Новая Аудитория'
 
@@ -278,7 +279,11 @@ export default function Main() {
         setNewSchedule((prev) => {
             if (!prev) return undefined
             const result = cloneObject(prev)
-            result.pages[index].semester = newSemestr
+            if (result.pages[index].semester !== newSemestr) {
+                result.pages[index].semester = newSemestr
+                result.pages[index].end = ''
+                result.pages[index].start = ''
+            }
             return result
         })
     }
@@ -383,7 +388,7 @@ export default function Main() {
                         </div>
                     </div>
                     <div className={styles.container__right}>
-                        <h3 className={styles.container__subtitle}>Настройки</h3>
+                        <h3 className={styles.container__subtitle}>Глобальные настройки</h3>
                         <SettingsList title='Настройка аудиторий'>
                             <>
                                 {allAudience.map((audience, index) => (
@@ -470,14 +475,14 @@ export default function Main() {
                                         changeInputList={(newList) => updateSquards(newList.map((item) => ({ name: item.name.toString(), id: item.id.toString() })), index)}
                                     />
                                 }
-                                <div className={styles.popup__line}>
+                                {year.semester && <div className={styles.popup__line}>
                                     <p>Дата первого занятия</p>
-                                    <Input isError={isEnableValidationCreateSchedule} value={year.start} type='date' onChange={(val) => updateDateYear(val, true, index)} />
-                                </div>
-                                <div className={styles.popup__line}>
+                                    <Input startDate={getSemesterStartDate(Number(year.semester.id))} isError={isEnableValidationCreateSchedule} value={year.start} type='date' onChange={(val) => updateDateYear(val, true, index)} />
+                                </div>}
+                                {year.semester && <div className={styles.popup__line}>
                                     <p>Дата последнего занятия</p>
-                                    <Input isError={isEnableValidationCreateSchedule} value={year.end} type='date' onChange={(val) => updateDateYear(val, false, index)} />
-                                </div>
+                                    <Input startDate={getSemesterStartDate(Number(year.semester.id))} isError={isEnableValidationCreateSchedule} value={year.end} type='date' onChange={(val) => updateDateYear(val, false, index)} />
+                                </div>}
                             </div>
                         ))}
                         {COURSES_YEAR.length > newSchedule.pages.length && <Button onClick={addNewYear}>Добавить год обучения</Button>}

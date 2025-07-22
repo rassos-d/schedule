@@ -20,7 +20,6 @@ export type NewLesson = {
   audience?: AddInputList
   theme?:AddInputList
   subject?: AddInputList
-  lessonType?: AddInputList
 }
 
 export type NewLessonRequest = {
