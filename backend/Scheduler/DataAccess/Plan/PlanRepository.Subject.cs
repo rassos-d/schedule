@@ -1,4 +1,6 @@
+using Scheduler.Constants;
 using Scheduler.Entities.Plan;
+using Scheduler.Extensions;
 
 namespace Scheduler.DataAccess.Plan;
 
@@ -27,7 +29,7 @@ public partial class PlanRepository
         if (directionId.HasValue)
         {
             var direction = GetDirection(directionId.Value);
-            return direction?.Subjects ?? [];
+            return direction?.Subjects.AddSummingUp() ?? DataConst.SummingUpList;
         }
         
         var directions = GetAllDirectionInfos();
@@ -37,7 +39,7 @@ public partial class PlanRepository
             GetDirection(direction.Id);
         }
         
-        return Directions.SelectMany(d => d.Subjects).ToList();
+        return Directions.SelectMany(d => d.Subjects).ToList().AddSummingUp();
     }
 
     public void DeleteSubject(Guid id)

@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Scheduler.Dto;
 using Scheduler.Dto.Constants;
 using Scheduler.Dto.General.Squad;
-using Scheduler.Entities.Constants;
 using Scheduler.Services;
 using Scheduler.Services.General;
 

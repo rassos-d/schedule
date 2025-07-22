@@ -214,7 +214,7 @@ public class ExcelExportService
                 var lesson = @event.LessonId.HasValue ? planRepository.GetLesson(@event.LessonId.Value) : null;
                 var themeText = $"т.{theme?.Number}/{lesson?.Number} {lesson?.Type.GetView()}";
 
-                cells.SetCellValue(heightOffset + eventLocalPos, eventCol, subject?.Name);
+                cells.SetCellValue(heightOffset + eventLocalPos, eventCol, subject?.GetShortName());
                 cells.SetCellValue(heightOffset + eventLocalPos + 1, eventCol, themeText);
                 cells.SetCellValue(heightOffset + eventLocalPos + 2, eventCol, audience?.Name);
                 cells.SetCellValue(heightOffset + eventLocalPos + 3, eventCol, string.Join(' ', new[] { teacher?.Rank, teacher?.Name }.Where(x => !string.IsNullOrEmpty(x))));

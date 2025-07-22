@@ -130,7 +130,7 @@ public class EventService(
 
     private CheckConflictResponse CheckForConflict(SchedulePage schedulePage, Guid? updatedEvent = null)
     {
-        var teacherNames = teacherRepository.GetAll()
+        var teachers = teacherRepository.GetAll()
             .ToDictionary(t => t.Id, t => t);
 
         var audienceNames = audienceRepository
@@ -161,23 +161,28 @@ public class EventService(
             }
         }
 
-        var conflictEvents = conflictGroups
+        var conflictEventIds = conflictGroups
             .SelectMany(group =>
-                group.Select(ev => new
-                {
-                    Event = ev,
-                    GroupKey = group.Key
-                }))
-            .Select(e => e.Event.Id)
+                group.Select(e => e.Id))
             .ToList();
+        foreach (var e in schedulePage.Events)
+        {
+            if (e.TeacherId is not null && teachers.TryGetValue(e.TeacherId.Value, out var teacher))
+            {
+                if (teacher.Vacations.Any(v => v.StartDate <= e.Date && e.Date <= v.EndDate))
+                    conflictEventIds.Add(e.Id);
+            }
+        }
+        
+        var conflictEvents = schedulePage.Events.Where(e => conflictEventIds.Contains(e.Id)).ToList();
         return new CheckConflictResponse
         {
-            ConflictEventIds = conflictEvents,
-            Message = CreateMessage(schedulePage.Events, updatedEvent, teacherNames, audienceNames)
+            ConflictEventIds = conflictEventIds,
+            Message = CreateMessage(schedulePage.Events, conflictEvents.ToList(), updatedEvent, teachers, audienceNames)
         };
     }
 
-    private string? CreateMessage(List<Event> events, Guid? updatedEventId, Dictionary<Guid, Teacher> teachers,
+    private string? CreateMessage(List<Event> events, List<Event> conflictEvents, Guid? updatedEventId, Dictionary<Guid, Teacher> teachers,
         Dictionary<Guid, string> audiences)
     {
         if (!updatedEventId.HasValue)
@@ -185,11 +190,11 @@ public class EventService(
         var updatedEvent = events.First(e => e.Id == updatedEventId);
         if (updatedEvent.Date == null && updatedEvent.Number == null)
             return null;
-        var isConflictWithTeacher = events
+        var isConflictWithTeacher = conflictEvents
             .Count(e => e.TeacherId == updatedEvent.TeacherId && e.Date == updatedEvent.Date &&
                         e.Number == updatedEvent.Number) > 1;
 
-        var isConflictWithAudience = events
+        var isConflictWithAudience = conflictEvents
             .Count(e => e.AudienceId == updatedEvent.AudienceId && e.Date == updatedEvent.Date &&
                         e.Number == updatedEvent.Number) > 1;
 

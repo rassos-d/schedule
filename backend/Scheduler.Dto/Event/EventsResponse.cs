@@ -1,7 +1,6 @@
 using Scheduler.Dto;
 using Scheduler.Dto.Plan.Lesson;
 using Scheduler.Dto.Plan.Theme;
-using Scheduler.Entities.Constants;
 
 public class EventsResponse
 {

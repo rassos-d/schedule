@@ -1,5 +1,5 @@
+using Scheduler.Dto.Constants;
 using Scheduler.Entities.Base;
-using Scheduler.Entities.Constants;
 
 namespace Scheduler.Entities.Plan;
 
