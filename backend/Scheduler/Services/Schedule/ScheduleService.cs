@@ -6,6 +6,7 @@ using Scheduler.Dto.Schedule;
 using Scheduler.Entities.Schedule;
 using Scheduler.Exceptions;
 using Scheduler.Export;
+using Scheduler.Extensions;
 using Scheduler.Models;
 
 namespace Scheduler.Services.Schedule;
@@ -108,6 +109,23 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
         return repo.GetSchedule(id).Name;
     }
 
+    public ScheduleCreateDto GetUpdateInfo(Guid scheduleId)
+    {
+        var schedule = repo.GetSchedule(scheduleId);
+        return new ScheduleCreateDto
+        {
+            Name = schedule.Name,
+            Pages = schedule.Pages.Select(page => new SchedulePageCreateDto
+            {
+                StudyYear = page.StudyYear,
+                Semester = page.Semester.ToViewSem(),
+                Squads = page.Squads,
+                Start = page.Dates.Min(),
+                End = page.Dates.Max()
+            }).ToList()
+        };
+    }
+    
     private static List<DateOnly> GetDatesForDayOfWeek(DateOnly startDate, DateOnly endDate)
     {
         var result = new List<DateOnly>();

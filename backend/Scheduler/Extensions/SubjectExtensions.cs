@@ -10,6 +10,7 @@ public static class SubjectExtensions
     {
         var name = subject.Name
             .Split(Separator)
+            .Where(x => string.IsNullOrWhiteSpace(x) == false && x.Length > 1)
             .Select(x => x.ToUpper().First());
         return new string(name.ToArray());
     }
