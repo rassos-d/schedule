@@ -1,24 +1,24 @@
 ﻿using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
-class Program
+public class PlanGenerator
 {
-    private const string Plan = "plan";
-    static void Main(string[] args)
+    private const string PlanDirectory = "plan";
+    private const string VucesDirectory = "vuces";
+
+    public static void Generate()
     {
-        if (Directory.Exists(Plan) == false)
-        {
-            Directory.CreateDirectory(Plan);    
-        }
-        
-        var files = new[] { "093300", "093700", "094100", "493000" };
+        if (!Directory.Exists(PlanDirectory))
+            Directory.CreateDirectory(PlanDirectory);
+        if (!Directory.Exists(VucesDirectory))
+            Directory.CreateDirectory(VucesDirectory);
+
+        var files = Directory.GetFiles(VucesDirectory)
+            .Where(x => x.EndsWith(".json"))
+            .Select(x => Path.Combine(VucesDirectory, x.Split(Path.DirectorySeparatorChar)[^1]));
         var directions = new List<Tuple<Guid, string>>();
         foreach (var file in files)
         {
-            directions.Add(Tuple.Create(Parse(file), file)); 
+            directions.Add(Tuple.Create(Parse(file), file));
         }
 
         var result = new JArray();
@@ -30,13 +30,13 @@ class Program
                 ["Name"] = $"ВУС-{dir.Item2}",
             });
         }
-        
-        File.WriteAllText($"{Plan}/directions.json", result.ToString());
+
+        File.WriteAllText($"{PlanDirectory}/directions.json", result.ToString());
     }
 
     private static Guid Parse(string file)
     {
-        var inputJson = File.ReadAllText($"{file}.json");
+        var inputJson = File.ReadAllText(file);
         var inputData = JObject.Parse(inputJson);
 
         var directionId = Guid.NewGuid();
@@ -97,7 +97,7 @@ class Program
 
         outputObject["Subjects"] = subjectsArray;
         Console.WriteLine(outputObject.ToString());
-        File.WriteAllText($"{Plan}/{directionId}.json", outputObject.ToString());
+        File.WriteAllText($"{PlanDirectory}/{directionId}.json", outputObject.ToString());
         return directionId;
     }
 

@@ -7,7 +7,7 @@ using Scheduler.Services.General;
 using Scheduler.Services.Schedule;
 using PlanRepository = Scheduler.DataAccess.Plan.PlanRepository;
 
-var builder = WebApplication.CreateBuilder(args);
+PlanGenerator builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
 {

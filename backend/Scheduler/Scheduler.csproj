@@ -12,6 +12,7 @@
     <PackageReference Include="EPPlus" Version="8.0.7" />
     <PackageReference Include="Microsoft.OpenApi" Version="1.6.24" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -52,6 +53,21 @@
     <_ContentIncludedByDefault Remove="data\schedules\f3f9f8cc-ec27-4c99-b1ea-05ab2f6cefee\e805de6c-7cdd-47e6-b993-507b7bd0db2d.json" />
     <_ContentIncludedByDefault Remove="data\schedules\bcb2fbf4-7ca6-451c-87a5-6c069cc486ff\Third.json" />
     <_ContentIncludedByDefault Remove="data\schedules\09af923d-bbb1-4848-9b78-6132a33eb050\Third.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="PlanGenerator\vuces\093300.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="PlanGenerator\vuces\093700.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="PlanGenerator\vuces\094100.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="PlanGenerator\vuces\493000.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>
