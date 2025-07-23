@@ -7,28 +7,39 @@ using Index = Scheduler.Services.Schedule.Data.Index;
 
 namespace Scheduler.Services.Schedule;
 
-public class EventGenerator(SquadRepository squadRepo, PlanRepository planRepo)
+public class EventGenerator(SquadRepository squadRepo, PlanRepository planRepo, TeacherRepository teacherRepo)
 {
     public void Generate(SchedulePage page)
     {
         int[] lessonNumbers = [1, 2, 4, 5];
-        foreach(var squadId in page.Squads)
+        var teachers = teacherRepo.GetAll();
+
+        foreach (var squadId in page.Squads)
         {
             var squad = squadRepo.Get(squadId);
             if (squad?.DirectionId is null)
             {
                 continue;
             }
-            
+
             var themes = planRepo.FindThemesForSemester(squad.DirectionId.Value, page.Semester);
             var themeNumbers = themes.ToDictionary(x => x.Id, x => x.Number);
             var lessons = themes.SelectMany(x => x.Lessons);
             var groupedLessons = lessons
                 .GroupBy(x => x.SubjectId)
-                .Select(
-                    x => x.OrderBy(l => int.Parse($"{themeNumbers[l.ThemeId]}{l.Number.ToString()}")).ToList()
+                .Select(x => x.OrderBy(l => int.Parse($"{themeNumbers[l.ThemeId]}{l.Number.ToString()}")).ToList()
                 )
                 .ToList();
+
+
+            var teacherVacations = teachers.ToDictionary(x => x.Id, x => x.Vacations);
+            var favoriteTeachersBySubjects = teachers
+                .SelectMany(t => t.SubjectIds.Select(s => new { SubjectId = s, TeacherId = t.Id }))
+                .GroupBy(t => t.SubjectId)
+                .ToDictionary(
+                    g => g.Key,
+                    g => g.Select(x => x.TeacherId).ToList()
+                );
 
             var first = new Index(0, new ValueData<int>(0));
             var second = new Index(1, new ValueData<int>(0));
@@ -40,7 +51,7 @@ public class EventGenerator(SquadRepository squadRepo, PlanRepository planRepo)
                     if (index.Subject < groupedLessons.Count)
                     {
                     }
-                    else if(index.Subject >= groupedLessons.Count)
+                    else if (index.Subject >= groupedLessons.Count)
                     {
                         index.Subject = groupedLessons.Count - 1;
                     }
@@ -48,15 +59,25 @@ public class EventGenerator(SquadRepository squadRepo, PlanRepository planRepo)
                     {
                         continue;
                     }
-                    
+
                     var subject = groupedLessons[index.Subject];
 
                     if (index.Lesson.Value >= subject.Count)
                     {
                         break;
                     }
-                    
+
                     var lesson = subject[index.Lesson.Value];
+
+                    var teacherId =
+                        favoriteTeachersBySubjects.TryGetValue(lesson.SubjectId, out List<Guid?> teachers)
+                            ? teachers.FirstOrDefault(t => 
+                                teacherVacations[t.Value].All(
+                                    vacation => date < vacation.StartDate || 
+                                                date > vacation.EndDate
+                                                )
+                                ) ?? squad.DaddyId
+                            : null;
                     var @event = new Event
                     {
                         ScheduleId = page.ScheduleId,
