@@ -5,4 +5,12 @@ export type Theme = {
   name: string
   subjectId: string
   lessons: Lesson[]
+  number: number
+  semester: number
+}
+
+export type NewTheme = {
+  number?: number
+  name?: string
+  semester?: number
 }

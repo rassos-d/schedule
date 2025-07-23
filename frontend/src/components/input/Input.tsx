@@ -12,7 +12,7 @@ type InputProps = {
   placeholder?: string
   required?: boolean
   name?: string
-  type?: 'email' | 'password' | 'search' | 'date' | 'time'
+  type?: 'email' | 'password' | 'search' | 'date' | 'time' | 'number'
   value: string
   maxValues?: number
   isError?: boolean
@@ -224,7 +224,7 @@ export function HiddenInput({value, isWarning, onEnter}:HiddenInputProps) {
 
   return (
     <div className={styles.hiddenInput__line}>
-      <Input isError={isWarning} errorText='Сохраните изменения' value={editValue} onChange={setEditValue} />
+      <Input validateChecker={()=>{return false}} isError={isWarning} errorText='Сохраните изменения' value={editValue} onChange={setEditValue} />
       <div 
         onClick={()=>onEnter(editValue)} 
         className={`${styles.hiddenInput__enter} ${isWarning && styles.hiddenInput__enter_error}`}
