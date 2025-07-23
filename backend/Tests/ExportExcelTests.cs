@@ -5,6 +5,7 @@ using Scheduler.DataAccess.General;
 
 namespace Tests
 {
+    [TestFixture]
     public class ExportExcelTests
     {
         ExcelExportService export;
@@ -22,7 +23,7 @@ namespace Tests
         }
 
         [Test]
-        public void Test1()
+        public void ExportTest()
         {
             export.Save(Guid.Parse("42635d14-43e2-490e-96ce-0e4fa6c4afa1"));
         }
