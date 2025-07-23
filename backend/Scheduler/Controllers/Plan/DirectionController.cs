@@ -15,7 +15,6 @@ public class DirectionController(PlanRepository planRepository) : ControllerBase
         var directoryInfos = planRepository.GetAllDirectionInfos();
         return Ok(directoryInfos);
     }
-    
 
     [HttpGet("{id:guid}")]
     public IActionResult Get(Guid id)
@@ -46,7 +45,7 @@ public class DirectionController(PlanRepository planRepository) : ControllerBase
         {
             return NotFound();
         }
-
+        direction.Name = updatedDirection.Name;
         planRepository.SaveDirection(updatedDirection);
         return NoContent();
 

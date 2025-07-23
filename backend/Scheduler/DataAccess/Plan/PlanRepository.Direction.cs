@@ -8,10 +8,16 @@ public partial class PlanRepository
 {
     public void SaveDirection(Direction direction)
     {
+        var directions = GetAllDirectionInfos();
+        if (_directions.Any(d => d.Id == direction.Id))
+        {
+            directions.RemoveAll(d => d.Id == direction.Id);
+            _directions.RemoveAll(d => d.Id == direction.Id);
+        }
+
         _directions.Add(direction);
         WriteFile($"{direction.Id}.json", direction);
         
-        var directions = GetAllDirectionInfos();
         directions.Add(new DirectionInfo(direction.Id, direction.Name));
         
         WriteFile(DirectionsFilePath, directions);
@@ -47,7 +53,7 @@ public partial class PlanRepository
         var direction = GetDirection(id);
         if (direction is not null)
         {
-            _directions.Remove(direction);
+            _directions.RemoveAll( d => d.Id == direction.Id);
         }
         
         var filePath = Path.Combine(DirectoryPath, $"{id}.json");
