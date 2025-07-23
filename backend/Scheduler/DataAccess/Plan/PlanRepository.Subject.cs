@@ -6,15 +6,26 @@ namespace Scheduler.DataAccess.Plan;
 
 public partial class PlanRepository
 {
-    public void SaveSubject(Subject subject)
+    public void CreateSubject(Subject subject)
     {
         var direction = GetDirection(subject.DirectionId);
         if (direction is null)
         {
             return;
         }
-        
         direction.Subjects.Add(subject);
+        SaveChanges();
+    }
+
+    public void UpdateSubject(Subject updatedSubject)
+    {
+        var direction = GetDirection(updatedSubject.DirectionId);
+        if (direction is null)
+        {
+            return;
+        }
+        direction.Subjects.RemoveAll(s => s.Id == updatedSubject.Id);
+        direction.Subjects.Add(updatedSubject);
         SaveChanges();
     }
 

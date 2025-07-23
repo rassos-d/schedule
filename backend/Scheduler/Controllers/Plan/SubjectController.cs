@@ -22,52 +22,43 @@ public class SubjectController : ControllerBase
         return Ok(_planRepository.FindSubjects(directionId));
     }
 
-    [HttpGet("{id::guid}")]
-    public IActionResult Get(Guid id)
+    [HttpGet("{subjectId::guid}")]
+    public IActionResult Get(Guid subjectId)
     {
-        var direction = _planRepository.GetDirection(id);
-        if (direction is null)
+        var subject = _planRepository.GetSubject(subjectId);
+        if (subject is null)
         {
             return NotFound();
         }
 
-        return Ok(direction);
+        return Ok(subject);
     }
     
     [HttpPost]
     public IActionResult Create([FromBody] SubjectCreateDto request)
     {
         var subj = new Subject { Name = request.Name, DirectionId = request.DirectionId };
-        _planRepository.SaveSubject(subj);
+        _planRepository.CreateSubject(subj);
         return Ok(subj);
     }
 
     [HttpPut]
     public IActionResult Update([FromBody] Subject updatedSubject)
     {
-        var direction = _planRepository.GetDirection(updatedSubject.Id);
-
-        if (direction == null)
-        {
+        var subject = _planRepository.GetSubject(updatedSubject.Id);
+        if (subject is null)
             return NotFound();
-        }
 
-        _planRepository.SaveSubject(updatedSubject);
+        subject.Name = updatedSubject.Name;
+        _planRepository.UpdateSubject(subject);
         return Ok();
 
     }
 
-    [HttpDelete("{id:guid}")]
-    public IActionResult Delete(Guid id)
+    [HttpDelete("{subjectId::guid}")]
+    public IActionResult Delete(Guid subjectId)
     {
-        var direction = _planRepository.GetDirection(id);
-
-        if (direction == null)
-        {
-            return NotFound();
-        }
-
-        _planRepository.DeleteSubject(id);
+        _planRepository.DeleteSubject(subjectId);
         return Ok();
     }
 }
