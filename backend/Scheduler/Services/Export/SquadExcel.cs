@@ -1,5 +1,7 @@
 using Scheduler.Entities;
 
+namespace Scheduler.Services.Export;
+
 internal record SquadExcel
 {
     public required string Name { get; init; }

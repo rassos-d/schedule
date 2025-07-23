@@ -33,13 +33,13 @@ public partial class PlanRepository
         }
         
         var directions = GetAllDirectionInfos();
-        var notCachedDirections = directions.ExceptBy(Directions.Select(d => d.Id), d => d.Id);
+        var notCachedDirections = directions.ExceptBy(_directions.Select(d => d.Id), d => d.Id);
         foreach (var direction in notCachedDirections)
         {
             GetDirection(direction.Id);
         }
         
-        return Directions.SelectMany(d => d.Subjects).ToList().AddSummingUp();
+        return _directions.SelectMany(d => d.Subjects).ToList().AddSummingUp();
     }
 
     public void DeleteSubject(Guid id)
@@ -50,7 +50,7 @@ public partial class PlanRepository
             return;
         }
         
-        var direction = Directions.First(x => x.Id == subject.DirectionId);
+        var direction = _directions.First(x => x.Id == subject.DirectionId);
         direction.Subjects.Remove(subject);
         SaveChanges();
     }

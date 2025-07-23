@@ -2,6 +2,8 @@
 using Scheduler.DataAccess.Plan;
 using Scheduler.Entities;
 using Scheduler.Entities.Schedule;
+using Scheduler.Services.Schedule.Data;
+using Index = Scheduler.Services.Schedule.Data.Index;
 
 namespace Scheduler.Services.Schedule;
 
@@ -13,6 +15,11 @@ public class EventGenerator(SquadRepository squadRepo, PlanRepository planRepo)
         foreach(var squadId in page.Squads)
         {
             var squad = squadRepo.Get(squadId);
+            if (squad?.DirectionId is null)
+            {
+                continue;
+            }
+            
             var themes = planRepo.FindThemesForSemester(squad.DirectionId.Value, page.Semester);
             var themeNumbers = themes.ToDictionary(x => x.Id, x => x.Number);
             var lessons = themes.SelectMany(x => x.Lessons);
@@ -23,8 +30,8 @@ public class EventGenerator(SquadRepository squadRepo, PlanRepository planRepo)
                 )
                 .ToList();
 
-            var first = new Index(0, new Val(0));
-            var second = new Index(1, new Val(0));
+            var first = new Index(0, new ValueData<int>(0));
+            var second = new Index(1, new ValueData<int>(0));
             foreach (var date in page.Dates)
             {
                 foreach (var lessonNumber in lessonNumbers)
@@ -84,15 +91,3 @@ public class EventGenerator(SquadRepository squadRepo, PlanRepository planRepo)
         }
     }
 }
-
-file record Index(int Subject, Val Lesson)
-{
-    public int Subject { get; set; } = Subject;
-    public Val Lesson { get; set; } = Lesson;
-}
-
-file record Val(int Value)
-{
-    public int Value { get; set; } = Value;
-}
-

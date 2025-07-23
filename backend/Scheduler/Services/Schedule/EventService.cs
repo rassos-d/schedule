@@ -11,17 +11,17 @@ using Scheduler.Entities;
 using Scheduler.Entities.General;
 using Scheduler.Entities.Plan;
 using Scheduler.Entities.Schedule;
-using Scheduler.Exceptions;
 using Scheduler.Extensions;
 
-namespace Scheduler.Services.Events;
+namespace Scheduler.Services.Schedule;
 
 public class EventService(
     TeacherRepository teacherRepository,
     ScheduleRepository scheduleRepository,
     AudienceRepository audienceRepository,
     PlanRepository planRepository,
-    SquadRepository squadRepository)
+    SquadRepository squadRepository
+    )
 {
     public AddEventRequest AddEvent(Guid scheduleId, StudyYear studyYear, Event newEvent)
     {
@@ -36,14 +36,6 @@ public class EventService(
         scheduleRepository.SaveSchedulePage(schedulePage);
 
         return new AddEventRequest(newEvent.Id, CheckForConflict(schedulePage, newEvent.Id));
-    }
-
-    public EventsResponse Get(Guid scheduleId, StudyYear studyYear, Guid id)
-    {
-        var schedule = scheduleRepository.GetSchedulePage(scheduleId, studyYear);
-
-        throw new NotImplementedException();
-        // return ConvertToResponse();
     }
 
     public CheckConflictResponse? UpdateEvent(Guid scheduleId, StudyYear studyYear, Guid eventId, Event updatedEvent)
@@ -183,11 +175,16 @@ public class EventService(
     private string? CreateMessage(List<Event> events, List<Event> conflictEvents, Guid? updatedEventId, Dictionary<Guid, Teacher> teachers,
         Dictionary<Guid, string> audiences)
     {
-        if (!updatedEventId.HasValue)
+        if (updatedEventId.HasValue == false)
+        {
             return null;
+        }
+        
         var updatedEvent = events.First(e => e.Id == updatedEventId);
         if (updatedEvent.Date == null && updatedEvent.Number == null)
+        {
             return null;
+        }
         var isConflictWithTeacher = conflictEvents
             .Count(e => e.TeacherId == updatedEvent.TeacherId && e.Date == updatedEvent.Date &&
                         e.Number == updatedEvent.Number) > 1;
@@ -196,25 +193,29 @@ public class EventService(
             .Count(e => e.AudienceId == updatedEvent.AudienceId && e.Date == updatedEvent.Date &&
                         e.Number == updatedEvent.Number) > 1;
 
+        Teacher? teacher = null;
         var isTeacherInVacation = updatedEvent.TeacherId.HasValue
-                                     && teachers.TryGetValue(updatedEvent.TeacherId.Value, out var teacher)
+                                     && teachers.TryGetValue(updatedEvent.TeacherId.Value, out teacher)
                                      && teacher.Vacations.Any(vacation =>
                                          vacation.StartDate <= updatedEvent.Date &&
                                          vacation.EndDate >= updatedEvent.Date);
         if (!isConflictWithAudience && !isTeacherInVacation && !isConflictWithTeacher)
+        {
             return null;
-
+        }
+        
+        var eventNumber = GetTimeByLessonNumber(updatedEvent.Number!.Value);
         var message = string.Empty;
-        message += isConflictWithTeacher && updatedEvent.TeacherId.HasValue && teachers.TryGetValue(updatedEvent.TeacherId.Value, out var teacher1)
-            ? $"Преподаватель {teacher1.Name} занят во время {GetTimeByLessonNumber(updatedEvent.Number.Value)}."
+        message += isConflictWithTeacher && teacher != null
+            ? $"Преподаватель {teacher.Name} занят во время {eventNumber}."
             : "";
 
         message += isConflictWithAudience && updatedEvent.AudienceId.HasValue && audiences.TryGetValue(updatedEvent.AudienceId.Value, out var audienceName)
-            ? $"Аудитория {audienceName} занята во время {GetTimeByLessonNumber(updatedEvent.Number.Value)}."
+            ? $"Аудитория {audienceName} занята во время {eventNumber}."
             : "";
 
-        message += isTeacherInVacation && updatedEvent.TeacherId.HasValue && teachers.TryGetValue(updatedEvent.TeacherId.Value, out var teacher2)
-            ? $"Преподаватель {teacher2.Name} находится в отпуске."
+        message += isTeacherInVacation && teacher != null
+            ? $"Преподаватель {teacher.Name} находится в отпуске."
             : "";
         
         return "ВНИМАНИЕ!!! " + message;

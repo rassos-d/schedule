@@ -1,10 +1,7 @@
 using System.Text.Json;
-using Scheduler.Constants;
 using Scheduler.DataAccess.Base;
 using Scheduler.Dto.Constants;
 using Scheduler.Entities.Schedule;
-using Scheduler.Exceptions;
-using Scheduler.Models;
 
 namespace Scheduler.DataAccess;
 
@@ -47,7 +44,7 @@ public class ScheduleRepository : BaseRepository
         var schedule = new Schedule
         {
             Id = scheduleId,
-            Name = scheduleInfo.Name,
+            Name = scheduleInfo?.Name ?? "unknown",
         };
 
         foreach (var studyYear in studyYears)
@@ -119,12 +116,6 @@ public class ScheduleRepository : BaseRepository
     {
         _schedulesCache.Remove(id);
         var scheduleDir = Path.Combine(DirectoryPath, id.ToString());
-        var files = Directory.GetFiles(scheduleDir);
-        // foreach (var file in files)
-        // {
-        //     File.Delete(file);
-        // }
-        //
         Directory.Delete(scheduleDir, true);
 
         var schedules = GetAllScheduleInfos();

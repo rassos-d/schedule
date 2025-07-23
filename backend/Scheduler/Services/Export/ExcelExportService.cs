@@ -1,24 +1,25 @@
 using System.Drawing;
 using OfficeOpenXml;
-using Scheduler.Dto.Constants;
 using Scheduler.DataAccess;
 using Scheduler.DataAccess.General;
 using Scheduler.DataAccess.Plan;
+using Scheduler.Dto.Constants;
 using Scheduler.Entities.General;
 using Scheduler.Entities.Schedule;
 using Scheduler.Extensions;
+using Scheduler.Services.Export.Common;
 
-namespace Scheduler.Export;
+namespace Scheduler.Services.Export;
 
 public class ExcelExportService
 {
-    private const string resultPath = "result.xlsx";
-    private readonly string templatePath = Path.Combine("Export", "template.xlsx");
-    private readonly ScheduleRepository scheduleRepository;
-    private readonly TeacherRepository teacherRepository;
-    private readonly AudienceRepository audienceRepository;
-    private readonly SquadRepository squadRepository;
-    private readonly PlanRepository planRepository;
+    private const string ResultPath = "result.xlsx";
+    private readonly string _templatePath = Path.Combine("Templates", "template.xlsx");
+    private readonly ScheduleRepository _scheduleRepository;
+    private readonly TeacherRepository _teacherRepository;
+    private readonly AudienceRepository _audienceRepository;
+    private readonly SquadRepository _squadRepository;
+    private readonly PlanRepository _planRepository;
 
     public ExcelExportService(
         ScheduleRepository scheduleRepository,
@@ -30,26 +31,28 @@ public class ExcelExportService
     {
         ExcelPackage.License.SetNonCommercialPersonal("VUC");
 
-        if (!File.Exists(templatePath))
-            throw new FileNotFoundException(new FileInfo(templatePath).FullName);
+        if (!File.Exists(_templatePath))
+            throw new FileNotFoundException(new FileInfo(_templatePath).FullName);
 
-        this.scheduleRepository = scheduleRepository;
-        this.teacherRepository = teacherRepository;
-        this.audienceRepository = audienceRepository;
-        this.squadRepository = squadRepository;
-        this.planRepository = planRepository;
+        _scheduleRepository = scheduleRepository;
+        _teacherRepository = teacherRepository;
+        _audienceRepository = audienceRepository;
+        _squadRepository = squadRepository;
+        _planRepository = planRepository;
     }
 
     public string Save(Guid scheduleId)
     {
-        if (File.Exists(resultPath))
-            File.Delete(resultPath);
+        if (File.Exists(ResultPath))
+        {
+            File.Delete(ResultPath);
+        }
 
-        using var templateExcel = new ExcelPackage(templatePath);
+        using var templateExcel = new ExcelPackage(_templatePath);
         var template = GetTemplate(templateExcel);
 
-        var schedule = scheduleRepository.GetSchedule(scheduleId);
-        using var resultExcel = new ExcelPackage(resultPath);
+        var schedule = _scheduleRepository.GetSchedule(scheduleId);
+        using var resultExcel = new ExcelPackage(ResultPath);
 
         foreach (var page in schedule.Pages)
         {
@@ -57,7 +60,7 @@ public class ExcelExportService
         }
 
         resultExcel.Save();
-        return resultPath;
+        return ResultPath;
     }
 
     private static Template GetTemplate(ExcelPackage templateExcel)
@@ -88,12 +91,15 @@ public class ExcelExportService
     private void WriteSheet(
         ExcelWorkbook workbook,
         Template template,
-        SchedulePage page)
+        SchedulePage page
+        )
     {
         // создаем лист сразу с шапкой
         var sheet = workbook.Worksheets.Add($"{(int)page.StudyYear} год", template.Header.Sheet);
 
-        var squads = page.Squads.Select(squadId => GetSquad(page, squadRepository.Get(squadId)!));
+        var squads = page
+            .Squads.Select(squadId => GetSquad(page, _squadRepository.Get(squadId)!))
+            .ToList();
         FillHeader(squads, sheet.Cells, page.Dates, page.Semester);
 
         var totalHeight = template.Header.Size.Height + 1;
@@ -145,9 +151,9 @@ public class ExcelExportService
 
     private SquadExcel GetSquad(SchedulePage page, Squad squad)
     {
-        var teacher = GetOrDefault(squad.DaddyId, teacherRepository.Get);
+        var teacher = GetOrDefault(squad.DaddyId, _teacherRepository.Get);
         var teacherRank = RankExpander.GetFullOrDefault(teacher?.Rank);
-        var direction = GetOrDefault(squad.DirectionId, planRepository.GetDirection);
+        var direction = GetOrDefault(squad.DirectionId, _planRepository.GetDirection);
 
         return new SquadExcel()
         {
@@ -177,7 +183,7 @@ public class ExcelExportService
         AddFormattedText(squadName, "Взвод ", 36);
         AddFormattedText(squadName, $"{squad.Name}\n\n", 36);
         AddFormattedText(squadName, $"{squad.DirectionName}\n\n", 26);
-        AddFormattedText(squadName, $"Ответственный\nпреподаватель\n", 22);
+        AddFormattedText(squadName, "Ответственный\nпреподаватель\n", 22);
         AddFormattedText(squadName, $"{squad.DaddyName}", 22);
 
         void AddFormattedText(ExcelRangeBase cell, string? text = null, float? size = null)
@@ -205,12 +211,12 @@ public class ExcelExportService
             {
                 var eventLocalPos = eventOffset * (@event.Number.Value - 1);
 
-                var subject = GetOrDefault(@event.SubjectId, planRepository.GetSubject);
-                var audience = GetOrDefault(@event.AudienceId, audienceRepository.Get);
-                var teacher = GetOrDefault(@event.TeacherId, teacherRepository.Get);
+                var subject = GetOrDefault(@event.SubjectId, _planRepository.GetSubject);
+                var audience = GetOrDefault(@event.AudienceId, _audienceRepository.Get);
+                var teacher = GetOrDefault(@event.TeacherId, _teacherRepository.Get);
 
-                var theme = GetOrDefault(@event.ThemeId, planRepository.GetTheme);
-                var lesson = GetOrDefault(@event.LessonId, planRepository.GetLesson);
+                var theme = GetOrDefault(@event.ThemeId, _planRepository.GetTheme);
+                var lesson = GetOrDefault(@event.LessonId, _planRepository.GetLesson);
                 var themeText = $"т.{theme?.Number}/{lesson?.Number} {lesson?.Type.GetView()}";
 
                 cells.SetCellValue(heightOffset + eventLocalPos, eventCol, subject?.GetShortName());

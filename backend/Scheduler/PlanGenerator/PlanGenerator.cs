@@ -62,7 +62,8 @@ public class PlanGenerator
             {
                 ["Name"] = section["title"],
                 ["DirectionId"] = directionId,
-                ["Id"] = subjectId
+                ["Id"] = subjectId,
+                ["ShortName"] = new Subject { Name = section["title"].ToString() }.GetShortName()
             };
             
             var themes = new JArray();

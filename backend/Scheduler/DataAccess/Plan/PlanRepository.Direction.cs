@@ -1,6 +1,5 @@
 using System.Text.Json;
 using Scheduler.Entities.Plan;
-using Scheduler.Models;
 using static Scheduler.Constants.FilePaths;
 
 namespace Scheduler.DataAccess.Plan;
@@ -9,7 +8,7 @@ public partial class PlanRepository
 {
     public void SaveDirection(Direction direction)
     {
-        Directions.Add(direction);
+        _directions.Add(direction);
         WriteFile($"{direction.Id}.json", direction);
         
         var directions = GetAllDirectionInfos();
@@ -20,7 +19,7 @@ public partial class PlanRepository
 
     public Direction? GetDirection(Guid id)
     {
-        var direction = Directions.FirstOrDefault(d => d.Id == id);
+        var direction = _directions.FirstOrDefault(d => d.Id == id);
         if (direction is not null)
         {
             return direction;
@@ -31,7 +30,7 @@ public partial class PlanRepository
 
         if (direction is not null)
         {
-            Directions.Add(direction);
+            _directions.Add(direction);
         }
         
         return direction;
@@ -48,7 +47,7 @@ public partial class PlanRepository
         var direction = GetDirection(id);
         if (direction is not null)
         {
-            Directions.Remove(direction);
+            _directions.Remove(direction);
         }
         
         var filePath = Path.Combine(DirectoryPath, $"{id}.json");

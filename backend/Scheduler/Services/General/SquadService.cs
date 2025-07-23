@@ -3,10 +3,11 @@ using Scheduler.DataAccess.General;
 using Scheduler.Dto.Constants;
 using Scheduler.Dto.General.Squad;
 using Scheduler.Entities.General;
+using Scheduler.Services.Schedule;
 
 namespace Scheduler.Services.General;
 
-public class SquadService(SquadRepository squadRepository, ScheduleRepository scheduleRepository)
+public class SquadService(SquadRepository squadRepository, ScheduleRepository scheduleRepository, ScheduleService scheduleService)
 {
     public List<Squad> Find(StudyYear? studyYear)
     {
@@ -49,7 +50,8 @@ public class SquadService(SquadRepository squadRepository, ScheduleRepository sc
         if (dto.DaddyId is not null)
         {
             squad.DaddyId = dto.DaddyId.Data;
-            UpdateEventInAllSchedules(dto.Id, dto.DaddyId.Data!.Value);
+            if (squad.DaddyId != dto.DaddyId.Data)
+                UpdateEventInAllSchedules(dto.Id, dto.DaddyId.Data!.Value);
         }
 
         if (dto.FixedAudienceId is not null)
@@ -70,8 +72,21 @@ public class SquadService(SquadRepository squadRepository, ScheduleRepository sc
     public void Delete(Guid id)
     {
         squadRepository.Delete(id);
+        scheduleService.DeleteFromAllEvents(e =>
+        {
+            if (e.SquadId == id) 
+                e.SquadId = null;
+        });
     }
 
+    public void DeleteFromAllSquads(Action<Squad> deleteValueAction)
+    {
+        foreach (var squad in squadRepository.GetAll())
+            deleteValueAction(squad);
+        
+        squadRepository.SaveChanges();
+    }
+    
     private void UpdateEventInAllSchedules(Guid squadId, Guid daddyId)
     {
         var scheduleInfos = scheduleRepository.GetAllScheduleInfos();

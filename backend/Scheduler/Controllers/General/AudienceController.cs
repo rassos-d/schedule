@@ -1,43 +1,39 @@
 using Microsoft.AspNetCore.Mvc;
-using Scheduler.DataAccess.General;
 using Scheduler.Dto;
 using Scheduler.Entities.General;
+using Scheduler.Services.General;
 
 namespace Scheduler.Controllers.General;
 
 [ApiController]
 [Route("api/audiences")]
-public class AudienceController(AudienceRepository generalRepo) : ControllerBase
+public class AudienceController(AudienceService service) : ControllerBase
 {
     [HttpGet]
     public IActionResult Find()
     {
-        var audiences = generalRepo.GetAll();
+        var audiences = service.Find();
         return Ok(audiences);
     }
 
     [HttpPost]
     public IActionResult Create(EntityWithNameCreateDto request)
     {
-        var audience = new Audience { Name = request.Name };
-        generalRepo.Upsert(audience);
-        generalRepo.SaveChanges();
-        return Ok(audience);
+        var response = service.Create(request);
+        return Ok(response);
     }
 
     [HttpPut]
     public IActionResult Update(Audience audience)
     {
-        generalRepo.Upsert(audience);
-        generalRepo.SaveChanges();
+        service.Update(audience);
         return NoContent();
     }
 
     [HttpDelete("{id:guid}")]
     public IActionResult Delete(Guid id)
     {
-        generalRepo.Delete(id);
-        generalRepo.SaveChanges();
+        service.Delete(id);
         return NoContent();
     }
 }
