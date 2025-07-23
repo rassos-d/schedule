@@ -5,13 +5,15 @@ public class PlanGenerator
     // todo загружаем один темплан, если он уже существует (по вусовке) - спросить заменить или сохранить копию (1)
     // если пересечения не было - не трогать (старые остаются, новые добавляются)
     // смержить directions.json
-    private const string PlanDirectory = "plan";
+    private const string PlanDirectory = "newPlan";
     private readonly string VucesDirectory = Path.Combine("PlanGenerator", "vuces");
 
     public void Generate()
     {
-        if (!Directory.Exists(PlanDirectory))
-            Directory.CreateDirectory(PlanDirectory);
+        if (Directory.Exists(PlanDirectory))
+            Directory.Delete(PlanDirectory);
+        Directory.CreateDirectory(PlanDirectory);
+        
         if (!Directory.Exists(VucesDirectory))
             Directory.CreateDirectory(VucesDirectory);
 
