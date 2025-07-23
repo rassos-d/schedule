@@ -13,7 +13,7 @@ public partial class PlanRepository
         {
             return;
         }
-        
+        subject.ShortName ??= subject.GetShortName();
         direction.Subjects.Add(subject);
         SaveChanges();
     }

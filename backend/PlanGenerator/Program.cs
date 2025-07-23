@@ -1,8 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+using Scheduler.Entities.Plan;
+using Scheduler.Extensions;
 
 class Program
 {
@@ -54,7 +52,8 @@ class Program
             {
                 ["Name"] = section["title"],
                 ["DirectionId"] = directionId,
-                ["Id"] = subjectId
+                ["Id"] = subjectId,
+                ["ShortName"] = new Subject { Name = section["title"].ToString() }.GetShortName()
             };
             
             var themes = new JArray();

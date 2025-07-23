@@ -37,7 +37,7 @@ public class SubjectController : ControllerBase
     [HttpPost]
     public IActionResult Create([FromBody] SubjectCreateDto request)
     {
-        var subj = new Subject { Name = request.Name, DirectionId = request.DirectionId };
+        var subj = new Subject { Name = request.Name, ShortName = request.ShortName, DirectionId = request.DirectionId };
         _planRepository.SaveSubject(subj);
         return Ok(subj);
     }
