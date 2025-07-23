@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using Scheduler.Dto.Constants;
+using Scheduler.Entities.Plan;
+using Scheduler.Extensions;
 
 public class PlanGenerator
 {
@@ -7,7 +9,7 @@ public class PlanGenerator
     // если пересечения не было - не трогать (старые остаются, новые добавляются)
     // смержить directions.json
     private const string PlanDirectory = "newPlan";
-    private readonly string VucesDirectory = Path.Combine("PlanGenerator", "vuces");
+    private readonly string VucesDirectory = Path.Combine("Services", "PlanGenerator", "vuces");
 
     public void Generate()
     {
@@ -63,7 +65,7 @@ public class PlanGenerator
                 ["Name"] = section["title"],
                 ["DirectionId"] = directionId,
                 ["Id"] = subjectId,
-                ["ShortName"] = new Subject { Name = section["title"].ToString() }.GetShortName()
+                ["ShortName"] = new Subject { Name = section["title"]?.ToString() ?? string.Empty }.GetShortName()
             };
             
             var themes = new JArray();
