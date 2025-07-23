@@ -63,11 +63,6 @@ export function Input({ placeholder, value, required, type, maxValues, isError, 
     }
   }, [textarea]);
 
-   const renderYearContent = (year) => {
-    const tooltipText = `Tooltip for year: ${year}`;
-    return <span title={tooltipText}>{year}</span>;
-  };
-
   if (type === 'date') {
     return <DatePicker 
       locale={ru}
