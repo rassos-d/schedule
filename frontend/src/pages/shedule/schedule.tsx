@@ -387,7 +387,7 @@ export default function ShedulePage() {
     return (
         <>
             <Helmet>
-                <title>{`${schedule.name} ${activeTab} курс ${getSemesterName()} семестр `}</title>
+                <title>{`${schedule.name} ${activeTab} год ${getSemesterName()} семестр `}</title>
             </Helmet>
             <div  ref={containerRef} className={`${styles.container}`}>
                 <div className={styles.container__tabs}>
@@ -397,7 +397,7 @@ export default function ShedulePage() {
                     <Button onClick={()=>navigate('/')} className={styles.container__back}>На главную</Button>
                     <Button onClick={handleExportShedule}>ЭКСПОРТ</Button>
                 </div>
-                <h1 className={styles.container__title}>{`${schedule.name} ${activeTab} курс ${getSemesterName()} семестр`}</h1>
+                <h1 className={styles.container__title}>{`${schedule.name} ${activeTab} год ${getSemesterName()} семестр`}</h1>
                 <DndProvider backend={HTML5Backend}>
                     {schedule.squads.map((item, squardIndex) => (
                         <div id={`squad--${item.id}`} key={item.id} className={styles.container__tableContainer}>
@@ -504,6 +504,7 @@ export default function ShedulePage() {
                         <div className={styles.popup__line}>
                             <p className={styles.popup__title}>Взвод:</p>
                             <AddInput
+                                enableSearch
                                 isError={displayErrorsEvent}
                                 minWidth={275}
                                 maxWidth={275}
@@ -532,6 +533,7 @@ export default function ShedulePage() {
                             <div className={styles.popup__line}>
                                 <p className={styles.popup__title}>Тема:</p>
                                 <AddInput
+                                    enableSearch
                                     isError={displayErrorsEvent}
                                     minWidth={275}
                                     maxWidth={275}
@@ -547,6 +549,7 @@ export default function ShedulePage() {
                             <div className={styles.popup__line}>
                                 <p className={styles.popup__title}>Занятие:</p>
                                 <AddInput
+                                    enableSearch
                                     isError={displayErrorsEvent}
                                     minWidth={275}
                                     maxWidth={275}
@@ -561,6 +564,7 @@ export default function ShedulePage() {
                         <div className={styles.popup__line}>
                             <p className={styles.popup__title}>Преподаватель:</p>
                             <AddInput
+                                enableSearch
                                 isError={displayErrorsEvent}
                                 minWidth={275}
                                 maxWidth={275}
@@ -574,6 +578,7 @@ export default function ShedulePage() {
                         <div className={styles.popup__line}>
                             <p className={styles.popup__title}>Аудитория:</p>
                             <AddInput
+                                enableSearch
                                 isError={displayErrorsEvent}
                                 minWidth={275}
                                 maxWidth={275}
@@ -587,12 +592,13 @@ export default function ShedulePage() {
                         <div className={styles.popup__line}>
                             <p className={styles.popup__title}>Дата:</p>
                             <div className={styles.popup__text}>
-                                <Input isError={displayErrorsEvent} type='date' value={newLesson.date ?? ''} onChange={(value)=>setNewLesson({...newLesson, date: value})}/>
+                                {/* <Input isError={displayErrorsEvent} type='date' value={newLesson.date ?? ''} onChange={(value)=>setNewLesson({...newLesson, date: value})}/> */}
+                                <p>{newLesson.date}</p>
                             </div>
                         </div>
                         <div className={styles.popup__line}>
                             <p className={styles.popup__title}>Время:</p>
-                            <AddInput
+{/*                             <AddInput
                                 isError={displayErrorsEvent}
                                 minWidth={275}
                                 maxWidth={275}
@@ -601,7 +607,10 @@ export default function ShedulePage() {
                                 allList={TIMES.map((el, index)=>({name: `${el.number} ${el.time}`, id: index + 1}))}
                                 title='Выберите время'
                                 changeInputList={(newList)=>setNewLesson({...newLesson, number: Number(newList[0].id)})}
-                            />
+                            /> */}
+                            <div className={styles.popup__text}>
+                                <p>{newLesson.number ? `${TIMES[newLesson.number - 1].number} ${TIMES[newLesson.number - 1].time}` :''}</p>
+                            </div>
                         </div>
                         <Button onClick={handleCreateLesson} size={'max'}>Сохранить</Button>
                     </div>

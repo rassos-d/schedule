@@ -8,11 +8,12 @@ type VacationBlockProps = {
   start: string
   end: string
   title: string
+  isCheckError?: boolean
   onChangeDate: (newVacation: Vacation) => void
   onDelete: () => void
 }
 
-function VacationBlockComponent({ start, end, title, onChangeDate, onDelete }: VacationBlockProps) {
+function VacationBlockComponent({ start, end, title, isCheckError, onChangeDate, onDelete }: VacationBlockProps) {
   return (
     <div className={styles.container}>
       <h5>{title}</h5>
@@ -20,11 +21,11 @@ function VacationBlockComponent({ start, end, title, onChangeDate, onDelete }: V
         <div className={styles.content__dates}>
           <div className={styles.content__date}>
             <p>Дата начала</p>
-            <Input type='date' value={start} onChange={(newValue) => onChangeDate({startDate: newValue, endDate: end})} />
+            <Input isError={isCheckError} type='date' value={start} onChange={(newValue) => onChangeDate({startDate: newValue, endDate: end})} />
           </div>
           <div className={styles.content__date}>
             <p>Дата конца</p>
-            <Input type='date' value={end} onChange={(newValue) => onChangeDate({startDate: start, endDate: newValue})} />
+            <Input isError={isCheckError} type='date' value={end} onChange={(newValue) => onChangeDate({startDate: start, endDate: newValue})} />
           </div>
         </div>
         <div onClick={onDelete} className={styles.content__close}>

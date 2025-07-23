@@ -49,6 +49,7 @@ export default function Main() {
     const [allTeachers, setAllTeachers] = useState<Teacher[]>()
     const [allDirections, setAllDirections] = useState<Direction[]>()
     const [editTeacher, setEditTeacher] = useState<Teacher>()
+    const [checkEditTeacher, setCheckEditTeacher] = useState(false)
     const [newTeacher, setNewTeacher] = useState<NewTeacher>()
 
     const handleGetAllDirections = async () => {
@@ -93,6 +94,18 @@ export default function Main() {
         setAllTeachers(data)
     }
     const handleAddTeacher = async () => {
+        if (!newTeacher) return
+        if (newTeacher.name.length === 0 || newTeacher.rank.length === 0) {
+            setCheckEditTeacher(true)
+            return
+        }
+        for (const vacation of newTeacher.vacations) {
+            if (!vacation.endDate || !vacation.startDate) {
+                setCheckEditTeacher(true)
+                return
+            }
+        }
+        setCheckEditTeacher(false)
         await axios.post(PagesURl.TEACHER, {
             ...newTeacher
         })
@@ -101,6 +114,17 @@ export default function Main() {
     }
     const handleEditTeacher = async () => {
         if (!editTeacher) return
+        if (editTeacher.name.length === 0 || editTeacher.rank.length === 0) {
+            setCheckEditTeacher(true)
+            return
+        }
+        for (const vacation of editTeacher.vacations) {
+            if (!vacation.endDate || !vacation.startDate) {
+                setCheckEditTeacher(true)
+                return
+            }
+        }
+        setCheckEditTeacher(false)
         await axios.put(PagesURl.TEACHER, {
             id: editTeacher.id,
             name: editTeacher.name,
@@ -130,6 +154,7 @@ export default function Main() {
     }
     const addVacationNewTeacher = () => {
         if (!newTeacher) return
+        setCheckEditTeacher(false)
         const result = { ...newTeacher }
         result.vacations.push({ startDate: '', endDate: '' })
         setNewTeacher(result)
@@ -148,6 +173,7 @@ export default function Main() {
     }
     const addVacationEditTeacher = () => {
         if (!editTeacher) return
+        setCheckEditTeacher(false)
         const result = { ...editTeacher }
         result.vacations.push({ startDate: '', endDate: '' })
         setEditTeacher(result)
@@ -494,10 +520,11 @@ export default function Main() {
                 <PopupContainer displayClose onClose={() => setEditTeacher(undefined)}>
                     <div className={styles.edit}>
                         <h2>Редактирование преподавателя</h2>
-                        <Input value={editTeacher.name} placeholder='Фамилия' onChange={(val) => setEditTeacher({ ...editTeacher, name: val })} />
-                        <Input value={editTeacher.rank} placeholder='Звание' onChange={(val) => setEditTeacher({ ...editTeacher, rank: val })} />
+                        <Input isError={checkEditTeacher} value={editTeacher.name} placeholder='Фамилия' onChange={(val) => setEditTeacher({ ...editTeacher, name: val })} />
+                        <Input isError={checkEditTeacher} value={editTeacher.rank} placeholder='Звание' onChange={(val) => setEditTeacher({ ...editTeacher, rank: val })} />
                         {editTeacher.vacations.map((el, index) => (
                             <VacationBlock
+                                isCheckError={checkEditTeacher}
                                 key={`${el.startDate}--${el.endDate}`}
                                 title={`Отпуск ${index + 1}`}
                                 start={el.startDate}
@@ -518,10 +545,11 @@ export default function Main() {
                 <PopupContainer displayClose onClose={() => setNewTeacher(undefined)}>
                     <div className={styles.edit}>
                         <h2>Создание преподавателя</h2>
-                        <Input value={newTeacher.name} placeholder='Фамилия' onChange={(val) => setNewTeacher({ ...newTeacher, name: val })} />
-                        <Input value={newTeacher.rank} placeholder='Звание' onChange={(val) => setNewTeacher({ ...newTeacher, rank: val })} />
+                        <Input isError={checkEditTeacher} value={newTeacher.name} placeholder='Фамилия' onChange={(val) => setNewTeacher({ ...newTeacher, name: val })} />
+                        <Input isError={checkEditTeacher} value={newTeacher.rank} placeholder='Звание' onChange={(val) => setNewTeacher({ ...newTeacher, rank: val })} />
                         {newTeacher.vacations.map((el, index) => (
                             <VacationBlock
+                                isCheckError={checkEditTeacher}
                                 key={`${el.startDate}--${el.endDate}`}
                                 title={`Отпуск ${index + 1}`}
                                 start={el.startDate}
