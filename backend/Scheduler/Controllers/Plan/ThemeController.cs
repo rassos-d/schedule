@@ -12,7 +12,7 @@ public class ThemeController(PlanRepository planRepository) : ControllerBase
     [HttpGet("find")]
     public IActionResult Find([FromQuery] Guid? directionId, [FromQuery] Guid? subjectId)
     {
-        var themes = planRepository.FindThemes(directionId, subjectId);
+        var themes = planRepository.FindThemes(subjectId, directionId);
         return Ok(themes);
     }
 

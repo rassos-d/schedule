@@ -6,6 +6,20 @@ export type Lesson = {
   themeId: string,
   id: string
   type: number
+  number: number
+}
+
+export type EditLesson = {
+  id: string
+  name: string
+  type: AddInputList
+  number: number
+}
+
+export type NewSmallLesson = {
+  name?: string
+  type?: AddInputList
+  number?: number
 }
 
 export type FreeLesson = Omit<SheduleLesson, "number" | "date"> & {squardIndex: number}

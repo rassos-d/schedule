@@ -7,12 +7,19 @@ namespace Scheduler.Controllers.Plan;
 
 [ApiController]
 [Route("api/directions")]
-public class DirectionController(PlanRepository planRepository) : ControllerBase
+public class DirectionController : ControllerBase
 {
+    private readonly PlanRepository _planRepository;
+
+    public DirectionController(PlanRepository planRepository)
+    {
+        _planRepository = planRepository;
+    }
+
     [HttpGet("find")]
     public IActionResult Find()
     {
-        var directoryInfos = planRepository.GetAllDirectionInfos();
+        var directoryInfos = _planRepository.GetAllDirectionInfos();
         return Ok(directoryInfos);
     }
     
@@ -20,7 +27,7 @@ public class DirectionController(PlanRepository planRepository) : ControllerBase
     [HttpGet("{id:guid}")]
     public IActionResult Get(Guid id)
     {
-        var direction = planRepository.GetDirection(id);
+        var direction = _planRepository.GetDirection(id);
         if (direction is null)
         {
             return NotFound();
@@ -33,21 +40,21 @@ public class DirectionController(PlanRepository planRepository) : ControllerBase
     public IActionResult Create([FromBody] EntityWithNameCreateDto request)
     {
         var direction = new Direction { Name = request.Name };
-        planRepository.SaveDirection(direction);
+        _planRepository.SaveDirection(direction);
         return Ok(new SimpleDto<Guid>(direction.Id));
     }
 
     [HttpPut]
     public IActionResult Update([FromBody] Direction updatedDirection)
     {
-        var direction = planRepository.GetDirection(updatedDirection.Id);
+        var direction = _planRepository.GetDirection(updatedDirection.Id);
 
         if (direction == null)
         {
             return NotFound();
         }
-
-        planRepository.SaveDirection(updatedDirection);
+        direction.Name = updatedDirection.Name;
+        _planRepository.SaveDirection(direction);
         return NoContent();
 
     }
@@ -55,14 +62,14 @@ public class DirectionController(PlanRepository planRepository) : ControllerBase
     [HttpDelete("{id::guid}")]
     public IActionResult Delete(Guid id)
     {
-        var direction = planRepository.GetDirection(id);
+        var direction = _planRepository.GetDirection(id);
 
         if (direction == null)
         {
             return NotFound();
         }
 
-        planRepository.DeleteDirection(id);
+        _planRepository.DeleteDirection(id);
         return NoContent();
     }
 }

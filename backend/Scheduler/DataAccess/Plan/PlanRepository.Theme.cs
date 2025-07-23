@@ -15,9 +15,8 @@ public partial class PlanRepository
         if (subject is not null)
         {
             subject.Themes.Add(theme);
+            SaveChanges(subject.DirectionId);
         }
-
-        SaveChanges();
     }
 
     public void UpdateTheme(ThemeUpdateDto dto)
@@ -46,23 +45,15 @@ public partial class PlanRepository
     public List<Theme> FindThemes(Guid? subjectId = null, Guid? directionId = null, Semester? semester = null)
     {
         var themes = Subjects.SelectMany(x => x.Themes);
-        var subjects = Subjects;
-
-        if (subjectId.HasValue)
-        {
-            themes = themes.Where(t => t.SubjectId == subjectId);
-        }
-
-        if (semester.HasValue)
-        {
-            themes = themes.Where(t => t.Semester == semester);
-        }
 
         if (directionId.HasValue)
-        {
-            subjects = subjects.Where(s => s.DirectionId == directionId);
-            themes = themes.Where(t => subjects.Select(s => s.Id).Contains(t.SubjectId));
-        }
+            themes = Subjects.Where(s => s.DirectionId == directionId).SelectMany(x => x.Themes);
+
+        if (subjectId.HasValue)
+            themes = themes.Where(t => t.SubjectId == subjectId);
+
+        if (semester.HasValue)
+            themes = themes.Where(t => t.Semester == semester.Value);
 
         return themes.ToList();
     }

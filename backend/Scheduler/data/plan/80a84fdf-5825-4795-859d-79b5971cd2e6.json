@@ -1,0 +1,2588 @@
+{
+  "Subjects": [
+    {
+      "DirectionId": "80a84fdf-5825-4795-859d-79b5971cd2e6",
+      "Themes": [
+        {
+          "Number": 1,
+          "Semester": 1,
+          "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+          "Lessons": [
+            {
+              "Number": 1,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "1943f447-34c3-4306-a69d-0fbbca77dbce",
+              "Name": "\u041C\u0435\u0436\u0434\u0443\u043D\u0430\u0440\u043E\u0434\u043D\u043E\u0435 \u043F\u043E\u043B\u043E\u0436\u0435\u043D\u0438\u0435 \u0420\u043E\u0441\u0441\u0438\u0438.",
+              "Id": "8a02ec92-ac7b-41ea-8f00-89c5847c8b4d"
+            }
+          ],
+          "Name": "\u041C\u0435\u0436\u0434\u0443\u043D\u0430\u0440\u043E\u0434\u043D\u043E\u0435 \u043F\u043E\u043B\u043E\u0436\u0435\u043D\u0438\u0435 \u0420\u043E\u0441\u0441\u0438\u0438",
+          "Id": "1943f447-34c3-4306-a69d-0fbbca77dbce"
+        },
+        {
+          "Number": 2,
+          "Semester": 1,
+          "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+          "Lessons": [
+            {
+              "Number": 2,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "a4b53f35-0902-4ce0-a3bd-40fd6d8e05b2",
+              "Name": "\u0412\u043E\u043E\u0440\u0443\u0436\u0435\u043D\u043D\u044B\u0435 \u0441\u0438\u043B\u044B \u0432 \u0441\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u0435 \u0433\u043E\u0441\u0443\u0434\u0430\u0440\u0441\u0442\u0432\u0435\u043D\u043D\u044B\u0445 \u0438\u043D\u0441\u0442\u0438\u0442\u0443\u0442\u043E\u0432.",
+              "Id": "99f0a4a8-dcf2-4585-b50c-55386f43c6c2"
+            }
+          ],
+          "Name": "\u0412\u043E\u043E\u0440\u0443\u0436\u0435\u043D\u043D\u044B\u0435 \u0441\u0438\u043B\u044B \u0432 \u0441\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u0435 \u0433\u043E\u0441\u0443\u0434\u0430\u0440\u0441\u0442\u0432\u0435\u043D\u043D\u044B\u0445 \u0438\u043D\u0441\u0442\u0438\u0442\u0443\u0442\u043E\u0432",
+          "Id": "a4b53f35-0902-4ce0-a3bd-40fd6d8e05b2"
+        },
+        {
+          "Number": 3,
+          "Semester": 1,
+          "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+          "Lessons": [
+            {
+              "Number": 3,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "e7a00d59-6594-4ba6-99a7-875a060d8f84",
+              "Name": "\u0412\u043E\u0435\u043D\u043D\u044B\u0435 \u0440\u0435\u0444\u043E\u0440\u043C\u0443 \u0432 \u0438\u0441\u0442\u043E\u0440\u0438\u0438 \u0420\u043E\u0441\u0441\u0438\u0439\u0441\u043A\u043E\u0433\u043E \u0433\u043E\u0441\u0443\u0434\u0430\u0440\u0441\u0442\u0432\u0430.",
+              "Id": "fdbb7ca7-cb7a-49df-97b2-d76a5e9640c2"
+            },
+            {
+              "Number": 4,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "e7a00d59-6594-4ba6-99a7-875a060d8f84",
+              "Name": "\u0418\u0441\u0442\u043E\u0440\u0438\u044F \u0432\u0435\u043B\u0438\u043A\u0438\u0445 \u043F\u043E\u0431\u0435\u0434 \u0440\u0443\u0441\u0441\u043A\u043E\u0439 \u0430\u0440\u043C\u0438\u0438 \u0438 \u0444\u043B\u043E\u0442\u0430.",
+              "Id": "4e4fbd8e-5171-4cfd-b6bb-67ea7e6e3c6e"
+            }
+          ],
+          "Name": "\u0418\u0441\u0442\u043E\u0440\u0438\u044F \u0432\u0435\u043B\u0438\u043A\u0438\u0445 \u043F\u043E\u0431\u0435\u0434 \u0440\u0443\u0441\u0441\u043A\u043E\u0439 \u0430\u0440\u043C\u0438\u0438 \u0438 \u0444\u043B\u043E\u0442\u0430",
+          "Id": "e7a00d59-6594-4ba6-99a7-875a060d8f84"
+        },
+        {
+          "Number": 4,
+          "Semester": 1,
+          "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+          "Lessons": [
+            {
+              "Number": 5,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "91f500af-b0d3-4482-8001-ba038817a328",
+              "Name": "\u041F\u0440\u0430\u0432\u043E\u0432\u044B\u0435 \u043F\u043E\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u0438 \u043F\u043E\u0440\u044F\u0434\u043E\u043A \u043F\u0440\u043E\u0445\u043E\u0436\u0434\u0435\u043D\u0438\u044F \u0432\u043E\u0435\u043D\u043D\u043E\u0439 \u0441\u043B\u0443\u0436\u0431\u044B \u043E\u0444\u0438\u0446\u0435\u0440\u0441\u043A\u0438\u043C \u0441\u043E\u0441\u0442\u0430\u0432\u043E\u043C.",
+              "Id": "3d812aea-c118-4201-b449-fe1228bc829a"
+            }
+          ],
+          "Name": "\u041F\u0440\u0430\u0432\u043E\u0432\u044B\u0435 \u043F\u043E\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u0438 \u043F\u043E\u0440\u044F\u0434\u043E\u043A \u043F\u0440\u043E\u0445\u043E\u0436\u0434\u0435\u043D\u0438\u044F \u0432\u043E\u0435\u043D\u043D\u043E\u0439 \u0441\u043B\u0443\u0436\u0431\u044B \u043E\u0444\u0438\u0446\u0435\u0440\u0441\u043A\u0438\u043C \u0441\u043E\u0441\u0442\u0430\u0432\u043E\u043C",
+          "Id": "91f500af-b0d3-4482-8001-ba038817a328"
+        },
+        {
+          "Number": 5,
+          "Semester": 1,
+          "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+          "Lessons": [
+            {
+              "Number": 6,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "4ff93100-de12-4c01-a399-83c831aac7fd",
+              "Name": "\u041C\u0435\u0436\u0434\u0443\u043D\u0430\u0440\u043E\u0434\u043D\u043E\u0435 \u0433\u0443\u043C\u0430\u043D\u0438\u0442\u0430\u0440\u043D\u043E\u0435 \u043F\u0440\u0430\u0432\u043E \u043E \u0437\u0430\u043A\u043E\u043D\u0430\u0445 \u0432\u043E\u0439\u043D\u044B.",
+              "Id": "3591240d-0d2b-4b4e-8f21-a5c9d05538bd"
+            }
+          ],
+          "Name": "\u041C\u0435\u0436\u0434\u0443\u043D\u0430\u0440\u043E\u0434\u043D\u043E\u0435 \u0433\u0443\u043C\u0430\u043D\u0438\u0442\u0430\u0440\u043D\u043E\u0435 \u043F\u0440\u0430\u0432\u043E \u043E \u0437\u0430\u043A\u043E\u043D\u0430\u0445 \u0432\u043E\u0439\u043D\u044B",
+          "Id": "4ff93100-de12-4c01-a399-83c831aac7fd"
+        },
+        {
+          "Number": 6,
+          "Semester": 1,
+          "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+          "Lessons": [
+            {
+              "Number": 7,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "0df3a6aa-8a43-430d-a406-e46db425c5dc",
+              "Name": "\u041E\u0440\u0433\u0430\u043D\u0438\u0437\u0430\u0446\u0438\u044F \u0432\u043E\u0441\u043F\u0438\u0442\u0430\u0442\u0435\u043B\u044C\u043D\u043E\u0439 \u0440\u0430\u0431\u043E\u0442\u044B.",
+              "Id": "a5b48341-9532-49f0-94d0-89e43a9201ed"
+            }
+          ],
+          "Name": "\u041E\u0440\u0433\u0430\u043D\u0438\u0437\u0430\u0446\u0438\u044F \u0432\u043E\u0441\u043F\u0438\u0442\u0430\u0442\u0435\u043B\u044C\u043D\u043E\u0439 \u0440\u0430\u0431\u043E\u0442\u044B",
+          "Id": "0df3a6aa-8a43-430d-a406-e46db425c5dc"
+        },
+        {
+          "Number": 7,
+          "Semester": 1,
+          "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+          "Lessons": [
+            {
+              "Number": 8,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "d3d5aeac-3d35-487f-9718-72108b183bd8",
+              "Name": "\u041E\u0441\u043E\u0431\u0435\u043D\u043D\u043E\u0441\u0442\u0438 \u043F\u0441\u0438\u0445\u043E\u043B\u043E\u0433\u0438\u0438 \u043B\u0438\u0447\u043D\u043E\u0441\u0442\u0438 \u0438 \u0432\u043E\u0438\u043D\u0441\u043A\u043E\u0433\u043E \u043A\u043E\u043B\u043B\u0435\u043A\u0442\u0438\u0432\u0430.",
+              "Id": "4e5b23d7-2253-4ba3-ae68-eac8718e2f71"
+            },
+            {
+              "Number": 9,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "d3d5aeac-3d35-487f-9718-72108b183bd8",
+              "Name": "\u0412\u043E\u0438\u043D\u0441\u043A\u0438\u0439 \u043A\u043E\u043B\u043B\u0435\u043A\u0442\u0438\u0432.",
+              "Id": "286b846e-2f61-499b-a21b-163e7eccca95"
+            },
+            {
+              "Number": 10,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "d3d5aeac-3d35-487f-9718-72108b183bd8",
+              "Name": "\u041C\u043E\u0440\u0430\u043B\u044C\u043D\u043E-\u043F\u0441\u0438\u0445\u043E\u043B\u043E\u0433\u0438\u0447\u0435\u0441\u043A\u0430\u044F \u043F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u043A\u0430.",
+              "Id": "755f05cf-14bb-4654-93c5-9930859ffcb3"
+            }
+          ],
+          "Name": "\u041E\u0441\u043E\u0431\u0435\u043D\u043D\u043E\u0441\u0442\u0438 \u043F\u0441\u0438\u0445\u043E\u043B\u043E\u0433\u0438\u0438 \u043B\u0438\u0447\u043D\u043E\u0441\u0442\u0438 \u0438 \u0432\u043E\u0438\u043D\u0441\u043A\u043E\u0433\u043E \u043A\u043E\u043B\u043B\u0435\u043A\u0442\u0438\u0432\u0430",
+          "Id": "d3d5aeac-3d35-487f-9718-72108b183bd8"
+        },
+        {
+          "Number": 1,
+          "Semester": 1,
+          "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+          "Lessons": [
+            {
+              "Number": 11,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "0c299303-88f7-4c63-a94d-0a3d94270729",
+              "Name": "\u041E\u0431\u0449\u0435\u0432\u043E\u0438\u043D\u0441\u043A\u0438\u0435 \u0443\u0441\u0442\u0430\u0432\u044B \u0412\u0421 \u0420\u0424.",
+              "Id": "4b491fb3-5a04-4f55-9184-9b39726953b7"
+            }
+          ],
+          "Name": "\u041E\u0431\u0449\u0435\u0432\u043E\u0438\u043D\u0441\u043A\u0438\u0435 \u0443\u0441\u0442\u0430\u0432\u044B \u0412\u043E\u043E\u0440\u0443\u0436\u0435\u043D\u043D\u044B\u0445 \u0421\u0438\u043B \u0420\u043E\u0441\u0441\u0438\u0439\u0441\u043A\u043E\u0439 \u0424\u0435\u0434\u0435\u0440\u0430\u0446\u0438\u0438, \u0438\u0445 \u043E\u0441\u043D\u043E\u0432\u043D\u044B\u0435 \u0442\u0440\u0435\u0431\u043E\u0432\u0430\u043D\u0438\u044F \u0438 \u0441\u043E\u0434\u0435\u0440\u0436\u0430\u043D\u0438\u044F",
+          "Id": "0c299303-88f7-4c63-a94d-0a3d94270729"
+        },
+        {
+          "Number": 2,
+          "Semester": 1,
+          "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+          "Lessons": [
+            {
+              "Number": 12,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "ce1829af-0e51-4232-9a87-58492cd5e2d1",
+              "Name": "\u041F\u0440\u0430\u0432\u0430, \u043E\u0431\u044F\u0437\u0430\u043D\u043D\u043E\u0441\u0442\u044C \u0438 \u043E\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0435\u043D\u043D\u043E\u0441\u0442\u044C \u0432\u043E\u0435\u043D\u043D\u043E\u0441\u043B\u0443\u0436\u0430\u0449\u0438\u0445.",
+              "Id": "b72f4872-96da-48c5-ae1a-1229f4ee9287"
+            }
+          ],
+          "Name": "\u041F\u0440\u0430\u0432\u0430, \u043E\u0431\u044F\u0437\u0430\u043D\u043D\u043E\u0441\u0442\u044C \u0438 \u043E\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0435\u043D\u043D\u043E\u0441\u0442\u044C \u0432\u043E\u0435\u043D\u043D\u043E\u0441\u043B\u0443\u0436\u0430\u0449\u0438\u0445",
+          "Id": "ce1829af-0e51-4232-9a87-58492cd5e2d1"
+        },
+        {
+          "Number": 3,
+          "Semester": 1,
+          "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+          "Lessons": [
+            {
+              "Number": 13,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "3cd78343-ae57-452d-ac39-947ec78372f9",
+              "Name": "\u0412\u043E\u0435\u043D\u043D\u043E\u0441\u043B\u0443\u0436\u0430\u0449\u0438\u0435 \u0438 \u0432\u0437\u0430\u0438\u043C\u043E\u043E\u0442\u043D\u043E\u0448\u0435\u043D\u0438\u0435 \u043C\u0435\u0436\u0434\u0443 \u043D\u0438\u043C\u0438.",
+              "Id": "720717af-c594-41cf-b21a-b1365572f8fe"
+            }
+          ],
+          "Name": "\u0412\u043E\u0435\u043D\u043D\u043E\u0441\u043B\u0443\u0436\u0430\u0449\u0438\u0435 \u0438 \u0432\u0437\u0430\u0438\u043C\u043E\u043E\u0442\u043D\u043E\u0448\u0435\u043D\u0438\u0435 \u043C\u0435\u0436\u0434\u0443 \u043D\u0438\u043C\u0438",
+          "Id": "3cd78343-ae57-452d-ac39-947ec78372f9"
+        },
+        {
+          "Number": 4,
+          "Semester": 1,
+          "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+          "Lessons": [
+            {
+              "Number": 14,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "92d3fc81-59fc-415e-a831-30075ef6ac05",
+              "Name": "\u0420\u0430\u0437\u043C\u0435\u0449\u0435\u043D\u0438\u0435 \u0432\u043E\u0435\u043D\u043D\u043E\u0441\u043B\u0443\u0436\u0430\u0449\u0438\u0445. \u0420\u0430\u0441\u043F\u0440\u0435\u0434\u0435\u043B\u0435\u043D\u0438\u0435 \u0432\u0440\u0435\u043C\u0435\u043D\u0438 \u0438 \u043F\u043E\u0432\u0441\u0435\u0434\u043D\u0435\u0432\u043D\u044B\u0439 \u043F\u043E\u0440\u044F\u0434\u043E\u043A.",
+              "Id": "223d1ead-ba8c-42e1-be19-be4d32ecb94b"
+            }
+          ],
+          "Name": "\u0420\u0430\u0437\u043C\u0435\u0449\u0435\u043D\u0438\u0435 \u0432\u043E\u0435\u043D\u043D\u043E\u0441\u043B\u0443\u0436\u0430\u0449\u0438\u0445. \u0420\u0430\u0441\u043F\u0440\u0435\u0434\u0435\u043B\u0435\u043D\u0438\u0435 \u0432\u0440\u0435\u043C\u0435\u043D\u0438 \u0438 \u043F\u043E\u0432\u0441\u0435\u0434\u043D\u0435\u0432\u043D\u044B\u0439 \u043F\u043E\u0440\u044F\u0434\u043E\u043A",
+          "Id": "92d3fc81-59fc-415e-a831-30075ef6ac05"
+        },
+        {
+          "Number": 5,
+          "Semester": 1,
+          "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+          "Lessons": [
+            {
+              "Number": 15,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "3a9cb992-0ca6-4f39-ab6b-4c4b769fe6ca",
+              "Name": "\u0421\u0443\u0442\u043E\u0447\u043D\u044B\u0439 \u043D\u0430\u0440\u044F\u0434.",
+              "Id": "a1cb82b9-67d9-456e-aa3a-c77bdea65f5b"
+            }
+          ],
+          "Name": "\u0421\u0443\u0442\u043E\u0447\u043D\u044B\u0439 \u043D\u0430\u0440\u044F\u0434",
+          "Id": "3a9cb992-0ca6-4f39-ab6b-4c4b769fe6ca"
+        },
+        {
+          "Number": 6,
+          "Semester": 1,
+          "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+          "Lessons": [
+            {
+              "Number": 16,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "80fa84b0-e569-4d76-8232-02650408a1c4",
+              "Name": "\u0411\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u044C \u0432\u043E\u0435\u043D\u043D\u043E\u0439 \u0441\u043B\u0443\u0436\u0431\u044B.",
+              "Id": "0a927c35-303b-41c0-ab0f-6409c5838814"
+            }
+          ],
+          "Name": "\u0411\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u044C \u0432\u043E\u0435\u043D\u043D\u043E\u0439 \u0441\u043B\u0443\u0436\u0431\u044B",
+          "Id": "80fa84b0-e569-4d76-8232-02650408a1c4"
+        },
+        {
+          "Number": 7,
+          "Semester": 1,
+          "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+          "Lessons": [
+            {
+              "Number": 17,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "cf68f6db-e8ac-4a0e-aa51-724f633092df",
+              "Name": "\u0412\u043E\u0438\u043D\u0441\u043A\u0430\u044F \u0434\u0438\u0441\u0446\u0438\u043F\u043B\u0438\u043D\u0430.",
+              "Id": "9f36964e-6146-49d2-a03a-1effe324f1ac"
+            }
+          ],
+          "Name": "\u0412\u043E\u0438\u043D\u0441\u043A\u0430\u044F \u0434\u0438\u0441\u0446\u0438\u043F\u043B\u0438\u043D\u0430",
+          "Id": "cf68f6db-e8ac-4a0e-aa51-724f633092df"
+        },
+        {
+          "Number": 8,
+          "Semester": 1,
+          "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+          "Lessons": [
+            {
+              "Number": 18,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "eb288e6a-0392-421c-804f-ae410254e702",
+              "Name": "\u041E\u0440\u0433\u0430\u043D\u0438\u0437\u0430\u0446\u0438\u044F \u043A\u0430\u0440\u0430\u0443\u043B\u044C\u043D\u043E\u0439 \u0441\u043B\u0443\u0436\u0431\u044B \u0438 \u043F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u043A\u0430 \u043A\u0430\u0440\u0430\u0443\u043B\u0430.",
+              "Id": "2c1fdd86-11e2-4287-939e-304a5432e723"
+            },
+            {
+              "Number": 19,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "eb288e6a-0392-421c-804f-ae410254e702",
+              "Name": "\u0420\u0430\u0437\u0432\u043E\u0434 \u0438 \u0441\u043C\u0435\u043D\u0430 \u043A\u0430\u0440\u0430\u0443\u043B\u043E\u0432.",
+              "Id": "3d8e8dc9-2eb2-40b6-b4ee-19557bbb90ae"
+            }
+          ],
+          "Name": "\u041E\u0440\u0433\u0430\u043D\u0438\u0437\u0430\u0446\u0438\u044F \u0438 \u043D\u0435\u0441\u0435\u043D\u0438\u0435 \u043A\u0430\u0440\u0430\u0443\u043B\u044C\u043D\u043E\u0439 \u0441\u043B\u0443\u0436\u0431\u044B",
+          "Id": "eb288e6a-0392-421c-804f-ae410254e702"
+        },
+        {
+          "Number": 1,
+          "Semester": 1,
+          "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+          "Lessons": [
+            {
+              "Number": 20,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "bfb01d77-020d-4c7d-b3f0-d0b4301bc284",
+              "Name": "\u041E\u0431\u0449\u0438\u0435 \u043F\u043E\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u0421\u0442\u0440\u043E\u0435\u0432\u043E\u0433\u043E \u0443\u0441\u0442\u0430\u0432\u0430.",
+              "Id": "a5be571a-f2ba-410a-915c-8deab22335ca"
+            }
+          ],
+          "Name": "\u041E\u0431\u0449\u0438\u0435 \u043F\u043E\u043B\u043E\u0436\u0435\u043D\u0438\u044F \u0421\u0442\u0440\u043E\u0435\u0432\u043E\u0433\u043E \u0443\u0441\u0442\u0430\u0432\u0430",
+          "Id": "bfb01d77-020d-4c7d-b3f0-d0b4301bc284"
+        },
+        {
+          "Number": 2,
+          "Semester": 1,
+          "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+          "Lessons": [
+            {
+              "Number": 1,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "bb928c52-bb66-4168-8b80-fff687e4e668",
+              "Name": "\u0421\u0442\u0440\u043E\u0435\u0432\u044B\u0435 \u043F\u0440\u0438\u0435\u043C\u044B \u0438 \u0434\u0432\u0438\u0436\u0435\u043D\u0438\u0435 \u0431\u0435\u0437 \u043E\u0440\u0443\u0436\u0438\u044F.",
+              "Id": "71c4dd77-b239-4f6c-89c3-7a7e25ed6cc1"
+            },
+            {
+              "Number": 2,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "bb928c52-bb66-4168-8b80-fff687e4e668",
+              "Name": "\u0414\u0432\u0438\u0436\u0435\u043D\u0438\u0435 \u0441\u0442\u0440\u043E\u0435\u0432\u044B\u043C \u0448\u0430\u0433\u043E\u043C.",
+              "Id": "a80c7385-5d46-482d-a246-1ad2c13adad1"
+            },
+            {
+              "Number": 3,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "bb928c52-bb66-4168-8b80-fff687e4e668",
+              "Name": "\u0414\u0432\u0438\u0436\u0435\u043D\u0438\u0435 \u0441\u0442\u0440\u043E\u0435\u0432\u044B\u043C \u0448\u0430\u0433\u043E\u043C.",
+              "Id": "a44c4db1-6401-42dc-888c-1846bdde8332"
+            },
+            {
+              "Number": 4,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "bb928c52-bb66-4168-8b80-fff687e4e668",
+              "Name": "\u0412\u044B\u043F\u043E\u043B\u043D\u0435\u043D\u0438\u0435 \u0432\u043E\u0438\u043D\u0441\u043A\u043E\u0433\u043E \u043F\u0440\u0438\u0432\u0435\u0442\u0441\u0442\u0432\u0438\u044F, \u0432\u044B\u0445\u043E\u0434 \u0438\u0437 \u0441\u0442\u0440\u043E\u044F \u0438 \u0432\u043E\u0437\u0432\u0440\u0430\u0449\u0435\u043D\u0438\u0435 \u0432 \u0441\u0442\u0440\u043E\u0439. \u041F\u043E\u0434\u0445\u043E\u0434 \u043A \u043D\u0430\u0447\u0430\u043B\u044C\u043D\u0438\u043A\u0443 \u0438 \u043E\u0442\u0445\u043E\u0434 \u043E\u0442 \u043D\u0435\u0433\u043E.",
+              "Id": "a3c07a35-c4f4-452a-a677-4e3cea1d1259"
+            }
+          ],
+          "Name": "\u0421\u0442\u0440\u043E\u0435\u0432\u044B\u0435 \u043F\u0440\u0438\u0435\u043C\u044B \u0438 \u0434\u0432\u0438\u0436\u0435\u043D\u0438\u0435 \u0431\u0435\u0437 \u043E\u0440\u0443\u0436\u0438\u044F",
+          "Id": "bb928c52-bb66-4168-8b80-fff687e4e668"
+        },
+        {
+          "Number": 3,
+          "Semester": 1,
+          "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+          "Lessons": [
+            {
+              "Number": 5,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "27825e6f-423c-42e2-98e7-ffbae2fa01d5",
+              "Name": "\u0421\u0442\u0440\u043E\u0435\u0432\u044B\u0435 \u043F\u0440\u0438\u0435\u043C\u044B \u0438 \u0434\u0432\u0438\u0436\u0435\u043D\u0438\u0435 \u0441 \u043E\u0440\u0443\u0436\u0438\u0435\u043C.",
+              "Id": "5eecfb98-db0c-44d2-b15b-ad471b05a478"
+            },
+            {
+              "Number": 6,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "27825e6f-423c-42e2-98e7-ffbae2fa01d5",
+              "Name": "\u0421\u0442\u0440\u043E\u0435\u0432\u044B\u0435 \u043F\u0440\u0438\u0435\u043C\u044B \u0438 \u0434\u0432\u0438\u0436\u0435\u043D\u0438\u0435 \u0441 \u043E\u0440\u0443\u0436\u0438\u0435\u043C.",
+              "Id": "31149921-3626-4354-a1eb-eab68a1a9abb"
+            }
+          ],
+          "Name": "\u0421\u0442\u0440\u043E\u0435\u0432\u044B\u0435 \u043F\u0440\u0438\u0435\u043C\u044B \u0438 \u0434\u0432\u0438\u0436\u0435\u043D\u0438\u0435 \u0441 \u043E\u0440\u0443\u0436\u0438\u0435\u043C",
+          "Id": "27825e6f-423c-42e2-98e7-ffbae2fa01d5"
+        },
+        {
+          "Number": 4,
+          "Semester": 1,
+          "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+          "Lessons": [
+            {
+              "Number": 7,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "bddc67c9-61e5-4ed5-8b7e-f946dd31e958",
+              "Name": "\u0421\u0442\u0440\u043E\u0438 \u043E\u0442\u0434\u0435\u043B\u0435\u043D\u0438\u044F, \u0432\u0437\u0432\u043E\u0434\u0430.",
+              "Id": "2c427a2a-6fbf-406f-8061-830189890740"
+            },
+            {
+              "Number": 1,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "bddc67c9-61e5-4ed5-8b7e-f946dd31e958",
+              "Name": "\u0410\u0432\u0442\u043E\u043C\u0430\u0442 \u041A\u0430\u043B\u0430\u0448\u043D\u0438\u043A\u043E\u0432\u0430.",
+              "Id": "b0f826b0-9d4a-4b5e-8588-00ec8a38a1d4"
+            },
+            {
+              "Number": 2,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "bddc67c9-61e5-4ed5-8b7e-f946dd31e958",
+              "Name": "\u041F\u0438\u0441\u0442\u043E\u043B\u0435\u0442 \u041C\u0430\u043A\u0430\u0440\u043E\u0432\u0430 (\u041F\u041C).",
+              "Id": "f6d21344-4611-45c4-a15c-f574ad9a6a38"
+            },
+            {
+              "Number": 3,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "bddc67c9-61e5-4ed5-8b7e-f946dd31e958",
+              "Name": "\u0420\u0443\u0447\u043D\u044B\u0435 \u043E\u0441\u043A\u043E\u043B\u043E\u0447\u043D\u044B\u0435 \u0433\u0440\u0430\u043D\u0430\u0442\u044B.",
+              "Id": "b0c23072-13dd-4f85-9db3-675c0818a91e"
+            },
+            {
+              "Number": 4,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "bddc67c9-61e5-4ed5-8b7e-f946dd31e958",
+              "Name": "\u041C\u0430\u0442\u0435\u0440\u0438\u0430\u043B\u044C\u043D\u0430\u044F \u0447\u0430\u0441\u0442\u044C \u043F\u0440\u0438\u0431\u043E\u0440\u043E\u0432 \u043D\u0430\u0431\u043B\u044E\u0434\u0435\u043D\u0438\u044F \u0438 \u043D\u043E\u0447\u043D\u044B\u0445 \u043F\u0440\u0438\u0446\u0435\u043B\u043E\u0432.",
+              "Id": "53b5cbd5-a92f-41cc-85c9-c3ee2ed2c688"
+            },
+            {
+              "Number": 5,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "bddc67c9-61e5-4ed5-8b7e-f946dd31e958",
+              "Name": "\u041E\u0441\u043D\u043E\u0432\u044B \u0438 \u043F\u0440\u0430\u0432\u0438\u043B\u0430 \u0441\u0442\u0440\u0435\u043B\u044C\u0431\u044B.",
+              "Id": "999da0c1-f124-431c-ae72-fdc83618fa0f"
+            },
+            {
+              "Number": 6,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "bddc67c9-61e5-4ed5-8b7e-f946dd31e958",
+              "Name": "\u041E\u0441\u043D\u043E\u0432\u044B \u0438 \u043F\u0440\u0430\u0432\u0438\u043B\u0430 \u0441\u0442\u0440\u0435\u043B\u044C\u0431\u044B.",
+              "Id": "48750aa2-373c-4d3d-a1e4-41944a8322f0"
+            },
+            {
+              "Number": 7,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "bddc67c9-61e5-4ed5-8b7e-f946dd31e958",
+              "Name": "\u0421\u0442\u0440\u0435\u043B\u043A\u043E\u0432\u044B\u0435 \u0442\u0440\u0435\u043D\u0438\u0440\u043E\u0432\u043A\u0438",
+              "Id": "d49daa17-d689-4417-9ef4-2a464ea67e3b"
+            },
+            {
+              "Number": 8,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "bddc67c9-61e5-4ed5-8b7e-f946dd31e958",
+              "Name": "\u0421\u0442\u0440\u0435\u043B\u043A\u043E\u0432\u044B\u0435 \u0442\u0440\u0435\u043D\u0438\u0440\u043E\u0432\u043A\u0438",
+              "Id": "b0ffaf8b-2aab-4cf6-826a-dd496b71f827"
+            },
+            {
+              "Number": 9,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "12a30907-982c-41e7-a8cd-b91195f52f28",
+              "ThemeId": "bddc67c9-61e5-4ed5-8b7e-f946dd31e958",
+              "Name": "\u0421\u0442\u0440\u0435\u043B\u043A\u043E\u0432\u044B\u0435 \u0442\u0440\u0435\u043D\u0438\u0440\u043E\u0432\u043A\u0438",
+              "Id": "d2ecc484-c4b9-42a5-b667-1382a9bd3aca"
+            }
+          ],
+          "Name": "\u0421\u0442\u0440\u043E\u0438 \u043F\u043E\u0434\u0440\u0430\u0437\u0434\u0435\u043B\u0435\u043D\u0438\u0439",
+          "Id": "bddc67c9-61e5-4ed5-8b7e-f946dd31e958"
+        }
+      ],
+      "Name": "\u041E\u0431\u0449\u0435\u0432\u043E\u0435\u043D\u043D\u0430\u044F \u043F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u043A\u0430",
+      "Id": "12a30907-982c-41e7-a8cd-b91195f52f28"
+    },
+    {
+      "DirectionId": "80a84fdf-5825-4795-859d-79b5971cd2e6",
+      "Themes": [
+        {
+          "Number": 1,
+          "Semester": 2,
+          "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+          "Lessons": [
+            {
+              "Number": 1,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "9bc41bfe-251d-4081-872a-5a8fceca0fb5",
+              "Name": "\u0412\u043E\u043E\u0440\u0443\u0436\u0435\u043D\u043D\u044B\u0435 \u0421\u0438\u043B\u044B \u0420\u043E\u0441\u0441\u0438\u0439\u0441\u043A\u043E\u0439 \u0424\u0435\u0434\u0435\u0440\u0430\u0446\u0438\u0438.",
+              "Id": "df11a54c-126c-4e52-8858-8425a9951845"
+            },
+            {
+              "Number": 2,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "9bc41bfe-251d-4081-872a-5a8fceca0fb5",
+              "Name": "\u0411\u043E\u0435\u0432\u0430\u044F \u0433\u043E\u0442\u043E\u0432\u043D\u043E\u0441\u0442\u044C \u0447\u0430\u0441\u0442\u0435\u0439 \u0438 \u043F\u043E\u0434\u0440\u0430\u0437\u0434\u0435\u043B\u0435\u043D\u0438\u0439.",
+              "Id": "e73913f1-3a09-4b80-8639-bf54ee718608"
+            }
+          ],
+          "Name": "\u0412\u043E\u043E\u0440\u0443\u0436\u0435\u043D\u043D\u044B\u0435 \u0421\u0438\u043B\u044B \u0420\u043E\u0441\u0441\u0438\u0439\u0441\u043A\u043E\u0439 \u0424\u0435\u0434\u0435\u0440\u0430\u0446\u0438\u0438",
+          "Id": "9bc41bfe-251d-4081-872a-5a8fceca0fb5"
+        },
+        {
+          "Number": 2,
+          "Semester": 2,
+          "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+          "Lessons": [
+            {
+              "Number": 3,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "51a3b932-dfbf-4e84-808c-a9aa361ded4f",
+              "Name": "\u041E\u0441\u043D\u043E\u0432\u044B \u0432\u0435\u0434\u0435\u043D\u0438\u044F \u0441\u043E\u0432\u0440\u0435\u043C\u0435\u043D\u043D\u043E\u0433\u043E \u043E\u0431\u0449\u0435\u0432\u043E\u0439\u0441\u043A\u043E\u0432\u043E\u0433\u043E \u0431\u043E\u044F.",
+              "Id": "0345aa98-50af-4f67-92cd-20aff5f1d2fa"
+            },
+            {
+              "Number": 4,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "51a3b932-dfbf-4e84-808c-a9aa361ded4f",
+              "Name": "\u041C\u043E\u0442\u043E\u0441\u0442\u0440\u0435\u043B\u043A\u043E\u0432\u044B\u0439 \u0432\u0437\u0432\u043E\u0434 \u0432 \u043E\u0431\u043E\u0440\u043E\u043D\u0435.",
+              "Id": "7c4aa9ff-a25b-44f6-b276-148860634447"
+            },
+            {
+              "Number": 5,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "51a3b932-dfbf-4e84-808c-a9aa361ded4f",
+              "Name": "\u041C\u043E\u0442\u043E\u0441\u0442\u0440\u0435\u043B\u043A\u043E\u0432\u044B\u0439 \u0432\u0437\u0432\u043E\u0434 \u0432 \u043D\u0430\u0441\u0442\u0443\u043F\u043B\u0435\u043D\u0438\u0438.",
+              "Id": "773e0789-dde3-4d40-ad5d-f42adce1cc19"
+            },
+            {
+              "Number": 1,
+              "SelfStudyHours": 1,
+              "Type": 0,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "51a3b932-dfbf-4e84-808c-a9aa361ded4f",
+              "Name": "1. \u041E\u0431\u0441\u0443\u0436\u0434\u0435\u043D\u0438\u0435 \u0432\u043E\u043F\u0440\u043E\u0441\u043E\u0432 \u0441\u0435\u043C\u0438\u043D\u0430\u0440\u0430.",
+              "Id": "dda0efd7-cd3b-423f-8456-51358386d55c"
+            }
+          ],
+          "Name": "\u041E\u0441\u043D\u043E\u0432\u044B \u0432\u0435\u0434\u0435\u043D\u0438\u044F \u0441\u043E\u0432\u0440\u0435\u043C\u0435\u043D\u043D\u043E\u0433\u043E \u043E\u0431\u0449\u0435\u0432\u043E\u0439\u0441\u043A\u043E\u0432\u043E\u0433\u043E \u0431\u043E\u044F",
+          "Id": "51a3b932-dfbf-4e84-808c-a9aa361ded4f"
+        },
+        {
+          "Number": 3,
+          "Semester": 2,
+          "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+          "Lessons": [
+            {
+              "Number": 1,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "5658f47c-a956-4e6d-8e4e-4e937a6cb248",
+              "Name": "\u041F\u0435\u0440\u0435\u0434\u0432\u0438\u0436\u0435\u043D\u0438\u0435 \u0432 \u0431\u043E\u044E.",
+              "Id": "a0f9077c-bed4-4895-b0c5-8bdc6c879340"
+            },
+            {
+              "Number": 2,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "5658f47c-a956-4e6d-8e4e-4e937a6cb248",
+              "Name": "\u0414\u0435\u0439\u0441\u0442\u0432\u0438\u044F \u043D\u0430 \u0431\u043E\u0435\u0432\u044B\u0445 \u043C\u0430\u0448\u0438\u043D\u0430\u0445.",
+              "Id": "3b2418f8-e7a9-47a0-96e2-5204dd222a8e"
+            }
+          ],
+          "Name": "\u0414\u0435\u0439\u0441\u0442\u0432\u0438\u044F \u0441\u043E\u043B\u0434\u0430\u0442\u0430 \u0432 \u0431\u043E\u044E",
+          "Id": "5658f47c-a956-4e6d-8e4e-4e937a6cb248"
+        },
+        {
+          "Number": 4,
+          "Semester": 2,
+          "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+          "Lessons": [
+            {
+              "Number": 3,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "19df91fa-21a3-434c-bc62-730d35c9a37c",
+              "Name": "\u041C\u0430\u0440\u0448 \u0438 \u043F\u0435\u0440\u0435\u0432\u043E\u0437\u043A\u0430 \u043F\u043E\u0434\u0440\u0430\u0437\u0434\u0435\u043B\u0435\u043D\u0438\u0439.",
+              "Id": "76086557-38c0-46db-b1cc-70d65b66ff3e"
+            },
+            {
+              "Number": 4,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "19df91fa-21a3-434c-bc62-730d35c9a37c",
+              "Name": "\u0420\u0430\u0441\u043F\u043E\u043B\u043E\u0436\u0435\u043D\u0438\u0435 \u043D\u0430 \u043C\u0435\u0441\u0442\u0435.",
+              "Id": "ec2aabdc-6f96-4e1c-9ffd-f597cd0c482e"
+            }
+          ],
+          "Name": "\u041F\u0435\u0440\u0435\u0434\u0432\u0438\u0436\u0435\u043D\u0438\u0435 \u043F\u043E\u0434\u0440\u0430\u0437\u0434\u0435\u043B\u0435\u043D\u0438\u0439 \u0438 \u0440\u0430\u0441\u043F\u043E\u043B\u043E\u0436\u0435\u043D\u0438\u0435 \u043D\u0430 \u043C\u0435\u0441\u0442\u0435",
+          "Id": "19df91fa-21a3-434c-bc62-730d35c9a37c"
+        },
+        {
+          "Number": 1,
+          "Semester": 1,
+          "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+          "Lessons": [
+            {
+              "Number": 6,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "c310ee28-a575-43af-bdbf-8c75276e3d96",
+              "Name": "\u042F\u0434\u0435\u0440\u043D\u043E\u0435 \u0438 \u0445\u0438\u043C\u0438\u0447\u0435\u0441\u043A\u043E\u0435 \u043E\u0440\u0443\u0436\u0438\u0435 \u0432\u0435\u0440\u043E\u044F\u0442\u043D\u043E\u0433\u043E \u043F\u0440\u043E\u0442\u0438\u0432\u043D\u0438\u043A\u0430.",
+              "Id": "04f853c3-61b7-4ba8-92fd-83aae66efd97"
+            },
+            {
+              "Number": 7,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "c310ee28-a575-43af-bdbf-8c75276e3d96",
+              "Name": "\u0411\u0438\u043E\u043B\u043E\u0433\u0438\u0447\u0435\u0441\u043A\u043E\u0435 \u0438 \u0437\u0430\u0436\u0438\u0433\u0430\u0442\u0435\u043B\u044C\u043D\u043E\u0435 \u043E\u0440\u0443\u0436\u0438\u0435 \u0432\u0435\u0440\u043E\u044F\u0442\u043D\u043E\u0433\u043E \u043F\u0440\u043E\u0442\u0438\u0432\u043D\u0438\u043A\u0430.",
+              "Id": "64d325af-822c-40c0-9077-1d05d88baf94"
+            }
+          ],
+          "Name": "\u042F\u0434\u0435\u0440\u043D\u043E\u0435, \u0445\u0438\u043C\u0438\u0447\u0435\u0441\u043A\u043E\u0435, \u0431\u0438\u043E\u043B\u043E\u0433\u0438\u0447\u0435\u0441\u043A\u043E\u0435 \u0438 \u0437\u0430\u0436\u0438\u0433\u0430\u0442\u0435\u043B\u044C\u043D\u043E\u0435 \u043E\u0440\u0443\u0436\u0438\u0435 \u0432\u0435\u0440\u043E\u044F\u0442\u043D\u043E\u0433\u043E \u043F\u0440\u043E\u0442\u0438\u0432\u043D\u0438\u043A\u0430",
+          "Id": "c310ee28-a575-43af-bdbf-8c75276e3d96"
+        },
+        {
+          "Number": 2,
+          "Semester": 1,
+          "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+          "Lessons": [
+            {
+              "Number": 5,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "b5e1e7f8-be34-4ba9-b960-17dfc78d6912",
+              "Name": "\u0421\u0440\u0435\u0434\u0441\u0442\u0432\u0430 \u0438\u043D\u0434\u0438\u0432\u0438\u0434\u0443\u0430\u043B\u044C\u043D\u043E\u0439 \u0438 \u043A\u043E\u043B\u043B\u0435\u043A\u0442\u0438\u0432\u043D\u043E\u0439 \u0437\u0430\u0449\u0438\u0442\u044B.",
+              "Id": "c8d9ccd1-d9e8-4520-989b-569b4b973db6"
+            },
+            {
+              "Number": 1,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "b5e1e7f8-be34-4ba9-b960-17dfc78d6912",
+              "Name": "\u041F\u0440\u0438\u043C\u0435\u043D\u0435\u043D\u0438\u0435 \u0441\u0440\u0435\u0434\u0441\u0442\u0432 \u0438\u043D\u0434\u0438\u0432\u0438\u0434\u0443\u0430\u043B\u044C\u043D\u043E\u0439 \u0437\u0430\u0449\u0438\u0442\u044B.",
+              "Id": "2c99c554-9281-4857-8bbd-4a1e9cc321a5"
+            },
+            {
+              "Number": 2,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "b5e1e7f8-be34-4ba9-b960-17dfc78d6912",
+              "Name": "\u041F\u0440\u0438\u043C\u0435\u043D\u0435\u043D\u0438\u0435 \u0441\u0440\u0435\u0434\u0441\u0442\u0432 \u0438\u043D\u0434\u0438\u0432\u0438\u0434\u0443\u0430\u043B\u044C\u043D\u043E\u0439 \u0437\u0430\u0449\u0438\u0442\u044B.",
+              "Id": "8c401336-8e35-4da4-ae47-02af3bcfb840"
+            }
+          ],
+          "Name": "\u0421\u0440\u0435\u0434\u0441\u0442\u0432\u0430 \u0438\u043D\u0434\u0438\u0432\u0438\u0434\u0443\u0430\u043B\u044C\u043D\u043E\u0439 \u0438 \u043A\u043E\u043B\u043B\u0435\u043A\u0442\u0438\u0432\u043D\u043E\u0439 \u0437\u0430\u0449\u0438\u0442\u044B",
+          "Id": "b5e1e7f8-be34-4ba9-b960-17dfc78d6912"
+        },
+        {
+          "Number": 3,
+          "Semester": 1,
+          "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+          "Lessons": [
+            {
+              "Number": 6,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "c17d2eda-129a-43bb-a5d7-18db70178a95",
+              "Name": "\u041F\u0440\u0438\u0431\u043E\u0440\u044B \u0440\u0430\u0434\u0438\u0430\u0446\u0438\u043E\u043D\u043D\u043E\u0439 \u0438 \u0445\u0438\u043C\u0438\u0447\u0435\u0441\u043A\u043E\u0439 \u0440\u0430\u0437\u0432\u0435\u0434\u043A\u0438.",
+              "Id": "39eae74f-a040-410a-92c7-d2c8ebbbce0d"
+            }
+          ],
+          "Name": "\u041F\u0440\u0438\u0431\u043E\u0440\u044B \u0440\u0430\u0434\u0438\u0430\u0446\u0438\u043E\u043D\u043D\u043E\u0439 \u0438 \u0445\u0438\u043C\u0438\u0447\u0435\u0441\u043A\u043E\u0439 \u0440\u0430\u0437\u0432\u0435\u0434\u043A\u0438",
+          "Id": "c17d2eda-129a-43bb-a5d7-18db70178a95"
+        },
+        {
+          "Number": 4,
+          "Semester": 1,
+          "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+          "Lessons": [
+            {
+              "Number": 7,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "5c1bc1f1-7c0c-4704-8820-6b71833fc1e9",
+              "Name": "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u044C\u043D\u0430\u044F \u043E\u0431\u0440\u0430\u0431\u043E\u0442\u043A\u0430 \u043B\u0438\u0447\u043D\u043E\u0433\u043E \u0441\u043E\u0441\u0442\u0430\u0432\u0430 \u0438 \u0442\u0435\u0445\u043D\u0438\u043A\u0438.",
+              "Id": "b90ed7d4-3955-462f-b3d0-4a746ce9d446"
+            },
+            {
+              "Number": 3,
+              "SelfStudyHours": 2,
+              "Type": 2,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "5c1bc1f1-7c0c-4704-8820-6b71833fc1e9",
+              "Name": "\u0414\u0435\u0439\u0441\u0442\u0432\u0438\u0435 \u043B\u0438\u0447\u043D\u043E\u0433\u043E \u0441\u043E\u0441\u0442\u0430\u0432\u0430 \u043D\u0430 \u0437\u0430\u0440\u0430\u0436\u0435\u043D\u043D\u043E\u0439 \u043C\u0435\u0441\u0442\u043D\u043E\u0441\u0442\u0438.",
+              "Id": "9106092f-a120-482d-971d-de3c8d945a01"
+            }
+          ],
+          "Name": "\u041F\u0440\u0438\u0435\u043C\u044B \u0438 \u0441\u043F\u043E\u0441\u043E\u0431\u044B \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044F \u043B\u0438\u0447\u043D\u043E\u0433\u043E \u0441\u043E\u0441\u0442\u0430\u0432\u0430 \u043D\u0430 \u0437\u0430\u0440\u0430\u0436\u0435\u043D\u043D\u043E\u0439 \u043C\u0435\u0441\u0442\u043D\u043E\u0441\u0442\u0438",
+          "Id": "5c1bc1f1-7c0c-4704-8820-6b71833fc1e9"
+        },
+        {
+          "Number": 1,
+          "Semester": 2,
+          "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+          "Lessons": [
+            {
+              "Number": 8,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "5fa45cd5-54ac-4cbe-84f8-cb40a79c72b6",
+              "Name": "\u0418\u043D\u0436\u0435\u043D\u0435\u0440\u043D\u043E\u0435 \u043E\u0431\u0435\u0441\u043F\u0435\u0447\u0435\u043D\u0438\u0435 \u0431\u043E\u0435\u0432\u044B\u0445 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0439.",
+              "Id": "8e7d0025-22d3-406b-a3bc-5e1848daa138"
+            }
+          ],
+          "Name": "\u0418\u043D\u0436\u0435\u043D\u0435\u0440\u043D\u043E\u0435 \u043E\u0431\u0435\u0441\u043F\u0435\u0447\u0435\u043D\u0438\u0435 \u0431\u043E\u044F",
+          "Id": "5fa45cd5-54ac-4cbe-84f8-cb40a79c72b6"
+        },
+        {
+          "Number": 2,
+          "Semester": 2,
+          "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+          "Lessons": [
+            {
+              "Number": 8,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "935de390-925a-407a-a9e5-b8ec4b1c0633",
+              "Name": "\u0412\u0437\u0440\u044B\u0432\u0447\u0430\u0442\u044B\u0435 \u0432\u0435\u0449\u0435\u0441\u0442\u0432\u0430 \u0438 \u0437\u0430\u0440\u044F\u0434\u044B \u0412\u0412.",
+              "Id": "a1422917-e8a1-4842-90ae-8ca03aa64836"
+            }
+          ],
+          "Name": "\u0412\u0437\u0440\u044B\u0432\u0447\u0430\u0442\u044B\u0435 \u0432\u0435\u0449\u0435\u0441\u0442\u0432\u0430 \u0438 \u0437\u0430\u0440\u044F\u0434\u044B",
+          "Id": "935de390-925a-407a-a9e5-b8ec4b1c0633"
+        },
+        {
+          "Number": 3,
+          "Semester": 2,
+          "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+          "Lessons": [
+            {
+              "Number": 9,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "d23c601e-745b-4f37-950d-048332b3dfc9",
+              "Name": "\u041E\u0433\u043D\u0435\u0432\u043E\u0439 \u0441\u043F\u043E\u0441\u043E\u0431 \u0432\u0437\u0440\u044B\u0432\u0430\u043D\u0438\u044F.",
+              "Id": "91d0c3a5-e15e-4135-8510-bf14da2a4a3f"
+            }
+          ],
+          "Name": "\u0421\u043F\u043E\u0441\u043E\u0431\u044B \u0432\u0437\u0440\u044B\u0432\u0430\u043D\u0438\u044F",
+          "Id": "d23c601e-745b-4f37-950d-048332b3dfc9"
+        },
+        {
+          "Number": 4,
+          "Semester": 2,
+          "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+          "Lessons": [
+            {
+              "Number": 10,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "f0e38ea7-bb5b-477d-b0a4-f622644c41ae",
+              "Name": "\u041C\u0438\u043D\u043D\u043E-\u0432\u0437\u0440\u044B\u0432\u043D\u044B\u0435 \u0441\u0440\u0435\u0434\u0441\u0442\u0432\u0430.",
+              "Id": "8a8f26a3-1fa9-485e-a9c0-fabff7176860"
+            },
+            {
+              "Number": 11,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "f0e38ea7-bb5b-477d-b0a4-f622644c41ae",
+              "Name": "\u041C\u0438\u043D\u043D\u043E-\u0432\u0437\u0440\u044B\u0432\u043D\u044B\u0435 \u0441\u0440\u0435\u0434\u0441\u0442\u0432\u0430 \u0432\u0435\u0440\u043E\u044F\u0442\u043D\u043E\u0433\u043E \u043F\u0440\u043E\u0442\u0438\u0432\u043D\u0438\u043A\u0430.",
+              "Id": "ba94b47b-3b23-48f0-81de-284a8956a465"
+            }
+          ],
+          "Name": "\u0418\u043D\u0436\u0435\u043D\u0435\u0440\u043D\u044B\u0435 \u0431\u043E\u0435\u043F\u0440\u0438\u043F\u0430\u0441\u044B",
+          "Id": "f0e38ea7-bb5b-477d-b0a4-f622644c41ae"
+        },
+        {
+          "Number": 5,
+          "Semester": 2,
+          "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+          "Lessons": [
+            {
+              "Number": 12,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "6066319f-1c02-4e06-aff3-9204008fafd2",
+              "Name": "\u0418\u043D\u0436\u0435\u043D\u0435\u0440\u043D\u044B\u0435 \u0437\u0430\u0433\u0440\u0430\u0436\u0434\u0435\u043D\u0438\u044F.",
+              "Id": "be5188eb-e708-4bd6-8cb6-71c0bf44989d"
+            }
+          ],
+          "Name": "\u0418\u043D\u0436\u0435\u043D\u0435\u0440\u043D\u044B\u0435 \u0437\u0430\u0433\u0440\u0430\u0436\u0434\u0435\u043D\u0438\u044F",
+          "Id": "6066319f-1c02-4e06-aff3-9204008fafd2"
+        },
+        {
+          "Number": 1,
+          "Semester": 2,
+          "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+          "Lessons": [
+            {
+              "Number": 13,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "216e28cd-d66a-4b4f-9ab0-b85116e5d41f",
+              "Name": "\u041E\u0440\u0438\u0435\u043D\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u043D\u0430 \u043C\u0435\u0441\u0442\u043D\u043E\u0441\u0442\u0438 \u0431\u0435\u0437 \u043A\u0430\u0440\u0442\u044B.",
+              "Id": "00daa716-252f-4777-9b3e-e7fc58b4d76d"
+            }
+          ],
+          "Name": "\u041E\u0440\u0438\u0435\u043D\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0438 \u0434\u0432\u0438\u0436\u0435\u043D\u0438\u0435 \u043D\u0430 \u043C\u0435\u0441\u0442\u043D\u043E\u0441\u0442\u0438 \u0431\u0435\u0437 \u043A\u0430\u0440\u0442\u044B",
+          "Id": "216e28cd-d66a-4b4f-9ab0-b85116e5d41f"
+        },
+        {
+          "Number": 2,
+          "Semester": 2,
+          "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+          "Lessons": [
+            {
+              "Number": 14,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "42142a69-3bfc-4997-af69-ed3c30d02f8b",
+              "Name": "\u0422\u043E\u043F\u043E\u0433\u0440\u0430\u0444\u0438\u0447\u0435\u0441\u043A\u0438\u0435 \u043A\u0430\u0440\u0442\u044B.",
+              "Id": "3fc8541b-f34c-4bd0-bd08-2774e228b72e"
+            },
+            {
+              "Number": 15,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "42142a69-3bfc-4997-af69-ed3c30d02f8b",
+              "Name": "\u0421\u043E\u0434\u0435\u0440\u0436\u0430\u043D\u0438\u0435 \u0442\u043E\u043F\u043E\u0433\u0440\u0430\u0444\u0438\u0447\u0435\u0441\u043A\u0438\u0445 \u043A\u0430\u0440\u0442.",
+              "Id": "40b47e25-a27e-43c1-8255-8b87f5a950b8"
+            }
+          ],
+          "Name": "\u0422\u043E\u043F\u043E\u0433\u0440\u0430\u0444\u0438\u0447\u0435\u0441\u043A\u0438\u0435 \u043A\u0430\u0440\u0442\u044B \u0438 \u0440\u0430\u0431\u043E\u0442\u0430 \u0441 \u043D\u0438\u043C\u0438",
+          "Id": "42142a69-3bfc-4997-af69-ed3c30d02f8b"
+        },
+        {
+          "Number": 3,
+          "Semester": 2,
+          "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+          "Lessons": [
+            {
+              "Number": 16,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "907a60a8-1d31-427b-8c8a-a0b3ba8c127e",
+              "Name": "\u041E\u0440\u0438\u0435\u043D\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u043F\u043E \u043A\u0430\u0440\u0442\u0435.",
+              "Id": "41c0c341-b0b0-4daa-83ed-6d3da0bbb8d9"
+            }
+          ],
+          "Name": "\u041E\u0440\u0438\u0435\u043D\u0442\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0438 \u0434\u0432\u0438\u0436\u0435\u043D\u0438\u0435 \u043D\u0430 \u043C\u0435\u0441\u0442\u043D\u043E\u0441\u0442\u0438 \u043F\u043E \u043A\u0430\u0440\u0442\u0435",
+          "Id": "907a60a8-1d31-427b-8c8a-a0b3ba8c127e"
+        },
+        {
+          "Number": 4,
+          "Semester": 2,
+          "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+          "Lessons": [
+            {
+              "Number": 17,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "9ffc6dd0-9f16-40be-8f8d-2d28a18f562e",
+              "Name": "\u041E\u043F\u0440\u0435\u0434\u0435\u043B\u0435\u043D\u0438\u0435 \u043A\u043E\u043E\u0440\u0434\u0438\u043D\u0430\u0442 \u0438 \u0446\u0435\u043B\u0435\u0443\u043A\u0430\u0437\u0430\u043D\u0438\u0435.",
+              "Id": "c3bb80f8-00e7-4b12-87ac-0aad9ae309f7"
+            }
+          ],
+          "Name": "\u041E\u043F\u0440\u0435\u0434\u0435\u043B\u0435\u043D\u0438\u0435 \u043F\u043E \u043A\u0430\u0440\u0442\u0435 \u043A\u043E\u043E\u0440\u0434\u0438\u043D\u0430\u0442 \u0446\u0435\u043B\u0435\u0439 (\u043E\u0431\u044A\u0435\u043A\u0442\u043E\u0432)",
+          "Id": "9ffc6dd0-9f16-40be-8f8d-2d28a18f562e"
+        },
+        {
+          "Number": 5,
+          "Semester": 2,
+          "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+          "Lessons": [
+            {
+              "Number": 18,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "9fcd7e92-cd57-4d3f-b709-ae47ca46cfbd",
+              "Name": "\u041F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u043A\u0430 \u0434\u0430\u043D\u043D\u044B\u0445 \u0434\u043B\u044F \u0434\u0432\u0438\u0436\u0435\u043D\u0438\u044F \u043F\u043E \u0430\u0437\u0438\u043C\u0443\u0442\u0430\u043C.",
+              "Id": "3fbfb778-e077-4821-9914-c199a624b69b"
+            },
+            {
+              "Number": 4,
+              "SelfStudyHours": 2,
+              "Type": 2,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "9fcd7e92-cd57-4d3f-b709-ae47ca46cfbd",
+              "Name": "\u0414\u0432\u0438\u0436\u0435\u043D\u0438\u0435 \u043F\u043E \u0430\u0437\u0438\u043C\u0443\u0442\u0430\u043C.",
+              "Id": "0c22fb26-185f-43a7-9754-96d4dbdef037"
+            }
+          ],
+          "Name": "\u0414\u0432\u0438\u0436\u0435\u043D\u0438\u0435 \u043F\u043E \u0430\u0437\u0438\u043C\u0443\u0442\u0430\u043C",
+          "Id": "9fcd7e92-cd57-4d3f-b709-ae47ca46cfbd"
+        },
+        {
+          "Number": 6,
+          "Semester": 2,
+          "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+          "Lessons": [
+            {
+              "Number": 19,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "d23d1d2f-384f-416d-a211-1e1e83538f10",
+              "Name": "\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043A\u0430\u0440\u0442\u0430 \u043A\u043E\u043C\u0430\u043D\u0434\u0438\u0440\u0430.",
+              "Id": "72630c29-8b04-4ec2-bcbb-43c78e5d8d8d"
+            }
+          ],
+          "Name": "\u0420\u0430\u0431\u043E\u0447\u0430\u044F \u043A\u0430\u0440\u0442\u0430 \u043A\u043E\u043C\u0430\u043D\u0434\u0438\u0440\u0430",
+          "Id": "d23d1d2f-384f-416d-a211-1e1e83538f10"
+        },
+        {
+          "Number": 1,
+          "Semester": 2,
+          "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+          "Lessons": [
+            {
+              "Number": 20,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "527fb1ea-fac5-4957-8c37-8129b7805f27",
+              "Name": "\u041E\u043A\u0430\u0437\u0430\u043D\u0438\u0435 \u043F\u0435\u0440\u0432\u043E\u0439 \u0434\u043E\u0432\u0440\u0430\u0447\u0435\u0431\u043D\u043E\u0439 \u043F\u043E\u043C\u043E\u0449\u0438.",
+              "Id": "598bd155-406d-4956-bf12-8ff13aea5b9f"
+            },
+            {
+              "Number": 21,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "527fb1ea-fac5-4957-8c37-8129b7805f27",
+              "Name": "\u041E\u043A\u0430\u0437\u0430\u043D\u0438\u0435 \u043F\u0435\u0440\u0432\u043E\u0439 \u0434\u043E\u0432\u0440\u0430\u0447\u0435\u0431\u043D\u043E\u0439 \u043F\u043E\u043C\u043E\u0449\u0438 \u043F\u0440\u0438 \u0442\u0440\u0430\u0432\u043C\u0430\u0445 \u0438 \u0442\u0435\u0440\u043C\u0438\u0447\u0435\u0441\u043A\u0438\u0445 \u043F\u043E\u0440\u0430\u0436\u0435\u043D\u0438\u044F\u0445.",
+              "Id": "644cf0f6-f92f-476f-aadc-4b18b87dff08"
+            },
+            {
+              "Number": 6,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "527fb1ea-fac5-4957-8c37-8129b7805f27",
+              "Name": "\u041F\u0440\u0430\u043A\u0442\u0438\u0447\u0435\u0441\u043A\u043E\u0435 \u043E\u043A\u0430\u0437\u0430\u043D\u0438\u0435 \u043F\u0435\u0440\u0432\u043E\u0439 \u0434\u043E\u0432\u0440\u0430\u0447\u0435\u0431\u043D\u043E\u0439 \u043F\u043E\u043C\u043E\u0449\u0438.",
+              "Id": "d00a365c-a353-44ac-8ca0-f7d38efa40ea"
+            },
+            {
+              "Number": 22,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "527fb1ea-fac5-4957-8c37-8129b7805f27",
+              "Name": "1. \u041F\u0435\u0440\u0432\u0430\u044F \u0434\u043E\u0432\u0440\u0430\u0447\u0435\u0431\u043D\u0430\u044F \u043F\u043E\u043C\u043E\u0449\u044C \u043F\u0440\u0438 \u043E\u0442\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0438 \u044F\u0434\u043E\u0432\u0438\u0442\u044B\u043C\u0438 \u0442\u0435\u0445\u043D\u0438\u0447\u0435\u0441\u043A\u0438\u043C\u0438 \u0436\u0438\u0434\u043A\u043E\u0441\u0442\u044F\u043C\u0438, \u0443\u0433\u0430\u0440\u043D\u044B\u043C \u0433\u0430\u0437\u043E\u043C.",
+              "Id": "cb72395f-2c08-4ad3-b1ac-1d77689382fd"
+            }
+          ],
+          "Name": "\u041E\u043A\u0430\u0437\u0430\u043D\u0438\u0435 \u043F\u0435\u0440\u0432\u043E\u0439 \u0434\u043E\u0432\u0440\u0430\u0447\u0435\u0431\u043D\u043E\u0439 \u043F\u043E\u043C\u043E\u0449\u0438",
+          "Id": "527fb1ea-fac5-4957-8c37-8129b7805f27"
+        },
+        {
+          "Number": 1,
+          "Semester": 2,
+          "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+          "Lessons": [
+            {
+              "Number": 23,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "facb07e3-7a4c-4ba6-b600-e69db408007c",
+              "Name": "\u041E\u0440\u0433\u0430\u043D\u0438\u0437\u0430\u0446\u0438\u044F \u0432\u044B\u0436\u0438\u0432\u0430\u043D\u0438\u044F.",
+              "Id": "e1cf7935-099d-45db-8ad7-cb4f63e0c74f"
+            },
+            {
+              "Number": 24,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "facb07e3-7a4c-4ba6-b600-e69db408007c",
+              "Name": "\u041E\u0431\u0435\u0441\u043F\u0435\u0447\u0435\u043D\u0438\u0435 \u0432\u043E\u0434\u043E\u0439 \u0438 \u043F\u0438\u0449\u0435\u0439.",
+              "Id": "bcaee3bf-8ade-483f-ac63-3a9fe3226c6c"
+            }
+          ],
+          "Name": "\u0412\u044B\u0436\u0438\u0432\u0430\u043D\u0438\u0435 \u0432 \u044D\u043A\u0441\u0442\u0440\u0435\u043C\u0430\u043B\u044C\u043D\u044B\u0445 \u0443\u0441\u043B\u043E\u0432\u0438\u044F\u0445",
+          "Id": "facb07e3-7a4c-4ba6-b600-e69db408007c"
+        },
+        {
+          "Number": 2,
+          "Semester": 2,
+          "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+          "Lessons": [
+            {
+              "Number": 25,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "794574ad-fbfa-4e7c-8692-e1bc97a1936b",
+              "Name": "\u041F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u043A\u0430 \u0432\u043E\u0435\u043D\u043D\u043E\u0441\u043B\u0443\u0436\u0430\u0449\u0438\u0445 \u043A \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044F\u043C \u0432 \u044D\u043A\u0441\u0442\u0440\u0435\u043C\u0430\u043B\u044C\u043D\u044B\u0445 \u0441\u0438\u0442\u0443\u0430\u0446\u0438\u044F\u0445.",
+              "Id": "352776f7-3c65-4237-8d04-0f9bfa45b58c"
+            }
+          ],
+          "Name": "\u041F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u043A\u0430 \u0432\u043E\u0435\u043D\u043D\u043E\u0441\u043B\u0443\u0436\u0430\u0449\u0438\u0445 \u043A \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044F\u043C \u0432 \u044D\u043A\u0441\u0442\u0440\u0435\u043C\u0430\u043B\u044C\u043D\u044B\u0445 \u0441\u0438\u0442\u0443\u0430\u0446\u0438\u044F\u0445",
+          "Id": "794574ad-fbfa-4e7c-8692-e1bc97a1936b"
+        },
+        {
+          "Number": 3,
+          "Semester": 2,
+          "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+          "Lessons": [
+            {
+              "Number": 26,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "09111ad3-832f-48d5-8dff-259cb27c767b",
+              "Name": "\u0417\u0430\u0449\u0438\u0442\u0430 \u043B\u0438\u0447\u043D\u043E\u0433\u043E \u0441\u043E\u0441\u0442\u0430\u0432\u0430 \u0432 \u0447\u0440\u0435\u0437\u0432\u044B\u0447\u0430\u0439\u043D\u044B\u0445 \u0441\u0438\u0442\u0443\u0430\u0446\u0438\u044F\u0445.",
+              "Id": "aad9d299-9ca2-4e6c-8d99-2531f5ff2f3b"
+            }
+          ],
+          "Name": "\u0417\u0430\u0449\u0438\u0442\u0430 \u043B\u0438\u0447\u043D\u043E\u0433\u043E \u0441\u043E\u0441\u0442\u0430\u0432\u0430 \u0432 \u0447\u0440\u0435\u0437\u0432\u044B\u0447\u0430\u0439\u043D\u044B\u0445 \u0441\u0438\u0442\u0443\u0430\u0446\u0438\u044F\u0445",
+          "Id": "09111ad3-832f-48d5-8dff-259cb27c767b"
+        },
+        {
+          "Number": 1,
+          "Semester": 2,
+          "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+          "Lessons": [
+            {
+              "Number": 27,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "0766d4c0-d3d5-46a5-9a2a-4d1c1d282c32",
+              "Name": "\u0412\u043E\u043E\u0440\u0443\u0436\u0435\u043D\u043D\u044B\u0435 \u0441\u0438\u043B\u044B \u0421\u0428\u0410.",
+              "Id": "4358833a-6964-4a9b-9212-5720b48a86aa"
+            }
+          ],
+          "Name": "\u0412\u043E\u043E\u0440\u0443\u0436\u0435\u043D\u043D\u044B\u0435 \u0441\u0438\u043B\u044B \u0421\u0428\u0410",
+          "Id": "0766d4c0-d3d5-46a5-9a2a-4d1c1d282c32"
+        },
+        {
+          "Number": 2,
+          "Semester": 2,
+          "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+          "Lessons": [
+            {
+              "Number": 28,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "acc4729c-80ac-4197-8c90-12636f2c471e",
+              "Name": "\u0412\u043E\u043E\u0440\u0443\u0436\u0435\u043D\u043D\u044B\u0435 \u0441\u0438\u043B\u044B \u0424\u0420\u0413.",
+              "Id": "8858c85c-c074-4a0e-b3b8-8ecb306c0883"
+            }
+          ],
+          "Name": "\u0412\u043E\u043E\u0440\u0443\u0436\u0435\u043D\u043D\u044B\u0435 \u0441\u0438\u043B\u044B \u0424\u0420\u0413",
+          "Id": "acc4729c-80ac-4197-8c90-12636f2c471e"
+        },
+        {
+          "Number": 3,
+          "Semester": 2,
+          "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+          "Lessons": [
+            {
+              "Number": 29,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "63514ea6-e968-48b4-8975-da2d1ba48950",
+              "ThemeId": "98a07401-703b-416a-a731-f721d6020ad4",
+              "Name": "\u0412\u043E\u043E\u0440\u0443\u0436\u0435\u043D\u043D\u044B\u0435 \u0441\u0438\u043B\u044B \u041A\u041D\u0420.",
+              "Id": "0691d336-9592-4846-8c13-bd8d3543ff15"
+            }
+          ],
+          "Name": "\u0412\u043E\u043E\u0440\u0443\u0436\u0435\u043D\u043D\u044B\u0435 \u0441\u0438\u043B\u044B \u041A\u041D\u0420",
+          "Id": "98a07401-703b-416a-a731-f721d6020ad4"
+        }
+      ],
+      "Name": "\u0422\u0430\u043A\u0442\u0438\u0447\u0435\u0441\u043A\u0430\u044F \u043F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u043A\u0430",
+      "Id": "63514ea6-e968-48b4-8975-da2d1ba48950"
+    },
+    {
+      "DirectionId": "80a84fdf-5825-4795-859d-79b5971cd2e6",
+      "Themes": [
+        {
+          "Number": 1,
+          "Semester": 2,
+          "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+          "Lessons": [
+            {
+              "Number": 1,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+              "ThemeId": "2aaf5090-c67c-4066-b9e1-a4f387ce33fd",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 1",
+              "Id": "fa7a69ab-5617-4993-9962-757fcc16a5d0"
+            },
+            {
+              "Number": 2,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+              "ThemeId": "2aaf5090-c67c-4066-b9e1-a4f387ce33fd",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 2",
+              "Id": "f89fe37a-c72b-44d7-a1ec-fc622bce7945"
+            },
+            {
+              "Number": 3,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+              "ThemeId": "2aaf5090-c67c-4066-b9e1-a4f387ce33fd",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 3",
+              "Id": "dee30452-c212-4c56-b03e-ea8d032f63d9"
+            },
+            {
+              "Number": 4,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+              "ThemeId": "2aaf5090-c67c-4066-b9e1-a4f387ce33fd",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 4",
+              "Id": "169fae07-6ccf-48ea-90a9-752660c2354a"
+            }
+          ],
+          "Name": "\u0418\u043D\u0444\u043E\u0440\u043C\u0430\u0442\u0438\u0437\u0430\u0446\u0438\u044F \u043E\u0431\u0449\u0435\u0441\u0442\u0432\u0430",
+          "Id": "2aaf5090-c67c-4066-b9e1-a4f387ce33fd"
+        },
+        {
+          "Number": 2,
+          "Semester": 2,
+          "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+          "Lessons": [
+            {
+              "Number": 5,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+              "ThemeId": "b30678d3-bd59-4586-bdde-56fc8d7fcfa2",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 5",
+              "Id": "86580272-3f3e-462d-b2b9-2dd8d5b19e31"
+            },
+            {
+              "Number": 6,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+              "ThemeId": "b30678d3-bd59-4586-bdde-56fc8d7fcfa2",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 6",
+              "Id": "64b1f38c-fcdd-4b64-a7ed-12edde39161a"
+            }
+          ],
+          "Name": "\u042F\u0437\u044B\u043A\u0438, \u043C\u0435\u0442\u043E\u0434\u044B \u0438 \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442\u0430\u043B\u044C\u043D\u044B\u0435 \u0441\u0440\u0435\u0434\u0441\u0442\u0432\u0430 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u044F",
+          "Id": "b30678d3-bd59-4586-bdde-56fc8d7fcfa2"
+        },
+        {
+          "Number": 3,
+          "Semester": 2,
+          "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+          "Lessons": [
+            {
+              "Number": 7,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+              "ThemeId": "8480a901-b45e-4200-8d9d-cff745fdf3d4",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 7",
+              "Id": "76d3b8bd-77f0-4393-a923-4a728d84c0ff"
+            },
+            {
+              "Number": 8,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+              "ThemeId": "8480a901-b45e-4200-8d9d-cff745fdf3d4",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 8",
+              "Id": "199a10af-bbe3-46f6-8004-746f0d05c735"
+            }
+          ],
+          "Name": "\u0413\u0435\u043E\u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u043E\u043D\u043D\u044B\u0435 \u0441\u0438\u0441\u0442\u0435\u043C\u044B",
+          "Id": "8480a901-b45e-4200-8d9d-cff745fdf3d4"
+        },
+        {
+          "Number": 4,
+          "Semester": 2,
+          "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+          "Lessons": [
+            {
+              "Number": 9,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+              "ThemeId": "97b02cbc-2839-4a0e-af71-60f5f826cd0c",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 9",
+              "Id": "35135a64-85ba-4215-b9e4-c6ce91237aa9"
+            }
+          ],
+          "Name": "\u0423\u0441\u0442\u0430\u043D\u043E\u0432\u043A\u0430 \u0438 \u043D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0430 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u043D\u043E\u0433\u043E \u043E\u0431\u0435\u0441\u043F\u0435\u0447\u0435\u043D\u0438\u044F",
+          "Id": "97b02cbc-2839-4a0e-af71-60f5f826cd0c"
+        },
+        {
+          "Number": 4,
+          "Semester": 3,
+          "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+          "Lessons": [
+            {
+              "Number": 1,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+              "ThemeId": "256e81c6-2b32-4d4e-895b-9d2e80169575",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 1",
+              "Id": "3aaa59ae-2c93-4747-a001-0b4a55ab2cff"
+            },
+            {
+              "Number": 2,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+              "ThemeId": "256e81c6-2b32-4d4e-895b-9d2e80169575",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 2",
+              "Id": "6096a03c-26ea-42fe-a85d-8c94f99858f3"
+            }
+          ],
+          "Name": "\u0423\u0441\u0442\u0430\u043D\u043E\u0432\u043A\u0430 \u0438 \u043D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0430 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u043D\u043E\u0433\u043E \u043E\u0431\u0435\u0441\u043F\u0435\u0447\u0435\u043D\u0438\u044F",
+          "Id": "256e81c6-2b32-4d4e-895b-9d2e80169575"
+        },
+        {
+          "Number": 5,
+          "Semester": 3,
+          "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+          "Lessons": [
+            {
+              "Number": 10,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+              "ThemeId": "b68dd65d-849c-41e4-a3e6-d0dc79ad5d7a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 10",
+              "Id": "0471ae67-19a9-450c-aab4-46d2d7689312"
+            },
+            {
+              "Number": 3,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+              "ThemeId": "b68dd65d-849c-41e4-a3e6-d0dc79ad5d7a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 3",
+              "Id": "f865607b-e63b-43a3-8c72-ca3dd36ed2a7"
+            },
+            {
+              "Number": 4,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+              "ThemeId": "b68dd65d-849c-41e4-a3e6-d0dc79ad5d7a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 4",
+              "Id": "c5cd7c7b-1211-4643-8651-b72552e48be0"
+            },
+            {
+              "Number": 5,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+              "ThemeId": "b68dd65d-849c-41e4-a3e6-d0dc79ad5d7a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 5",
+              "Id": "7a068519-15d9-461f-a51e-cc19ae5887fc"
+            },
+            {
+              "Number": 6,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+              "ThemeId": "b68dd65d-849c-41e4-a3e6-d0dc79ad5d7a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 6",
+              "Id": "9c7178fa-1601-45e6-ba6d-57ee0f9b4ebe"
+            },
+            {
+              "Number": 7,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+              "ThemeId": "b68dd65d-849c-41e4-a3e6-d0dc79ad5d7a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 7",
+              "Id": "829dfdf4-0dcb-4bfd-8323-d0b04036ca4d"
+            },
+            {
+              "Number": 8,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+              "ThemeId": "b68dd65d-849c-41e4-a3e6-d0dc79ad5d7a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 8",
+              "Id": "c9a1b460-1c4c-433d-92cb-87c1a6411464"
+            },
+            {
+              "Number": 9,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+              "ThemeId": "b68dd65d-849c-41e4-a3e6-d0dc79ad5d7a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 9",
+              "Id": "52d3a48c-948e-4398-b31a-bc901e0c0ca4"
+            }
+          ],
+          "Name": "\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u043D\u043E\u0435 \u043E\u0431\u0435\u0441\u043F\u0435\u0447\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u043E\u0431\u0440\u0430\u0431\u043E\u0442\u043A\u0438 \u044D\u043B\u0435\u043A\u0442\u0440\u043E\u043D\u043D\u043E\u0439 \u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u0430\u0446\u0438\u0438",
+          "Id": "b68dd65d-849c-41e4-a3e6-d0dc79ad5d7a"
+        },
+        {
+          "Number": 6,
+          "Semester": 3,
+          "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+          "Lessons": [
+            {
+              "Number": 11,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+              "ThemeId": "7c3f1a82-b83c-4fe3-9a09-700c3c7664ee",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 11",
+              "Id": "504ede6c-87eb-414d-9e0b-66c13aef95c0"
+            },
+            {
+              "Number": 10,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+              "ThemeId": "7c3f1a82-b83c-4fe3-9a09-700c3c7664ee",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 10",
+              "Id": "a69fb7e9-676c-4fb7-9cb7-58b205a5ea22"
+            },
+            {
+              "Number": 11,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+              "ThemeId": "7c3f1a82-b83c-4fe3-9a09-700c3c7664ee",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 11",
+              "Id": "e1072a28-f24b-4efd-b8d6-e3ae9ac46082"
+            },
+            {
+              "Number": 12,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+              "ThemeId": "7c3f1a82-b83c-4fe3-9a09-700c3c7664ee",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 12",
+              "Id": "d575dc89-b31a-4e06-9688-760e5564322e"
+            }
+          ],
+          "Name": "\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u043D\u043E\u0435 \u043E\u0431\u0435\u0441\u043F\u0435\u0447\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u043E\u0431\u0440\u0430\u0431\u043E\u0442\u043A\u0438 \u0438\u0437\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u0439",
+          "Id": "7c3f1a82-b83c-4fe3-9a09-700c3c7664ee"
+        },
+        {
+          "Number": 7,
+          "Semester": 3,
+          "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+          "Lessons": [
+            {
+              "Number": 12,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+              "ThemeId": "e8e767e4-0f9d-445c-a67f-d4cca1143b62",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 12",
+              "Id": "c6985f2f-1c30-49dd-8433-6cfbc74c7b5d"
+            },
+            {
+              "Number": 13,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+              "ThemeId": "e8e767e4-0f9d-445c-a67f-d4cca1143b62",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 13",
+              "Id": "a4045a11-738a-4f1d-a2c3-2eaab6e5567d"
+            },
+            {
+              "Number": 14,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643",
+              "ThemeId": "e8e767e4-0f9d-445c-a67f-d4cca1143b62",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 14",
+              "Id": "2672bd07-892d-4606-b59d-58a564ce4405"
+            }
+          ],
+          "Name": "\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u043D\u043E\u0435 \u043E\u0431\u0435\u0441\u043F\u0435\u0447\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u043E\u0431\u0440\u0430\u0431\u043E\u0442\u043A\u0438 \u0432\u0438\u0434\u0435\u043E",
+          "Id": "e8e767e4-0f9d-445c-a67f-d4cca1143b62"
+        }
+      ],
+      "Name": "\u0412\u043E\u0435\u043D\u043D\u043E\u0441\u043F\u0435\u0446\u0438\u0430\u043B\u044C\u043D\u0430\u044F \u043F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u043A\u0430",
+      "Id": "71f0ff41-c982-4dc6-8dc2-6abb5b06a643"
+    },
+    {
+      "DirectionId": "80a84fdf-5825-4795-859d-79b5971cd2e6",
+      "Themes": [
+        {
+          "Number": 1,
+          "Semester": 3,
+          "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+          "Lessons": [
+            {
+              "Number": 1,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "31425368-4aa5-4e99-8aca-b18ecce600e0",
+              "Name": "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u044C\u043D\u044B\u0435 \u0442\u0435\u0445\u043D\u0438\u0447\u0435\u0441\u043A\u0438\u0435 \u0441\u0440\u0435\u0434\u0441\u0442\u0432\u0430.",
+              "Id": "83f25911-32f8-4e34-9040-0c8ed7f604a3"
+            }
+          ],
+          "Name": "\u0421\u043F\u0435\u0446\u0438\u0430\u043B\u044C\u043D\u044B\u0435 \u0442\u0435\u0445\u043D\u0438\u0447\u0435\u0441\u043A\u0438\u0435 \u0441\u0440\u0435\u0434\u0441\u0442\u0432\u0430",
+          "Id": "31425368-4aa5-4e99-8aca-b18ecce600e0"
+        },
+        {
+          "Number": 2,
+          "Semester": 3,
+          "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+          "Lessons": [
+            {
+              "Number": 2,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "1c30f561-363b-4733-9cd4-612471ab2ca8",
+              "Name": "\u0422\u0435\u043B\u0435\u043A\u043E\u043C\u043C\u0443\u043D\u0438\u043A\u0430\u0446\u0438\u043E\u043D\u043D\u044B\u0435 \u0441\u0438\u0441\u0442\u0435\u043C\u044B.",
+              "Id": "844d128a-5130-41f2-9f6b-ba44cc912ed7"
+            },
+            {
+              "Number": 3,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "1c30f561-363b-4733-9cd4-612471ab2ca8",
+              "Name": "\u041A\u043E\u043C\u043C\u0443\u0442\u0430\u0446\u0438\u044F \u0432 \u0441\u0435\u0442\u044F\u0445.",
+              "Id": "0dd64169-3f4b-4a8d-8d7a-0bf6a8ee6c05"
+            },
+            {
+              "Number": 4,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "1c30f561-363b-4733-9cd4-612471ab2ca8",
+              "Name": "\u041C\u0430\u0440\u0448\u0440\u0443\u0442\u0438\u0437\u0430\u0446\u0438\u044F \u043F\u0430\u043A\u0435\u0442\u043E\u0432 \u0432 \u0441\u0435\u0442\u044F\u0445.",
+              "Id": "19b11fb2-e25e-4b12-a49f-e1ec3f470da5"
+            },
+            {
+              "Number": 5,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "1c30f561-363b-4733-9cd4-612471ab2ca8",
+              "Name": "\u0417\u0430\u0449\u0438\u0442\u0430 \u043E\u0442 \u043E\u0448\u0438\u0431\u043E\u043A \u0432 \u0441\u0435\u0442\u044F\u0445.",
+              "Id": "d7786c95-7f07-4406-a39e-cf32b8027da6"
+            },
+            {
+              "Number": 6,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "1c30f561-363b-4733-9cd4-612471ab2ca8",
+              "Name": "\u0421\u0435\u0442\u0438 \u0438 \u0442\u0435\u0445\u043D\u043E\u043B\u043E\u0433\u0438\u0438 \u0425.25 \u0438 Frame Relay.",
+              "Id": "ebbcf31a-e8fb-463f-b9bc-4679f4651410"
+            },
+            {
+              "Number": 7,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "1c30f561-363b-4733-9cd4-612471ab2ca8",
+              "Name": "\u0421\u0435\u0442\u0438 \u0438 \u0442\u0435\u0445\u043D\u043E\u043B\u043E\u0433\u0438\u0438 ISDN \u0438 SDH.",
+              "Id": "b9805106-d452-490f-bcfc-0c59ff080e23"
+            },
+            {
+              "Number": 8,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "1c30f561-363b-4733-9cd4-612471ab2ca8",
+              "Name": "\u0421\u0435\u0442\u0438 \u0438 \u0442\u0435\u0445\u043D\u043E\u043B\u043E\u0433\u0438\u0438 ATM.",
+              "Id": "9cf706ea-447a-44b6-9d06-41132c7c7c5e"
+            }
+          ],
+          "Name": "\u0410\u043F\u043F\u0430\u0440\u0430\u0442\u043D\u044B\u0435 \u0441\u0440\u0435\u0434\u0441\u0442\u0432\u0430 \u0442\u0435\u043B\u0435\u043A\u043E\u043C\u043C\u0443\u043D\u0438\u043A\u0430\u0446\u0438\u043E\u043D\u043D\u044B\u0445 \u0441\u0438\u0441\u0442\u0435\u043C",
+          "Id": "1c30f561-363b-4733-9cd4-612471ab2ca8"
+        },
+        {
+          "Number": 3,
+          "Semester": 3,
+          "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+          "Lessons": [
+            {
+              "Number": 9,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "51399ac7-c9e6-436b-8db8-1461a636380e",
+              "Name": "\u0421\u0440\u0435\u0434\u0441\u0442\u0432\u0430 \u0437\u0430\u0449\u0438\u0442\u044B \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438.",
+              "Id": "f4d4c6ac-39f8-4153-b371-44f62f6f98f0"
+            },
+            {
+              "Number": 10,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "51399ac7-c9e6-436b-8db8-1461a636380e",
+              "Name": "\u0421\u0440\u0435\u0434\u0441\u0442\u0432\u0430 \u043A\u0440\u0438\u043F\u0442\u043E\u0433\u0440\u0430\u0444\u0438\u0447\u0435\u0441\u043A\u043E\u0439 \u0437\u0430\u0449\u0438\u0442\u044B \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438.",
+              "Id": "e96bf3f0-ab6b-48a4-9f10-424971dadb59"
+            },
+            {
+              "Number": 11,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "51399ac7-c9e6-436b-8db8-1461a636380e",
+              "Name": "\u0421\u0438\u0441\u0442\u0435\u043C\u0430 \u0437\u0430\u0449\u0438\u0442\u044B \u043A\u043E\u043D\u0444\u0438\u0434\u0435\u043D\u0446\u0438\u0430\u043B\u044C\u043D\u043E\u0439 \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438 PGP.",
+              "Id": "7327f9d4-1125-4108-ab25-7e705449cdd9"
+            },
+            {
+              "Number": 12,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "51399ac7-c9e6-436b-8db8-1461a636380e",
+              "Name": "\u0421\u0438\u0441\u0442\u0435\u043C\u0430 \u0437\u0430\u0449\u0438\u0442\u044B \u043A\u043E\u043D\u0444\u0438\u0434\u0435\u043D\u0446\u0438\u0430\u043B\u044C\u043D\u043E\u0439 \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438 PGP.",
+              "Id": "ed63e5a3-9755-49f3-8217-2fb24ebc8455"
+            },
+            {
+              "Number": 1,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "51399ac7-c9e6-436b-8db8-1461a636380e",
+              "Name": "\u0420\u0430\u0431\u043E\u0442\u0430 \u0441 \u0441\u0438\u0441\u0442\u0435\u043C\u043E\u0439 \u0437\u0430\u0449\u0438\u0442\u044B \u043A\u043E\u043D\u0444\u0438\u0434\u0435\u043D\u0446\u0438\u0430\u043B\u044C\u043D\u043E\u0439 \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438 PGP.",
+              "Id": "2a4e4cdf-2755-44dd-a83b-4d60d8ff1605"
+            },
+            {
+              "Number": 13,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "51399ac7-c9e6-436b-8db8-1461a636380e",
+              "Name": "\u0421\u0438\u0441\u0442\u0435\u043C\u0430 \u0437\u0430\u0449\u0438\u0442\u044B \u043A\u043E\u043D\u0444\u0438\u0434\u0435\u043D\u0446\u0438\u0430\u043B\u044C\u043D\u043E\u0439 \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438 \u00ABStrongDisk\u00BB.",
+              "Id": "f38cdde7-c0b1-442c-9354-d346ed8876b6"
+            },
+            {
+              "Number": 14,
+              "SelfStudyHours": 2,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "51399ac7-c9e6-436b-8db8-1461a636380e",
+              "Name": "\u0421\u0438\u0441\u0442\u0435\u043C\u0430 \u0437\u0430\u0449\u0438\u0442\u044B \u043A\u043E\u043D\u0444\u0438\u0434\u0435\u043D\u0446\u0438\u0430\u043B\u044C\u043D\u043E\u0439 \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438 \u00ABStrongDisk\u00BB.",
+              "Id": "c45cb605-be8e-429a-9bb9-3a38d7346c8f"
+            },
+            {
+              "Number": 2,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "51399ac7-c9e6-436b-8db8-1461a636380e",
+              "Name": "\u0421\u0438\u0441\u0442\u0435\u043C\u0430 \u0437\u0430\u0449\u0438\u0442\u044B \u043A\u043E\u043D\u0444\u0438\u0434\u0435\u043D\u0446\u0438\u0430\u043B\u044C\u043D\u043E\u0439 \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438 \u00ABStrongDisk\u00BB.",
+              "Id": "34225224-3b5f-407d-98d9-c64f762ffcdd"
+            },
+            {
+              "Number": 15,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "51399ac7-c9e6-436b-8db8-1461a636380e",
+              "Name": "\u0421\u0438\u0441\u0442\u0435\u043C\u0430 \u0437\u0430\u0449\u0438\u0442\u044B \u043A\u043E\u0440\u043F\u043E\u0440\u0430\u0442\u0438\u0432\u043D\u043E\u0439 \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438 \u00ABSecret Disk\u00BB.",
+              "Id": "457f3c77-12a1-4203-aaaf-f70dc5709c4b"
+            },
+            {
+              "Number": 16,
+              "SelfStudyHours": 2,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "51399ac7-c9e6-436b-8db8-1461a636380e",
+              "Name": "\u0421\u0438\u0441\u0442\u0435\u043C\u0430 \u0437\u0430\u0449\u0438\u0442\u044B \u043A\u043E\u0440\u043F\u043E\u0440\u0430\u0442\u0438\u0432\u043D\u043E\u0439 \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438 \u00ABSecret Disk\u00BB.",
+              "Id": "4b50c00e-a226-4105-9bef-bf484c95a4e4"
+            },
+            {
+              "Number": 3,
+              "SelfStudyHours": 2,
+              "Type": 2,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "51399ac7-c9e6-436b-8db8-1461a636380e",
+              "Name": "\u0421\u0438\u0441\u0442\u0435\u043C\u0430 \u0437\u0430\u0449\u0438\u0442\u044B \u043A\u043E\u0440\u043F\u043E\u0440\u0430\u0442\u0438\u0432\u043D\u043E\u0439 \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438 \u00ABSecret Disk\u00BB.",
+              "Id": "e54079b3-dc55-45c8-b247-aa50a4af16e8"
+            }
+          ],
+          "Name": "\u041F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u043D\u043E-\u0430\u043F\u043F\u0430\u0440\u0430\u0442\u043D\u044B\u0435 \u0441\u0440\u0435\u0434\u0441\u0442\u0432\u0430 \u0437\u0430\u0449\u0438\u0442\u044B \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438",
+          "Id": "51399ac7-c9e6-436b-8db8-1461a636380e"
+        },
+        {
+          "Number": 4,
+          "Semester": 3,
+          "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+          "Lessons": [
+            {
+              "Number": 17,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "bfdae4ee-c3de-48be-8296-ee40091e3c32",
+              "Name": "\u0418\u0434\u0435\u043D\u0442\u0438\u0444\u0438\u043A\u0430\u0446\u0438\u044F \u0438 \u0430\u0443\u0442\u0435\u043D\u0442\u0438\u0444\u0438\u043A\u0430\u0446\u0438\u044F \u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u0435\u0439.",
+              "Id": "f66d170e-a57c-43e0-918d-81ce4c8031b8"
+            },
+            {
+              "Number": 18,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "bfdae4ee-c3de-48be-8296-ee40091e3c32",
+              "Name": "\u041E\u0433\u0440\u0430\u043D\u0438\u0447\u0435\u043D\u0438\u0435 \u0434\u043E\u0441\u0442\u0443\u043F\u0430 \u043D\u0430 \u0432\u0445\u043E\u0434 \u0432 \u0441\u0438\u0441\u0442\u0435\u043C\u0443.",
+              "Id": "88df488e-7390-40df-a672-6457997dc65b"
+            },
+            {
+              "Number": 19,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "bfdae4ee-c3de-48be-8296-ee40091e3c32",
+              "Name": "\u0420\u0430\u0437\u0433\u0440\u0430\u043D\u0438\u0447\u0435\u043D\u0438\u0435 \u0434\u043E\u0441\u0442\u0443\u043F\u0430.",
+              "Id": "7d3483ef-6280-401e-8f9d-ea3d1e18bffc"
+            },
+            {
+              "Number": 20,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "bfdae4ee-c3de-48be-8296-ee40091e3c32",
+              "Name": "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F \u0441\u043E\u0431\u044B\u0442\u0438\u0439 (\u0430\u0443\u0434\u0438\u0442).",
+              "Id": "711ad37d-af18-420d-8a51-09a09439bf01"
+            }
+          ],
+          "Name": "\u041C\u0435\u0440\u044B \u043F\u0440\u043E\u0442\u0438\u0432\u043E\u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044F \u043D\u0435\u0441\u0430\u043D\u043A\u0446\u0438\u043E\u043D\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u043E\u043C\u0443 \u0434\u043E\u0441\u0442\u0443\u043F\u0443",
+          "Id": "bfdae4ee-c3de-48be-8296-ee40091e3c32"
+        },
+        {
+          "Number": 5,
+          "Semester": 3,
+          "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+          "Lessons": [
+            {
+              "Number": 21,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "513301f6-3f52-48ea-97b2-d7dfd363a9b2",
+              "Name": "\u041C\u043E\u0434\u0435\u043B\u044C \u0437\u0430\u0449\u0438\u0449\u0435\u043D\u043D\u043E\u0439 \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u043D\u043E\u0439 \u0441\u0438\u0441\u0442\u0435\u043C\u044B.",
+              "Id": "b29b12bb-1184-4df0-b10e-ca39f1f9c39f"
+            }
+          ],
+          "Name": "\u041C\u043E\u0434\u0435\u043B\u044C \u0437\u0430\u0449\u0438\u0449\u0435\u043D\u043D\u043E\u0439 \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u043D\u043E\u0439 \u0441\u0438\u0441\u0442\u0435\u043C\u044B",
+          "Id": "513301f6-3f52-48ea-97b2-d7dfd363a9b2"
+        },
+        {
+          "Number": 6,
+          "Semester": 4,
+          "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+          "Lessons": [
+            {
+              "Number": 22,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "25722ac0-b351-4aee-9b7f-353d96f39d75",
+              "Name": "\u0421\u0438\u0441\u0442\u0435\u043C\u0430 \u0437\u0430\u0449\u0438\u0442\u044B \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438 \u043E\u0442 \u043D\u0435\u0441\u0430\u043D\u043A\u0446\u0438\u043E\u043D\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u043E\u0433\u043E \u0434\u043E\u0441\u0442\u0443\u043F\u0430 \u00AB\u0421\u0442\u0440\u0430\u0436 NT\u00BB.",
+              "Id": "677cf86e-485c-485c-987d-2550d365be6d"
+            },
+            {
+              "Number": 23,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "25722ac0-b351-4aee-9b7f-353d96f39d75",
+              "Name": "\u0421\u0438\u0441\u0442\u0435\u043C\u0430 \u0437\u0430\u0449\u0438\u0442\u044B \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438 \u043E\u0442 \u043D\u0435\u0441\u0430\u043D\u043A\u0446\u0438\u043E\u043D\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u043E\u0433\u043E \u0434\u043E\u0441\u0442\u0443\u043F\u0430 \u00AB\u0421\u0442\u0440\u0430\u0436 NT\u00BB.",
+              "Id": "aa3c594d-100f-4944-8be3-66f0d54d891f"
+            },
+            {
+              "Number": 24,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "25722ac0-b351-4aee-9b7f-353d96f39d75",
+              "Name": "\u0421\u0438\u0441\u0442\u0435\u043C\u0430 \u0437\u0430\u0449\u0438\u0442\u044B \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438 \u043E\u0442 \u043D\u0435\u0441\u0430\u043D\u043A\u0446\u0438\u043E\u043D\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u043E\u0433\u043E \u0434\u043E\u0441\u0442\u0443\u043F\u0430 \u00AB\u0421\u0442\u0440\u0430\u0436 NT\u00BB.",
+              "Id": "56777b7e-438d-49d8-83f8-fdcbe44fa2fa"
+            },
+            {
+              "Number": 25,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "25722ac0-b351-4aee-9b7f-353d96f39d75",
+              "Name": "\u0421\u0438\u0441\u0442\u0435\u043C\u0430 \u0437\u0430\u0449\u0438\u0442\u044B \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438 \u043E\u0442 \u043D\u0435\u0441\u0430\u043D\u043A\u0446\u0438\u043E\u043D\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u043E\u0433\u043E \u0434\u043E\u0441\u0442\u0443\u043F\u0430 \u00ABDallas Lock\u00BB.",
+              "Id": "9cdfa9f0-92b4-47fa-9f24-f1d9c1299e22"
+            },
+            {
+              "Number": 26,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "25722ac0-b351-4aee-9b7f-353d96f39d75",
+              "Name": "\u0421\u0438\u0441\u0442\u0435\u043C\u0430 \u0437\u0430\u0449\u0438\u0442\u044B \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438 \u043E\u0442 \u043D\u0435\u0441\u0430\u043D\u043A\u0446\u0438\u043E\u043D\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u043E\u0433\u043E \u0434\u043E\u0441\u0442\u0443\u043F\u0430 \u00AB\u0421\u0442\u0440\u0430\u0436 NT\u00BB.",
+              "Id": "e94d17b0-a2e7-4c10-9adf-29fc210dd509"
+            },
+            {
+              "Number": 27,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "25722ac0-b351-4aee-9b7f-353d96f39d75",
+              "Name": "\u0421\u0438\u0441\u0442\u0435\u043C\u0430 \u0437\u0430\u0449\u0438\u0442\u044B \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438 \u043E\u0442 \u043D\u0435\u0441\u0430\u043D\u043A\u0446\u0438\u043E\u043D\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u043E\u0433\u043E \u0434\u043E\u0441\u0442\u0443\u043F\u0430 \u00AB\u0421\u0442\u0440\u0430\u0436 NT\u00BB.",
+              "Id": "2ae396ea-b684-470d-88d9-2428fc6e209c"
+            },
+            {
+              "Number": 28,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "25722ac0-b351-4aee-9b7f-353d96f39d75",
+              "Name": "\u0421\u0438\u0441\u0442\u0435\u043C\u0430 \u0437\u0430\u0449\u0438\u0442\u044B \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438 \u043E\u0442 \u043D\u0435\u0441\u0430\u043D\u043A\u0446\u0438\u043E\u043D\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u043E\u0433\u043E \u0434\u043E\u0441\u0442\u0443\u043F\u0430 \u00AB\u0421\u0442\u0440\u0430\u0436 NT\u00BB.",
+              "Id": "b2815036-e1bb-4dc0-b19c-ac1da216578b"
+            },
+            {
+              "Number": 29,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "25722ac0-b351-4aee-9b7f-353d96f39d75",
+              "Name": "\u0421\u0438\u0441\u0442\u0435\u043C\u0430 \u0437\u0430\u0449\u0438\u0442\u044B \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438 \u00ABSecret NET 5.0-C\u00BB.",
+              "Id": "d36f77d7-1ec7-43d2-8168-b32eecd1a5b1"
+            },
+            {
+              "Number": 30,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "25722ac0-b351-4aee-9b7f-353d96f39d75",
+              "Name": "\u0421\u0438\u0441\u0442\u0435\u043C\u0430 \u0437\u0430\u0449\u0438\u0442\u044B \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438 \u00ABSecret NET 5.0-C\u00BB.",
+              "Id": "81e40827-df52-4885-860c-74d48d13f793"
+            },
+            {
+              "Number": 31,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "25722ac0-b351-4aee-9b7f-353d96f39d75",
+              "Name": "\u0421\u0438\u0441\u0442\u0435\u043C\u0430 \u0437\u0430\u0449\u0438\u0442\u044B \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438 \u00ABSecret NET 5.0-C\u00BB.",
+              "Id": "75896d2f-cebb-434d-9a75-cdb470399e60"
+            },
+            {
+              "Number": 32,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "25722ac0-b351-4aee-9b7f-353d96f39d75",
+              "Name": "\u0421\u0438\u0441\u0442\u0435\u043C\u0430 \u0437\u0430\u0449\u0438\u0442\u044B \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438 \u00ABSecret NET 5.0-C\u00BB.",
+              "Id": "61b1dd6c-956f-4604-b7aa-8b3c72de7b73"
+            },
+            {
+              "Number": 4,
+              "SelfStudyHours": 2,
+              "Type": 2,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "25722ac0-b351-4aee-9b7f-353d96f39d75",
+              "Name": "\u0418\u043D\u0441\u0442\u0430\u043B\u043B\u044F\u0446\u0438\u044F \u0438 \u043D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0430 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u043D\u044B\u0445 \u0441\u0440\u0435\u0434\u0441\u0442\u0432 \u0437\u0430\u0449\u0438\u0442\u044B \u043E\u0442 \u043D\u0435\u0441\u0430\u043D\u043A\u0446\u0438\u043E\u043D\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u043E\u0433\u043E \u0434\u043E\u0441\u0442\u0443\u043F\u0430.",
+              "Id": "34abebc5-100d-42b9-be47-e779cde8fd51"
+            }
+          ],
+          "Name": "\u0421\u0438\u0441\u0442\u0435\u043C\u044B \u0437\u0430\u0449\u0438\u0442\u044B \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438 \u043E\u0442 \u043D\u0435\u0441\u0430\u043D\u043A\u0446\u0438\u043E\u043D\u0438\u0440\u043E\u0432\u0430\u043D\u043D\u043E\u0433\u043E \u0434\u043E\u0441\u0442\u0443\u043F\u0430",
+          "Id": "25722ac0-b351-4aee-9b7f-353d96f39d75"
+        },
+        {
+          "Number": 7,
+          "Semester": 4,
+          "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+          "Lessons": [
+            {
+              "Number": 33,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "d4c3df56-8d0e-42cc-b6a8-4bb72eee13df",
+              "Name": "\u041F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u043A\u0430 \u043A \u043F\u0435\u0440\u0432\u043E\u043C\u0443 \u043F\u043E\u043B\u0435\u0442\u0443.",
+              "Id": "83d616a3-cd05-41c5-862b-f4d1a853bfb8"
+            },
+            {
+              "Number": 5,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "d4c3df56-8d0e-42cc-b6a8-4bb72eee13df",
+              "Name": "\u0422\u0440\u0435\u043D\u0438\u0440\u043E\u0432\u043A\u0430 \u0432 \u0443\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0438 \u0411\u041F\u041B\u0410 \u043D\u0430 \u0441\u0438\u043C\u0443\u043B\u044F\u0442\u043E\u0440\u0435.",
+              "Id": "5e153eab-4a99-4b1d-b71e-17b025d57d1c"
+            },
+            {
+              "Number": 6,
+              "SelfStudyHours": 2,
+              "Type": 2,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "d4c3df56-8d0e-42cc-b6a8-4bb72eee13df",
+              "Name": "\u0422\u0440\u0435\u043D\u0438\u0440\u043E\u0432\u043A\u0430 \u0432 \u0443\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u0438 \u0411\u041F\u041B\u0410 \u043D\u0430 \u043C\u0435\u0441\u0442\u043D\u043E\u0441\u0442\u0438.",
+              "Id": "432199d1-2fa4-461a-b214-f382b51a1a19"
+            }
+          ],
+          "Name": "\u041F\u0440\u0438\u043C\u0435\u043D\u0435\u043D\u0438\u0435 \u0431\u0435\u0441\u043F\u0438\u043B\u043E\u0442\u043D\u044B\u0445 \u043B\u0435\u0442\u0430\u0442\u0435\u043B\u044C\u043D\u044B\u0445 \u0430\u043F\u043F\u0430\u0440\u0430\u0442\u043E\u0432 (\u0411\u041F\u041B\u0410) \u0432\u0435\u0440\u0442\u043E\u043B\u0435\u0442\u043D\u043E\u0433\u043E \u0442\u0438\u043F\u0430",
+          "Id": "d4c3df56-8d0e-42cc-b6a8-4bb72eee13df"
+        },
+        {
+          "Number": 8,
+          "Semester": 4,
+          "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+          "Lessons": [
+            {
+              "Number": 34,
+              "SelfStudyHours": 0,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "7fa82687-e098-4039-9c2d-be87b9b44c73",
+              "Name": "\u041E\u0440\u0433\u0430\u043D\u0438\u0437\u0430\u0446\u0438\u044F \u0432\u0438\u0440\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0445 \u0447\u0430\u0441\u0442\u043D\u044B\u0445 \u0441\u0435\u0442\u0435\u0439.",
+              "Id": "d9f965a7-0891-4886-8718-afeb61999cce"
+            },
+            {
+              "Number": 35,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "7fa82687-e098-4039-9c2d-be87b9b44c73",
+              "Name": "\u041E\u0440\u0433\u0430\u043D\u0438\u0437\u0430\u0446\u0438\u044F VPN \u0441\u0440\u0435\u0434\u0441\u0442\u0432\u0430\u043C\u0438 \u043F\u0440\u043E\u0442\u043E\u043A\u043E\u043B\u0430 PPTP.",
+              "Id": "bfbaee9b-6758-4e3f-b144-2859420cae11"
+            },
+            {
+              "Number": 36,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "7fa82687-e098-4039-9c2d-be87b9b44c73",
+              "Name": "\u0417\u0430\u0449\u0438\u0442\u0430 \u0434\u0430\u043D\u043D\u044B\u0445 \u043D\u0430 \u0441\u0435\u0442\u0435\u0432\u043E\u043C \u0443\u0440\u043E\u0432\u043D\u0435.",
+              "Id": "0d7f6966-d227-457f-a19f-5e01bf046386"
+            },
+            {
+              "Number": 37,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "7fa82687-e098-4039-9c2d-be87b9b44c73",
+              "Name": "\u041E\u0440\u0433\u0430\u043D\u0438\u0437\u0430\u0446\u0438\u044F VPN \u0441\u0440\u0435\u0434\u0441\u0442\u0432\u0430\u043C\u0438 \u0421\u0417\u0418 VipNet.",
+              "Id": "68172a6d-9eef-4203-bb46-4b9c19a8cdf4"
+            },
+            {
+              "Number": 38,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "7fa82687-e098-4039-9c2d-be87b9b44c73",
+              "Name": "\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u043D\u0438\u0435 \u043F\u0440\u043E\u0442\u043E\u043A\u043E\u043B\u0430 IPSec \u0434\u043B\u044F \u0437\u0430\u0449\u0438\u0442\u044B \u0441\u0435\u0442\u0435\u0439.",
+              "Id": "387aa692-40a5-40d4-83d2-1bf8b9793fb6"
+            },
+            {
+              "Number": 39,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "7fa82687-e098-4039-9c2d-be87b9b44c73",
+              "Name": "\u041E\u0440\u0433\u0430\u043D\u0438\u0437\u0430\u0446\u0438\u044F VPN \u0441\u0440\u0435\u0434\u0441\u0442\u0432\u0430\u043C\u0438 \u0421\u0417\u0418 StrongNet.",
+              "Id": "42902bf8-b9d9-4676-b431-d78c769874ac"
+            },
+            {
+              "Number": 40,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "7fa82687-e098-4039-9c2d-be87b9b44c73",
+              "Name": "\u0421\u0438\u0441\u0442\u0435\u043C\u0430 \u0442\u0435\u043B\u0435\u043A\u043E\u043C\u043C\u0443\u043D\u0438\u043A\u0430\u0446\u0438\u043E\u043D\u043D\u043E\u0439 \u0441\u0432\u044F\u0437\u0438 \u00AB\u0420\u043E\u0441\u043F\u0438\u0441\u044C\u00BB.",
+              "Id": "0352104f-1ce4-438a-9fbe-14aaf869795f"
+            }
+          ],
+          "Name": "\u0421\u0440\u0435\u0434\u0441\u0442\u0432\u0430 \u043E\u0440\u0433\u0430\u043D\u0438\u0437\u0430\u0446\u0438\u0438 \u0432\u0438\u0440\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0445 \u0447\u0430\u0441\u0442\u043D\u044B\u0445 \u0441\u0435\u0442\u0435\u0439",
+          "Id": "7fa82687-e098-4039-9c2d-be87b9b44c73"
+        },
+        {
+          "Number": 6,
+          "Semester": 4,
+          "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+          "Lessons": [
+            {
+              "Number": 41,
+              "SelfStudyHours": 2,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "4b930fe9-b72a-40eb-a16c-7358713a2c31",
+              "Name": "\u041F\u0435\u0440\u0435\u043D\u043E\u0441\u043D\u043E\u0439 \u0430\u0431\u043E\u043D\u0435\u043D\u0442\u0441\u043A\u0438\u0439 \u043F\u0443\u043D\u043A\u0442 \u0421\u0422\u0421",
+              "Id": "2a256232-eef7-4b17-a903-41c5b1ff64e1"
+            },
+            {
+              "Number": 7,
+              "SelfStudyHours": 2,
+              "Type": 2,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "4b930fe9-b72a-40eb-a16c-7358713a2c31",
+              "Name": "\u041F\u0440\u0438\u043C\u0435\u043D\u0435\u043D\u0438\u0435 \u0421\u0422\u0421 \u00AB\u0420\u043E\u0441\u043F\u0438\u0441\u044C\u00BB.",
+              "Id": "39fddfc9-b0d8-46f4-80b6-1c795372909b"
+            }
+          ],
+          "Name": "\u0421\u0440\u0435\u0434\u0441\u0442\u0432\u0430 \u043E\u0440\u0433\u0430\u043D\u0438\u0437\u0430\u0446\u0438\u0438 \u0432\u0438\u0440\u0442\u0443\u0430\u043B\u044C\u043D\u044B\u0445 \u0447\u0430\u0441\u0442\u043D\u044B\u0445 \u0441\u0435\u0442\u0435\u0439",
+          "Id": "4b930fe9-b72a-40eb-a16c-7358713a2c31"
+        },
+        {
+          "Number": 9,
+          "Semester": 4,
+          "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+          "Lessons": [
+            {
+              "Number": 42,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "50fc08ef-166b-4dc5-b1d1-d7ce886825b8",
+              "Name": "\u0421\u0442\u0440\u0443\u043A\u0442\u0443\u0440\u0430 \u0441\u0435\u0442\u0438 \u0418\u043D\u0442\u0435\u0440\u043D\u0435\u0442.",
+              "Id": "32cba0ca-c0ac-48f2-9378-8594bb3a5bec"
+            },
+            {
+              "Number": 43,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "50fc08ef-166b-4dc5-b1d1-d7ce886825b8",
+              "Name": "\u0420\u0430\u0431\u043E\u0442\u0430 \u0441\u0435\u0442\u0438 \u0418\u043D\u0442\u0435\u0440\u043D\u0435\u0442.",
+              "Id": "ec93c534-9f64-4903-87a7-d9ea1db040f7"
+            },
+            {
+              "Number": 44,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "50fc08ef-166b-4dc5-b1d1-d7ce886825b8",
+              "Name": "\u041E\u0441\u043D\u043E\u0432\u043D\u044B\u0435 \u0442\u0440\u0435\u0431\u043E\u0432\u0430\u043D\u0438\u044F \u0431\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u0438 \u0438 \u0437\u0430\u0449\u0438\u0442\u044B \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438 \u043F\u0440\u0438 \u0440\u0430\u0431\u043E\u0442\u0435 \u0432 \u0441\u0435\u0442\u0438 \u0418\u043D\u0442\u0435\u0440\u043D\u0435\u0442.",
+              "Id": "5b69ea27-9ae1-4fae-b1be-4df98b0a748f"
+            }
+          ],
+          "Name": "\u0421\u0435\u0442\u044C \u0418\u043D\u0442\u0435\u0440\u043D\u0435\u0442",
+          "Id": "50fc08ef-166b-4dc5-b1d1-d7ce886825b8"
+        },
+        {
+          "Number": 10,
+          "Semester": 4,
+          "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+          "Lessons": [
+            {
+              "Number": 45,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "6204ef03-1c9c-44bd-aada-6409c58a9704",
+              "Name": "\u041E\u0440\u0433\u0430\u043D\u0438\u0437\u0430\u0446\u0438\u044F \u0442\u0435\u0445\u043D\u0438\u0447\u0435\u0441\u043A\u043E\u0433\u043E \u043E\u0431\u0441\u043B\u0443\u0436\u0438\u0432\u0430\u043D\u0438\u044F.",
+              "Id": "ff803d8b-c39f-47d3-84c8-2cce4d6df725"
+            },
+            {
+              "Number": 46,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "6204ef03-1c9c-44bd-aada-6409c58a9704",
+              "Name": "\u041E\u0441\u0432\u0438\u0434\u0435\u0442\u0435\u043B\u044C\u0441\u0442\u0432\u043E\u0432\u0430\u043D\u0438\u0435 \u0438 \u0432\u0432\u043E\u0434 \u0432 \u044D\u043A\u0441\u043F\u043B\u0443\u0430\u0442\u0430\u0446\u0438\u044E \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u044C\u043D\u044B\u0445 \u0442\u0435\u0445\u043D\u0438\u0447\u0435\u0441\u043A\u0438\u0445 \u0441\u0440\u0435\u0434\u0441\u0442\u0432.",
+              "Id": "1069b12b-c3f1-4f43-a58b-b38d2eccc6a8"
+            },
+            {
+              "Number": 47,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "6204ef03-1c9c-44bd-aada-6409c58a9704",
+              "Name": "\u0417\u0430\u0434\u0430\u0447\u0438 \u0442\u0435\u0445\u043D\u0438\u0447\u0435\u0441\u043A\u043E\u0433\u043E \u043E\u0431\u0441\u043B\u0443\u0436\u0438\u0432\u0430\u043D\u0438\u044F.",
+              "Id": "f3434411-1753-411c-b783-5f9f879278d3"
+            },
+            {
+              "Number": 48,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "6204ef03-1c9c-44bd-aada-6409c58a9704",
+              "Name": "\u041E\u0440\u0433\u0430\u043D\u0438\u0437\u0430\u0446\u0438\u044F \u0440\u0430\u0431\u043E\u0442 \u043F\u043E \u0422\u041E.",
+              "Id": "43840efc-edc9-4aed-bd39-9407731ccf82"
+            },
+            {
+              "Number": 8,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "6204ef03-1c9c-44bd-aada-6409c58a9704",
+              "Name": "\u0412\u044B\u043F\u043E\u043B\u043D\u0435\u043D\u0438\u0435 \u0440\u0430\u0431\u043E\u0442 \u043F\u043E \u0442\u0435\u0445\u043D\u0438\u0447\u0435\u0441\u043A\u043E\u043C\u0443 \u043E\u0431\u0441\u043B\u0443\u0436\u0438\u0432\u0430\u043D\u0438\u044E.",
+              "Id": "320a9339-877c-40ed-875f-6a8ec0ecd380"
+            },
+            {
+              "Number": 49,
+              "SelfStudyHours": 2,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "6204ef03-1c9c-44bd-aada-6409c58a9704",
+              "Name": "\u0421\u0438\u0441\u0442\u0435\u043C\u0430 \u0440\u0435\u043C\u043E\u043D\u0442\u0430.",
+              "Id": "c5237024-ce36-49c6-ae25-d7090c887919"
+            },
+            {
+              "Number": 9,
+              "SelfStudyHours": 1,
+              "Type": 2,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "6204ef03-1c9c-44bd-aada-6409c58a9704",
+              "Name": "\u041C\u0435\u0442\u043E\u0434\u0438\u043A\u0430 \u0440\u0435\u043C\u043E\u043D\u0442\u0430 \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u044C\u043D\u044B\u0445 \u0442\u0435\u0445\u043D\u0438\u0447\u0435\u0441\u043A\u0438\u0445 \u0441\u0440\u0435\u0434\u0441\u0442\u0432.",
+              "Id": "ee7d0496-17b4-4167-865d-92dc9c1dfefd"
+            },
+            {
+              "Number": 50,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "6204ef03-1c9c-44bd-aada-6409c58a9704",
+              "Name": "\u0425\u0440\u0430\u043D\u0435\u043D\u0438\u0435 \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u044C\u043D\u044B\u0445 \u0442\u0435\u0445\u043D\u0438\u0447\u0435\u0441\u043A\u0438\u0445 \u0441\u0440\u0435\u0434\u0441\u0442\u0432.",
+              "Id": "b0bfcf1a-7fbb-460d-a0c2-647beae33bb3"
+            },
+            {
+              "Number": 51,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "6204ef03-1c9c-44bd-aada-6409c58a9704",
+              "Name": "\u041F\u043B\u0430\u043D\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u0435 \u0438 \u0443\u0447\u0435\u0442 \u044D\u043A\u0441\u043F\u043B\u0443\u0430\u0442\u0430\u0446\u0438\u0438 \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u044C\u043D\u044B\u0445 \u0442\u0435\u0445\u043D\u0438\u0447\u0435\u0441\u043A\u0438\u0445 \u0441\u0440\u0435\u0434\u0441\u0442\u0432.",
+              "Id": "8987857b-a998-487f-8393-90bbda05e7e2"
+            },
+            {
+              "Number": 52,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "6204ef03-1c9c-44bd-aada-6409c58a9704",
+              "Name": "\u0420\u0435\u043A\u043B\u0430\u043C\u0430\u0446\u0438\u043E\u043D\u043D\u0430\u044F \u0440\u0430\u0431\u043E\u0442\u0430.",
+              "Id": "a6b654e5-7dd4-47c6-b88a-6f4038add88f"
+            },
+            {
+              "Number": 53,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "6204ef03-1c9c-44bd-aada-6409c58a9704",
+              "Name": "\u041A\u043E\u043D\u0442\u0440\u043E\u043B\u044C \u0442\u0435\u0445\u043D\u0438\u0447\u0435\u0441\u043A\u043E\u0433\u043E \u043E\u0431\u0435\u0441\u043F\u0435\u0447\u0435\u043D\u0438\u044F.",
+              "Id": "c4c8c577-25b6-45e9-bcfb-f16d3a046aba"
+            },
+            {
+              "Number": 54,
+              "SelfStudyHours": 2,
+              "Type": 3,
+              "SubjectId": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5",
+              "ThemeId": "6204ef03-1c9c-44bd-aada-6409c58a9704",
+              "Name": "\u0414\u043E\u043F\u0443\u0441\u043A \u043B\u0438\u0447\u043D\u043E\u0433\u043E \u0441\u043E\u0441\u0442\u0430\u0432\u0430 \u043A \u044D\u043A\u0441\u043F\u043B\u0443\u0430\u0442\u0430\u0446\u0438\u0438 \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u044C\u043D\u044B\u0445 \u0442\u0435\u0445\u043D\u0438\u0447\u0435\u0441\u043A\u0438\u0445 \u0441\u0440\u0435\u0434\u0441\u0442\u0432.",
+              "Id": "22680ebe-498b-4487-a473-5f170ec86ef8"
+            }
+          ],
+          "Name": "\u0422\u0435\u0445\u043D\u0438\u0447\u0435\u0441\u043A\u0430\u044F \u044D\u043A\u0441\u043F\u043B\u0443\u0430\u0442\u0430\u0446\u0438\u044F \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u044C\u043D\u044B\u0445 \u0442\u0435\u0445\u043D\u0438\u0447\u0435\u0441\u043A\u0438\u0445 \u0441\u0440\u0435\u0434\u0441\u0442\u0432",
+          "Id": "6204ef03-1c9c-44bd-aada-6409c58a9704"
+        }
+      ],
+      "Name": "\u0412\u043E\u0435\u043D\u043D\u043E\u0442\u0435\u0445\u043D\u0438\u0447\u0435\u0441\u043A\u0430\u044F \u043F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u043A\u0430",
+      "Id": "ee94b3de-e4c9-4554-9c0e-9123fd543ef5"
+    },
+    {
+      "DirectionId": "80a84fdf-5825-4795-859d-79b5971cd2e6",
+      "Themes": [
+        {
+          "Number": 1,
+          "Semester": 5,
+          "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+          "Lessons": [
+            {
+              "Number": 1,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "8c177bc9-5e9b-4b09-8cf1-c27b81ad64cd",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 1",
+              "Id": "341ee320-2bdd-465f-946e-ce7147a192ee"
+            },
+            {
+              "Number": 2,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "8c177bc9-5e9b-4b09-8cf1-c27b81ad64cd",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 2",
+              "Id": "2a628ebc-f9b8-4b72-960c-4c5fcb103016"
+            },
+            {
+              "Number": 3,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "8c177bc9-5e9b-4b09-8cf1-c27b81ad64cd",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 3",
+              "Id": "d5f066b9-de0e-42b4-8732-5d5f7393dde8"
+            }
+          ],
+          "Name": "\u0414\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B \u043F\u043E \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u043A\u0435 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u043D\u043E\u0439 \u043F\u0440\u043E\u0434\u0443\u043A\u0446\u0438\u0438",
+          "Id": "8c177bc9-5e9b-4b09-8cf1-c27b81ad64cd"
+        },
+        {
+          "Number": 2,
+          "Semester": 5,
+          "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+          "Lessons": [
+            {
+              "Number": 4,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "93377d7e-9c8e-4732-b51d-8922945c0f2a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 4",
+              "Id": "3ee820c3-c3ee-4749-a6d4-847ed9a78ee4"
+            },
+            {
+              "Number": 5,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "93377d7e-9c8e-4732-b51d-8922945c0f2a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 5",
+              "Id": "38f467a5-ad65-436e-9b99-9ee8d4f8c299"
+            },
+            {
+              "Number": 6,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "93377d7e-9c8e-4732-b51d-8922945c0f2a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 6",
+              "Id": "dc5a989b-b531-4090-b234-324931e4c104"
+            },
+            {
+              "Number": 1,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "93377d7e-9c8e-4732-b51d-8922945c0f2a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 1",
+              "Id": "881c6efe-c1d9-4066-8bbc-d5a247f43edb"
+            },
+            {
+              "Number": 7,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "93377d7e-9c8e-4732-b51d-8922945c0f2a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 7",
+              "Id": "872dd3c4-0303-438e-a364-37aaf84c2e41"
+            },
+            {
+              "Number": 2,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "93377d7e-9c8e-4732-b51d-8922945c0f2a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 2",
+              "Id": "2dff3f49-4e4a-4d84-a7f2-a499dd23c60d"
+            },
+            {
+              "Number": 8,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "93377d7e-9c8e-4732-b51d-8922945c0f2a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 8",
+              "Id": "21a3a5e5-0f79-43f2-8218-23da2ffe18e3"
+            },
+            {
+              "Number": 3,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "93377d7e-9c8e-4732-b51d-8922945c0f2a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 3",
+              "Id": "674d874f-b17c-431d-b208-9f1ed5793d87"
+            },
+            {
+              "Number": 9,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "93377d7e-9c8e-4732-b51d-8922945c0f2a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 9",
+              "Id": "e93408d9-42a4-4b4e-9290-11cf9339cd54"
+            },
+            {
+              "Number": 4,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "93377d7e-9c8e-4732-b51d-8922945c0f2a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 4",
+              "Id": "456495e7-a3e9-45f9-849f-4187a97b420a"
+            },
+            {
+              "Number": 10,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "93377d7e-9c8e-4732-b51d-8922945c0f2a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 10",
+              "Id": "97ed76ae-feff-4002-8f54-e4a2a7fa8f1a"
+            },
+            {
+              "Number": 11,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "93377d7e-9c8e-4732-b51d-8922945c0f2a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 11",
+              "Id": "58cb707d-034e-4795-b318-9ea257a84540"
+            },
+            {
+              "Number": 5,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "93377d7e-9c8e-4732-b51d-8922945c0f2a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 5",
+              "Id": "b66357df-1aad-4ed9-b246-2dc91a2aa8ac"
+            }
+          ],
+          "Name": "\u0422\u0440\u0435\u0431\u043E\u0432\u0430\u043D\u0438\u044F \u0413\u041E\u0421\u0422 \u043F\u043E \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u043A\u0435, \u043E\u0444\u043E\u0440\u043C\u043B\u0435\u043D\u0438\u044E \u0438 \u043F\u0440\u0438\u043C\u0435\u043D\u0435\u043D\u0438\u044E \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u043D\u043E\u0439 \u043F\u0440\u043E\u0434\u0443\u043A\u0446\u0438\u0438",
+          "Id": "93377d7e-9c8e-4732-b51d-8922945c0f2a"
+        },
+        {
+          "Number": 3,
+          "Semester": 5,
+          "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+          "Lessons": [
+            {
+              "Number": 12,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "8d2c8cb5-0b8a-4d8f-b180-84e0e1a91bd2",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 12",
+              "Id": "9cc1b3b5-4780-4db9-954b-beff6e515856"
+            },
+            {
+              "Number": 13,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "8d2c8cb5-0b8a-4d8f-b180-84e0e1a91bd2",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 13",
+              "Id": "fc76cc22-41a4-4901-9b62-76622a07e7ab"
+            },
+            {
+              "Number": 14,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "8d2c8cb5-0b8a-4d8f-b180-84e0e1a91bd2",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 14",
+              "Id": "b0bcceec-b08b-432f-8c81-fe6c3f137e49"
+            },
+            {
+              "Number": 15,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "8d2c8cb5-0b8a-4d8f-b180-84e0e1a91bd2",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 15",
+              "Id": "99b442bc-7541-4a16-bd5b-d92dac7c2648"
+            },
+            {
+              "Number": 6,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "8d2c8cb5-0b8a-4d8f-b180-84e0e1a91bd2",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 6",
+              "Id": "e4b060f1-13f1-4a94-90db-db92e4cec0e0"
+            }
+          ],
+          "Name": "\u0422\u0440\u0435\u0431\u043E\u0432\u0430\u043D\u0438\u044F \u043F\u043E \u0437\u0430\u0449\u0438\u0442\u0435 \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438 \u043D\u0430 \u043E\u0431\u044A\u0435\u043A\u0442\u0430\u0445 \u0432\u044B\u0447\u0438\u0441\u043B\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0439 \u0442\u0435\u0445\u043D\u0438\u043A\u0438",
+          "Id": "8d2c8cb5-0b8a-4d8f-b180-84e0e1a91bd2"
+        },
+        {
+          "Number": 4,
+          "Semester": 5,
+          "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+          "Lessons": [
+            {
+              "Number": 16,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "8a19ee8c-3bff-4df4-a941-763465c273c3",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 16",
+              "Id": "51ba1b11-d875-4f63-8b8d-93470919e744"
+            },
+            {
+              "Number": 17,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "8a19ee8c-3bff-4df4-a941-763465c273c3",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 17",
+              "Id": "af671311-0b73-4507-89af-d11a5ad7d62d"
+            },
+            {
+              "Number": 18,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "8a19ee8c-3bff-4df4-a941-763465c273c3",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 18",
+              "Id": "cee31939-f038-4155-a32f-bb7f50483aa4"
+            },
+            {
+              "Number": 19,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "8a19ee8c-3bff-4df4-a941-763465c273c3",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 19",
+              "Id": "a4607a0c-e87a-4f3d-8db8-76242e96442d"
+            },
+            {
+              "Number": 20,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "8a19ee8c-3bff-4df4-a941-763465c273c3",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 20",
+              "Id": "d19b6e97-c96b-42f9-a051-0842ce255047"
+            },
+            {
+              "Number": 21,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "8a19ee8c-3bff-4df4-a941-763465c273c3",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 21",
+              "Id": "156008d7-d08a-4d76-a64d-3f7a2e20ccbc"
+            },
+            {
+              "Number": 22,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "8a19ee8c-3bff-4df4-a941-763465c273c3",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 22",
+              "Id": "9f07866f-3c74-4730-bcf3-cabbdeaf6227"
+            },
+            {
+              "Number": 23,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "8a19ee8c-3bff-4df4-a941-763465c273c3",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 23",
+              "Id": "e948de44-7cf9-4803-85c8-fba195e77238"
+            },
+            {
+              "Number": 24,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "8a19ee8c-3bff-4df4-a941-763465c273c3",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 24",
+              "Id": "d927b6a3-c1e0-467d-8a47-98128f137a2d"
+            }
+          ],
+          "Name": "\u0422\u0440\u0435\u0431\u043E\u0432\u0430\u043D\u0438\u044F \u043F\u043E \u043E\u0440\u0433\u0430\u043D\u0438\u0437\u0430\u0446\u0438\u0438 \u043F\u0440\u0438\u043C\u0435\u043D\u0435\u043D\u0438\u044F \u0441\u0440\u0435\u0434\u0441\u0442\u0432 \u0437\u0430\u0449\u0438\u0442\u044B \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u0438",
+          "Id": "8a19ee8c-3bff-4df4-a941-763465c273c3"
+        },
+        {
+          "Number": 5,
+          "Semester": 5,
+          "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+          "Lessons": [
+            {
+              "Number": 25,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "57f3a00e-e41d-4b82-882d-01048fd7561a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 25",
+              "Id": "e67d6c5a-4f81-4187-87c3-4592dfdae1fc"
+            },
+            {
+              "Number": 26,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "57f3a00e-e41d-4b82-882d-01048fd7561a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 26",
+              "Id": "792f8420-b753-47ec-858a-ef67aa4344d1"
+            },
+            {
+              "Number": 27,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "57f3a00e-e41d-4b82-882d-01048fd7561a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 27",
+              "Id": "8a222a99-a062-47e9-9ffb-938054cfee86"
+            },
+            {
+              "Number": 7,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "57f3a00e-e41d-4b82-882d-01048fd7561a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 7",
+              "Id": "ff98a6e2-db35-4b31-979f-116ea0fb6286"
+            },
+            {
+              "Number": 28,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "57f3a00e-e41d-4b82-882d-01048fd7561a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 28",
+              "Id": "14235a04-7dbd-4d91-8e7a-d3320ec38cb8"
+            },
+            {
+              "Number": 29,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "57f3a00e-e41d-4b82-882d-01048fd7561a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 29",
+              "Id": "9a981367-066f-4ac1-8484-b575c03e1679"
+            },
+            {
+              "Number": 30,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "57f3a00e-e41d-4b82-882d-01048fd7561a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 30",
+              "Id": "7d2482d5-2dbf-4179-8b9d-bdd97ffc2d21"
+            },
+            {
+              "Number": 31,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "57f3a00e-e41d-4b82-882d-01048fd7561a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 31",
+              "Id": "2d6843be-2c0f-4da5-9efb-dd1fe5c16b92"
+            },
+            {
+              "Number": 32,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "57f3a00e-e41d-4b82-882d-01048fd7561a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 32",
+              "Id": "edc0cf78-6070-43d3-8b5c-89e2c227c8da"
+            },
+            {
+              "Number": 33,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "57f3a00e-e41d-4b82-882d-01048fd7561a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 33",
+              "Id": "5705628c-11a2-469d-a58b-6072295c5f24"
+            },
+            {
+              "Number": 34,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "57f3a00e-e41d-4b82-882d-01048fd7561a",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 34",
+              "Id": "a2bf6dbf-f054-4af5-9c70-406976e728f8"
+            }
+          ],
+          "Name": "\u0421\u0435\u0440\u0442\u0438\u0444\u0438\u043A\u0430\u0446\u0438\u044F \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u043D\u044B\u0445 \u0441\u0440\u0435\u0434\u0441\u0442\u0432",
+          "Id": "57f3a00e-e41d-4b82-882d-01048fd7561a"
+        },
+        {
+          "Number": 6,
+          "Semester": 5,
+          "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+          "Lessons": [
+            {
+              "Number": 35,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "1509d5ac-e398-46d0-a7cd-444dbc245c98",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 35",
+              "Id": "5a5a8650-50ed-4f8b-980d-80092472220c"
+            },
+            {
+              "Number": 8,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "1509d5ac-e398-46d0-a7cd-444dbc245c98",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 8",
+              "Id": "9d962b4c-6ae9-4598-be3b-8bc98cf78c7c"
+            },
+            {
+              "Number": 36,
+              "SelfStudyHours": 1,
+              "Type": 3,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "1509d5ac-e398-46d0-a7cd-444dbc245c98",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 36",
+              "Id": "5a8da2aa-1840-4a51-a726-9c1e80059e0d"
+            },
+            {
+              "Number": 9,
+              "SelfStudyHours": 1,
+              "Type": 1,
+              "SubjectId": "31d2363d-e554-4361-a0de-3e8064424ec1",
+              "ThemeId": "1509d5ac-e398-46d0-a7cd-444dbc245c98",
+              "Name": "\u0417\u0430\u043D\u044F\u0442\u0438\u0435 9",
+              "Id": "67178c71-5c82-4e86-b7f3-9b56ebdfbda7"
+            }
+          ],
+          "Name": "\u0421\u0440\u0435\u0434\u044B \u0440\u0430\u0437\u0440\u0430\u0431\u043E\u0442\u043A\u0438 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u043D\u043E\u0439 \u043F\u0440\u043E\u0434\u0443\u043A\u0446\u0438\u0438",
+          "Id": "1509d5ac-e398-46d0-a7cd-444dbc245c98"
+        }
+      ],
+      "Name": "\u041E\u0440\u0433\u0430\u043D\u0438\u0437\u0430\u0446\u0438\u044F \u0432\u043E\u0435\u043D\u043D\u043E  \u043F\u0440\u043E\u0444\u0435\u0441\u0441\u0438\u043E\u043D\u0430\u043B\u044C\u043D\u043E\u0439 \u0434\u0435\u044F\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u0438",
+      "Id": "31d2363d-e554-4361-a0de-3e8064424ec1"
+    }
+  ],
+  "Name": "\u0412\u0423\u0421-493000",
+  "Id": "80a84fdf-5825-4795-859d-79b5971cd2e6"
+}

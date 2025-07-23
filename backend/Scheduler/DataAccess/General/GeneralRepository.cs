@@ -1,7 +1,6 @@
 using System.Text.Json;
 using Scheduler.DataAccess.Base;
 using Scheduler.Entities.Base;
-using Scheduler.Exceptions;
 using static Scheduler.Constants.FilePaths;
 
 namespace Scheduler.DataAccess.General;
@@ -21,8 +20,10 @@ public abstract class GeneralRepository<T> : BaseRepository where T : EntityWith
             : new GeneralData();
     }
 
-    protected override void SaveChanges(Guid? id = null) => 
+    protected override void SaveChanges(Guid? id = null)
+    {
         File.WriteAllText(_filePath, JsonSerializer.Serialize(Data, JsonOptions));
+    }
     
     public void SaveChanges() => SaveChanges(null);
     
