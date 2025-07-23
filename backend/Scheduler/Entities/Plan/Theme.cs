@@ -3,7 +3,7 @@ using Scheduler.Entities.Base;
 
 namespace Scheduler.Entities.Plan;
 
-public class Theme : EntityWithName
+public class Theme : Entity
 {
     public int Number { get; set; }
     

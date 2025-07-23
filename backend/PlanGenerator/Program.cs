@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using Scheduler.Extensions;
 
 internal class Program
 {
@@ -10,7 +11,7 @@ internal class Program
             Directory.CreateDirectory(Plan);    
         }
         
-        var files = new[] { "093300", };
+        var files = new[] { "093300", "093700", "094100", "493000" };
         var directions = new List<Tuple<Guid, string>>();
         foreach (var file in files)
         {
@@ -41,6 +42,14 @@ internal class Program
             ["Id"] =  directionId,
             ["Name"] = $"ВУС-{file}"
         };
+
+        foreach (var section in inputData["sections"])
+        {
+            foreach (var topic in section["topics"])
+            {
+                topic["part"] = topic["part"]?.Value<string>()?.GetShortName();
+            }
+        }
 
         var subjectsArray = new JArray();
         foreach (var section in inputData["sections"]!)
@@ -107,10 +116,10 @@ internal class Program
         type?.Trim() switch
         {
             "Лекция" => 1,
-            "Семинар" => 0,
+            "Семинар" => 3,
             "Практическое занятие" => 2,
-            "Групповое занятие" => 3,
-            "Практическоезанятие" => 5,
+            "Групповое занятие" => 0,
+            "Практическоезанятие" => 2,
             "Выходной день" => 4,
             _ => 1
         };

@@ -1,5 +1,4 @@
 using Scheduler.Dto.General.Squad;
-using Scheduler.Dto.Lesson;
 using Scheduler.Dto.Plan.Lesson;
 
 namespace Scheduler.Dto.Event;

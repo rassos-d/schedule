@@ -21,7 +21,7 @@ public class ThemeController(PlanRepository planRepository) : ControllerBase
     {
         var theme = new Theme
         {
-            Name = dto.Name, SubjectId = dto.SubjectId, Number = dto.Number, Semester = dto.Semester
+            SubjectId = dto.SubjectId, Number = dto.Number, Semester = dto.Semester
         };
         planRepository.SaveTheme(theme);
         return Ok(theme.Id);

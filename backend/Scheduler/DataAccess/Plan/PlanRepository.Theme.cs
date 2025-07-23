@@ -29,10 +29,6 @@ public partial class PlanRepository
 
         // if (FindThemes().Any(s => string.Equals(s.Name, dto.Name, StringComparison.CurrentCultureIgnoreCase)))
         //     throw new EntityAlreadyExistExceptions("Тема с таким именем уже создана");
-        if (dto.Name is not null && dto.Name.Length > 0)
-        {
-            theme.Name = dto.Name;
-        }
 
         if (dto.Number is not null && dto.Number > 0)
         {

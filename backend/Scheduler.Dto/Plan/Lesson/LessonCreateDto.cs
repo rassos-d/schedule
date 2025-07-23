@@ -1,9 +1,8 @@
 using Scheduler.Dto.Constants;
 
-namespace Scheduler.Dto.Lesson;
+namespace Scheduler.Dto.Plan.Lesson;
 
 public record LessonCreateDto(
-    string Name,
     int Number,
     int SelfStudyHours,
     LessonType Type,
