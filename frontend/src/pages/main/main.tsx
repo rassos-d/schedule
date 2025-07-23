@@ -21,6 +21,7 @@ import { VacationBlock } from '../../components/vacationBlock/vacationBlock'
 import { isValidCreateSchedule } from '../../utils/validate'
 import { DeletePopup } from '../../components/deletePopup/deletePopup'
 import { getSemesterStartDate } from '../../utils/date'
+import { EditPlan } from '../../components/editPlan/editPlan'
 
 const DEFAULT_AUDIENCE_NAME = 'Новая Аудитория'
 
@@ -47,7 +48,7 @@ export default function Main() {
 
     const [allAudience, setAllAudience] = useState<(Audience & { isEdit: boolean, isWarning: boolean })[]>()
     const [allTeachers, setAllTeachers] = useState<Teacher[]>()
-    const [allDirections, setAllDirections] = useState<Direction[]>()
+    const [allDirections, setAllDirections] = useState<(Direction & { isEdit: boolean, isWarning: boolean })[]>()
     const [editTeacher, setEditTeacher] = useState<NewTeacher & {id: string}>()
     const [checkEditTeacher, setCheckEditTeacher] = useState(false)
     const [newTeacher, setNewTeacher] = useState<NewTeacher>()
@@ -56,7 +57,7 @@ export default function Main() {
 
     const handleGetAllDirections = async () => {
         const { data } = await axios.get<Direction[]>(PagesURl.DIRECTION + '/find')
-        setAllDirections(data)
+        setAllDirections(data.map((el)=>({...el, isEdit: false, isWarning: false})))
     }
     const handleGetAllAudience = async () => {
         const { data } = await axios.get<Audience[]>(PagesURl.AUDIENCE)
@@ -402,28 +403,31 @@ export default function Main() {
                 <h1 className={styles.container__title}>Расписание кафедры СП</h1>
                 <div className={styles.container__content}>
                     <div className={styles.container__left}>
-                        <h3 className={styles.container__subtitle}>Сохранённые расписания</h3>
-                        {shedules.length!==0 && <div className={styles.container__shedules}>
-                            {shedules.map((shedule) => (
-                                <div onClick={() => navigate(`/${shedule.id}`)} className={styles.container__shedule} key={shedule.id}>
-                                    <p>{shedule.name}</p>
-                                    <div className={styles.container__icons}>
-                                        <div onClick={(e) => { e.stopPropagation(); handleGetEditSchedule(shedule.id) }}>
-                                            <Icon glyph='edit' glyphColor='black' />
-                                        </div>
-                                        <div onClick={(e) => { e.stopPropagation(); setConfirmDeleteScheduleId(shedule.id) }}>
-                                            <Icon glyph='close' glyphColor='black' />
+                        <div>
+                            <h3 className={styles.container__subtitle}>Сохранённые расписания</h3>
+                            {shedules.length !== 0 && <div className={styles.container__shedules}>
+                                {shedules.map((shedule) => (
+                                    <div onClick={() => navigate(`/${shedule.id}`)} className={styles.container__shedule} key={shedule.id}>
+                                        <p>{shedule.name}</p>
+                                        <div className={styles.container__icons}>
+                                            <div onClick={(e) => { e.stopPropagation(); handleGetEditSchedule(shedule.id) }}>
+                                                <Icon glyph='edit' glyphColor='black' />
+                                            </div>
+                                            <div onClick={(e) => { e.stopPropagation(); setConfirmDeleteScheduleId(shedule.id) }}>
+                                                <Icon glyph='close' glyphColor='black' />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
-                        </div>}
-                        <div 
-                            onClick={() => {setNewSchedule({ name: '', pages: [], isNew: true });setIsEnableValidationCreateSchedule(false)}} 
-                            className={styles.container__button}
-                        >
-                            <Button>Создать новое</Button>
+                                ))}
+                            </div>}
+                            <div
+                                onClick={() => { setNewSchedule({ name: '', pages: [], isNew: true }); setIsEnableValidationCreateSchedule(false) }}
+                                className={styles.container__button}
+                            >
+                                <Button>Создать новое расписание</Button>
+                            </div>
                         </div>
+                        <EditPlan/>
                     </div>
                     <div className={styles.container__right}>
                         <h3 className={styles.container__subtitle}>Глобальные настройки</h3>
