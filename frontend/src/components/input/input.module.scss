@@ -31,6 +31,18 @@
   &_error {
     border: 1px solid #EF302B;
   }
+  &_date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.inputDate {
+  padding: 0;
+  width: 100%;
+  min-width: 150px;
+  height: 48px;
 }
 
 

@@ -16,7 +16,8 @@ public class SquadService(SquadRepository squadRepository, ScheduleRepository sc
         {
             squads = squads.Where(s => s.StudyYear == studyYear).ToList();
         }
-        
+        squads.Sort((s1, s2) => string.Compare(s1.Name, s2.Name, StringComparison.OrdinalIgnoreCase));
+
         return squads;
     }
 

@@ -146,3 +146,7 @@ input[type="time"] {
   -webkit-appearance: none;
   -moz-appearance: textfield;
 }
+
+.react-datepicker-popper {
+  z-index: 10000 !important;
+}

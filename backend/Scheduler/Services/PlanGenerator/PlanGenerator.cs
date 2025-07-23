@@ -1,34 +1,20 @@
 ﻿using Newtonsoft.Json.Linq;
-using Scheduler.Dto.Constants;
-using Scheduler.Entities.Plan;
-using Scheduler.Extensions;
 
-public class PlanGenerator
+internal class Program
 {
-    // todo загружаем один темплан, если он уже существует (по вусовке) - спросить заменить или сохранить копию (1)
-    // если пересечения не было - не трогать (старые остаются, новые добавляются)
-    // смержить directions.json
-    private const string PlanDirectory = "newPlan";
-    private readonly string VucesDirectory = Path.Combine("Services", "PlanGenerator", "vuces");
-
-    public void Generate()
+    private const string Plan = "plan";
+    static void Main()
     {
-        if (Directory.Exists(PlanDirectory))
-            Directory.Delete(PlanDirectory, true);
-        Directory.CreateDirectory(PlanDirectory);
-
-        if (!Directory.Exists(VucesDirectory))
-            Directory.CreateDirectory(VucesDirectory);
-
-        var fileNames = Directory.GetFiles(VucesDirectory)
-            .Where(x => x.EndsWith(".json"))
-            .Select(x => x.Split(Path.DirectorySeparatorChar, '.')[^2]);
-
-        var directions = new List<Tuple<Guid, string>>();
-        foreach (var fileName in fileNames)
+        if (Directory.Exists(Plan) == false)
         {
-            var filePath = Path.Combine(VucesDirectory, $"{fileName}.json");
-            directions.Add(Tuple.Create(ParseDirection(filePath, fileName), fileName));
+            Directory.CreateDirectory(Plan);    
+        }
+        
+        var files = new[] { "093300", };
+        var directions = new List<Tuple<Guid, string>>();
+        foreach (var file in files)
+        {
+            directions.Add(Tuple.Create(Parse(file), file)); 
         }
 
         var result = new JArray();
@@ -40,87 +26,104 @@ public class PlanGenerator
                 ["Name"] = $"ВУС-{dir.Item2}",
             });
         }
-
-        File.WriteAllText($"{PlanDirectory}/directions.json", result.ToString());
+        
+        File.WriteAllText($"{Plan}/directions.json", result.ToString());
     }
 
-    private static Guid ParseDirection(string file, string directionName)
+    private static Guid Parse(string file)
     {
-        var inputJson = File.ReadAllText(file);
+        var inputJson = File.ReadAllText($"{file}.json");
         var inputData = JObject.Parse(inputJson);
 
         var directionId = Guid.NewGuid();
         var outputObject = new JObject
         {
             ["Id"] =  directionId,
-            ["Name"] = $"ВУС-{directionName}"
+            ["Name"] = $"ВУС-{file}"
         };
 
         var subjectsArray = new JArray();
         foreach (var section in inputData["sections"]!)
         {
-            var subjectId = Guid.NewGuid();
-            var subjectObj = new JObject
+            var topics = section["topics"]!.GroupBy(t => t["part"]);
+            foreach (var topic in topics)
             {
-                ["Name"] = section["title"],
-                ["DirectionId"] = directionId,
-                ["Id"] = subjectId,
-                ["ShortName"] = new Subject { Name = section["title"]?.ToString() ?? string.Empty }.GetShortName()
-            };
-            
-            var themes = new JArray();
-            foreach (var topic in section["topics"]!)
-            {
-                var themeId = Guid.NewGuid();
-                var themeObj = new JObject
+                var subjectId = Guid.NewGuid();
+                var subjectObj = new JObject
                 {
-                    ["Semester"] = topic["semester"]?.Value<int>(),
-                    ["Number"] = topic["topic_number"]?.ToObject<int>(),
-                    ["Name"] = topic["title"]?.ToString(),
-                    ["SubjectId"] = subjectId,
-                    ["Id"] = themeId
+                    ["Name"] = $"{section["title"]}.{topic.Key}",
+                    ["DirectionId"] = directionId,
+                    ["Id"] = subjectId
                 };
-
-                var lessons = new JArray();
-                foreach (var lesson in topic["lessons"]!)
+                var themes = new JArray();
+                foreach (var theme in topic)
                 {
-                    var lessonObj = new JObject
+                    var themeId = Guid.NewGuid();
+                    var themeNumber = theme["topic_number"]?.ToObject<int>();
+                    var themeObj = new JObject
                     {
-                        ["SelfStudyHours"] = lesson["self_study_hours"]?.Value<int>(),
-                        ["Number"] = lesson["lesson_number"]?.Value<int>(),
-                        ["Name"] = lesson["title"]?.ToString(),
-                        ["Type"] = (int)GetLessonTypeFromText(lesson["type"]?.Value<string>()),
+                        ["Semester"] = theme["semester"]?.Value<int>(),
+                        ["Number"] = themeNumber,
+                        ["Name"] = $"Тема {themeNumber}",
                         ["SubjectId"] = subjectId,
-                        ["ThemeId"] = themeId,
-                        ["Id"] = Guid.NewGuid()
+                        ["Id"] = themeId
                     };
 
-                    lessons.Add(lessonObj);
-                }
+                    var lessons = new JArray();
+                    foreach (var lesson in theme["lessons"]!)
+                    {
+                        var number = lesson["local_number"]?.Value<int>();
+                        var lessonType = lesson["type"]?.Value<string>();
+                        var lessonObj = new JObject
+                        {
+                            ["SelfStudyHours"] = lesson["self_study_hours"]?.Value<int>(),
+                            ["Number"] = number,
+                            ["Name"] = $"Занятие {number}. ({ShortLessonType(lessonType)})",
+                            ["Type"] = GetLessonTypeFromText(lessonType),
+                            ["SubjectId"] = subjectId,
+                            ["ThemeId"] = themeId,
+                            ["Id"] = Guid.NewGuid()
+                        };
 
-                themeObj["Lessons"] = lessons;
-                themes.Add(themeObj);
-            }
+                        lessons.Add(lessonObj);
+                    }
+
+                    themeObj["Lessons"] = lessons;
+                    themes.Add(themeObj);
+                }
             
-            subjectObj["Themes"] = themes;
-            subjectsArray.Add(subjectObj);
+                subjectObj["Themes"] = themes;
+                subjectsArray.Add(subjectObj);   
+            }
         }
 
         outputObject["Subjects"] = subjectsArray;
         Console.WriteLine(outputObject.ToString());
-        File.WriteAllText($"{PlanDirectory}/{directionId}.json", outputObject.ToString());
+        File.WriteAllText($"{Plan}/{directionId}.json", outputObject.ToString());
         return directionId;
     }
 
-    private static LessonType GetLessonTypeFromText(string? type) =>
+    private static int GetLessonTypeFromText(string? type) =>
         type?.Trim() switch
         {
-            "Семинар" => LessonType.Seminar,
-            "Лекция" => LessonType.Lecture,
-            "Практическое занятие" => LessonType.Practice,
-            "Групповое занятие" => LessonType.Group,
-            "Выходной день" => LessonType.Weekend,
-            "Практическоезанятие" => LessonType.Practice,
-            _ => LessonType.Lecture
+            "Лекция" => 1,
+            "Семинар" => 0,
+            "Практическое занятие" => 2,
+            "Групповое занятие" => 3,
+            "Практическоезанятие" => 5,
+            "Выходной день" => 4,
+            _ => 1
+        };
+    
+    private static string ShortLessonType(string? type) =>
+        type?.Trim() switch
+        {
+            "Лекция" => "Лекция",
+            "Семинар" => "Семинар",
+            "Практическое занятие" => "Практическое",
+            "Групповое занятие" => "Групповое",
+            "Практическоезанятие" => "Практическое",
+            "Выходной день" => "Выходной",
+            _ => "Тип не указан"
         };
 }
