@@ -13,5 +13,5 @@ internal static class RankExpander
     };
      
     public static string? GetFullOrDefault(string? @short) => 
-        @short is null ? null : ShortToLongRank.GetValueOrDefault(@short, null);
+        @short is not null && ShortToLongRank.TryGetValue(@short, out var value) ? value : null;
 }

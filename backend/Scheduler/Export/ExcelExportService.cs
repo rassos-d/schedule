@@ -6,8 +6,6 @@ using Scheduler.DataAccess.General;
 using Scheduler.DataAccess.Plan;
 using Scheduler.Entities.General;
 using Scheduler.Entities.Schedule;
-using Scheduler.Entities.Plan;
-using Microsoft.OpenApi.Extensions;
 using Scheduler.Extensions;
 
 namespace Scheduler.Export;
@@ -233,6 +231,6 @@ public class ExcelExportService
         }
     }
 
-    private T1? GetOrDefault<T1, T2>(T2? input, Func<T2, T1> getter) where T2 : struct
+    private TOut? GetOrDefault<TIn, TOut>(TIn? input, Func<TIn, TOut> getter) where TIn : struct
         => input.HasValue ? getter(input.Value) : default;
 }
