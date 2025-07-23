@@ -15,7 +15,6 @@ public class SquadService(SquadRepository squadRepository, ScheduleRepository sc
         {
             squads = squads.Where(s => s.StudyYear == studyYear).ToList();
         }
-        
         return squads;
     }
 
