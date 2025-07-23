@@ -11,28 +11,48 @@
     },
     "35ac3693-627c-4186-989e-a6d2fb85997e": {
       "Rank": "\u043F/\u043F-\u043A",
-      "Vacations": [],
+      "Vacations": [
+        {
+          "StartDate": "2025-11-05",
+          "EndDate": "2025-11-23"
+        }
+      ],
       "SubjectIds": [],
       "Name": "\u041F\u043E\u043F\u043E\u0432 \u0414.\u0410.",
       "Id": "35ac3693-627c-4186-989e-a6d2fb85997e"
     },
     "0c3d1846-0275-4c92-a3aa-0a8c52f0e0bf": {
       "Rank": "\u043F/\u043F-\u043A",
-      "Vacations": [],
+      "Vacations": [
+        {
+          "StartDate": "2025-10-20",
+          "EndDate": "2025-11-14"
+        }
+      ],
       "SubjectIds": [],
       "Name": "\u0418\u0432\u0430\u043D\u043E\u0432 \u0410.\u0421.",
       "Id": "0c3d1846-0275-4c92-a3aa-0a8c52f0e0bf"
     },
     "59b44e67-77b4-41fc-8855-68fa8c079ff7": {
       "Rank": "\u043F/\u043F-\u043A",
-      "Vacations": [],
+      "Vacations": [
+        {
+          "StartDate": "2025-09-15",
+          "EndDate": "2025-10-25"
+        }
+      ],
       "SubjectIds": [],
       "Name": "\u0418\u0432\u0430\u043D\u043E\u0432 \u0420.\u0410.",
       "Id": "59b44e67-77b4-41fc-8855-68fa8c079ff7"
     },
     "fa5186f0-b807-47bc-95c4-856d01df73f0": {
       "Rank": "\u043F/\u043F-\u043A",
-      "Vacations": [],
+      "Vacations": [
+        {
+          "StartDate": "2025-10-06",
+          "EndDate": "2025-11-02"
+        }
+      ],
       "SubjectIds": [],
       "Name": "\u0424\u0440\u043E\u043B\u043E\u0432 \u0418.\u0412.",
       "Id": "fa5186f0-b807-47bc-95c4-856d01df73f0"
@@ -41,8 +61,12 @@
       "Rank": "\u043F/\u043F-\u043A",
       "Vacations": [
         {
-          "StartDate": "2026-03-01",
-          "EndDate": "2026-03-31"
+          "StartDate": "2025-09-08",
+          "EndDate": "2025-10-03"
+        },
+        {
+          "StartDate": "2025-06-24",
+          "EndDate": "2025-06-26"
         }
       ],
       "SubjectIds": [],
@@ -58,7 +82,16 @@
     },
     "0ce95bbe-89f4-4c2d-9462-983fb67cd837": {
       "Rank": "\u043F-\u043A",
-      "Vacations": [],
+      "Vacations": [
+        {
+          "StartDate": "2025-09-08",
+          "EndDate": "2025-10-01"
+        },
+        {
+          "StartDate": "2025-11-17",
+          "EndDate": "2025-12-01"
+        }
+      ],
       "SubjectIds": [],
       "Name": "\u041A\u0438\u0437\u044E\u043D \u041D.\u041D.",
       "Id": "0ce95bbe-89f4-4c2d-9462-983fb67cd837"
@@ -69,6 +102,32 @@
       "SubjectIds": [],
       "Name": "\u0414\u043E\u043D\u0447\u0435\u043D\u043A\u043E \u0418.\u0410.",
       "Id": "0c7b1c41-b722-4c29-828f-e5bed5c5ad7e"
+    },
+    "df99ac1f-b2a5-4716-990b-28c1e3eaeddc": {
+      "Rank": "\u043C-\u0440",
+      "Vacations": [
+        {
+          "StartDate": "2025-09-08",
+          "EndDate": "2025-10-06"
+        }
+      ],
+      "SubjectIds": [],
+      "Name": "\u041B\u0443\u043D\u0451\u0432 \u0410.\u0414.",
+      "Id": "df99ac1f-b2a5-4716-990b-28c1e3eaeddc"
+    },
+    "7961cb7d-8f3e-4d6f-8b16-157df9aad45b": {
+      "Rank": "\u043D\u043F\u043E",
+      "Vacations": [],
+      "SubjectIds": [],
+      "Name": "\u0411\u043E\u0431\u0440\u043E\u0432 \u042E.\u0418.",
+      "Id": "7961cb7d-8f3e-4d6f-8b16-157df9aad45b"
+    },
+    "6be83e4e-d07d-46c3-905a-58f5ab688d4a": {
+      "Rank": "\u043A-\u043D",
+      "Vacations": [],
+      "SubjectIds": [],
+      "Name": "\u0411\u0430\u0441\u044B\u0440\u043E\u0432 \u0420.\u0410.",
+      "Id": "6be83e4e-d07d-46c3-905a-58f5ab688d4a"
     }
   }
 }

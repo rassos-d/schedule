@@ -534,7 +534,7 @@ export default function Main() {
                             <Icon glyph='add' glyphColor='grey' />
                             <p>Добавить отпуск</p>
                         </Button>
-                        <Button onClick={handleEditTeacher}>Изменить преподавателя</Button>
+                        <Button onClick={handleEditTeacher}>Сохранить</Button>
                     </div>
                 </PopupContainer>
             }
@@ -609,7 +609,7 @@ export default function Main() {
                                 changeInputList={(list) => setEditSquad({ ...editSquad, direction: list[0] })}
                             />
                         </div>
-                        <Button onClick={() => handleEditSquad()}>Изменить взвод</Button>
+                        <Button onClick={() => handleEditSquad()}>Сохранить</Button>
                     </div>
                 </PopupContainer>
             }

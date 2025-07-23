@@ -3,6 +3,10 @@ import styles from './input.module.scss'
 import { removeElementAtIndex } from '../../utils'
 import { Icon } from '../icon'
 import { AddInputList } from '../../types/input'
+import DatePicker from "react-datepicker";
+import { ru } from 'date-fns/locale'
+import "react-datepicker/dist/react-datepicker.css";
+import { formatDateUTC } from '../../utils/date'
 
 type InputProps = {
   placeholder?: string
@@ -15,11 +19,12 @@ type InputProps = {
   errorText?: string
   startDate?: string
   endDate?: string
+  defaultValue?: string
   onChange: (value: string) => void
   validateChecker?: (value: string) => boolean
 }
 
-export function Input({ placeholder, value, required, type, maxValues, isError, onChange, name, validateChecker, errorText, startDate, endDate }: InputProps) {
+export function Input({ placeholder, value, required, type, maxValues, isError, onChange, name, validateChecker, errorText, startDate, endDate, defaultValue }: InputProps) {
 
   const textarea = useRef<HTMLTextAreaElement>(null)
   const [rows, setRows] = useState(1);
@@ -36,13 +41,18 @@ export function Input({ placeholder, value, required, type, maxValues, isError, 
   }
 
   const isValid = () => {
-    if (isError === undefined) return true
-    else if (isError !== undefined) return !isError
+    if (!isError) return true
     return validateChecker ? validateChecker(value) : value !== ''
   }
 
   const changeValue = (value: string) => {
     onChange(value)
+  }
+
+  const changeDateValue = (newValue: Date | null) => {
+    if (newValue) {
+      changeValue(formatDateUTC(newValue))
+    }
   }
 
   useEffect(() => {
@@ -54,10 +64,25 @@ export function Input({ placeholder, value, required, type, maxValues, isError, 
   }, [textarea]);
 
   if (type === 'date') {
-    return <input min={startDate} max={endDate} type="date" value={value} className={`${styles.input} ${!isValid() ? styles.input_error : ''}`} onChange={(e) => { changeValue(e.target.value) }} />
+    return <DatePicker 
+      locale={ru}
+      minDate={startDate ? new Date(startDate) : undefined} 
+      maxDate={endDate ? new Date(endDate) : undefined} 
+      selected={value !== '' ? new Date(value) : defaultValue ? new Date(defaultValue) : undefined} 
+      className={`${styles.input} ${!isValid() ? styles.input_error : ''}`} 
+      onChange={(value) => { changeDateValue(value) }} 
+      showYearDropdown
+      showMonthDropdown
+      customInput={
+        <div className={styles.inputDate}>
+          <div className={`${styles.input} ${styles.input_date}`}>{value.length === 0 ? <span className={styles.input__placeholder}>{'Введите дату'}</span> : value}</div>
+        </div>}
+      />
+
   }
   if (type === 'time') {
     return <input
+      defaultValue={defaultValue}
       type='time'
       min="08:00"
       max="19:00"
@@ -72,13 +97,15 @@ export function Input({ placeholder, value, required, type, maxValues, isError, 
     <div className={`${styles.inputBlock}`}>
       {type ?
         <input
+          defaultValue={defaultValue}
           name={name}
           maxLength={maxValues} type={type} required={required}
           className={`${styles.input} ${!isValid() ? styles.input_error : ''}`}
           placeholder={placeholder} value={value}
           onChange={(e) => { changeValue(e.target.value) }}
+      
         /> :
-        <textarea name={name} required={required} maxLength={maxValues} ref={textarea} rows={rows} className={`${styles.input} ${!isValid() ? styles.input_error : ''}`} placeholder={placeholder} value={value} onChange={(e) => { changeTextarea(e.target.value) }} />}
+        <textarea defaultValue={defaultValue} name={name} required={required} maxLength={maxValues} ref={textarea} rows={rows} className={`${styles.input} ${!isValid() ? styles.input_error : ''}`} placeholder={placeholder} value={value} onChange={(e) => { changeTextarea(e.target.value) }} />}
       {type === 'search' && value !== '' && <img onClick={() => { onChange('') }} className={styles.input__clear} src='/icons/close.svg' />}
       {!isValid() && <p className={styles.errorText}>{errorText ? errorText : 'Это поле обязательное для заполнения'}</p>}
     </div>

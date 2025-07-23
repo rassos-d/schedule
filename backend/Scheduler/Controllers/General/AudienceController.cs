@@ -13,6 +13,7 @@ public class AudienceController(AudienceRepository generalRepo) : ControllerBase
     public IActionResult Find()
     {
         var audiences = generalRepo.GetAll();
+        audiences.Sort((a1, a2) => string.Compare(a1.Name, a2.Name, StringComparison.OrdinalIgnoreCase));
         return Ok(audiences);
     }
 

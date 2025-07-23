@@ -491,7 +491,7 @@ export default function ShedulePage() {
                 </DndProvider>
             </div>
             {newLesson && subjects &&
-                <PopupContainer onClose={()=>setNewLesson(undefined)}>
+                <PopupContainer displayClose onClose={()=>setNewLesson(undefined)}>
                     <div className={styles.popup}>
                         <h2>{`${newLesson.isNewLesson ? 'Создание' : 'Редактирование'} занятия`}</h2>
                         <div className={styles.popup__block}>

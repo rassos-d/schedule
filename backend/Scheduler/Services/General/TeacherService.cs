@@ -6,7 +6,12 @@ namespace Scheduler.Services.General;
 
 public class TeacherService(TeacherRepository repo)
 {
-    public List<Teacher> Find() => repo.GetAll();
+    public List<Teacher> Find()
+    { 
+        var teachers = repo.GetAll();
+        teachers.Sort((t1, t2) => string.Compare(t1.Name, t2.Name, StringComparison.OrdinalIgnoreCase));
+        return teachers;
+    }
     
     public Guid Create(TeacherCreateDto dto)
     {
