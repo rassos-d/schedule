@@ -48,9 +48,11 @@ export default function Main() {
     const [allAudience, setAllAudience] = useState<(Audience & { isEdit: boolean, isWarning: boolean })[]>()
     const [allTeachers, setAllTeachers] = useState<Teacher[]>()
     const [allDirections, setAllDirections] = useState<Direction[]>()
-    const [editTeacher, setEditTeacher] = useState<Teacher>()
+    const [editTeacher, setEditTeacher] = useState<NewTeacher & {id: string}>()
     const [checkEditTeacher, setCheckEditTeacher] = useState(false)
     const [newTeacher, setNewTeacher] = useState<NewTeacher>()
+
+    const [subjects, setSubjects] = useState<AddInputList[]>()
 
     const handleGetAllDirections = async () => {
         const { data } = await axios.get<Direction[]>(PagesURl.DIRECTION + '/find')
@@ -86,6 +88,10 @@ export default function Main() {
         setConfirmDeleteAudienceId(undefined)
         handleGetAllAudience()
     }
+    const handleGetSubjects = async () => {
+        const {data} = await axios.get(PagesURl.SUBJECT + '/find')
+        setSubjects(data)
+    }
 
     const handleGetAllTeachers = async () => {
         const { data } = await axios.get<Teacher[]>(PagesURl.TEACHER)
@@ -105,7 +111,8 @@ export default function Main() {
         }
         setCheckEditTeacher(false)
         await axios.post(PagesURl.TEACHER, {
-            ...newTeacher
+            ...newTeacher,
+            subjectIds: newTeacher.subjects.map(el => el.id)
         })
         setNewTeacher(undefined)
         handleGetAllTeachers()
@@ -127,7 +134,8 @@ export default function Main() {
             id: editTeacher.id,
             name: editTeacher.name,
             rank: editTeacher.rank,
-            vacations: editTeacher.vacations
+            vacations: editTeacher.vacations,
+            subjectIds: editTeacher.subjects.map((el)=>el.id)
         })
         setEditTeacher(undefined)
         handleGetAllTeachers()
@@ -168,6 +176,12 @@ export default function Main() {
         const result = { ...editTeacher }
         result.vacations = removeElementAtIndex(result.vacations, index)
         setEditTeacher(result)
+    }
+
+    const getEditTeacher = (teacher: Teacher) => {
+        if (!subjects) return
+        const selectedSubjects = subjects.filter((el)=>teacher.subjectIds.includes(el.id.toString()))
+        setEditTeacher({...teacher, subjects: selectedSubjects})
     }
     const addVacationEditTeacher = () => {
         if (!editTeacher) return
@@ -372,9 +386,10 @@ export default function Main() {
         handleGetShedules()
         handleGetAllAudience()
         handleGetAllTeachers()
+        handleGetSubjects()
     }, [])
 
-    if (!shedules || !allAudience || !allTeachers || !squads || !allDirections) {
+    if (!shedules || !allAudience || !allTeachers || !squads || !allDirections || !subjects) {
         return <></>
     }
 
@@ -388,7 +403,7 @@ export default function Main() {
                 <div className={styles.container__content}>
                     <div className={styles.container__left}>
                         <h3 className={styles.container__subtitle}>Сохранённые расписания</h3>
-                        <div className={styles.container__shedules}>
+                        {shedules.length!==0 && <div className={styles.container__shedules}>
                             {shedules.map((shedule) => (
                                 <div onClick={() => navigate(`/${shedule.id}`)} className={styles.container__shedule} key={shedule.id}>
                                     <p>{shedule.name}</p>
@@ -402,7 +417,7 @@ export default function Main() {
                                     </div>
                                 </div>
                             ))}
-                        </div>
+                        </div>}
                         <div 
                             onClick={() => {setNewSchedule({ name: '', pages: [], isNew: true });setIsEnableValidationCreateSchedule(false)}} 
                             className={styles.container__button}
@@ -435,11 +450,11 @@ export default function Main() {
                                         key={teacher.id}
                                         value={`${teacher.rank} ${teacher.name}`}
                                         onDelete={() => { setConfirmDeleteTeacherId(teacher.id) }}
-                                        onEdit={() => setEditTeacher(teacher)}
+                                        onEdit={() => getEditTeacher(teacher)}
                                     />
                                 ))}
                                 <Button
-                                    onClick={() => setNewTeacher({ name: '', rank: '', vacations: [] })}
+                                    onClick={() => setNewTeacher({ name: '', rank: '', vacations: [], subjects: [] })}
                                     size={'max'}
                                     variant={'whiteMain'}
                                 >
@@ -519,6 +534,14 @@ export default function Main() {
                         <h2>Редактирование преподавателя</h2>
                         <Input isError={checkEditTeacher} value={editTeacher.name} placeholder='Фамилия' onChange={(val) => setEditTeacher({ ...editTeacher, name: val })} />
                         <Input isError={checkEditTeacher} value={editTeacher.rank} placeholder='Звание' onChange={(val) => setEditTeacher({ ...editTeacher, rank: val })} />
+                        <AddInput
+                            enableSearch
+                            minWidth={367}
+                            allList={subjects}
+                            selectedList={editTeacher.subjects}
+                            changeInputList={(newList)=>setEditTeacher({...editTeacher, subjects: newList})}
+                            title='Приоритетные дисциплины'
+                        />
                         {editTeacher.vacations.map((el, index) => (
                             <VacationBlock
                                 isCheckError={checkEditTeacher}
@@ -544,6 +567,14 @@ export default function Main() {
                         <h2>Создание преподавателя</h2>
                         <Input isError={checkEditTeacher} value={newTeacher.name} placeholder='Фамилия' onChange={(val) => setNewTeacher({ ...newTeacher, name: val })} />
                         <Input isError={checkEditTeacher} value={newTeacher.rank} placeholder='Звание' onChange={(val) => setNewTeacher({ ...newTeacher, rank: val })} />
+                        <AddInput
+                            enableSearch
+                            minWidth={367}
+                            allList={subjects}
+                            selectedList={newTeacher.subjects}
+                            changeInputList={(newList)=>setNewTeacher({...newTeacher, subjects: newList})}
+                            title='Приоритетные дисциплины'
+                        />
                         {newTeacher.vacations.map((el, index) => (
                             <VacationBlock
                                 isCheckError={checkEditTeacher}

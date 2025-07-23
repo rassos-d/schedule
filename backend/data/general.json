@@ -1,6 +1,24 @@
 {
-  "Audiences": {},
-  "Squads": {},
+  "Audiences": {
+    "dc028805-0b49-40d7-bff7-71412372e008": {
+      "Name": "\u0412\u044B\u0431\u0430 \u043B\u0443\u0431\u0430 \u0434\u0430\u0431 \u0434\u0430\u0431",
+      "Id": "dc028805-0b49-40d7-bff7-71412372e008"
+    },
+    "307dff5c-7e61-4cd7-97a7-0bcb11fe3d90": {
+      "Name": "\u041D\u043E\u0432\u0430\u044F \u0410\u0443\u0434\u0438\u0442\u043E\u0440\u0438\u044F",
+      "Id": "307dff5c-7e61-4cd7-97a7-0bcb11fe3d90"
+    }
+  },
+  "Squads": {
+    "2737d99c-3608-43cf-9783-6cd750d48f8e": {
+      "StudyYear": 1,
+      "DaddyId": "7961cb7d-8f3e-4d6f-8b16-157df9aad45b",
+      "FixedAudienceId": "6d539c28-0a3a-499b-a635-809f49d9a7b9",
+      "DirectionId": "e562ddd4-87dd-435e-ac6b-73edf0901aaf",
+      "Name": "\u0414-323",
+      "Id": "2737d99c-3608-43cf-9783-6cd750d48f8e"
+    }
+  },
   "Teachers": {
     "665d2bf4-cd33-4126-99dc-4e0ae8e1e97b": {
       "Rank": "\u043F/\u043F-\u043A",
@@ -128,6 +146,17 @@
       "SubjectIds": [],
       "Name": "\u0411\u0430\u0441\u044B\u0440\u043E\u0432 \u0420.\u0410.",
       "Id": "6be83e4e-d07d-46c3-905a-58f5ab688d4a"
+    },
+    "5994dac3-bcfa-4bc9-8c81-08b4e2fb5c9e": {
+      "Rank": "SASERSTDFG",
+      "Vacations": [],
+      "SubjectIds": [
+        "ffe16901-d3e6-46d9-ba28-74f8523c56aa",
+        "39c137e5-b0de-417e-9dce-0c4b98de556d",
+        "8d099d02-c763-4c37-a11f-f58c820e5f2b"
+      ],
+      "Name": "sadfgh",
+      "Id": "5994dac3-bcfa-4bc9-8c81-08b4e2fb5c9e"
     }
   }
 }

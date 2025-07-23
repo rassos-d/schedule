@@ -1,3 +1,5 @@
+import { AddInputList } from "./input"
+
 export type Teacher = {
   name: string,
   rank: string,
@@ -10,6 +12,7 @@ export type NewTeacher = {
   name: string
   rank: string
   vacations: Vacation[],
+  subjects: AddInputList[],
 }
 
 export type Vacation = {
