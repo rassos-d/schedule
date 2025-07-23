@@ -90,7 +90,7 @@ function LessonComponent({ lesson, date, number, squardIndex, isConflict, isNew,
     if (ref.current && lesson.isUpdate || isNew) {
       addClass()
     }
-  },[lesson])
+  },[])
 
 
   return (

@@ -21,11 +21,11 @@ function VacationBlockComponent({ start, end, title, isCheckError, onChangeDate,
         <div className={styles.content__dates}>
           <div className={styles.content__date}>
             <p>Дата начала</p>
-            <Input isError={isCheckError} type='date' value={start} onChange={(newValue) => onChangeDate({startDate: newValue, endDate: end})} />
+            <Input defaultValue={end} startDate={end ? end : undefined} isError={isCheckError} type='date' value={start} onChange={(newValue) => onChangeDate({startDate: newValue, endDate: end})} />
           </div>
           <div className={styles.content__date}>
             <p>Дата конца</p>
-            <Input isError={isCheckError} type='date' value={end} onChange={(newValue) => onChangeDate({startDate: start, endDate: newValue})} />
+            <Input defaultValue={start} startDate={start ? start : undefined} isError={isCheckError} type='date' value={end} onChange={(newValue) => onChangeDate({startDate: start, endDate: newValue})} />
           </div>
         </div>
         <div onClick={onDelete} className={styles.content__close}>
