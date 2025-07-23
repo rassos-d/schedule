@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
+using Scheduler.Dto.Constants;
 
 public class PlanGenerator
 {
@@ -11,19 +12,21 @@ public class PlanGenerator
     public void Generate()
     {
         if (Directory.Exists(PlanDirectory))
-            Directory.Delete(PlanDirectory);
+            Directory.Delete(PlanDirectory, true);
         Directory.CreateDirectory(PlanDirectory);
-        
+
         if (!Directory.Exists(VucesDirectory))
             Directory.CreateDirectory(VucesDirectory);
 
-        var files = Directory.GetFiles(VucesDirectory)
+        var fileNames = Directory.GetFiles(VucesDirectory)
             .Where(x => x.EndsWith(".json"))
-            .Select(x => Path.Combine(VucesDirectory, x.Split(Path.DirectorySeparatorChar)[^1]));
+            .Select(x => x.Split(Path.DirectorySeparatorChar, '.')[^2]);
+
         var directions = new List<Tuple<Guid, string>>();
-        foreach (var file in files)
+        foreach (var fileName in fileNames)
         {
-            directions.Add(Tuple.Create(Parse(file), file));
+            var filePath = Path.Combine(VucesDirectory, $"{fileName}.json");
+            directions.Add(Tuple.Create(ParseDirection(filePath, fileName), fileName));
         }
 
         var result = new JArray();
@@ -39,7 +42,7 @@ public class PlanGenerator
         File.WriteAllText($"{PlanDirectory}/directions.json", result.ToString());
     }
 
-    private static Guid Parse(string file)
+    private static Guid ParseDirection(string file, string directionName)
     {
         var inputJson = File.ReadAllText(file);
         var inputData = JObject.Parse(inputJson);
@@ -48,7 +51,7 @@ public class PlanGenerator
         var outputObject = new JObject
         {
             ["Id"] =  directionId,
-            ["Name"] = $"ВУС-{file}"
+            ["Name"] = $"ВУС-{directionName}"
         };
 
         var subjectsArray = new JArray();
@@ -83,7 +86,7 @@ public class PlanGenerator
                         ["SelfStudyHours"] = lesson["self_study_hours"]?.Value<int>(),
                         ["Number"] = lesson["lesson_number"]?.Value<int>(),
                         ["Name"] = lesson["title"]?.ToString(),
-                        ["Type"] = GetLessonTypeFromText(lesson["type"]?.Value<string>()),
+                        ["Type"] = (int)GetLessonTypeFromText(lesson["type"]?.Value<string>()),
                         ["SubjectId"] = subjectId,
                         ["ThemeId"] = themeId,
                         ["Id"] = Guid.NewGuid()
@@ -106,15 +109,15 @@ public class PlanGenerator
         return directionId;
     }
 
-    private static int GetLessonTypeFromText(string? type) =>
+    private static LessonType GetLessonTypeFromText(string? type) =>
         type?.Trim() switch
         {
-            "Лекция" => 1,
-            "Семинар" => 0,
-            "Практическое занятие" => 2,
-            "Групповое занятие" => 3,
-            "Практическоезанятие" => 5,
-            "Выходной день" => 4,
-            _ => 1
+            "Семинар" => LessonType.Seminar,
+            "Лекция" => LessonType.Lecture,
+            "Практическое занятие" => LessonType.Practice,
+            "Групповое занятие" => LessonType.Group,
+            "Выходной день" => LessonType.Weekend,
+            "Практическоезанятие" => LessonType.Practice,
+            _ => LessonType.Lecture
         };
 }
