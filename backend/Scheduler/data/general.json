@@ -1,7 +1,7 @@
 {
   "Audiences": {
     "24f12d29-2a2e-4f3d-a82f-ccfd59bca229": {
-      "Name": "\u0412\u041E-403",
+      "Name": "\u0412\u041E-402",
       "Id": "24f12d29-2a2e-4f3d-a82f-ccfd59bca229"
     },
     "ebf246ff-0203-4e2b-967c-1a9f308ef9fb": {
@@ -11,6 +11,38 @@
     "783bafa4-f2bb-4a87-a81e-7217b966fc9d": {
       "Name": "\u0412\u041E-321",
       "Id": "783bafa4-f2bb-4a87-a81e-7217b966fc9d"
+    },
+    "5057c32e-a83d-45a7-b2ce-ed820ad84639": {
+      "Name": "\u0412\u041E-010",
+      "Id": "5057c32e-a83d-45a7-b2ce-ed820ad84639"
+    },
+    "450126f0-91a0-472e-9001-59e37e1b09b4": {
+      "Name": "\u0412\u041E-110",
+      "Id": "450126f0-91a0-472e-9001-59e37e1b09b4"
+    },
+    "ab44b222-1a2f-4aec-b836-f2d868aed3fd": {
+      "Name": "\u0412\u041E-301",
+      "Id": "ab44b222-1a2f-4aec-b836-f2d868aed3fd"
+    },
+    "90cb74cc-2267-48b9-8dd1-2dcd8bf221a9": {
+      "Name": "\u0412\u041E-304",
+      "Id": "90cb74cc-2267-48b9-8dd1-2dcd8bf221a9"
+    },
+    "19f615c9-e424-4bfa-8814-f521847ea4b8": {
+      "Name": "\u0412\u041E-305",
+      "Id": "19f615c9-e424-4bfa-8814-f521847ea4b8"
+    },
+    "143a9579-5978-4841-bb02-ec2cfcc6f553": {
+      "Name": "\u0412\u041E-316",
+      "Id": "143a9579-5978-4841-bb02-ec2cfcc6f553"
+    },
+    "4deb7e78-a753-4a5f-9c9c-beba2cf7d882": {
+      "Name": "\u0412\u041E-318",
+      "Id": "4deb7e78-a753-4a5f-9c9c-beba2cf7d882"
+    },
+    "fc7a4d8a-e6ec-434d-ab01-a44f03610088": {
+      "Name": "\u0412\u041E-408",
+      "Id": "fc7a4d8a-e6ec-434d-ab01-a44f03610088"
     }
   },
   "Squads": {
@@ -75,13 +107,6 @@
       "SubjectIds": [],
       "Name": "\u041B\u0443\u043D\u0435\u0432 \u0410.\u0414.",
       "Id": "80a6d492-aec1-4f6a-bb63-b4940e8b88b4"
-    },
-    "71664bd0-6ae8-466d-8af4-abffd675d013": {
-      "Rank": "\u043F\u043F\u043F",
-      "Vacations": [],
-      "SubjectIds": [],
-      "Name": "\u0410\u0410\u0410",
-      "Id": "71664bd0-6ae8-466d-8af4-abffd675d013"
     }
   }
 }
