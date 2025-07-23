@@ -248,6 +248,7 @@
 
 .popup {
   min-width: 400px;
+  max-width: 400px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -256,16 +257,18 @@
   &__title {
     font-weight: 600;
     flex: 1;
-    text-align: center;
   }
   &__text {
     flex: 1;
     min-width: 275px;
-    text-align: center;
+  }
+  &__block {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
   }
   &__line {
     width: 100%;
     display: flex;
-    align-items: center;
   }
 }

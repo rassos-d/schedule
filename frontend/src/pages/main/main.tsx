@@ -54,7 +54,6 @@ export default function Main() {
 
     const handleGetAllDirections = async () => {
         const { data } = await axios.get<Direction[]>(PagesURl.DIRECTION + '/find')
-        //console.log(data)
         setAllDirections(data)
     }
     const handleGetAllAudience = async () => {
@@ -90,7 +89,6 @@ export default function Main() {
 
     const handleGetAllTeachers = async () => {
         const { data } = await axios.get<Teacher[]>(PagesURl.TEACHER)
-        //console.log(data)
         setAllTeachers(data)
     }
     const handleAddTeacher = async () => {
@@ -328,7 +326,6 @@ export default function Main() {
         if (!editFlag) {
             result[index].isEdit = true
         }
-        console.log(result)
         setAllAudience(result)
     }
 

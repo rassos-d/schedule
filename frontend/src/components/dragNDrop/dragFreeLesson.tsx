@@ -38,7 +38,6 @@ function LessonComponent({ lesson, squardIndex, onMove, onDelete, onDragging, on
     },
     collect: (monitor) => {
       if (monitor.isDragging()) {
-        console.log(monitor)
         onDragging(lesson.squad.id.toString())
       }
       return {isDragging: !!monitor.isDragging()}
