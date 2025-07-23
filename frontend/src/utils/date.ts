@@ -420,3 +420,34 @@ export function getSemesterEndDate(semester: number): string {
 
     return `${year}-${month}-${day}`;
 }
+
+export function prettyDate(inputDate: string): string {
+
+    const parts = inputDate.split('-');
+    if (parts.length !== 3) {
+        throw new Error('Неверный формат даты. Ожидается yyyy-dd-mm');
+    }
+
+    const year = parts[0];
+    const day = parts[2];
+    const month = parts[1];
+
+    if (isNaN(Number(year)) || isNaN(Number(month)) || isNaN(Number(day))) {
+        throw new Error('Неверный формат даты. Год, месяц и день должны быть числами');
+    }
+    const monthNames: string[] = [
+        'Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня',
+        'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'
+    ];
+
+    const monthIndex = parseInt(month, 10) - 1;
+    if (monthIndex < 0 || monthIndex >= monthNames.length) {
+        throw new Error('Неверный номер месяца. Должен быть от 1 до 12');
+    }
+
+    const monthName = monthNames[monthIndex];
+
+    const formattedDay = parseInt(day, 10).toString();
+
+    return `${formattedDay} ${monthName} ${year}`;
+}

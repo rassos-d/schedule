@@ -54,7 +54,7 @@ export function Input({ placeholder, value, required, type, maxValues, isError, 
   }, [textarea]);
 
   if (type === 'date') {
-    return <input min={startDate} max={endDate} type="date" value={value} className={`${styles.input} ${!isValid() ? styles.inputBlock_error : ''}`} onChange={(e) => { changeValue(e.target.value) }} />
+    return <input min={startDate} max={endDate} type="date" value={value} className={`${styles.input} ${!isValid() ? styles.input_error : ''}`} onChange={(e) => { changeValue(e.target.value) }} />
   }
   if (type === 'time') {
     return <input

@@ -14,7 +14,7 @@ import { DropLesson } from '../../components/dragNDrop/dropLesson'
 import { DropZone } from '../../components/dragNDrop/dropZone'
 import { DragFreeLesson } from '../../components/dragNDrop/dragFreeLesson'
 import PopupContainer from '../../components/popupContainer/popupContainer'
-import { AddInput, Input } from '../../components/input/Input'
+import { AddInput } from '../../components/input/Input'
 import { Tabs } from '../../components/tabs/tabs'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Teacher } from '../../types/teacher'
@@ -22,7 +22,7 @@ import { Audience } from '../../types/audience'
 import { Direction } from '../../types/directions'
 import { FreeLesson, NewLesson, NewLessonRequest, SheduleLesson } from '../../types/lesson'
 import { Squad } from '../../types/squad'
-import { getWeekDayAndDate } from '../../utils/date'
+import { getWeekDayAndDate, prettyDate } from '../../utils/date'
 import { toast } from 'react-toastify'
 import { Subject } from '../../types/subject'
 import { AddInputList } from '../../types/input'
@@ -91,17 +91,14 @@ export default function ShedulePage() {
 
     const handleGetAllTeachers = async () => {
         const {data } = await axios.get<Teacher[]>(PagesURl.TEACHER)
-        //console.log(data)
         setAllTeachers(data)
     }
     const handleGetAllAudience = async () => {
         const {data} = await axios.get<Audience[]>(PagesURl.AUDIENCE)
-        //console.log(data)
         setAllAudience(data)
     }
     const handleGetAllDirections = async () => {
         const {data} = await axios.get<Direction[]>(PagesURl.DIRECTION + '/find')
-        //console.log(data)
         setAllDirections(data)
     }
     const handleGetAllSquads = async () => {
@@ -156,7 +153,6 @@ export default function ShedulePage() {
 
     const handleGetSchedule = async (studyYear: number) => {
         const {data} = await axios.get<Schedule>(PagesURl.EVENT + `/schedules/${id}/${studyYear}`)
-        //console.log(data, 'schedule')
         const freeLessons:FreeLesson[] = []
         for (const lesson of data.noName) {
             freeLessons.push(({...lesson, squardIndex: data.squads.findIndex((squad)=>squad.id === lesson.squad.id)}))
@@ -251,7 +247,6 @@ export default function ShedulePage() {
     }
     const onMoveFreeToLesson = (target: {date: string, number: number, lesson?:SheduleLesson}, lesson: FreeLesson) => {
         if (!target.date) return
-        console.log(target,'target')
         setShedule((prev)=>{
             const newShedule:Schedule = JSON.parse(JSON.stringify(prev))
             newShedule.squads[activeSquardIndex].events[target.date][target.number - 1] = {...lesson, number: target.number, date: target.date, isUpdate: true}
@@ -309,7 +304,6 @@ export default function ShedulePage() {
         if (!subjects || !newLesson || !newLesson.subject) return [] as AddInputList[]
         const selectedSubject = subjects.filter((subject)=>subject.id === newLesson.subject?.id)
         if (!selectedSubject) return [] as AddInputList[]
-        console.log(selectedSubject, newLesson.theme, subjects)
         return selectedSubject[0].themes.filter((theme)=>theme.id === newLesson.theme?.id)[0].lessons
     }
 
@@ -348,7 +342,6 @@ export default function ShedulePage() {
     const onDragging = (squadId: string) => {
         if (!schedule) return
         for (const squad of schedule.squads) {
-            console.log(squad.id, squadId)
             if (squad.id !== squadId) {
                 const element = document.getElementById(`squad--${squad?.id}`);
                 if (element) {
@@ -387,7 +380,7 @@ export default function ShedulePage() {
     return (
         <>
             <Helmet>
-                <title>{`${schedule.name} ${activeTab} курс ${getSemesterName()} семестр `}</title>
+                <title>{`${schedule.name} ${activeTab} год ${getSemesterName()} семестр `}</title>
             </Helmet>
             <div  ref={containerRef} className={`${styles.container}`}>
                 <div className={styles.container__tabs}>
@@ -397,7 +390,7 @@ export default function ShedulePage() {
                     <Button onClick={()=>navigate('/')} className={styles.container__back}>На главную</Button>
                     <Button onClick={handleExportShedule}>ЭКСПОРТ</Button>
                 </div>
-                <h1 className={styles.container__title}>{`${schedule.name} ${activeTab} курс ${getSemesterName()} семестр`}</h1>
+                <h1 className={styles.container__title}>{`${schedule.name} ${activeTab} год ${getSemesterName()} семестр`}</h1>
                 <DndProvider backend={HTML5Backend}>
                     {schedule.squads.map((item, squardIndex) => (
                         <div id={`squad--${item.id}`} key={item.id} className={styles.container__tableContainer}>
@@ -501,12 +494,11 @@ export default function ShedulePage() {
                 <PopupContainer onClose={()=>setNewLesson(undefined)}>
                     <div className={styles.popup}>
                         <h2>{`${newLesson.isNewLesson ? 'Создание' : 'Редактирование'} занятия`}</h2>
-                        <div className={styles.popup__line}>
+                        <div className={styles.popup__block}>
                             <p className={styles.popup__title}>Взвод:</p>
                             <AddInput
+                                enableSearch
                                 isError={displayErrorsEvent}
-                                minWidth={275}
-                                maxWidth={275}
                                 selectedList={newLesson.squad ? [newLesson.squad] : []}
                                 allList={schedule.squads}
                                 singleMode
@@ -514,13 +506,11 @@ export default function ShedulePage() {
                                 changeInputList={(newlist)=>changeSquadNewLesson(true, newlist[0])}
                             />
                         </div>
-                        <div className={styles.popup__line}>
+                        <div className={styles.popup__block}>
                             <p className={styles.popup__title}>Дисциплина:</p>
                             <AddInput
                                 isError={displayErrorsEvent}
                                 enableSearch
-                                minWidth={275}
-                                maxWidth={275}
                                 selectedList={newLesson.subject ? [newLesson.subject] : []}
                                 singleMode
                                 allList={subjects}
@@ -529,12 +519,11 @@ export default function ShedulePage() {
                             />
                         </div>
                         {newLesson.subject &&   
-                            <div className={styles.popup__line}>
+                            <div className={styles.popup__block}>
                                 <p className={styles.popup__title}>Тема:</p>
                                 <AddInput
+                                    enableSearch
                                     isError={displayErrorsEvent}
-                                    minWidth={275}
-                                    maxWidth={275}
                                     selectedList={newLesson.theme ? [newLesson.theme] : []}
                                     singleMode
                                     allList={subjects.filter((subject)=>subject.id === newLesson.subject?.id)[0].themes}
@@ -544,12 +533,11 @@ export default function ShedulePage() {
                             </div>
                         }
                         {newLesson.theme &&   
-                            <div className={styles.popup__line}>
+                            <div className={styles.popup__block}>
                                 <p className={styles.popup__title}>Занятие:</p>
                                 <AddInput
+                                    enableSearch
                                     isError={displayErrorsEvent}
-                                    minWidth={275}
-                                    maxWidth={275}
                                     selectedList={newLesson.lesson ? [newLesson.lesson] : []}
                                     singleMode
                                     allList={getLessonsByTheme()}
@@ -558,12 +546,11 @@ export default function ShedulePage() {
                                 />
                             </div>
                         }
-                        <div className={styles.popup__line}>
+                        <div className={styles.popup__block}>
                             <p className={styles.popup__title}>Преподаватель:</p>
                             <AddInput
+                                enableSearch
                                 isError={displayErrorsEvent}
-                                minWidth={275}
-                                maxWidth={275}
                                 selectedList={newLesson.teacher ? [newLesson.teacher] : []}
                                 singleMode
                                 allList={allTeachers}
@@ -571,12 +558,11 @@ export default function ShedulePage() {
                                 changeInputList={(newList)=>setNewLesson({...newLesson, teacher: {...newList[0]}})}
                             />
                         </div>
-                        <div className={styles.popup__line}>
+                        <div className={styles.popup__block}>
                             <p className={styles.popup__title}>Аудитория:</p>
                             <AddInput
+                                enableSearch
                                 isError={displayErrorsEvent}
-                                minWidth={275}
-                                maxWidth={275}
                                 selectedList={newLesson.audience ? [newLesson.audience] : []}
                                 singleMode
                                 allList={allAudience}
@@ -584,15 +570,17 @@ export default function ShedulePage() {
                                 changeInputList={(newList)=>setNewLesson({...newLesson, audience: {...newList[0]}})}
                             />
                         </div>
+                        {newLesson.date && newLesson.date.length !== 0 &&
                         <div className={styles.popup__line}>
                             <p className={styles.popup__title}>Дата:</p>
                             <div className={styles.popup__text}>
-                                <Input isError={displayErrorsEvent} type='date' value={newLesson.date ?? ''} onChange={(value)=>setNewLesson({...newLesson, date: value})}/>
+                                {/* <Input isError={displayErrorsEvent} type='date' value={newLesson.date ?? ''} onChange={(value)=>setNewLesson({...newLesson, date: value})}/> */}
+                                <p>{prettyDate(newLesson.date)}</p>
                             </div>
-                        </div>
+                        </div>}
                         <div className={styles.popup__line}>
                             <p className={styles.popup__title}>Время:</p>
-                            <AddInput
+{/*                             <AddInput
                                 isError={displayErrorsEvent}
                                 minWidth={275}
                                 maxWidth={275}
@@ -601,7 +589,10 @@ export default function ShedulePage() {
                                 allList={TIMES.map((el, index)=>({name: `${el.number} ${el.time}`, id: index + 1}))}
                                 title='Выберите время'
                                 changeInputList={(newList)=>setNewLesson({...newLesson, number: Number(newList[0].id)})}
-                            />
+                            /> */}
+                            <div className={styles.popup__text}>
+                                <p>{newLesson.number ? `${TIMES[newLesson.number - 1].number} ${TIMES[newLesson.number - 1].time}` :''}</p>
+                            </div>
                         </div>
                         <Button onClick={handleCreateLesson} size={'max'}>Сохранить</Button>
                     </div>
