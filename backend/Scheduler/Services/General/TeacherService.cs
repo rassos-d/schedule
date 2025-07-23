@@ -1,10 +1,11 @@
 using Scheduler.DataAccess.General;
 using Scheduler.Dto.General.Teacher;
 using Scheduler.Entities.General;
+using Scheduler.Services.Schedule;
 
 namespace Scheduler.Services.General;
 
-public class TeacherService(TeacherRepository repo)
+public class TeacherService(TeacherRepository repo, ScheduleService scheduleService, SquadService squadService)
 {
     public List<Teacher> Find() => repo.GetAll();
     
@@ -53,5 +54,15 @@ public class TeacherService(TeacherRepository repo)
     public void Delete(Guid id)
     {
         repo.Delete(id);
+        scheduleService.DeleteFromAllEvents(e =>
+        {
+            if (e.TeacherId == id) 
+                e.TeacherId = null;
+        });
+        squadService.DeleteFromAllSquads(s =>
+        {
+            if (s.DaddyId == id)
+                s.DaddyId = null;
+        });
     }
 }

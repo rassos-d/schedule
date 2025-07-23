@@ -3,8 +3,8 @@ using Scheduler.DataAccess;
 using Scheduler.Dto;
 using Scheduler.Dto.Constants;
 using Scheduler.Dto.Schedule;
+using Scheduler.Entities;
 using Scheduler.Entities.Schedule;
-using Scheduler.Exceptions;
 using Scheduler.Export;
 using Scheduler.Extensions;
 using Scheduler.Models;
@@ -168,5 +168,18 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
         }
 
         return 0;
+    }
+
+    public void DeleteFromAllEvents(Action<Event> deleteValueAction)
+    {
+        foreach (var scheduleInfo in repo.GetAllScheduleInfos())
+        {
+            var scheduler = repo.GetSchedule(scheduleInfo.Id);
+            foreach (var page in scheduler.Pages)
+                foreach (var @event in page.Events)
+                    deleteValueAction(@event);
+        
+            repo.SaveSchedule(scheduler);
+        }
     }
 }

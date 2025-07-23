@@ -5,6 +5,7 @@ using Scheduler.Middlewares;
 using Scheduler.Services.Events;
 using Scheduler.Services.General;
 using Scheduler.Services.Schedule;
+using Scheduler.Services.Statistics;
 using PlanRepository = Scheduler.DataAccess.Plan.PlanRepository;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -33,6 +34,8 @@ builder.Services.AddSingleton<TeacherService>();
 builder.Services.AddSingleton<ScheduleService>();
 builder.Services.AddSingleton<EventService>();
 builder.Services.AddSingleton<EventGenerator>();
+builder.Services.AddSingleton<StatisticsService>();
+builder.Services.AddSingleton<AudienceService>();
 builder.Services.AddSingleton<ExcelExportService>();
 builder.Services.AddControllers();
 
