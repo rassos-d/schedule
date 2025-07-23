@@ -1,8 +1,7 @@
 using Scheduler.DataAccess;
 using Scheduler.DataAccess.General;
-using Scheduler.Export;
 using Scheduler.Middlewares;
-using Scheduler.Services.Events;
+using Scheduler.Services.Export;
 using Scheduler.Services.General;
 using Scheduler.Services.Schedule;
 using Scheduler.Services.Statistics;

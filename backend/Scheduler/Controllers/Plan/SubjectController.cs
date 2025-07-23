@@ -7,25 +7,18 @@ namespace Scheduler.Controllers.Plan;
 
 [ApiController]
 [Route("api/subjects")]
-public class SubjectController : ControllerBase
+public class SubjectController(PlanRepository planRepository) : ControllerBase
 {
-    private readonly PlanRepository _planRepository;
-
-    public SubjectController(PlanRepository planRepository)
-    {
-        _planRepository = planRepository;
-    }
-
     [HttpGet("find")]
     public IActionResult Find([FromQuery] Guid? directionId)
     {
-        return Ok(_planRepository.FindSubjects(directionId));
+        return Ok(planRepository.FindSubjects(directionId));
     }
 
     [HttpGet("{id::guid}")]
     public IActionResult Get(Guid id)
     {
-        var direction = _planRepository.GetDirection(id);
+        var direction = planRepository.GetDirection(id);
         if (direction is null)
         {
             return NotFound();
@@ -38,21 +31,21 @@ public class SubjectController : ControllerBase
     public IActionResult Create([FromBody] SubjectCreateDto request)
     {
         var subj = new Subject { Name = request.Name, ShortName = request.ShortName, DirectionId = request.DirectionId };
-        _planRepository.SaveSubject(subj);
+        planRepository.SaveSubject(subj);
         return Ok(subj);
     }
 
     [HttpPut]
     public IActionResult Update([FromBody] Subject updatedSubject)
     {
-        var direction = _planRepository.GetDirection(updatedSubject.Id);
+        var direction = planRepository.GetDirection(updatedSubject.Id);
 
         if (direction == null)
         {
             return NotFound();
         }
 
-        _planRepository.SaveSubject(updatedSubject);
+        planRepository.SaveSubject(updatedSubject);
         return Ok();
 
     }
@@ -60,14 +53,14 @@ public class SubjectController : ControllerBase
     [HttpDelete("{id:guid}")]
     public IActionResult Delete(Guid id)
     {
-        var direction = _planRepository.GetDirection(id);
+        var direction = planRepository.GetDirection(id);
 
         if (direction == null)
         {
             return NotFound();
         }
 
-        _planRepository.DeleteSubject(id);
+        planRepository.DeleteSubject(id);
         return Ok();
     }
 }

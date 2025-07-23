@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Scheduler.Services.Statistics;
 
-namespace Scheduler.Controllers.Statisctic;
+namespace Scheduler.Controllers.Statistic;
 
 [ApiController]
 [Route("api/statistics")]

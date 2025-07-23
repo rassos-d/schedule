@@ -5,8 +5,8 @@ namespace Scheduler.DataAccess.Plan;
 
 public partial class PlanRepository : BaseRepository
 {
-    protected readonly List<Direction> Directions = [];
-    protected IEnumerable<Subject> Subjects => Directions.SelectMany(d => d.Subjects);
+    private readonly List<Direction> _directions = [];
+    private IEnumerable<Subject> Subjects => _directions.SelectMany(d => d.Subjects);
     
     public PlanRepository() : base("plan")
     {
@@ -21,7 +21,7 @@ public partial class PlanRepository : BaseRepository
     {
         if (id is not null)
         {
-            var direction = Directions.FirstOrDefault(x => x.Id == id);
+            var direction = _directions.FirstOrDefault(x => x.Id == id);
             if (direction is not null)
             {
                 WriteFile($"{direction.Id}.json", direction);
@@ -29,7 +29,7 @@ public partial class PlanRepository : BaseRepository
             return;
         }
         
-        foreach (var direction in Directions)
+        foreach (var direction in _directions)
         {
             WriteFile($"{direction.Id}.json", direction);
         }

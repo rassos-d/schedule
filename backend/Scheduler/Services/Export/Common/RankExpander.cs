@@ -1,6 +1,8 @@
+namespace Scheduler.Services.Export.Common;
+
 internal static class RankExpander
 {
-    private readonly static Dictionary<string, string> ShortToLongRank = new Dictionary<string, string>()
+    private static readonly Dictionary<string, string> ShortToLongRank = new()
     {
         {"п/п-к", "подполковник"},
         {"м-р", "майор"},
@@ -13,5 +15,5 @@ internal static class RankExpander
     };
      
     public static string? GetFullOrDefault(string? @short) => 
-        @short is null ? null : ShortToLongRank.GetValueOrDefault(@short, null);
+        @short is null ? null : ShortToLongRank!.GetValueOrDefault(@short, null);
 }

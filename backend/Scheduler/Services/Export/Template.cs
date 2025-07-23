@@ -1,6 +1,8 @@
 using System.Drawing;
 using OfficeOpenXml;
 
+namespace Scheduler.Services.Export;
+
 internal record Template
 {
     public required TemplateElement Header { get; init; }

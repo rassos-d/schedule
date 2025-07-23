@@ -1,6 +1,8 @@
+namespace Scheduler.Services.Export.Common;
+
 internal static class DayOfWeekExtensions
 {
-    private readonly static Dictionary<DayOfWeek, string> Day = new Dictionary<DayOfWeek, string>()
+    private static readonly Dictionary<DayOfWeek, string> Day = new()
     {
         {DayOfWeek.Monday, "ПОНЕДЕЛЬНИК"},
         {DayOfWeek.Tuesday, "ВТОРНИК"},

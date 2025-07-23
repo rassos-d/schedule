@@ -1,7 +1,5 @@
-using Scheduler.Dto;
 using Scheduler.Dto.Plan.Lesson;
 using Scheduler.Entities.Plan;
-using Scheduler.Exceptions;
 
 namespace Scheduler.DataAccess.Plan;
 
@@ -45,8 +43,11 @@ public partial class PlanRepository
     public void UpdateLesson(LessonUpdateDto dto)
     {
         var lesson = GetLesson(dto.Id);
-        // if (lesson is null)
-        //     throw new EntityNotFoundException("Урок не существует");
+        if (lesson is null)
+        {
+            // throw new EntityNotFoundException("Урок не существует");
+            return;
+        }
         //
         // if (GetLessons().Any(l => l.Name == dto.Name))
         //     throw new EntityAlreadyExistExceptions("Занятие с таким именем уже создано");

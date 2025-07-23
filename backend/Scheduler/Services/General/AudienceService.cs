@@ -5,7 +5,11 @@ using Scheduler.Services.Schedule;
 
 namespace Scheduler.Services.General;
 
-public class AudienceService(AudienceRepository generalRepo, ScheduleService scheduleService, SquadService squadService)
+public class AudienceService(
+    AudienceRepository generalRepo,
+    ScheduleService scheduleService,
+    SquadService squadService
+    )
 {
     public List<Audience> Find()
     {
