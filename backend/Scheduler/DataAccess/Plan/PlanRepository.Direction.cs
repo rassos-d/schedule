@@ -1,6 +1,6 @@
-using System.Text.Json;
 using Scheduler.Entities.Plan;
 using Scheduler.Models;
+using System.Text.Json;
 using static Scheduler.Constants.FilePaths;
 
 namespace Scheduler.DataAccess.Plan;
@@ -9,13 +9,18 @@ public partial class PlanRepository
 {
     public void SaveDirection(Direction direction)
     {
+        var directions = GetAllDirectionInfos();
+       
+        Directions.RemoveAll(d => d.Id == direction.Id);
+        directions.RemoveAll(d => d.Id == direction.Id);
+        
+
+        directions.Add(new DirectionInfo(direction.Id, direction.Name));
+
+        WriteFile(DirectionsFilePath, directions);
+
         Directions.Add(direction);
         WriteFile($"{direction.Id}.json", direction);
-        
-        var directions = GetAllDirectionInfos();
-        directions.Add(new DirectionInfo(direction.Id, direction.Name));
-        
-        WriteFile(DirectionsFilePath, directions);
     }
 
     public Direction? GetDirection(Guid id)
@@ -46,17 +51,16 @@ public partial class PlanRepository
     public void DeleteDirection(Guid id)
     {
         var direction = GetDirection(id);
-        if (direction is not null)
-        {
-            Directions.Remove(direction);
-        }
+        Directions.RemoveAll(d => d.Id == direction.Id);
         
-        var filePath = Path.Combine(DirectoryPath, $"{id}.json");
-        if (File.Exists(filePath) == false)
-        {
-            return;
-        }
+        var directions = GetAllDirectionInfos();
+        directions.RemoveAll(d => d.Id == direction.Id);
+        WriteFile(DirectionsFilePath, directions);
 
-        File.Delete(filePath);
+        var filePath = Path.Combine(DirectoryPath, $"{id}.json");
+        if (File.Exists(filePath))
+        {
+            File.Delete(filePath);
+        }
     }
 }
