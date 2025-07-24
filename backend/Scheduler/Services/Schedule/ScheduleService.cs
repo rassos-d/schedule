@@ -69,9 +69,10 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
         repo.SaveSchedule(schedule);
     }
     
-    public List<int> GetStudyYears(Guid scheduleId)
+    public List<StudyYearsDto> GetStudyYears(Guid scheduleId)
     {
-        return repo.GetStudyYears(scheduleId);
+        var schedule = repo.GetSchedule(scheduleId);
+        return schedule.Pages.Select(p => new StudyYearsDto((int) p.StudyYear, p.Dates.Min().DayOfWeek.ToRussian())).ToList();
     }
 
     public string ExportExcel(Guid scheduleId)
