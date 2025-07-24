@@ -19,7 +19,7 @@ const NEW_SUBJECT_NAME = 'Новый предмет'
 
 export function EditPlan() {
 
-  const [isOpenDirections, setIsOpensDirections] = useState<boolean>(false)
+  const [isOpenDirections, setIsOpensDirections] = useState<boolean>(true)
   const [allDirections, setAllDirections] = useState<(Direction & { isEdit: boolean, isWarning: boolean })[]>()
   const [confirmDeleteDirectionId, setConfirmDeleteDirectionId] = useState<string>()
   const [selectedDirection, setSelectedDirection] = useState<{name: string, id: string}>()
@@ -314,7 +314,7 @@ export function EditPlan() {
                 isEdit={el.isEdit}
                 isWarning={el.isWarning}
                 key={`${el.id}--${index}`}
-                value={`Занятие ${el.number}`}
+                value={`Занятие ${el.number} (${LESSON_TYPE[el.type].name})`}
                 onEdit={() => {setEditLesson(
                   {...el, 
                     type: {name: LESSON_TYPE[el.type].name, id: el.type}, 
