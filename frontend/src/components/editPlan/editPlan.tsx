@@ -32,7 +32,7 @@ export function EditPlan() {
   const [isOpenThemes, setIsOpenThemes] = useState<boolean>(false)
   const [allThemes, setAllThemes] = useState<(Theme & { isEdit: boolean, isWarning: boolean})[]>()
   const [confirmDeleteThemeId, setConfirmDeleteThemeId] = useState<string>()
-  const [selectedTheme, setSelectedTheme] = useState<{name: number, id: string}>()
+  const [selectedTheme, setSelectedTheme] = useState<{name: string, id: string}>()
   const [editTheme, setEditTheme] = useState<Theme>()
   const [newTheme, setNewTheme] = useState<NewTheme>()
 
@@ -73,6 +73,7 @@ export function EditPlan() {
       }
     })
     setAllSubjects(data.map((el) => ({ ...el, isEdit: false, isWarning: false })))
+    setIsOpenSubjects(true)
   }
   const handleEditSubject = async (id: string, name: string) => {
     await axios.put(PagesURl.SUBJECT, {
@@ -102,6 +103,7 @@ export function EditPlan() {
       }
     })
     setAllThemes(data.map((el) => ({ ...el, isEdit: false, isWarning: false })))
+    setIsOpenThemes(true)
   }
   const handleDeleteTheme = async (id: string) => {
     await axios.delete(PagesURl.THEME + `/${id}`)
@@ -127,6 +129,7 @@ export function EditPlan() {
       }
     })
     setAllLessons(data)
+    setIsOpenLessons(true)
   }
   const handleDeleteLesson = async (lessonId: string) => {
     await axios.delete(PagesURl.LESSON + `/${lessonId}`)
@@ -216,7 +219,7 @@ export function EditPlan() {
   return (
     <>
       <h3 className={styles.container__subtitle}>Настройки тематического плана</h3>
-      <SettingsList changeIsOpen={setIsOpensDirections} isOpenList={isOpenDirections} title={selectedDirection ? selectedDirection.name : 'Направления'}>
+      <SettingsList isSelected={selectedDirection !== undefined} changeIsOpen={setIsOpensDirections} isOpenList={isOpenDirections} title={selectedDirection ? selectedDirection.name : 'Направления'}>
         <>
           {allDirections.map((el, index) => (
             <HiddenInputBlock
@@ -234,7 +237,7 @@ export function EditPlan() {
         </>
       </SettingsList>
       {allSubjects && 
-        <SettingsList changeIsOpen={setIsOpenSubjects} isOpenList={isOpenSubjects} title={selectedSubject ? selectedSubject.name : 'Предметы'}>
+        <SettingsList isSelected={selectedSubject !== undefined} changeIsOpen={setIsOpenSubjects} isOpenList={isOpenSubjects} title={selectedSubject ? selectedSubject.name : 'Предметы'}>
           <>
             {allSubjects.map((el, index) => (
               <HiddenInputBlock
@@ -253,16 +256,16 @@ export function EditPlan() {
         </SettingsList>
       }
       {allThemes &&
-        <SettingsList changeIsOpen={setIsOpenThemes} isOpenList={isOpenThemes} title={selectedTheme ? selectedTheme.name.toString() : 'Темы'}>
+        <SettingsList isSelected={selectedTheme !== undefined} changeIsOpen={setIsOpenThemes} isOpenList={isOpenThemes} title={selectedTheme ? selectedTheme.name.toString() : 'Темы'}>
           <>
             {allThemes.map((el, index) => (
               <HiddenInputBlock
                 isEdit={el.isEdit}
                 isWarning={el.isWarning}
                 key={`${el.id}--${index}`}
-                value={el.number.toString()}
+                value={`Тема ${el.number}`}
                 onEdit={() => setEditTheme(el)}
-                onSelect={() => { setSelectedTheme({ name: el.number, id: el.id });setIsOpenThemes(false) }}
+                onSelect={() => { setSelectedTheme({ name: `Тема ${el.number}`, id: el.id });setIsOpenThemes(false) }}
                 onDelete={() => { setConfirmDeleteThemeId(el.id) }}
               />
             ))}
@@ -278,7 +281,7 @@ export function EditPlan() {
                 isEdit={el.isEdit}
                 isWarning={el.isWarning}
                 key={`${el.id}--${index}`}
-                value={el.number.toString()}
+                value={`Занятие ${el.number}`}
                 onEdit={() => {setEditLesson(
                   {...el, 
                     type: {name: LESSON_TYPE[el.type].name, id: el.type}, 
@@ -327,7 +330,7 @@ export function EditPlan() {
           <div className={styles.popup}>
             <h2>Редактирование темы</h2>
             <div className={styles.popup__block}>
-              <p>Номер темы:</p>
+              <p>Номер темы</p>
               <Input value={editTheme.number.toString()} placeholder='Введите номер темы' onChange={(val) => setEditTheme({ ...editTheme, number: Number(val) })} />
             </div>
             <Button onClick={()=>handleCreateTheme(false, editTheme.number, editTheme.id)}>Сохранить</Button>
@@ -339,7 +342,7 @@ export function EditPlan() {
           <div className={styles.popup}>
             <h2>Создание темы</h2>
             <div className={styles.popup__block}>
-              <p>Номер темы:</p>
+              <p>Номер темы</p>
               <Input value={newTheme.number ? newTheme.number.toString() : ''} placeholder='Введите номер темы' onChange={(val) => setNewTheme({ ...newTheme, number: Number(val) })} />
             </div>
             <Button onClick={()=>handleCreateTheme(true, newTheme.number, undefined)}>Создать тему</Button>

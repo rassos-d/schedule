@@ -6,10 +6,11 @@ type SettingsListProps = {
   children: JSX.Element
   title: string
   isOpenList?: boolean
+  isSelected?: boolean
   changeIsOpen?: (newOpen: boolean) => void
 }
 
-function SettingsListComponent ({children, title, isOpenList, changeIsOpen}:SettingsListProps) {
+function SettingsListComponent ({children, title, isOpenList, isSelected, changeIsOpen}:SettingsListProps) {
 
   const [isOpen, setIsOpen] = useState(false)
 
@@ -29,9 +30,9 @@ function SettingsListComponent ({children, title, isOpenList, changeIsOpen}:Sett
             {children}
           </div>
         </div> : 
-        <div onClick={()=>{setIsOpen(true);changeIsOpen && changeIsOpen(true)}} className={styles.container__title}>
+        <div onClick={()=>{setIsOpen(true);changeIsOpen && changeIsOpen(true)}} className={`${styles.container__title} ${isSelected && styles.container__title_active}`}>
           <p>{title}</p>
-          <Icon glyph='arrow-down' glyphColor='black'/>
+          <Icon glyph='arrow-down' glyphColor={isSelected ? 'white' : 'black'}/>
         </div>
       }
     </div>
