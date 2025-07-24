@@ -110,7 +110,7 @@ function LessonComponent({ lesson, date, number, squardIndex, isConflict, isNew,
         <p>{lesson.audience?.name}</p>
         <p>{lesson.teacher?.name}</p>
       </div>
-      {isHover && <div onClick={(e)=>{e.stopPropagation();onDelete()}} className={styles.dragLessonContainer__delete}><Icon size={16} glyph='trash' glyphColor='error'/></div>}
+      {isHover && <div onClick={(e)=>{e.stopPropagation();onDelete()}} className={styles.dragLessonContainer__delete}><Icon size={16} glyph='trash' glyphColor={isConflict ? 'black' : 'error'}/></div>}
     </div>
   );
 }

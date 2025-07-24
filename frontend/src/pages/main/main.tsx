@@ -210,7 +210,7 @@ export default function Main() {
             pages: schedule.pages.map(page => ({
                 ...page,
                 squads: page.squads.map(squad => squad.id),
-                semester: page.semester ? page.semester.id : undefined
+                semester: schedule.semester ? schedule.semester.id : undefined
             }))
         };
         const { data } = await axios[schedule.isNew ? 'post' : 'put']<{ data: string }>(PagesURl.SCHEDULE + (!schedule.isNew ? '/full' : ''), transformedSchedule)
@@ -285,9 +285,8 @@ export default function Main() {
                 ...prev, pages: [...prev.pages, {
                     studyYear: freeYears[0],
                     squads: [],
-                    start: new Date().toISOString(),
-                    end: new Date().toISOString(),
-                    semester: undefined
+                    start: '',
+                    end: ''
                 }
                 ]
             }
@@ -308,20 +307,24 @@ export default function Main() {
             if (!prev) return undefined
             const result = cloneObject(prev)
             if (result.pages[index].studyYear !== year) {
-                result.pages[index] = { ...result.pages[index], squads: [], semester: undefined }
+                result.pages[index] = { ...result.pages[index], squads: [] }
+            }
+            if (result.pages[index].studyYear === 1 && year !== 1 || result.pages[index].studyYear !== 1 && year === 1) {
+                result.semester = undefined
             }
             result.pages[index].studyYear = year
             return result
         })
     }
-    const addNewSemesterToYear = (newSemestr: AddInputList, index: number) => {
+    const addNewSemester = (newSemestr: AddInputList) => {
         setNewSchedule((prev) => {
             if (!prev) return undefined
             const result = cloneObject(prev)
-            if (result.pages[index].semester !== newSemestr) {
-                result.pages[index].semester = newSemestr
-                result.pages[index].end = ''
-                result.pages[index].start = ''
+            if (!result.semester) {
+                return {...result, semester: newSemestr}
+            }
+            if (result.semester.id !== newSemestr.id) {
+                return {...result, pages: result.pages.map((el)=>({...el, end: '', start: ''}))}
             }
             return result
         })
@@ -487,6 +490,16 @@ export default function Main() {
                     <div className={styles.popup}>
                         <h2>{newSchedule.isNew ? 'Создание' : 'Редактирование'} расписания</h2>
                         <div style={{ width: '95%' }}><Input value={newSchedule.name} onChange={(value) => setNewSchedule({ ...newSchedule, name: value })} placeholder='Введите название' /></div>
+                        <div style={{ width: '95%' }}>
+                            <AddInput
+                                title='Семестр'
+                                singleMode
+                                isError={isEnableValidationCreateSchedule}
+                                selectedList={newSchedule.semester ? [newSchedule.semester] : []}
+                                allList={newSchedule.pages.find((page) => page.studyYear === 1) ? SEMESTR_YEAR.filter((el) => el.id === 0) : SEMESTR_YEAR}
+                                changeInputList={(newList) => addNewSemester(newList[0])}
+                            />
+                        </div>
                         {newSchedule.pages.map((year, index) => (
                             <div className={styles.popup__addList} key={year.studyYear}>
                                 <div onClick={(e)=>{e.stopPropagation();setConfirmDeleteScheduleYearIndex(index)}} className={styles.popup__delete}>
@@ -500,14 +513,6 @@ export default function Main() {
                                     allList={freeCoursesYear.map((year) => ({ name: year, id: year }))}
                                     changeInputList={(newList) => addNewYearToYear(Number(newList[0].id), index)}
                                 />
-                                <AddInput
-                                    title='Семестр'
-                                    singleMode
-                                    isError={isEnableValidationCreateSchedule}
-                                    selectedList={year.semester ? [year.semester] : []}
-                                    allList={year.studyYear === 1 ? SEMESTR_YEAR.filter((el) => el.id === 0) : SEMESTR_YEAR}
-                                    changeInputList={(newList) => addNewSemesterToYear(newList[0], index)}
-                                />
                                 {squads &&
                                     <AddInput
                                         title='Взвода'
@@ -517,18 +522,18 @@ export default function Main() {
                                         changeInputList={(newList) => updateSquards(newList.map((item) => ({ name: item.name.toString(), id: item.id.toString() })), index)}
                                     />
                                 }
-                                {year.semester && <div className={styles.popup__line}>
+                                {newSchedule.semester && <div className={styles.popup__line}>
                                     <p>Дата первого занятия</p>
-                                    <Input startDate={getSemesterStartDate(Number(year.semester.id))} isError={isEnableValidationCreateSchedule} value={year.start} type='date' onChange={(val) => updateDateYear(val, true, index)} />
+                                    <Input startDate={getSemesterStartDate(Number(newSchedule.semester.id))} isError={isEnableValidationCreateSchedule} value={year.start} type='date' onChange={(val) => updateDateYear(val, true, index)} />
                                 </div>}
-                                {year.semester && <div className={styles.popup__line}>
+                                {newSchedule.semester && <div className={styles.popup__line}>
                                     <p>Дата последнего занятия</p>
-                                    <Input startDate={getSemesterStartDate(Number(year.semester.id))} isError={isEnableValidationCreateSchedule} value={year.end} type='date' onChange={(val) => updateDateYear(val, false, index)} />
+                                    <Input startDate={getSemesterStartDate(Number(newSchedule.semester.id))} isError={isEnableValidationCreateSchedule} value={year.end} type='date' onChange={(val) => updateDateYear(val, false, index)} />
                                 </div>}
                             </div>
                         ))}
                         {COURSES_YEAR.length > newSchedule.pages.length && <Button onClick={addNewYear}>Добавить год обучения</Button>}
-                        <Button onClick={() => handleCreateShedule(newSchedule)}>{newSchedule.isNew ? 'Создать' : 'Редактировать'} расписание</Button>
+                        <Button onClick={() => handleCreateShedule(newSchedule)}>{newSchedule.isNew ? 'Создать расписание' : 'Сохранить'}</Button>
                     </div>
                 </PopupContainer>
             }

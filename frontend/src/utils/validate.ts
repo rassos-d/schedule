@@ -14,8 +14,11 @@ export function isValidCreateSchedule (schedule: CreateSchedule) {
     toast('Добавьте год обучения')
     return false
   }
+  if (!schedule.semester) {
+    return false
+  }
   for (const page of schedule.pages) {
-    if (page.end.length === 0 || page.start.length === 0 || page.squads.length === 0 || !page.semester) {
+    if (page.end.length === 0 || page.start.length === 0 || page.squads.length === 0) {
       toast('Заполните все поля')
       return false
     }

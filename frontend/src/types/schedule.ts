@@ -9,13 +9,13 @@ export type SmallShedule = {
 export type CreateSchedule = {
   name: string
   id?: string
+  semester?: AddInputList
   pages: CreateScheduleYear[]
 }
 
 export type CreateScheduleYear = {
   studyYear: number, 
   squads: ScheduleSquad[], 
-  semester?: AddInputList
   start: string, 
   end: string
 }
