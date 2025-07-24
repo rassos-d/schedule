@@ -34,6 +34,7 @@ builder.Services.AddSingleton<TeacherService>();
 builder.Services.AddSingleton<ScheduleService>();
 builder.Services.AddSingleton<EventService>();
 builder.Services.AddSingleton<EventGenerator>();
+builder.Services.AddSingleton<PythonEventGenerator>();
 builder.Services.AddSingleton<ExcelExportService>();
 builder.Services.AddControllers();
 

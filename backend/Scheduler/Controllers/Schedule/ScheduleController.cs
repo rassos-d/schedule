@@ -81,4 +81,10 @@ public class ScheduleController(ScheduleService service) : ControllerBase
         var info = service.GetUpdateInfo(scheduleId);
         return Ok(info);
     }
+
+    [HttpPost("{scheduleId::guid}/generation")]
+    public IActionResult GenerateSchedule(Guid scheduleId)
+    {
+        throw new NotImplementedException();
+    }
 }

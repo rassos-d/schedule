@@ -91,6 +91,11 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
         return repo.GetSchedulePage(scheduleId,  studyYear);
     }
 
+    public void GeneratePage(Guid scheduleId)
+    {
+        
+    }
+    
     public void Delete(Guid scheduleId)
     {
         repo.DeleteSchedule(scheduleId);

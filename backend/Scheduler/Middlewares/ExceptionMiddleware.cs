@@ -33,6 +33,7 @@ public class ErrorHandlingMiddleware
         var (statusCode, message) = exception switch
         {
             EntityNotFoundException e => (HttpStatusCode.NotFound, e.GetErrorData()),
+            AlgorithmDontWorkException e => (HttpStatusCode.InternalServerError, e.GetErrorData()),
             EntityAlreadyExistExceptions e => (HttpStatusCode.Conflict, e.GetErrorData()),
             BadRequestException e =>  (HttpStatusCode.BadRequest, e.GetErrorData()),
             FileNotFoundException e => (HttpStatusCode.NotFound, ExceptionsCode.FileNotFound),
