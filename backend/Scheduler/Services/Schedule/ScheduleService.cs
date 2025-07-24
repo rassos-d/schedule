@@ -1,12 +1,9 @@
-using Microsoft.AspNetCore.Mvc;
 using Scheduler.DataAccess;
 using Scheduler.Dto;
 using Scheduler.Dto.Constants;
 using Scheduler.Dto.Schedule;
 using Scheduler.Entities.Schedule;
-using Scheduler.Exceptions;
 using Scheduler.Export;
-using Scheduler.Extensions;
 using Scheduler.Models;
 
 namespace Scheduler.Services.Schedule;
@@ -20,20 +17,21 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
 
     public Guid Create(ScheduleCreateDto dto)
     {
+        var pagesByDates = dto.Pages.GroupBy(p => (p.Start, p.End));
         var schedule = new Entities.Schedule.Schedule {Name = dto.Name, Pages = [] };
         // var scheduleInfos = repo.GetAllScheduleInfos();
         // if (scheduleInfos.Any(s => string.Equals(s.Name, dto.Name, StringComparison.CurrentCultureIgnoreCase)))
         //     throw new EntityAlreadyExistExceptions("Календарь с таким именем уже существует");
         
-        foreach (var pageDto in dto.Pages)
+        foreach (var pagesGroup in pagesByDates)
         {
-            var dates = GetDatesForDayOfWeek(pageDto.Start, pageDto.End);
+            var dates = GetDatesForDayOfWeek(pagesGroup.Key.Start, pagesGroup.Key.End);
             var page = new SchedulePage 
             { 
                 ScheduleId = schedule.Id,
-                //Semester = GetSemester(pageDto.StudyYear, pageDto.Semester),
-                StudyYear = pageDto.StudyYear,
-                Squads = pageDto.Squads,
+                Semester = pagesGroup.First().Semester,
+                StudyYear = pagesGroup.First().StudyYear,
+                Squads = pagesGroup.SelectMany(p => p.Squads).ToList(),
                 Dates = dates            
             };
             schedule.Pages.Add(page);

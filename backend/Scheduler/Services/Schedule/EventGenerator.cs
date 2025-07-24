@@ -13,7 +13,9 @@ public class EventGenerator(SquadRepository squadRepo, PlanRepository planRepo)
         foreach(var squadId in page.Squads)
         {
             var squad = squadRepo.Get(squadId);
-            var lessons = planRepo.FindLessonsForSemester(squad.DirectionId.Value, page.StudyYear, page.Semester);
+            if (squad?.DirectionId == null || !squad.StudyYear.HasValue)
+                continue;
+            var lessons = planRepo.FindLessonsForSemester(squad.DirectionId.Value, squad.StudyYear.Value, page.Semester);
             var groupedLessons = lessons
                 .GroupBy(x => x.SubjectId)
                 .Select(
