@@ -9,13 +9,13 @@ public class TeacherService(TeacherRepository repo)
     public List<Teacher> Find()
     { 
         var teachers = repo.GetAll();
-        teachers.Sort((t1, t2) => string.Compare(t1.Name, t2.Name, StringComparison.OrdinalIgnoreCase));
+        teachers.Sort((t1, t2) => string.Compare(t1.Name, t2.Name, StringComparison.Ordinal));
         return teachers;
     }
     
     public Guid Create(TeacherCreateDto dto)
     {
-        var teacher = new Teacher { Name = dto.Name, Rank = dto.Rank, Vacations = dto.Vacations };
+        var teacher = new Teacher { Name = dto.Name, Rank = dto.Rank, Vacations = dto.Vacations, SubjectIds = dto.SubjectIds };
         repo.Upsert(teacher);
         repo.SaveChanges();
         return teacher.Id;
