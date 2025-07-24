@@ -1,4 +1,4 @@
-import { Direction } from '../../types/directions'
+import { Direction, NewDirection } from '../../types/directions'
 import { HiddenInputBlock } from '../hiddenInputBlock/hiddenInputBlock'
 import { SettingsList } from '../settingsList/settingsList'
 import styles from './editPlan.module.scss'
@@ -12,7 +12,7 @@ import { NewTheme, Theme } from '../../types/theme'
 import PopupContainer from '../popupContainer/popupContainer'
 import { AddInput, Input, SearchInput } from '../input/Input'
 import { EditLesson, Lesson, NewSmallLesson } from '../../types/lesson'
-import { DIRECTION_TYPE, LESSON_TYPE } from '../../consts'
+import { DIRECTION_TYPE, LESSON_TYPE, SEMESTER_COUNT } from '../../consts'
 
 const NEW_SUBJECT_NAME = 'Новый предмет'
 
@@ -22,8 +22,8 @@ export function EditPlan() {
   const [allDirections, setAllDirections] = useState<(Direction & { isEdit: boolean, isWarning: boolean })[]>()
   const [confirmDeleteDirectionId, setConfirmDeleteDirectionId] = useState<string>()
   const [selectedDirection, setSelectedDirection] = useState<{name: string, id: string}>()
-  const [editDirection, setEditDirection] = useState<Direction>()
-  const [newDirection, setNewDirection] = useState<Partial<Direction>>()
+  const [editDirection, setEditDirection] = useState<NewDirection>()
+  const [newDirection, setNewDirection] = useState<Partial<NewDirection>>()
   const [searchDirection, setSearchDirection] = useState('')
   const [checkDirection, setCheckDirection] = useState(false)
 
@@ -60,8 +60,8 @@ export function EditPlan() {
     setConfirmDeleteDirectionId(undefined)
     handleGetAllDirections()
   }
-  const handleCreateDirection = async (isNew: boolean, name: string, type: number | undefined, id: string | undefined) => {
-    if (type === undefined || name.length === 0) {
+  const handleCreateDirection = async (isNew: boolean, name: string | undefined, type: number | undefined, id: string | undefined) => {
+    if (type === undefined || !name) {
       setCheckDirection(true)
     }
     setCheckDirection(false)
@@ -70,6 +70,8 @@ export function EditPlan() {
       type,
       id
     })
+    setNewDirection(undefined)
+    setEditDirection(undefined)
     handleGetAllDirections()
   }
 
@@ -148,7 +150,13 @@ export function EditPlan() {
     setConfirmDeleteLessonId(undefined)
     handleGetAllLessons(selectedTheme?.id)
   }
-  const handleCreateLesson = async (isNew: boolean, number: number | undefined, type: number | undefined, semester: number | undefined, id: string | undefined) => {
+  const handleCreateLesson = async (
+      isNew: boolean, 
+      number: number | undefined, 
+      type: number | undefined, 
+      semester: number | undefined, 
+      hoursCount: number | undefined = 2, id: string | undefined
+    ) => {
     if (number === undefined  || !number || type === undefined || semester === undefined) {
       setCheckLesson(true)
       return
@@ -159,6 +167,7 @@ export function EditPlan() {
       number,
       type,
       semester,
+      hoursCount,
       themeId: selectedTheme?.id,
       subjectId: selectedSubject?.id
     })
@@ -223,6 +232,7 @@ export function EditPlan() {
     }
   },[selectedTheme])
 
+
   if (!allDirections) return <></>
 
   return (
@@ -237,9 +247,9 @@ export function EditPlan() {
                 isEdit={el.isEdit}
                 isWarning={el.isWarning}
                 key={`${el.id}--${index}`}
-                value={el.name}
-                onEdit={() => setEditDirection(el)}
-                onSelect={() => { setSelectedDirection({ name: el.name, id: el.id }); setIsOpensDirections(false) }}
+                value={`${el.name} (${el.type!==undefined ? DIRECTION_TYPE[el.type] : DIRECTION_TYPE[0]})`}
+                onEdit={() => setEditDirection({...el, type: el.type!==undefined ? {name: DIRECTION_TYPE[el.type], id: el.type} : {name: DIRECTION_TYPE[0], id: 1}})}
+                onSelect={() => { setSelectedDirection({ name: `${el.name} (${el.type!==undefined ? DIRECTION_TYPE[el.type] : DIRECTION_TYPE[0]})`, id: el.id }); setIsOpensDirections(false) }}
                 onDelete={() => { setConfirmDeleteDirectionId(el.id) }}
               />
             ))}
@@ -355,7 +365,7 @@ export function EditPlan() {
                 singleMode
                 title='Выберите тип'
                 allList={DIRECTION_TYPE.map((el, index)=>({name: el, id: index}))}
-                selectedList={editDirection.type ? [editDirection.type] : []}
+                selectedList={editDirection.type!==undefined ? [editDirection.type] : []}
                 changeInputList={(newList)=>setEditDirection({...editDirection, type: newList[0]})}
               />
             </div>          
@@ -377,13 +387,13 @@ export function EditPlan() {
                 singleMode
                 title='Выберите тип'
                 allList={DIRECTION_TYPE.map((el, index)=>({name: el, id: index}))}
-                selectedList={newDirection.type ? [newDirection.type] : []}
-                changeInputList={(newList)=>setNewDirection({...editDirection, type: newList[0]})}
+                selectedList={newDirection.type!==undefined ? [newDirection.type] : []}
+                changeInputList={(newList)=>setNewDirection({...newDirection, type: newList[0]})}
               />
             </div>          
             <Button onClick={()=>handleCreateDirection(
               true, 
-              newDirection.name ? newDirection.name : '', 
+              newDirection.name, 
               newDirection.type ? Number(newDirection.type.id) : undefined, 
               undefined)
             }>Создать направление</Button>
@@ -423,6 +433,10 @@ export function EditPlan() {
               <Input errorText=' ' validateChecker={(number)=>{return !number || Number(number)!==0}} isError={checkLesson} value={editLesson.number.toString()} placeholder='Введите номер занятия' onChange={(val) => setEditLesson({ ...editLesson, number: Number(val) })} />
             </div>
             <div className={styles.popup__block}>
+              <p>Количество часов</p>
+              <Input errorText=' ' validateChecker={(number)=>{return !number || Number(number)!==0}} isError={checkLesson} value={editLesson.hoursCount ? editLesson.hoursCount.toString() : ''} placeholder='Введите количество часов' onChange={(val) => setEditLesson({ ...editLesson, hoursCount: Number(val) })} />
+            </div>            
+            <div className={styles.popup__block}>
               <p>Тип занятия</p>
               <AddInput
                 isError={checkLesson}
@@ -441,12 +455,12 @@ export function EditPlan() {
                 minWidth={340}
                 title={'Выберите семестр занятия'}
                 singleMode
-                allList={[1, 2, 3, 4, 5].map((el) => ({ name: el, id: el }))}
+                allList={SEMESTER_COUNT.map((el) => ({ name: el, id: el }))}
                 selectedList={[{ name: editLesson.semester.name, id: editLesson.semester.id }]}
                 changeInputList={(list) => setEditLesson({ ...editLesson, semester: list[0] })}
               />
             </div>
-            <Button onClick={()=>handleCreateLesson(false, editLesson.number, Number(editLesson.type.id), Number(editLesson.semester.id), editLesson.id)}>Сохранить</Button>
+            <Button onClick={()=>handleCreateLesson(false, editLesson.number, Number(editLesson.type.id), Number(editLesson.semester.id), editLesson.hoursCount, editLesson.id)}>Сохранить</Button>
           </div>
         </PopupContainer>
       }
@@ -457,6 +471,10 @@ export function EditPlan() {
             <div className={styles.popup__block}>
               <p>Номер занятия</p>
               <Input errorText=' ' validateChecker={(number)=>{return !number || Number(number)!==0}} isError={checkLesson} value={newLesson.number!== undefined ? newLesson.number.toString() : ''} placeholder='Введите номер занятия' onChange={(val) => setNewLesson({ ...newLesson, number: Number(val) })} />
+            </div>
+            <div className={styles.popup__block}>
+              <p>Количество часов</p>
+              <Input errorText=' ' validateChecker={(number)=>{return !number || Number(number)!==0}} isError={checkLesson} value={newLesson.hoursCount!== undefined ? newLesson.hoursCount.toString() : ''} placeholder='Введите количество часов' onChange={(val) => setNewLesson({ ...newLesson, hoursCount: Number(val) })} />
             </div>
             <div className={styles.popup__block}>
               <p>Тип занятия</p>
@@ -477,7 +495,7 @@ export function EditPlan() {
                 minWidth={340}
                 title={'Выберите семестр занятия'}
                 singleMode
-                allList={[1, 2, 3, 4, 5].map((el) => ({ name: el, id: el }))}
+                allList={SEMESTER_COUNT.map((el) => ({ name: el, id: el }))}
                 selectedList={newLesson.semester ? [{ name: newLesson.semester.name, id: newLesson.semester.id }] : []}
                 changeInputList={(list) => setNewLesson({ ...newLesson, semester: list[0] })}
               />
@@ -487,6 +505,7 @@ export function EditPlan() {
               newLesson.number, 
               newLesson.type ? Number(newLesson.type.id) : undefined, 
               newLesson.semester ? Number(newLesson.semester.id) : undefined, 
+              newLesson.hoursCount,
               undefined
             )}>Создать занятие</Button>
           </div>
