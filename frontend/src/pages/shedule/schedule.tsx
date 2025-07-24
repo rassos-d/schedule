@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async'
 import styles from './schedule.module.scss'
 import axios, { PagesURl } from '../../services/api/api'
 import { Button } from '../../components/button/button'
-import { ChangeLessonReponse, Conflict, Schedule } from '../../types/schedule'
+import {ChangeLessonReponse, Conflict, Schedule, YearDays} from '../../types/schedule'
 import { useEffect, useRef, useState } from 'react'
 import { getFullSchedule, getSchedule, sortedDates } from '../../utils/schedule'
 import { checkLesson } from '../../utils/validate'
@@ -61,8 +61,8 @@ export default function ShedulePage() {
 
     const {id} = useParams()
 
-    const [allTabs, setAllTabs] = useState<number[]>()
-    const [activeTab, setActiveTab] = useState<number>()
+    const [allTabs, setAllTabs] = useState<YearDays[]>()
+    const [activeTab, setActiveTab] = useState<YearDays>()
 
     const sidebarRefIcon = useRef<HTMLDivElement>(null)
     const sidebarContentRef = useRef<HTMLDivElement>(null)
@@ -146,7 +146,7 @@ export default function ShedulePage() {
     }
 
     const handleGetStudyYears = async () => {
-        const {data} = await axios.get<number[]>(PagesURl.SCHEDULE + `/${id}/study-years`)
+        const {data} = await axios.get<YearDays[]>(PagesURl.SCHEDULE + `/${id}/study-years`)
         setAllTabs(data)
         setActiveTab(data[0])
     }
@@ -167,7 +167,8 @@ export default function ShedulePage() {
         setShedule(getFullSchedule(data))
     }
     const handleUpdateScheduleTime = async (lesson: Partial<SheduleLesson>) => {
-        const {data} = await axios.put<ChangeLessonReponse>(PagesURl.EVENT + `/${lesson.id}/schedules/${id}/${activeTab}`, {
+        if (!activeTab) return
+        const {data} = await axios.put<ChangeLessonReponse>(PagesURl.EVENT + `/${lesson.id}/schedules/${id}/${activeTab.studyYear}`, {
             number: lesson.number,
             date: lesson.date
         })
@@ -202,13 +203,13 @@ export default function ShedulePage() {
             toast(data.message)
         }
         setNewLesson(undefined)
-        handleGetSchedule(activeTab)
+        handleGetSchedule(activeTab.studyYear)
     }
     const handleDeleteLesson = async (lessonId: string) => {
         if (!activeTab) return
         await axios.delete(PagesURl.EVENT + `/${lessonId}/schedules/${id}/${activeTab}`)
         setConfirmDeleteEventId(undefined)
-        handleGetSchedule(activeTab)
+        handleGetSchedule(activeTab.studyYear)
     }
 
 
@@ -380,7 +381,7 @@ export default function ShedulePage() {
             handleGetAllTeachers()
             handleGetAllAudience()
             handleGetAllDirections()
-            handleGetSchedule(activeTab)
+            handleGetSchedule(activeTab.studyYear)
         }
     },[activeTab])
 
@@ -390,7 +391,7 @@ export default function ShedulePage() {
     return (
         <>
             <Helmet>
-                <title>{`${schedule.name} ${activeTab} год ${getSemesterName()} семестр `}</title>
+                <title>{`${schedule.name} ${activeTab.dayOfWeek} ${getSemesterName()} семестр `}</title>
             </Helmet>
             <div  ref={containerRef} className={`${styles.container}`}>
                 <div className={styles.container__tabs}>
@@ -400,7 +401,7 @@ export default function ShedulePage() {
                     <Button onClick={()=>navigate('/')} className={styles.container__back}>На главную</Button>
                     <Button onClick={handleExportShedule}>ЭКСПОРТ</Button>
                 </div>
-                <h1 className={styles.container__title}>{`${schedule.name} ${activeTab} год ${getSemesterName()} семестр`}</h1>
+                <h1 className={styles.container__title}>{`${schedule.name} ${activeTab.dayOfWeek} ${getSemesterName()} семестр`}</h1>
                 <DndProvider backend={HTML5Backend}>
                     {schedule.squads.map((item, squardIndex) => (
                         <div id={`squad--${item.id}`} key={item.id} className={styles.container__tableContainer}>

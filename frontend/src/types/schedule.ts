@@ -6,6 +6,11 @@ export type SmallShedule = {
   name: string
 }
 
+export type YearDays = {
+  dayOfWeek: string
+  studyYear: number
+}
+
 export type CreateSchedule = {
   name: string
   id?: string

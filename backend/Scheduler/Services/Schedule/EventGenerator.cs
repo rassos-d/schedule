@@ -10,16 +10,16 @@ public class EventGenerator(SquadRepository squadRepo, PlanRepository planRepo)
     public void Generate(SchedulePage page)
     {
         int[] lessonNumbers = [1, 2, 4];
-        foreach(var squadId in page.Squads)
+        foreach (var squadId in page.Squads)
         {
             var squad = squadRepo.Get(squadId);
             if (squad?.DirectionId == null || !squad.StudyYear.HasValue)
                 continue;
-            var lessons = planRepo.FindLessonsForSemester(squad.DirectionId.Value, squad.StudyYear.Value, page.Semester);
+            var lessons =
+                planRepo.FindLessonsForSemester(squad.DirectionId.Value, squad.StudyYear.Value, page.Semester);
             var groupedLessons = lessons
                 .GroupBy(x => x.SubjectId)
-                .Select(
-                    x => x.OrderBy(l => int.Parse($"{l.ThemeNumber}{l.Number.ToString()}")).ToList()
+                .Select(x => x.OrderBy(l => int.Parse($"{l.ThemeNumber}{l.Number.ToString()}")).ToList()
                 )
                 .OrderBy(x => x.Count)
                 .ToList();
@@ -30,11 +30,11 @@ public class EventGenerator(SquadRepository squadRepo, PlanRepository planRepo)
             {
                 foreach (var lessonNumber in lessonNumbers)
                 {
-                    var index = lessonNumber is 1 or 2 ? first : second;
+                    var index = groupedLessons.Count == 1 ? first : lessonNumber is 1 or 2 ? first : second;
                     if (index.Subject < groupedLessons.Count)
                     {
                     }
-                    else if(index.Subject >= groupedLessons.Count)
+                    else if (index.Subject >= groupedLessons.Count)
                     {
                         index.Subject = groupedLessons.Count - 1;
                     }
@@ -42,14 +42,14 @@ public class EventGenerator(SquadRepository squadRepo, PlanRepository planRepo)
                     {
                         continue;
                     }
-                    
+
                     var subject = groupedLessons[index.Subject];
 
                     if (index.Lesson.Value >= subject.Count)
                     {
                         break;
                     }
-                    
+
                     var lesson = subject[index.Lesson.Value];
                     for (var i = 0; i < lesson.HoursCount; i += 2)
                     {
@@ -67,12 +67,12 @@ public class EventGenerator(SquadRepository squadRepo, PlanRepository planRepo)
                         };
                         page.Events.Add(@event);
                     }
-                    
+
                     index.Lesson.Value++;
-                        
+
                     if (index.Lesson.Value == subject.Count)
                     {
-                        if (index.Subject + 2 >= groupedLessons.Count)
+                        if (index.Subject + 2 >= groupedLessons.Count && groupedLessons.Count > 1)
                         {
                             var other = lessonNumber is 1 or 2 ? second : first;
                             index.Subject = other.Subject;
@@ -86,6 +86,23 @@ public class EventGenerator(SquadRepository squadRepo, PlanRepository planRepo)
                     }
                 }
             }
+
+            var eventLessons = page.Events.Select(x => x.LessonId);
+            var stashLessons = groupedLessons
+                .SelectMany(x => x)
+                .Where(x => eventLessons.Contains(x.Id) == false)
+                .Select(x => new Event
+                {
+                    ScheduleId = page.ScheduleId,
+                    SquadId = squadId,
+                    AudienceId = squad.FixedAudienceId,
+                    TeacherId = squad.DaddyId,
+                    LessonId = x.Id,
+                    ThemeId = x.ThemeId,
+                    SubjectId = x.SubjectId
+                });
+            
+            page.Events.AddRange(stashLessons);
         }
     }
 }
@@ -100,4 +117,3 @@ file record Val(int Value)
 {
     public int Value { get; set; } = Value;
 }
-
