@@ -115,7 +115,7 @@ public class ExcelExportService
         sheet.PrinterSettings.FitToPage = true;
     }
 
-    private void FillHeader(IEnumerable<SquadExcel> squads, ExcelRange cells, List<DateOnly> dates, Semester semester)
+    private void FillHeader(IEnumerable<SquadExcel> squads, ExcelRange cells, List<DateOnly> dates, int semester)
     {
         const int vucsTextIndex = 71;
         const int semesterTextIndex = 74;
@@ -125,10 +125,10 @@ public class ExcelExportService
         var day = cells.TakeSingleCell(3, 0);
 
         var endYear = dates.First().Year;
-        var startYear = (int)semester % 2 == 1 ? endYear - 1 : endYear + 1;
+        var startYear = semester == 0 ? endYear - 1 : endYear + 1;
         (startYear, endYear) = endYear > startYear ? (startYear, endYear) : (endYear, startYear);
 
-        var semesterText = (int)semester % 2 == 1 ? "весеннем" : "осеннем";
+        var semesterText = semester == 0 ? "весеннем" : "осеннем";
         var yearsText = $"{startYear}-{endYear}";
         var vucsText = string.Join(", ", squads
             .Select(x => x.DirectionName.Split('-').Last())
