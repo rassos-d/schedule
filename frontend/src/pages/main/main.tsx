@@ -8,7 +8,7 @@ import { Button } from '../../components/button/button'
 import PopupContainer from '../../components/popupContainer/popupContainer'
 import { AddInput, Input } from '../../components/input/Input'
 import { useNavigate } from 'react-router-dom'
-import { COURSES_YEAR, SEMESTR_YEAR } from '../../consts'
+import { COURSES_YEAR, DIRECTION_TYPE, SEMESTR_YEAR } from '../../consts'
 import { cloneObject, getUniqueElements, removeElementAtIndex } from '../../utils'
 import { EditSquad, NewSquad, Squad } from '../../types/squad'
 import { SettingsList } from '../../components/settingsList/settingsList'
@@ -57,7 +57,7 @@ export default function Main() {
 
     const handleGetAllDirections = async () => {
         const { data } = await axios.get<Direction[]>(PagesURl.DIRECTION + '/find')
-        setAllDirections(data.map((el)=>({...el, isEdit: false, isWarning: false})))
+        setAllDirections(data.map((el)=>({...el, isEdit: false, isWarning: false, name: `${el.name} (${el.type!==undefined ? DIRECTION_TYPE[el.type] : DIRECTION_TYPE[0]})`})))
     }
     const handleGetAllAudience = async () => {
         const { data } = await axios.get<Audience[]>(PagesURl.AUDIENCE)
