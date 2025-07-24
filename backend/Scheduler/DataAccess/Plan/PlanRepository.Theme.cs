@@ -17,7 +17,7 @@ public partial class PlanRepository
         if (subject is not null)
         {
             subject.Themes.Add(theme);
-            SaveChanges(subject.DirectionId);
+            SaveChanges();
         }
     }
 
