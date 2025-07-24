@@ -157,7 +157,7 @@ export function EditPlan() {
       semester: number | undefined, 
       hoursCount: number | undefined = 2, id: string | undefined
     ) => {
-    if (number === undefined  || !number || type === undefined || semester === undefined) {
+    if (number === undefined  || !number || type === undefined || semester === undefined || hoursCount === 0 || hoursCount === undefined) {
       setCheckLesson(true)
       return
     }
