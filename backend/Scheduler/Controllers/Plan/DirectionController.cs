@@ -55,6 +55,7 @@ public class DirectionController : ControllerBase
             return NotFound();
         }
         direction.Name = updatedDirection.Name;
+        direction.Type = updatedDirection.Type;
         _planRepository.SaveDirection(direction);
         return NoContent();
 
