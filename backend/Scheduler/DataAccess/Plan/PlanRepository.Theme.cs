@@ -49,6 +49,7 @@ public partial class PlanRepository
         if (subjectId.HasValue)
             themes = themes.Where(t => t.SubjectId == subjectId);
 
+        themes.ToList().Sort((t1, t2) => t1.Number.CompareTo(t2.Number));
         return themes.ToList();
     }
 

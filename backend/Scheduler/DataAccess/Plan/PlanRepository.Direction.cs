@@ -45,7 +45,9 @@ public partial class PlanRepository
     public List<DirectionInfo> GetAllDirectionInfos()
     {
         var json = ReadFile(DirectionsFilePath);
-        return JsonSerializer.Deserialize<List<DirectionInfo>>(json, JsonOptions) ?? [];
+        var directionInfos = JsonSerializer.Deserialize<List<DirectionInfo>>(json, JsonOptions) ?? [];
+        directionInfos.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.Ordinal));
+        return directionInfos;
     }
 
     public void DeleteDirection(Guid id)

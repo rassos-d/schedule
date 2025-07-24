@@ -15,6 +15,7 @@ public partial class PlanRepository
         }
         
         var theme = GetTheme(themeId.Value);
+        theme?.Lessons.Sort((l1, l2) => l1.Number.CompareTo(l2.Number));
         return theme?.Lessons ?? [];
     }
     
@@ -85,7 +86,7 @@ public partial class PlanRepository
         {
             lesson.Semester = dto.Semester.Value;
         }
-        
+        lesson.Type = dto.Type;
         SaveChanges();
     }
 

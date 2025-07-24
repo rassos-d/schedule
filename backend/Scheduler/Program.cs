@@ -11,9 +11,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("*", policy =>
+    options.AddPolicy("AllowAll", policy =>
     {
-        policy.AllowAnyOrigin()
+        policy
+            .AllowAnyOrigin()
             .AllowAnyMethod()
             .AllowAnyHeader();
     });
@@ -41,9 +42,7 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-app.UseCors("*");               
-
-app.UseMiddleware<ErrorHandlingMiddleware>();
+app.UseCors("AllowAll"); // Включаем CORS middleware
 
 app.UseSwagger();
 app.UseSwaggerUI(c => 
