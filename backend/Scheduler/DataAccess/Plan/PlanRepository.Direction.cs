@@ -15,7 +15,7 @@ public partial class PlanRepository
         directions.RemoveAll(d => d.Id == direction.Id);
         
 
-        directions.Add(new DirectionInfo(direction.Id, direction.Name));
+        directions.Add(new DirectionInfo(direction.Id, direction.Name, direction.Type));
 
         WriteFile(DirectionsFilePath, directions);
 

@@ -1,3 +1,4 @@
+using Scheduler.Dto.Constants;
 using Scheduler.Entities.Base;
 
 namespace Scheduler.Entities.Plan;
@@ -5,4 +6,6 @@ namespace Scheduler.Entities.Plan;
 public class Direction : EntityWithName
 {
     public List<Subject> Subjects { get; init; } = [];
+
+    public DirectionType Type { get; set; }
 }
