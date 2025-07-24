@@ -9,6 +9,8 @@ public class LessonUpdateDto
     public int? Number { get; set; }
     
     public LessonType Type { get; set; }
+
+    public int HoursCount { get; set; } = 2;
     
     public Semester? Semester { get; set; }
 }

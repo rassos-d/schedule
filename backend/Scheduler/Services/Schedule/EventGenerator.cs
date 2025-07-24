@@ -9,7 +9,7 @@ public class EventGenerator(SquadRepository squadRepo, PlanRepository planRepo)
 {
     public void Generate(SchedulePage page)
     {
-        int[] lessonNumbers = [1, 2, 4, 5];
+        int[] lessonNumbers = [1, 2, 4];
         foreach(var squadId in page.Squads)
         {
             var squad = squadRepo.Get(squadId);
@@ -19,6 +19,7 @@ public class EventGenerator(SquadRepository squadRepo, PlanRepository planRepo)
                 .Select(
                     x => x.OrderBy(l => int.Parse($"{l.ThemeNumber}{l.Number.ToString()}")).ToList()
                 )
+                .OrderBy(x => x.Count)
                 .ToList();
 
             var first = new Index(0, new Val(0));
@@ -48,33 +49,37 @@ public class EventGenerator(SquadRepository squadRepo, PlanRepository planRepo)
                     }
                     
                     var lesson = subject[index.Lesson.Value];
-                    var @event = new Event
+                    for (var i = 0; i < lesson.HoursCount; i += 2)
                     {
-                        ScheduleId = page.ScheduleId,
-                        SquadId = squadId,
-                        AudienceId = squad.FixedAudienceId,
-                        TeacherId = squad.DaddyId,
-                        LessonId = lesson.Id,
-                        ThemeId = lesson.ThemeId,
-                        SubjectId = lesson.SubjectId,
-                        Date = date,
-                        Number = lessonNumber
-                    };
-                    page.Events.Add(@event);
-
-                    index.Lesson.Value++;
-                    if (index.Lesson.Value == subject.Count)
-                    {
-                        if (index.Subject + 2 >= groupedLessons.Count)
+                        var @event = new Event
                         {
-                            var other = lessonNumber is 1 or 2 ? second : first;
-                            index.Subject = other.Subject;
-                            index.Lesson = other.Lesson;
-                        }
-                        else
+                            ScheduleId = page.ScheduleId,
+                            SquadId = squadId,
+                            AudienceId = squad.FixedAudienceId,
+                            TeacherId = squad.DaddyId,
+                            LessonId = lesson.Id,
+                            ThemeId = lesson.ThemeId,
+                            SubjectId = lesson.SubjectId,
+                            Date = date,
+                            Number = lessonNumber
+                        };
+                        page.Events.Add(@event);
+                        
+                        index.Lesson.Value++;
+                        
+                        if (index.Lesson.Value == subject.Count)
                         {
-                            index.Subject += 2;
-                            index.Lesson.Value = 0;
+                            if (index.Subject + 2 >= groupedLessons.Count)
+                            {
+                                var other = lessonNumber is 1 or 2 ? second : first;
+                                index.Subject = other.Subject;
+                                index.Lesson = other.Lesson;
+                            }
+                            else
+                            {
+                                index.Subject += 2;
+                                index.Lesson.Value = 0;
+                            }
                         }
                     }
                 }

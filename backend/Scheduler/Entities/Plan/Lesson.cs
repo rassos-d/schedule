@@ -7,6 +7,8 @@ public class Lesson : Entity
 {
     public int Number { get; set; }
 
+    public int HoursCount { get; set; } = 2;
+
     public LessonType Type { get; set; }
     
     public Guid SubjectId { get; set; }

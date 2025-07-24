@@ -34,7 +34,8 @@ public partial class PlanRepository
                 SubjectId = l.SubjectId,
                 ThemeId = l.ThemeId,
                 Type = l.Type.GetView(),
-                ThemeNumber = t.Number
+                ThemeNumber = t.Number,
+                HoursCount = l.HoursCount
             }))
             .Where(t => t.Semester == semester);
         return lessons.ToList();
@@ -88,6 +89,7 @@ public partial class PlanRepository
             lesson.Semester = dto.Semester.Value;
         }
         lesson.Type = dto.Type;
+        lesson.HoursCount = dto.HoursCount;
         SaveChanges();
     }
 
