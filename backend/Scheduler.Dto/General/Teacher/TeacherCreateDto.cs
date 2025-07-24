@@ -7,4 +7,6 @@ public class TeacherCreateDto
     public required string Rank { get; init; }
 
     public List<VacationPeriod> Vacations { get; set; } = [];
+
+    public List<Guid> SubjectIds { get; set; } = [];
 }
