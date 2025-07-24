@@ -1,10 +1,8 @@
-using Scheduler.Dto.Constants;
-
 namespace Scheduler.Dto.Plan.Theme;
 
-public class ThemeUpdateDto : EntityNameUpdateDto
+public class ThemeUpdateDto
 {
-    public int? Number { get; set; }
+    public required Guid Id { get; init; }
     
-    public Semester? Semester { get; init; }
+    public int? Number { get; set; }
 }

@@ -1,7 +1,9 @@
 using Scheduler.Dto.Constants;
+using Scheduler.Dto.Plan.Lesson;
 using Scheduler.Dto.Plan.Theme;
 using Scheduler.Entities.Plan;
 using Scheduler.Exceptions;
+using Scheduler.Extensions;
 
 namespace Scheduler.DataAccess.Plan;
 
@@ -34,15 +36,10 @@ public partial class PlanRepository
             theme.Number = dto.Number.Value;
         }
 
-        if (dto.Semester is not null)
-        {
-            theme.Semester = dto.Semester.Value;
-        }
-
         SaveChanges();
     }
 
-    public List<Theme> FindThemes(Guid? subjectId = null, Guid? directionId = null, Semester? semester = null)
+    public List<Theme> FindThemes(Guid? subjectId = null, Guid? directionId = null)
     {
         var themes = Subjects.SelectMany(x => x.Themes);
 
@@ -52,18 +49,6 @@ public partial class PlanRepository
         if (subjectId.HasValue)
             themes = themes.Where(t => t.SubjectId == subjectId);
 
-        if (semester.HasValue)
-            themes = themes.Where(t => t.Semester == semester.Value);
-
-        return themes.ToList();
-    }
-
-    public List<Theme> FindThemesForSemester(Guid directionId, Semester semester)
-    {
-        var direction = GetDirection(directionId)!;
-        var themes = direction.Subjects
-            .SelectMany(x => x.Themes)
-            .Where(t => t.Semester == semester);
         return themes.ToList();
     }
 

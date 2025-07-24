@@ -7,5 +7,6 @@ public record LessonCreateDto(
     int SelfStudyHours,
     LessonType Type,
     Guid ThemeId,
-    Guid SubjectId
+    Guid SubjectId,
+    Semester Semester
     );

@@ -13,13 +13,11 @@ public class EventGenerator(SquadRepository squadRepo, PlanRepository planRepo)
         foreach(var squadId in page.Squads)
         {
             var squad = squadRepo.Get(squadId);
-            var themes = planRepo.FindThemesForSemester(squad.DirectionId.Value, page.Semester);
-            var themeNumbers = themes.ToDictionary(x => x.Id, x => x.Number);
-            var lessons = themes.SelectMany(x => x.Lessons);
+            var lessons = planRepo.FindLessonsForSemester(squad.DirectionId.Value, page.Semester);
             var groupedLessons = lessons
                 .GroupBy(x => x.SubjectId)
                 .Select(
-                    x => x.OrderBy(l => int.Parse($"{themeNumbers[l.ThemeId]}{l.Number.ToString()}")).ToList()
+                    x => x.OrderBy(l => int.Parse($"{l.ThemeNumber}{l.Number.ToString()}")).ToList()
                 )
                 .ToList();
 

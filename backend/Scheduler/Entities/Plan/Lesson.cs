@@ -7,11 +7,11 @@ public class Lesson : Entity
 {
     public int Number { get; set; }
 
-    public int SelfStudyHours { get; set; }
-
     public LessonType Type { get; set; }
     
     public Guid SubjectId { get; set; }
     
     public Guid ThemeId { get; set; }
+    
+    public Semester Semester { get; set; }
 }
