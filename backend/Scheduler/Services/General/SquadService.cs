@@ -80,9 +80,9 @@ public class SquadService(SquadRepository squadRepository, ScheduleRepository sc
         {
             foreach (var scheduleInfo in scheduleInfos)
             {
-                foreach (var studyYear in scheduleRepository.GetStudyYears(scheduleInfo.Id))
+                foreach (var dayOfWeek in scheduleRepository.GetDayOfWeeks(scheduleInfo.Id))
                 {
-                    var schedulePage = scheduleRepository.GetSchedulePage(scheduleInfo.Id, (StudyYear)studyYear);
+                    var schedulePage = scheduleRepository.GetSchedulePage(scheduleInfo.Id, dayOfWeek);
                     if (schedulePage.Squads.Contains(squadId))
                     {
                         foreach (var e in schedulePage.Events)

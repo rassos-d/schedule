@@ -19,11 +19,11 @@ public class ScheduleRepository : BaseRepository
         GetAllScheduleInfos();
     }
 
-    public List<int> GetStudyYears(Guid scheduleId)
+    public List<DayOfWeek> GetDayOfWeeks(Guid scheduleId)
     {
         return GetAllFiles(scheduleId.ToString())
             .Select(name => name.Split(Path.DirectorySeparatorChar).Last().Split(".").First())
-            .Select(ConvertToStudyYear)
+            .Select(Enum.Parse<DayOfWeek>)
             .ToList();
     }
     
@@ -43,16 +43,16 @@ public class ScheduleRepository : BaseRepository
         var scheduleInfo = GetAllScheduleInfos().FirstOrDefault(x => x.Id == scheduleId);
         // if (scheduleInfo is null)
         //     throw new EntityNotFoundException(string.Format(ExceptionsCode.EntityNotFound, scheduleId));
-        var studyYears = GetStudyYears(scheduleId);
+        var studyYears = GetDayOfWeeks(scheduleId);
         var schedule = new Schedule
         {
             Id = scheduleId,
-            Name = scheduleInfo.Name,
+            Name = scheduleInfo?.Name ?? "unknown",
         };
 
-        foreach (var studyYear in studyYears)
+        foreach (var dayOfWeeks in studyYears)
         {
-            schedule.Pages.Add(GetSchedulePage(scheduleId, (StudyYear)studyYear));
+            schedule.Pages.Add(GetSchedulePage(scheduleId, dayOfWeeks));
         }
         
         return schedule;
@@ -77,23 +77,23 @@ public class ScheduleRepository : BaseRepository
         }
     }
     
-    public SchedulePage GetSchedulePage(Guid id, StudyYear studyYear)
+    public SchedulePage GetSchedulePage(Guid id, DayOfWeek dayOfWeek)
     {
         if (_schedulesCache.TryGetValue(id, out var schedule))
         {
             
-            var page = schedule.Pages.FirstOrDefault(p => p.StudyYear == studyYear);
+            var page = schedule.Pages.FirstOrDefault(p => p.DayOfWeek == dayOfWeek);
             if (page is not null)
             {
                 return page;
             }
 
-            page = LoadSchedulePage(id, studyYear);
+            page = LoadSchedulePage(id, dayOfWeek);
             schedule.Pages.Add(page);
             return page;
         }
 
-        var pageNew = LoadSchedulePage(id, studyYear);
+        var pageNew = LoadSchedulePage(id, dayOfWeek);
         _schedulesCache[id].Pages.Add(pageNew);
         return pageNew;
     }
@@ -181,11 +181,11 @@ public class ScheduleRepository : BaseRepository
             Directory.CreateDirectory(scheduleDir);
         }
         
-        var pagePath = Path.Combine(schedulePath, $"{schedulePage.StudyYear}.json");
+        var pagePath = Path.Combine(schedulePath, $"{schedulePage.DayOfWeek}.json");
         WriteFile(pagePath, schedulePage);
     }
     
-    private SchedulePage LoadSchedulePage(Guid scheduleId, StudyYear studyYear)
+    private SchedulePage LoadSchedulePage(Guid scheduleId, DayOfWeek dayOfWeek)
     {
         var directory = Path.Combine(DirectoryPath, scheduleId.ToString());
         if (Directory.Exists(directory) == false)
@@ -193,19 +193,8 @@ public class ScheduleRepository : BaseRepository
             Directory.CreateDirectory(directory);
         }
 
-        var path = Path.Combine(scheduleId.ToString(), $"{studyYear}.json");
+        var path = Path.Combine(scheduleId.ToString(), $"{dayOfWeek}.json");
         var json = ReadFile(path);
         return JsonSerializer.Deserialize<SchedulePage>(json, JsonOptions)!;
-    }
-
-    private int ConvertToStudyYear(string fileName)
-    {
-        return fileName switch
-        {
-            "First" => 1,
-            "Second" => 2,
-            "Third" => 3,
-            _ => throw new NotImplementedException()
-        };
     }
 }

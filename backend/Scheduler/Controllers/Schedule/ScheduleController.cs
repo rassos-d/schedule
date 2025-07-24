@@ -17,10 +17,10 @@ public class ScheduleController(ScheduleService service) : ControllerBase
         return Ok(schedules);
     }
 
-    [HttpGet("{scheduleId:guid}/pages/{studyYear}")]
-    public IActionResult GetPage(Guid scheduleId, StudyYear studyYear)
+    [HttpGet("{scheduleId:guid}/pages/{dayOfWeek}")]
+    public IActionResult GetPage(Guid scheduleId, DayOfWeek dayOfWeek)
     {
-        var response = service.GetPage(scheduleId, studyYear);
+        var response = service.GetPage(scheduleId, dayOfWeek);
         return Ok(response);
     }
 
@@ -68,10 +68,10 @@ public class ScheduleController(ScheduleService service) : ControllerBase
         return NoContent();
     }
 
-    [HttpDelete("{scheduleId:guid}/study-years/{studyYear}")]
-    public IActionResult DeleteStudyYear(Guid scheduleId, StudyYear studyYear)
+    [HttpDelete("{scheduleId:guid}/study-years/{dayOfWeek}")]
+    public IActionResult DeleteStudyYear(Guid scheduleId, DayOfWeek dayOfWeek)
     {
-        service.DeleteSchedulePage(scheduleId, studyYear);
+        service.DeleteSchedulePage(scheduleId, dayOfWeek);
         return NoContent();
     }
 

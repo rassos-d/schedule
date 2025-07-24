@@ -23,9 +23,9 @@ public class EventService(
     PlanRepository planRepository,
     SquadRepository squadRepository)
 {
-    public AddEventRequest AddEvent(Guid scheduleId, StudyYear studyYear, Event newEvent)
+    public AddEventRequest AddEvent(Guid scheduleId, DayOfWeek dayOfWeek, Event newEvent)
     {
-        var schedulePage = scheduleRepository.GetSchedulePage(scheduleId, studyYear);
+        var schedulePage = scheduleRepository.GetSchedulePage(scheduleId, dayOfWeek);
         // if (schedulePage == null)
         //     throw new EntityNotFoundException("Учебный год не найден.");
         //
@@ -38,17 +38,9 @@ public class EventService(
         return new AddEventRequest(newEvent.Id, CheckForConflict(schedulePage, newEvent.Id));
     }
 
-    public EventsResponse Get(Guid scheduleId, StudyYear studyYear, Guid id)
+    public CheckConflictResponse? UpdateEvent(Guid scheduleId, DayOfWeek dayOfWeek, Guid eventId, Event updatedEvent)
     {
-        var schedule = scheduleRepository.GetSchedulePage(scheduleId, studyYear);
-
-        throw new NotImplementedException();
-        // return ConvertToResponse();
-    }
-
-    public CheckConflictResponse? UpdateEvent(Guid scheduleId, StudyYear studyYear, Guid eventId, Event updatedEvent)
-    {
-        var schedule = scheduleRepository.GetSchedulePage(scheduleId, studyYear);
+        var schedule = scheduleRepository.GetSchedulePage(scheduleId, dayOfWeek);
         var existingEvent = schedule.Events.FirstOrDefault(e => e.Id == eventId);
         if (existingEvent == null)
             return null;
@@ -67,15 +59,15 @@ public class EventService(
         return CheckForConflict(schedule, existingEvent.Id);
     }
 
-    public GetEventsByScheduleResponse GetEventsBySchedule(Guid scheduleId, StudyYear studyYear)
+    public GetEventsByScheduleResponse GetEventsBySchedule(Guid scheduleId, DayOfWeek studyYear)
     {
         var schedule = scheduleRepository.GetSchedulePage(scheduleId, studyYear);
         return ConvertToResponse(schedule);
     }
 
-    public void DeleteEvent(Guid scheduleId, StudyYear studyYear, Guid id)
+    public void DeleteEvent(Guid scheduleId, DayOfWeek dayOfWeek, Guid id)
     {
-        var page = scheduleRepository.GetSchedulePage(scheduleId, studyYear);
+        var page = scheduleRepository.GetSchedulePage(scheduleId, dayOfWeek);
         var @event = page.Events.FirstOrDefault(x => x.Id == id);
         if (@event == null)
         {

@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using Scheduler.Dto.Constants;
 using Scheduler.Entities;
 using Scheduler.Services.Events;
 
@@ -7,38 +6,31 @@ namespace Scheduler.Controllers.Schedule;
 
 [ApiController]
 [Route("api/events")]
-public class EventController : ControllerBase
+public class EventController(EventService eventService) : ControllerBase
 {
-    private readonly EventService _eventService;
-
-    public EventController(EventService eventService)
+    [HttpGet("schedules/{scheduleId::guid}/{dayOfWeek}")]
+    public IActionResult Get(Guid scheduleId, DayOfWeek dayOfWeek)
     {
-        _eventService = eventService;
-    }
-
-    [HttpGet("schedules/{scheduleId::guid}/{studyYear}")]
-    public IActionResult Get(Guid scheduleId, StudyYear studyYear)
-    {
-        var events = _eventService.GetEventsBySchedule(scheduleId, studyYear);
+        var events = eventService.GetEventsBySchedule(scheduleId, dayOfWeek);
         return Ok(events);
     }
     
-    [HttpPost("schedules/{scheduleId::guid}/{studyYear}")]
-    public IActionResult AddEvent(Guid scheduleId, StudyYear studyYear, [FromBody] Event newEvent)
+    [HttpPost("schedules/{scheduleId::guid}/{dayOfWeek}")]
+    public IActionResult AddEvent(Guid scheduleId, DayOfWeek dayOfWeek, [FromBody] Event newEvent)
     {
-        return Ok(_eventService.AddEvent(scheduleId, studyYear, newEvent));
+        return Ok(eventService.AddEvent(scheduleId, dayOfWeek, newEvent));
     }
     
-    [HttpPut("{eventId}/schedules/{scheduleId}/{studyYear}")]
-    public IActionResult UpdateEvent([FromRoute] Guid eventId, [FromRoute] Guid scheduleId, [FromRoute] StudyYear studyYear, [FromBody] Event updatedEvent)
+    [HttpPut("{eventId}/schedules/{scheduleId}/{dayOfWeek}")]
+    public IActionResult UpdateEvent([FromRoute] Guid eventId, [FromRoute] Guid scheduleId, [FromRoute] DayOfWeek dayOfWeek, [FromBody] Event updatedEvent)
     {
-        return Ok(_eventService.UpdateEvent( scheduleId, studyYear, eventId, updatedEvent));
+        return Ok(eventService.UpdateEvent( scheduleId, dayOfWeek, eventId, updatedEvent));
     }
     
-    [HttpDelete("{eventId:guid}/schedules/{scheduleId:guid}/{studyYear}/")]
-    public IActionResult DeleteEvent(Guid scheduleId, Guid eventId, StudyYear studyYear)
+    [HttpDelete("{eventId:guid}/schedules/{scheduleId:guid}/{dayOfWeek}/")]
+    public IActionResult DeleteEvent(Guid scheduleId, Guid eventId, DayOfWeek dayOfWeek)
     {
-        _eventService.DeleteEvent(scheduleId, studyYear,  eventId);
+        eventService.DeleteEvent(scheduleId, dayOfWeek,  eventId);
         return NoContent();
     }
 }

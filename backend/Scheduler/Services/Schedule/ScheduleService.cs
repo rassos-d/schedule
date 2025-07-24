@@ -18,7 +18,7 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
     public Guid Create(ScheduleCreateDto dto)
     {
         var pagesByDates = dto.Pages.GroupBy(p => p.Start);
-        var schedule = new Entities.Schedule.Schedule {Name = dto.Name, Pages = [] };
+        var schedule = new Entities.Schedule.Schedule {Name = dto.Name, Semester = dto.Semester, Pages = [] };
         // var scheduleInfos = repo.GetAllScheduleInfos();
         // if (scheduleInfos.Any(s => string.Equals(s.Name, dto.Name, StringComparison.CurrentCultureIgnoreCase)))
         //     throw new EntityAlreadyExistExceptions("Календарь с таким именем уже существует");
@@ -30,8 +30,6 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
             var page = new SchedulePage 
             { 
                 ScheduleId = schedule.Id,
-                Semester = pagesGroup.First().Semester,
-                StudyYear = pagesGroup.First().StudyYear,
                 Squads = pagesGroup.SelectMany(p => p.Squads).ToList(),
                 Dates = dates            
             };
@@ -56,8 +54,6 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
             var page = new SchedulePage 
             { 
                 ScheduleId = schedule.Id,
-               // Semester = GetSemester(pageDto.StudyYear, pageDto.Semester),
-                StudyYear = pageDto.StudyYear,
                 Squads = pageDto.Squads,
                 Dates = dates,
                 Events = existsPage is null ? [] : existsPage.Events.ToList()
@@ -86,9 +82,9 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
         repo.UpdateSchedule(schedule);
     }
     
-    public SchedulePage GetPage(Guid scheduleId, StudyYear studyYear)
+    public SchedulePage GetPage(Guid scheduleId, DayOfWeek dayOfWeek)
     {
-        return repo.GetSchedulePage(scheduleId,  studyYear);
+        return repo.GetSchedulePage(scheduleId,  dayOfWeek);
     }
 
     public void Delete(Guid scheduleId)
@@ -96,11 +92,11 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
         repo.DeleteSchedule(scheduleId);
     }
     
-    public void DeleteSchedulePage(Guid scheduleId, StudyYear studyYear)
+    public void DeleteSchedulePage(Guid scheduleId, DayOfWeek dayOfWeek)
     {
         var schedule = repo.GetSchedule(scheduleId);
 
-        schedule.Pages.RemoveAll(page => page.StudyYear == studyYear);
+        schedule.Pages.RemoveAll(page => page.DayOfWeek == dayOfWeek);
 
         repo.SaveSchedule(schedule);
     }
@@ -116,10 +112,10 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
         return new ScheduleCreateDto
         {
             Name = schedule.Name,
+            Semester = schedule.Semester,
             Pages = schedule.Pages.Select(page => new SchedulePageCreateDto
             {
-                StudyYear = page.StudyYear,
-                Semester = page.Semester,
+                DayOfWeek = page.DayOfWeek,
                 Squads = page.Squads,
                 Start = page.Dates.Min(),
                 End = page.Dates.Max()
