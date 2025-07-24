@@ -188,7 +188,7 @@ export default function ShedulePage() {
         }
         setDisplayErrorsEvent(false)
         const {data} = await axios[newLesson.isNewLesson ? 'post' : 'put']<Conflict, AxiosResponse<Conflict & {id: string}>, NewLessonRequest>(
-            PagesURl.EVENT + `${newLesson.id ? '/' + newLesson.id : ''}/schedules/${id}/${activeTab}`, {
+            PagesURl.EVENT + `${newLesson.id ? '/' + newLesson.id : ''}/schedules/${id}/${activeTab.studyYear}`, {
             subjectId: newLesson.subject.id as string,
             teacherId: newLesson.teacher.id as string,
             themeId: newLesson.theme.id as string,
@@ -207,7 +207,7 @@ export default function ShedulePage() {
     }
     const handleDeleteLesson = async (lessonId: string) => {
         if (!activeTab) return
-        await axios.delete(PagesURl.EVENT + `/${lessonId}/schedules/${id}/${activeTab}`)
+        await axios.delete(PagesURl.EVENT + `/${lessonId}/schedules/${id}/${activeTab.studyYear}`)
         setConfirmDeleteEventId(undefined)
         handleGetSchedule(activeTab.studyYear)
     }

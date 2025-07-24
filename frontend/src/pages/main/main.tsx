@@ -38,7 +38,7 @@ export default function Main() {
     const [confirmDeleteSquadId, setConfirmDeleteSquadId] = useState<string>()
 
     const [shedules, setShedules] = useState<SmallShedule[]>()
-    const [newSchedule, setNewSchedule] = useState<CreateSchedule & {isNew: boolean}>()
+    const [newSchedule, setNewSchedule] = useState<CreateSchedule & { isNew: boolean }>()
     const [freeCoursesYear, setFreeCoursesYear] = useState(COURSES_YEAR)
 
     const [squads, setSquads] = useState<Squad[]>()
@@ -49,7 +49,7 @@ export default function Main() {
     const [allAudience, setAllAudience] = useState<(Audience & { isEdit: boolean, isWarning: boolean })[]>()
     const [allTeachers, setAllTeachers] = useState<Teacher[]>()
     const [allDirections, setAllDirections] = useState<(Direction & { isEdit: boolean, isWarning: boolean })[]>()
-    const [editTeacher, setEditTeacher] = useState<NewTeacher & {id: string}>()
+    const [editTeacher, setEditTeacher] = useState<NewTeacher & { id: string }>()
     const [checkEditTeacher, setCheckEditTeacher] = useState(false)
     const [newTeacher, setNewTeacher] = useState<NewTeacher>()
 
@@ -57,7 +57,7 @@ export default function Main() {
 
     const handleGetAllDirections = async () => {
         const { data } = await axios.get<Direction[]>(PagesURl.DIRECTION + '/find')
-        setAllDirections(data.map((el)=>({...el, isEdit: false, isWarning: false, name: `${el.name} (${el.type!==undefined ? DIRECTION_TYPE[el.type] : DIRECTION_TYPE[0]})`})))
+        setAllDirections(data.map((el) => ({ ...el, isEdit: false, isWarning: false, name: `${el.name} (${el.type !== undefined ? DIRECTION_TYPE[el.type] : DIRECTION_TYPE[0]})` })))
     }
     const handleGetAllAudience = async () => {
         const { data } = await axios.get<Audience[]>(PagesURl.AUDIENCE)
@@ -90,7 +90,7 @@ export default function Main() {
         handleGetAllAudience()
     }
     const handleGetSubjects = async () => {
-        const {data} = await axios.get(PagesURl.SUBJECT + '/find')
+        const { data } = await axios.get(PagesURl.SUBJECT + '/find')
         setSubjects(data)
     }
 
@@ -136,7 +136,7 @@ export default function Main() {
             name: editTeacher.name,
             rank: editTeacher.rank,
             vacations: editTeacher.vacations,
-            subjectIds: editTeacher.subjects.map((el)=>el.id)
+            subjectIds: editTeacher.subjects.map((el) => el.id)
         })
         setEditTeacher(undefined)
         handleGetAllTeachers()
@@ -181,8 +181,8 @@ export default function Main() {
 
     const getEditTeacher = (teacher: Teacher) => {
         if (!subjects) return
-        const selectedSubjects = subjects.filter((el)=>teacher.subjectIds.includes(el.id.toString()))
-        setEditTeacher({...teacher, subjects: selectedSubjects})
+        const selectedSubjects = subjects.filter((el) => teacher.subjectIds.includes(el.id.toString()))
+        setEditTeacher({ ...teacher, subjects: selectedSubjects })
     }
     const addVacationEditTeacher = () => {
         if (!editTeacher) return
@@ -201,7 +201,7 @@ export default function Main() {
         setConfirmDeleteScheduleId(undefined)
         handleGetShedules()
     }
-    const handleCreateShedule = async (schedule: CreateSchedule & {isNew: boolean}) => {
+    const handleCreateShedule = async (schedule: CreateSchedule & { isNew: boolean }) => {
         setIsEnableValidationCreateSchedule(true)
         if (!isValidCreateSchedule(schedule)) return
         setIsEnableValidationCreateSchedule(false)
@@ -221,11 +221,13 @@ export default function Main() {
     }
     const handleGetEditSchedule = async (scheduleId: string) => {
         if (!squads) return
-        const {data} = await axios.get<UpdateSchedule>(PagesURl.SCHEDULE + `/${scheduleId}/update-info`)
-        setNewSchedule({...data, isNew: false, id: scheduleId, pages: data.pages.map((page)=>{
-            const activeSquads = squads.filter((el)=>page.squads.includes(el.id))
-            return {...page, squads: activeSquads, semester: SEMESTR_YEAR.filter((el)=>el.id === page.semester)[0]}
-        })})
+        const { data } = await axios.get<UpdateSchedule>(PagesURl.SCHEDULE + `/${scheduleId}/update-info`)
+        setNewSchedule({
+            ...data, isNew: false, id: scheduleId, pages: data.pages.map((page) => {
+                const activeSquads = squads.filter((el) => page.squads.includes(el.id))
+                return { ...page, squads: activeSquads, semester: SEMESTR_YEAR.filter((el) => el.id === page.semester)[0] }
+            })
+        })
     }
 
 
@@ -321,10 +323,10 @@ export default function Main() {
             if (!prev) return undefined
             const result = cloneObject(prev)
             if (!result.semester) {
-                return {...result, semester: newSemestr}
+                return { ...result, semester: newSemestr }
             }
             if (result.semester.id !== newSemestr.id) {
-                return {...result, pages: result.pages.map((el)=>({...el, end: '', start: ''})), semester: newSemestr}
+                return { ...result, pages: result.pages.map((el) => ({ ...el, end: '', start: '' })), semester: newSemestr }
             }
             return result
         })
@@ -430,7 +432,7 @@ export default function Main() {
                                 <Button>Создать новое расписание</Button>
                             </div>
                         </div>
-                        <EditPlan/>
+                        <EditPlan />
                     </div>
                     <div className={styles.container__right}>
                         <h3 className={styles.container__subtitle}>Глобальные настройки</h3>
@@ -486,24 +488,14 @@ export default function Main() {
                 </div>
             </div>
             {newSchedule !== undefined &&
-                <PopupContainer displayClose onClose={() => {setNewSchedule(undefined);setIsEnableValidationCreateSchedule(false)}} isActive={confirmDeleteScheduleYearIndex === undefined}>
+                <PopupContainer displayClose onClose={() => { setNewSchedule(undefined); setIsEnableValidationCreateSchedule(false) }} isActive={confirmDeleteScheduleYearIndex === undefined}>
                     <div className={styles.popup}>
                         <h2>{newSchedule.isNew ? 'Создание' : 'Редактирование'} расписания</h2>
                         <div style={{ width: '95%' }}><Input value={newSchedule.name} onChange={(value) => setNewSchedule({ ...newSchedule, name: value })} placeholder='Введите название' /></div>
-                        <div style={{ width: '95%' }}>
-                            <AddInput
-                                title='Семестр'
-                                singleMode
-                                isError={isEnableValidationCreateSchedule}
-                                selectedList={newSchedule.semester ? [newSchedule.semester] : []}
-                                allList={newSchedule.pages.find((page) => page.studyYear === 1) ? SEMESTR_YEAR.filter((el) => el.id === 0) : SEMESTR_YEAR}
-                                changeInputList={(newList) => addNewSemester(newList[0])}
-                            />
-                        </div>
                         {newSchedule.pages.map((year, index) => (
                             <div className={styles.popup__addList} key={year.studyYear}>
-                                <div onClick={(e)=>{e.stopPropagation();setConfirmDeleteScheduleYearIndex(index)}} className={styles.popup__delete}>
-                                    <Icon glyph='trash' glyphColor='error'/>
+                                <div onClick={(e) => { e.stopPropagation(); setConfirmDeleteScheduleYearIndex(index) }} className={styles.popup__delete}>
+                                    <Icon glyph='trash' glyphColor='error' />
                                 </div>
                                 <AddInput
                                     isError={isEnableValidationCreateSchedule}
@@ -533,6 +525,16 @@ export default function Main() {
                             </div>
                         ))}
                         {COURSES_YEAR.length > newSchedule.pages.length && <Button onClick={addNewYear}>Добавить год обучения</Button>}
+                        <div style={{ width: '95%' }}>
+                            <AddInput
+                                title='Семестр'
+                                singleMode
+                                isError={isEnableValidationCreateSchedule}
+                                selectedList={newSchedule.semester ? [newSchedule.semester] : []}
+                                allList={newSchedule.pages.find((page) => page.studyYear === 1) ? SEMESTR_YEAR.filter((el) => el.id === 0) : SEMESTR_YEAR}
+                                changeInputList={(newList) => addNewSemester(newList[0])}
+                            />
+                        </div>
                         <Button onClick={() => handleCreateShedule(newSchedule)}>{newSchedule.isNew ? 'Создать расписание' : 'Сохранить'}</Button>
                     </div>
                 </PopupContainer>
@@ -548,7 +550,7 @@ export default function Main() {
                             minWidth={367}
                             allList={subjects}
                             selectedList={editTeacher.subjects}
-                            changeInputList={(newList)=>setEditTeacher({...editTeacher, subjects: newList})}
+                            changeInputList={(newList) => setEditTeacher({ ...editTeacher, subjects: newList })}
                             title='Приоритетные дисциплины'
                         />
                         {editTeacher.vacations.map((el, index) => (
@@ -581,7 +583,7 @@ export default function Main() {
                             minWidth={367}
                             allList={subjects}
                             selectedList={newTeacher.subjects}
-                            changeInputList={(newList)=>setNewTeacher({...newTeacher, subjects: newList})}
+                            changeInputList={(newList) => setNewTeacher({ ...newTeacher, subjects: newList })}
                             title='Приоритетные дисциплины'
                         />
                         {newTeacher.vacations.map((el, index) => (
@@ -702,44 +704,44 @@ export default function Main() {
                     </div>
                 </PopupContainer>
             }
-            {confirmDeleteScheduleId && 
+            {confirmDeleteScheduleId &&
                 <DeletePopup
                     title='Удаление расписания'
                     text='Вы уверены, что хотите удалить расписание?'
-                    onCancel={()=>setConfirmDeleteScheduleId(undefined)}
-                    onDelete={()=>handleDeleteSchedule(confirmDeleteScheduleId)}
+                    onCancel={() => setConfirmDeleteScheduleId(undefined)}
+                    onDelete={() => handleDeleteSchedule(confirmDeleteScheduleId)}
                 />
             }
-            {confirmDeleteScheduleYearIndex!==undefined && 
+            {confirmDeleteScheduleYearIndex !== undefined &&
                 <DeletePopup
                     title='Удаление года обучения'
                     text='Вы уверены, что хотите удалить год обучения?'
-                    onCancel={()=>setConfirmDeleteScheduleYearIndex(undefined)}
-                    onDelete={()=>deleteYear(confirmDeleteScheduleYearIndex)}
+                    onCancel={() => setConfirmDeleteScheduleYearIndex(undefined)}
+                    onDelete={() => deleteYear(confirmDeleteScheduleYearIndex)}
                 />
             }
-            {confirmDeleteAudienceId && 
+            {confirmDeleteAudienceId &&
                 <DeletePopup
                     title='Удаление аудитории'
                     text='Вы уверены, что хотите удалить аудиторию?'
-                    onCancel={()=>setConfirmDeleteAudienceId(undefined)}
-                    onDelete={()=>handleDeleteAudience(confirmDeleteAudienceId)}
+                    onCancel={() => setConfirmDeleteAudienceId(undefined)}
+                    onDelete={() => handleDeleteAudience(confirmDeleteAudienceId)}
                 />
             }
-            {confirmDeleteTeacherId && 
+            {confirmDeleteTeacherId &&
                 <DeletePopup
                     title='Удаление преподавателя'
                     text='Вы уверены, что хотите удалить преподавателя?'
-                    onCancel={()=>setConfirmDeleteTeacherId(undefined)}
-                    onDelete={()=>handleDeleteTeacher(confirmDeleteTeacherId)}
+                    onCancel={() => setConfirmDeleteTeacherId(undefined)}
+                    onDelete={() => handleDeleteTeacher(confirmDeleteTeacherId)}
                 />
             }
-            {confirmDeleteSquadId && 
+            {confirmDeleteSquadId &&
                 <DeletePopup
                     title='Удаление взвода'
                     text='Вы уверены, что хотите удалить взвод?'
-                    onCancel={()=>setConfirmDeleteSquadId(undefined)}
-                    onDelete={()=>handleDeleteSquad(confirmDeleteSquadId)}
+                    onCancel={() => setConfirmDeleteSquadId(undefined)}
+                    onDelete={() => handleDeleteSquad(confirmDeleteSquadId)}
                 />
             }
         </>
