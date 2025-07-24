@@ -10,7 +10,7 @@ import { Button } from '../button/button'
 import { Icon } from '../icon'
 import { NewTheme, Theme } from '../../types/theme'
 import PopupContainer from '../popupContainer/popupContainer'
-import { AddInput, Input } from '../input/Input'
+import { AddInput, Input, SearchInput } from '../input/Input'
 import { EditLesson, Lesson, NewSmallLesson } from '../../types/lesson'
 import { LESSON_TYPE } from '../../consts'
 
@@ -23,11 +23,13 @@ export function EditPlan() {
   const [allDirections, setAllDirections] = useState<(Direction & { isEdit: boolean, isWarning: boolean })[]>()
   const [confirmDeleteDirectionId, setConfirmDeleteDirectionId] = useState<string>()
   const [selectedDirection, setSelectedDirection] = useState<{name: string, id: string}>()
+  const [searchDirection, setSearchDirection] = useState('')
 
   const [isOpenSubjects, setIsOpenSubjects] = useState<boolean>(false)
   const [allSubjects, setAllSubjects] = useState<(Subject & { isEdit: boolean, isWarning: boolean})[]>()
   const [confirmDeleteSubjectId, setConfirmDeleteSubjectId] = useState<string>()
   const [selectedSubject, setSelectedSubject] = useState<{name: string, id: string}>()
+  const [searchSubject, setSearchSubject] = useState('')
 
   const [isOpenThemes, setIsOpenThemes] = useState<boolean>(false)
   const [allThemes, setAllThemes] = useState<(Theme & { isEdit: boolean, isWarning: boolean})[]>()
@@ -35,12 +37,14 @@ export function EditPlan() {
   const [selectedTheme, setSelectedTheme] = useState<{name: string, id: string}>()
   const [editTheme, setEditTheme] = useState<Theme>()
   const [newTheme, setNewTheme] = useState<NewTheme>()
+  const [searchTheme, setSearchTheme] = useState('')
 
   const [isOpenLessons, setIsOpenLessons] = useState<boolean>(false)
   const [allLessons, setAllLessons] = useState<(Lesson & { isEdit: boolean, isWarning: boolean})[]>()
   const [confirmDeleteLessonId, setConfirmDeleteLessonId] = useState<string>()
   const [editLesson, setEditLesson] = useState<EditLesson>()
   const [newLesson, setNewLesson] = useState<NewSmallLesson>()
+  const [searchLesson, setSearchLesson] = useState('')
 
   const handleGetAllDirections = async () => {
     const { data } = await axios.get<Direction[]>(PagesURl.DIRECTION + '/find')
@@ -196,6 +200,10 @@ export function EditPlan() {
       setSelectedTheme(undefined)
       setAllThemes(undefined)
       setAllLessons(undefined)
+      setSearchDirection('')
+      setSearchSubject('')
+      setSearchTheme('')
+      setSearchLesson('')
       handleGetAllSubjects(selectedDirection.id)
     }
   },[selectedDirection])
@@ -204,11 +212,16 @@ export function EditPlan() {
       setSelectedTheme(undefined)
       setAllThemes(undefined)
       setAllLessons(undefined)
+      setSearchSubject('')
+      setSearchTheme('')
+      setSearchLesson('')
       handleGetAllThemes(selectedSubject.id)
     }
   },[selectedSubject])
   useEffect(()=>{
     if (selectedTheme) {
+      setSearchTheme('')
+      setSearchLesson('')
       setAllLessons(undefined)
       handleGetAllLessons(selectedTheme?.id)
     }
@@ -221,7 +234,8 @@ export function EditPlan() {
       <h3 className={styles.container__subtitle}>Настройки тематического плана</h3>
       <SettingsList isSelected={selectedDirection !== undefined} changeIsOpen={setIsOpensDirections} isOpenList={isOpenDirections} title={selectedDirection ? selectedDirection.name : 'Направления'}>
         <>
-          {allDirections.map((el, index) => (
+          <SearchInput searchValue={searchDirection} changeSearchValue={setSearchDirection}/>
+          {allDirections.filter((el)=>el.name.toLowerCase().includes(searchDirection.toLowerCase())).map((el, index) => (
             <HiddenInputBlock
               isEdit={el.isEdit}
               isWarning={el.isWarning}
@@ -239,7 +253,8 @@ export function EditPlan() {
       {allSubjects && 
         <SettingsList isSelected={selectedSubject !== undefined} changeIsOpen={setIsOpenSubjects} isOpenList={isOpenSubjects} title={selectedSubject ? selectedSubject.name : 'Предметы'}>
           <>
-            {allSubjects.map((el, index) => (
+            <SearchInput searchValue={searchSubject} changeSearchValue={setSearchSubject}/>
+            {allSubjects.filter((el)=>el.name.toLowerCase().includes(searchSubject.toLowerCase())).map((el, index) => (
               <HiddenInputBlock
                 isEdit={el.isEdit}
                 isWarning={el.isWarning}
@@ -258,7 +273,8 @@ export function EditPlan() {
       {allThemes &&
         <SettingsList isSelected={selectedTheme !== undefined} changeIsOpen={setIsOpenThemes} isOpenList={isOpenThemes} title={selectedTheme ? selectedTheme.name.toString() : 'Темы'}>
           <>
-            {allThemes.map((el, index) => (
+            <SearchInput searchValue={searchTheme} changeSearchValue={setSearchTheme}/>
+            {allThemes.filter((el)=>`Тема ${el.number}`.toLowerCase().includes(searchTheme.toLowerCase())).map((el, index) => (
               <HiddenInputBlock
                 isEdit={el.isEdit}
                 isWarning={el.isWarning}
@@ -276,7 +292,8 @@ export function EditPlan() {
       {allLessons && 
         <SettingsList changeIsOpen={setIsOpenLessons} isOpenList={isOpenLessons} title={'Занятия'}>
           <>
-            {allLessons.map((el, index) => (
+            <SearchInput searchValue={searchLesson} changeSearchValue={setSearchLesson}/>
+            {allLessons.filter((el)=>`Занятие ${el.number}`.toLowerCase().includes(searchLesson.toLowerCase())).map((el, index) => (
               <HiddenInputBlock
                 isEdit={el.isEdit}
                 isWarning={el.isWarning}

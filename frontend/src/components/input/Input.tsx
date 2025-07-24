@@ -130,6 +130,22 @@ type AddInputProps = {
   isError?: boolean
 }
 
+type SearchInputProps = {
+  searchValue: string
+  changeSearchValue: (value: string) => void
+  placeholder?: string
+}
+
+export function SearchInput({ searchValue, placeholder = 'Поиск', changeSearchValue }: SearchInputProps) {
+  return (
+    <div className={styles.list__line}>
+      <Icon glyph='search' glyphColor='grey' />
+      <input value={searchValue} onChange={(e) => { changeSearchValue(e.target.value) }} placeholder={`${placeholder}...`} className={styles.list__search} />
+      {searchValue !== '' && <img onClick={() => { changeSearchValue('') }} className={styles.input__clear} src='/icons/close.svg' />}
+    </div>
+  )
+}
+
 
 export function AddInput({ selectedList, changeInputList, allList, title, placeholder = 'Поиск', singleMode, totalParts, currentPart, maxWidth, minWidth, onSeeMore, onSearch, isError, enableSearch }: AddInputProps) {
 
@@ -191,11 +207,7 @@ export function AddInput({ selectedList, changeInputList, allList, title, placeh
       </div>
       {displayList && <div className={styles.list__list}>
         {(onSearch || enableSearch) &&
-          <div className={styles.list__line}>
-            <Icon glyph='search' glyphColor='grey' />
-            <input value={searchValue} onChange={(e) => { changeSearchValue(e.target.value) }} placeholder={`${placeholder}...`} className={styles.list__search} />
-            {searchValue !== '' && <img onClick={() => { changeSearchValue('') }} className={styles.input__clear} src='/icons/close.svg' />}
-          </div>}
+          <SearchInput placeholder={placeholder} changeSearchValue={changeSearchValue} searchValue={searchValue}/>}
         {allList.filter((el)=>(enableSearch ? el.name.toString().toLowerCase().includes(searchValue.toLowerCase()) : true)).map((el) => (
           <div key={el.id} onClick={() => { changeList(el) }} className={styles.list__line}>
             <img src={`/icons/${singleMode ? 'radioButton' : 'checkbox'}/${selectedList.findIndex((item) => item.id === el.id) !== -1 ? 'active' : 'disable'}.svg`} />
