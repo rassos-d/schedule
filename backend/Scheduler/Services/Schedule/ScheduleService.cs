@@ -17,7 +17,7 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
 
     public Guid Create(ScheduleCreateDto dto)
     {
-        var pagesByDates = dto.Pages.GroupBy(p => (p.Start, p.End));
+        var pagesByDates = dto.Pages.GroupBy(p => p.Start);
         var schedule = new Entities.Schedule.Schedule {Name = dto.Name, Pages = [] };
         // var scheduleInfos = repo.GetAllScheduleInfos();
         // if (scheduleInfos.Any(s => string.Equals(s.Name, dto.Name, StringComparison.CurrentCultureIgnoreCase)))
@@ -25,7 +25,8 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
         
         foreach (var pagesGroup in pagesByDates)
         {
-            var dates = GetDatesForDayOfWeek(pagesGroup.Key.Start, pagesGroup.Key.End);
+            var maxDates = pagesGroup.Max(p => (p.Start, p.End));
+            var dates = GetDatesForDayOfWeek(maxDates.Start, maxDates.End);
             var page = new SchedulePage 
             { 
                 ScheduleId = schedule.Id,

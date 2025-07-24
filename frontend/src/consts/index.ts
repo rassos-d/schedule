@@ -14,4 +14,4 @@ export const LESSON_TYPE = [
   {name: 'Самоподготовка', shortName: 'СРС'}
 ]
 
-export const DIRECTION_TYPE = ['Запас', 'Кадровые']
+export const DIRECTION_TYPE = ['Кадровые', 'Запас']
