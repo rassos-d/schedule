@@ -85,7 +85,7 @@ public partial class PlanRepository
         {
             lesson.Semester = dto.Semester.Value;
         }
-        
+        lesson.Type = dto.Type;
         SaveChanges();
     }
 
