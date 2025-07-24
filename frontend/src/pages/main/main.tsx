@@ -324,7 +324,7 @@ export default function Main() {
                 return {...result, semester: newSemestr}
             }
             if (result.semester.id !== newSemestr.id) {
-                return {...result, pages: result.pages.map((el)=>({...el, end: '', start: ''}))}
+                return {...result, pages: result.pages.map((el)=>({...el, end: '', start: ''})), semester: newSemestr}
             }
             return result
         })
