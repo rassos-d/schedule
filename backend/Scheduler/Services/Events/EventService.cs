@@ -109,7 +109,7 @@ public class EventService(
         {
             ScheduleId = schedulePage.ScheduleId,
             Name = schedule.Name,
-            Semester = schedulePage.Semester.ToViewSem(),
+            Semester = schedulePage.Semester,
             Squads = ConvertToSquads(
                     schedulePage
                         .Events.Where(e => e is { Date: not null, Number: not null })

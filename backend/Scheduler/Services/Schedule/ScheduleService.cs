@@ -31,7 +31,7 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
             var page = new SchedulePage 
             { 
                 ScheduleId = schedule.Id,
-                Semester = GetSemester(pageDto.StudyYear, pageDto.Semester),
+                //Semester = GetSemester(pageDto.StudyYear, pageDto.Semester),
                 StudyYear = pageDto.StudyYear,
                 Squads = pageDto.Squads,
                 Dates = dates            
@@ -57,7 +57,7 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
             var page = new SchedulePage 
             { 
                 ScheduleId = schedule.Id,
-                Semester = GetSemester(pageDto.StudyYear, pageDto.Semester),
+               // Semester = GetSemester(pageDto.StudyYear, pageDto.Semester),
                 StudyYear = pageDto.StudyYear,
                 Squads = pageDto.Squads,
                 Dates = dates,
@@ -119,7 +119,7 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
             Pages = schedule.Pages.Select(page => new SchedulePageCreateDto
             {
                 StudyYear = page.StudyYear,
-                Semester = page.Semester.ToViewSem(),
+                Semester = page.Semester,
                 Squads = page.Squads,
                 Start = page.Dates.Min(),
                 End = page.Dates.Max()
@@ -138,35 +138,5 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
         }
 
         return result;
-    }
-
-    private static Semester GetSemester(StudyYear studyYear, int sem)
-    {
-        if (studyYear == StudyYear.First && sem == 0)
-        {
-            return Semester.First;
-        }
-
-        if (studyYear == StudyYear.Second && sem == 1)
-        {
-            return Semester.Second;
-        }
-
-        if (studyYear == StudyYear.Second && sem == 0)
-        {
-            return Semester.Third;
-        }
-
-        if (studyYear == StudyYear.Third && sem == 1)
-        {
-            return Semester.Fourth;
-        }
-
-        if (studyYear == StudyYear.Third && sem == 0)
-        {
-            return Semester.Fiveth;
-        }
-
-        return 0;
     }
 }

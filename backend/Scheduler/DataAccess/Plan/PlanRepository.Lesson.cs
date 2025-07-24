@@ -19,9 +19,10 @@ public partial class PlanRepository
         return theme?.Lessons ?? [];
     }
     
-    public List<LessonInfo> FindLessonsForSemester(Guid directionId, Semester semester)
+    public List<LessonInfo> FindLessonsForSemester(Guid directionId, StudyYear studyYear, int sem)
     {
         var direction = GetDirection(directionId)!;
+        var semester = direction.GetSemester(studyYear, sem);
         var lessons = direction.Subjects
             .SelectMany(x => x.Themes)
             .SelectMany(t => t.Lessons.Select(l => new LessonInfo
