@@ -39,7 +39,6 @@ export default function Main() {
 
     const [shedules, setShedules] = useState<SmallShedule[]>()
     const [newSchedule, setNewSchedule] = useState<CreateSchedule & { isNew: boolean }>()
-    const [freeCoursesYear, setFreeCoursesYear] = useState(COURSES_YEAR)
 
     const [squads, setSquads] = useState<Squad[]>()
     const [editSquad, setEditSquad] = useState<EditSquad>()
@@ -381,12 +380,6 @@ export default function Main() {
     }
 
     useEffect(() => {
-        if (newSchedule) {
-            setFreeCoursesYear(getFreeYears(newSchedule.pages))
-        }
-    }, [newSchedule])
-
-    useEffect(() => {
         handleGetAllDirections()
         handleGetAllSquads()
         handleGetShedules()
@@ -503,7 +496,7 @@ export default function Main() {
                                     title='Год обучения'
                                     singleMode
                                     selectedList={[{ name: year.studyYear, id: year.studyYear }]}
-                                    allList={freeCoursesYear.map((year) => ({ name: year, id: year }))}
+                                    allList={COURSES_YEAR.map((el)=>({name: el, id: el}))}
                                     changeInputList={(newList) => addNewYearToYear(Number(newList[0].id), index)}
                                 />
                                 {squads &&
