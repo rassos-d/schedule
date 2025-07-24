@@ -109,6 +109,7 @@ public class EventService(
         {
             ScheduleId = schedulePage.ScheduleId,
             Name = schedule.Name,
+            DayOfWeek = schedulePage.Dates.Min().DayOfWeek.ToRussian(),
             Semester = schedulePage.Semester,
             Squads = ConvertToSquads(
                     schedulePage

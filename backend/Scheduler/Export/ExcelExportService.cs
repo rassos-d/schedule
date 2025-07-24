@@ -91,7 +91,7 @@ public class ExcelExportService
         SchedulePage page)
     {
         // создаем лист сразу с шапкой
-        var sheet = workbook.Worksheets.Add($"{(int)page.StudyYear} год", template.Header.Sheet);
+        var sheet = workbook.Worksheets.Add(page.Dates.Min().DayOfWeek.ToRussian(), template.Header.Sheet);
 
         var squads = page.Squads.Select(squadId => GetSquad(page, squadRepository.Get(squadId)!));
         FillHeader(squads, sheet.Cells, page.Dates, page.Semester);

@@ -8,6 +8,8 @@ public class GetEventsByScheduleResponse
 
     public string Name { get; init; }
 
+    public string DayOfWeek { get; set; }
+
     public int? Semester { get; init; }
     public List<GetSquadResponse> Squads { get; init; } = [];
 
