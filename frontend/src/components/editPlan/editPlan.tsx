@@ -12,7 +12,7 @@ import { NewTheme, Theme } from '../../types/theme'
 import PopupContainer from '../popupContainer/popupContainer'
 import { AddInput, Input, SearchInput } from '../input/Input'
 import { EditLesson, Lesson, NewSmallLesson } from '../../types/lesson'
-import { DIRECTION_TYPE, LESSON_TYPE } from '../../consts'
+import { DIRECTION_TYPE, LESSON_TYPE, SEMESTER_COUNT } from '../../consts'
 
 const NEW_SUBJECT_NAME = 'Новый предмет'
 
@@ -455,7 +455,7 @@ export function EditPlan() {
                 minWidth={340}
                 title={'Выберите семестр занятия'}
                 singleMode
-                allList={[1, 2, 3, 4, 5].map((el) => ({ name: el, id: el }))}
+                allList={SEMESTER_COUNT.map((el) => ({ name: el, id: el }))}
                 selectedList={[{ name: editLesson.semester.name, id: editLesson.semester.id }]}
                 changeInputList={(list) => setEditLesson({ ...editLesson, semester: list[0] })}
               />
@@ -495,7 +495,7 @@ export function EditPlan() {
                 minWidth={340}
                 title={'Выберите семестр занятия'}
                 singleMode
-                allList={[1, 2, 3, 4, 5].map((el) => ({ name: el, id: el }))}
+                allList={SEMESTER_COUNT.map((el) => ({ name: el, id: el }))}
                 selectedList={newLesson.semester ? [{ name: newLesson.semester.name, id: newLesson.semester.id }] : []}
                 changeInputList={(list) => setNewLesson({ ...newLesson, semester: list[0] })}
               />
