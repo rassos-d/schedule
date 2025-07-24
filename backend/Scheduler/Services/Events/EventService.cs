@@ -213,9 +213,13 @@ public class EventService(
             ? $"Аудитория {audienceName} занята во время {GetTimeByLessonNumber(updatedEvent.Number.Value)}."
             : "";
 
-        message += isTeacherInVacation && updatedEvent.TeacherId.HasValue && teachers.TryGetValue(updatedEvent.TeacherId.Value, out var teacher2)
-            ? $"Преподаватель {teacher2.Name} находится в отпуске."
-            : "";
+        if (isTeacherInVacation && updatedEvent.TeacherId.HasValue &&
+            teachers.TryGetValue(updatedEvent.TeacherId.Value, out var teacher2))
+        {
+            var vacation = teacher2.Vacations.First(v => v.StartDate <= updatedEvent.Date && updatedEvent.Date <= v.EndDate);
+            message +=
+                $"Преподаватель {teacher2.Name} находится в отпуске с {vacation.StartDate.ToString("dd-MM-yy")} по {vacation.EndDate.ToString("dd-MM-yy")}";
+        }
         
         return "ВНИМАНИЕ!!! " + message;
     }
