@@ -131,15 +131,20 @@ export function EditPlan() {
   }
   const handleDeleteLesson = async (lessonId: string) => {
     await axios.delete(PagesURl.LESSON + `/${lessonId}`)
+    setConfirmDeleteLessonId(undefined)
     handleGetAllLessons(selectedTheme?.id)
   }
-  const handleCreateLesson = async (isNew: boolean, number: number | undefined, type: number | undefined, name: string | undefined, id: string | undefined) => {
+  const handleCreateLesson = async (isNew: boolean, number: number | undefined, type: number | undefined, id: string | undefined) => {
     await axios[isNew ? 'post' : 'put'](PagesURl.LESSON, {
       id,
       number,
       type,
-      name
+      themeId: selectedTheme?.id,
+      subjectId: selectedSubject?.id
     })
+    setNewLesson(undefined)
+    setEditLesson(undefined)
+    handleGetAllLessons(selectedTheme?.id)
   }
 
   const changeIsEditDirection = (index: number) => {
@@ -184,15 +189,29 @@ export function EditPlan() {
   useEffect(()=>{
     if (selectedDirection) {
       console.log(selectedDirection, 'selectedDirection')
+      setSelectedSubject(undefined)
+      setAllSubjects(undefined)
+      setSelectedTheme(undefined)
+      setAllThemes(undefined)
+      setAllLessons(undefined)
       handleGetAllSubjects(selectedDirection.id)
     }
   },[selectedDirection])
   useEffect(()=>{
     if (selectedSubject) {
       console.log(selectedSubject, 'selectedSubject')
+      setSelectedTheme(undefined)
+      setAllThemes(undefined)
+      setAllLessons(undefined)
       handleGetAllThemes(selectedSubject.id)
     }
   },[selectedSubject])
+  useEffect(()=>{
+    if (selectedTheme) {
+      setAllLessons(undefined)
+      handleGetAllLessons(selectedTheme?.id)
+    }
+  },[selectedTheme])
 
   if (!allDirections) return <></>
 
@@ -262,11 +281,11 @@ export function EditPlan() {
                 isWarning={el.isWarning}
                 key={`${el.id}--${index}`}
                 value={el.number.toString()}
-                onEdit={() => setEditLesson({...el, type: {name: LESSON_TYPE[el.type].name, id: el.type}})}
+                onEdit={() => {setEditLesson({...el, type: {name: LESSON_TYPE[el.type].name, id: el.type}, name: el.name});console.log(el)}}
                 onDelete={() => { setConfirmDeleteLessonId(el.id) }}
               />
             ))}
-            <Button onClick={()=>setNewTheme({number: undefined, semester: undefined})} size={'max'} variant={'whiteMain'}><Icon glyph='add' glyphColor='grey'/></Button>
+            <Button onClick={()=>setNewLesson({number: undefined, type: undefined})} size={'max'} variant={'whiteMain'}><Icon glyph='add' glyphColor='grey'/></Button>
           </>
         </SettingsList>
       }
@@ -344,13 +363,14 @@ export function EditPlan() {
             <Input value={editLesson.number.toString()} placeholder='Номер занятия' onChange={(val) => setEditLesson({ ...editLesson, number: Number(val) })} />
              <Input value={editLesson.name ? editLesson.name: ''} placeholder='Название занятия' onChange={(val) => setEditLesson({ ...editLesson, name: val })} />
             <AddInput
+              minWidth={340}
               title={'Выберите тип занятия'}
               singleMode
               allList={LESSON_TYPE.map((el, index)=>({name: el.name, id: index}))}
               selectedList={[{name: editLesson.type.name, id: editLesson.type.id}]}
               changeInputList={(list)=>setEditLesson({...editLesson, type: list[0]})}
             />
-            <Button onClick={()=>handleCreateLesson(false, editLesson.number, Number(editLesson.type.id), editLesson.name, editLesson.id)}>Сохранить</Button>
+            <Button onClick={()=>handleCreateLesson(false, editLesson.number, Number(editLesson.type.id), editLesson.id)}>Сохранить</Button>
           </div>
         </PopupContainer>
       }
@@ -359,15 +379,15 @@ export function EditPlan() {
           <div className={styles.popup}>
             <h2>Редактирование занятия</h2>
             <Input value={newLesson.number!== undefined ? newLesson.number.toString() : ''} placeholder='Номер занятия' onChange={(val) => setNewLesson({ ...newLesson, number: Number(val) })} />
-             <Input value={newLesson.name ? newLesson.name: ''} placeholder='Название занятия' onChange={(val) => setNewLesson({ ...newLesson, name: val })} />
             <AddInput
+              minWidth={340}
               title={'Выберите тип занятия'}
               singleMode
               allList={LESSON_TYPE.map((el, index)=>({name: el.name, id: index}))}
               selectedList={newLesson.type ? [{name: newLesson.type.name, id: newLesson.type.id}]: []}
               changeInputList={(list)=>setNewLesson({...newLesson, type: list[0]})}
             />
-            <Button onClick={()=>handleCreateLesson(true, newLesson.number, newLesson.type ? Number(newLesson.type.id) : undefined, newLesson.name, undefined)}>Создать занятие</Button>
+            <Button onClick={()=>handleCreateLesson(true, newLesson.number, newLesson.type ? Number(newLesson.type.id) : undefined, undefined)}>Создать занятие</Button>
           </div>
         </PopupContainer>
       }
