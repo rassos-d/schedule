@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Globalization;
+using Microsoft.AspNetCore.Mvc;
 using Scheduler.DataAccess.Plan;
 using Scheduler.Dto.Plan.Subject;
 using Scheduler.Entities.Plan;
@@ -19,7 +20,10 @@ public class SubjectController : ControllerBase
     [HttpGet("find")]
     public IActionResult Find([FromQuery] Guid? directionId)
     {
-        return Ok(_planRepository.FindSubjects(directionId));
+        var result = _planRepository.FindSubjects(directionId);
+        result.Sort((a1, a2) => String.CompareOrdinal(a1.Name, a2.Name));
+
+        return Ok(result);
     }
 
     [HttpGet("{subjectId::guid}")]
