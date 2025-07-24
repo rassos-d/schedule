@@ -7,19 +7,21 @@ export type Lesson = {
   id: string
   type: number
   number: number
+  semester: number
 }
 
 export type EditLesson = {
   id: string
-  name: string
   type: AddInputList
   number: number
+  semester: AddInputList
 }
 
 export type NewSmallLesson = {
   name?: string
   type?: AddInputList
   number?: number
+  semester?: AddInputList
 }
 
 export type FreeLesson = Omit<SheduleLesson, "number" | "date"> & {squardIndex: number}
