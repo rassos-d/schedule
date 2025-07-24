@@ -38,6 +38,7 @@ export function EditPlan() {
   const [editTheme, setEditTheme] = useState<Theme>()
   const [newTheme, setNewTheme] = useState<NewTheme>()
   const [searchTheme, setSearchTheme] = useState('')
+  const [checkTheme, setCheckTheme] = useState(false)
 
   const [isOpenLessons, setIsOpenLessons] = useState<boolean>(false)
   const [allLessons, setAllLessons] = useState<(Lesson & { isEdit: boolean, isWarning: boolean})[]>()
@@ -45,6 +46,7 @@ export function EditPlan() {
   const [editLesson, setEditLesson] = useState<EditLesson>()
   const [newLesson, setNewLesson] = useState<NewSmallLesson>()
   const [searchLesson, setSearchLesson] = useState('')
+  const [checkLesson, setCheckLesson] = useState(false)
 
   const handleGetAllDirections = async () => {
     const { data } = await axios.get<Direction[]>(PagesURl.DIRECTION + '/find')
@@ -115,6 +117,11 @@ export function EditPlan() {
     handleGetAllThemes(selectedSubject?.id)
   }
   const handleCreateTheme = async (isNew:boolean, number: number | undefined, id: string | undefined) => {
+    if (number === undefined || !number) {
+      setCheckTheme(true)
+      return
+    }
+    setCheckTheme(false)
     await axios[isNew ? 'post' : 'put'](PagesURl.THEME, {
       id,
       number,
@@ -141,6 +148,11 @@ export function EditPlan() {
     handleGetAllLessons(selectedTheme?.id)
   }
   const handleCreateLesson = async (isNew: boolean, number: number | undefined, type: number | undefined, semester: number | undefined, id: string | undefined) => {
+    if (number === undefined  || !number || type === undefined || semester === undefined) {
+      setCheckLesson(true)
+      return
+    }
+    setCheckLesson(false)
     await axios[isNew ? 'post' : 'put'](PagesURl.LESSON, {
       id,
       number,
@@ -352,35 +364,36 @@ export function EditPlan() {
             <h2>Редактирование темы</h2>
             <div className={styles.popup__block}>
               <p>Номер темы</p>
-              <Input value={editTheme.number.toString()} placeholder='Введите номер темы' onChange={(val) => setEditTheme({ ...editTheme, number: Number(val) })} />
+              <Input errorText=' ' validateChecker={(number)=>{return !number || Number(number)!==0}} isError={checkTheme} value={editTheme.number.toString()} placeholder='Введите номер темы' onChange={(val) => setEditTheme({ ...editTheme, number: Number(val) })} />
             </div>
             <Button onClick={()=>handleCreateTheme(false, editTheme.number, editTheme.id)}>Сохранить</Button>
           </div>
         </PopupContainer>
       }
       {newTheme && 
-        <PopupContainer onClose={()=>setNewTheme(undefined)} displayClose>
+        <PopupContainer onClose={()=>{setNewTheme(undefined);setCheckTheme(false)}} displayClose>
           <div className={styles.popup}>
             <h2>Создание темы</h2>
             <div className={styles.popup__block}>
               <p>Номер темы</p>
-              <Input value={newTheme.number ? newTheme.number.toString() : ''} placeholder='Введите номер темы' onChange={(val) => setNewTheme({ ...newTheme, number: Number(val) })} />
+              <Input errorText=' ' validateChecker={(number)=>{return !number || Number(number)!==0}} isError={checkTheme} value={newTheme.number ? newTheme.number.toString() : ''} placeholder='Введите номер темы' onChange={(val) => setNewTheme({ ...newTheme, number: Number(val) })} />
             </div>
             <Button onClick={()=>handleCreateTheme(true, newTheme.number, undefined)}>Создать тему</Button>
           </div>
         </PopupContainer>
       }
       {editLesson &&
-        <PopupContainer onClose={()=>setEditLesson(undefined)} displayClose>
+        <PopupContainer onClose={()=>{setEditLesson(undefined);setCheckLesson(false)}} displayClose>
           <div className={styles.popup}>
             <h2>Редактирование занятия</h2>
             <div className={styles.popup__block}>
               <p>Номер занятия</p>
-              <Input value={editLesson.number.toString()} placeholder='Введите номер занятия' onChange={(val) => setEditLesson({ ...editLesson, number: Number(val) })} />
+              <Input errorText=' ' validateChecker={(number)=>{return !number || Number(number)!==0}} isError={checkLesson} value={editLesson.number.toString()} placeholder='Введите номер занятия' onChange={(val) => setEditLesson({ ...editLesson, number: Number(val) })} />
             </div>
             <div className={styles.popup__block}>
               <p>Тип занятия</p>
               <AddInput
+                isError={checkLesson}
                 minWidth={340}
                 title={'Выберите тип занятия'}
                 singleMode
@@ -392,6 +405,7 @@ export function EditPlan() {
             <div className={styles.popup__block}>
               <p>Семестр занятия</p>
               <AddInput
+                isError={checkLesson}
                 minWidth={340}
                 title={'Выберите семестр занятия'}
                 singleMode
@@ -405,16 +419,17 @@ export function EditPlan() {
         </PopupContainer>
       }
       {newLesson &&
-        <PopupContainer onClose={()=>setNewLesson(undefined)} displayClose>
+        <PopupContainer onClose={()=>{setNewLesson(undefined);setCheckLesson(false)}} displayClose>
           <div className={styles.popup}>
             <h2>Создание занятия</h2>
             <div className={styles.popup__block}>
               <p>Номер занятия</p>
-              <Input value={newLesson.number!== undefined ? newLesson.number.toString() : ''} placeholder='Введите номер занятия' onChange={(val) => setNewLesson({ ...newLesson, number: Number(val) })} />
+              <Input errorText=' ' validateChecker={(number)=>{return !number || Number(number)!==0}} isError={checkLesson} value={newLesson.number!== undefined ? newLesson.number.toString() : ''} placeholder='Введите номер занятия' onChange={(val) => setNewLesson({ ...newLesson, number: Number(val) })} />
             </div>
             <div className={styles.popup__block}>
               <p>Тип занятия</p>
               <AddInput
+                isError={checkLesson}
                 minWidth={340}
                 title={'Выберите тип занятия'}
                 singleMode
@@ -426,6 +441,7 @@ export function EditPlan() {
             <div className={styles.popup__block}>
               <p>Семестр занятия</p>
               <AddInput
+                isError={checkLesson}
                 minWidth={340}
                 title={'Выберите семестр занятия'}
                 singleMode
