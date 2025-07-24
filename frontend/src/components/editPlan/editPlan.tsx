@@ -235,18 +235,20 @@ export function EditPlan() {
       <SettingsList isSelected={selectedDirection !== undefined} changeIsOpen={setIsOpensDirections} isOpenList={isOpenDirections} title={selectedDirection ? selectedDirection.name : 'Направления'}>
         <>
           <SearchInput searchValue={searchDirection} changeSearchValue={setSearchDirection}/>
-          {allDirections.filter((el)=>el.name.toLowerCase().includes(searchDirection.toLowerCase())).map((el, index) => (
-            <HiddenInputBlock
-              isEdit={el.isEdit}
-              isWarning={el.isWarning}
-              key={`${el.id}--${index}`}
-              value={el.name}
-              onEdit={() => changeIsEditDirection(index)}
-              onSelect={()=>{setSelectedDirection({name: el.name, id: el.id});setIsOpensDirections(false)}}
-              onDelete={() => { setConfirmDeleteDirectionId(el.id) }}
-              onEnter={(val) => { handleEditDirection(el.id, val) }}
-            />
-          ))}
+          <div className={styles.container__list}>
+            {allDirections.filter((el) => el.name.toLowerCase().includes(searchDirection.toLowerCase())).map((el, index) => (
+              <HiddenInputBlock
+                isEdit={el.isEdit}
+                isWarning={el.isWarning}
+                key={`${el.id}--${index}`}
+                value={el.name}
+                onEdit={() => changeIsEditDirection(index)}
+                onSelect={() => { setSelectedDirection({ name: el.name, id: el.id }); setIsOpensDirections(false) }}
+                onDelete={() => { setConfirmDeleteDirectionId(el.id) }}
+                onEnter={(val) => { handleEditDirection(el.id, val) }}
+              />
+            ))}
+          </div>
           <Button onClick={handleCreateDirection} size={'max'} variant={'whiteMain'}><Icon glyph='add' glyphColor='grey' /></Button>
         </>
       </SettingsList>
@@ -254,18 +256,20 @@ export function EditPlan() {
         <SettingsList isSelected={selectedSubject !== undefined} changeIsOpen={setIsOpenSubjects} isOpenList={isOpenSubjects} title={selectedSubject ? selectedSubject.name : 'Предметы'}>
           <>
             <SearchInput searchValue={searchSubject} changeSearchValue={setSearchSubject}/>
-            {allSubjects.filter((el)=>el.name.toLowerCase().includes(searchSubject.toLowerCase())).map((el, index) => (
-              <HiddenInputBlock
-                isEdit={el.isEdit}
-                isWarning={el.isWarning}
-                key={`${el.id}--${index}`}
-                value={el.name}
-                onEdit={() => changeIsEditSubject(index)}
-                onSelect={() => { setSelectedSubject({ name: el.name, id: el.id });setIsOpenSubjects(false) }}
-                onDelete={() => { setConfirmDeleteSubjectId(el.id) }}
-                onEnter={(val) => { handleEditSubject(el.id, val) }}
-              />
-            ))}
+            <div className={styles.container__list}>
+              {allSubjects.filter((el) => el.name.toLowerCase().includes(searchSubject.toLowerCase())).map((el, index) => (
+                <HiddenInputBlock
+                  isEdit={el.isEdit}
+                  isWarning={el.isWarning}
+                  key={`${el.id}--${index}`}
+                  value={el.name}
+                  onEdit={() => changeIsEditSubject(index)}
+                  onSelect={() => { setSelectedSubject({ name: el.name, id: el.id }); setIsOpenSubjects(false) }}
+                  onDelete={() => { setConfirmDeleteSubjectId(el.id) }}
+                  onEnter={(val) => { handleEditSubject(el.id, val) }}
+                />
+              ))}
+            </div>
             <Button onClick={handleCreateSubject} size={'max'} variant={'whiteMain'}><Icon glyph='add' glyphColor='grey' /></Button>
           </>
         </SettingsList>
