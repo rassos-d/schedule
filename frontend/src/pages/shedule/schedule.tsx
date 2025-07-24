@@ -300,11 +300,18 @@ export default function ShedulePage() {
             audience: schedule.squads[squardIndex].audience
         })
     }
+
+    const getThemesBySubject = () => {
+        if (!subjects || !newLesson) return []
+        const resultThemes = subjects.filter((subject)=>subject.id === newLesson.subject?.id)[0].themes
+        return resultThemes.map((el)=>({name: `Тема ${el.number}`, id: el.id}))
+    }
     const getLessonsByTheme = () => {
         if (!subjects || !newLesson || !newLesson.subject) return [] as AddInputList[]
         const selectedSubject = subjects.filter((subject)=>subject.id === newLesson.subject?.id)
         if (!selectedSubject) return [] as AddInputList[]
-        return selectedSubject[0].themes.filter((theme)=>theme.id === newLesson.theme?.id)[0].lessons
+        const result = selectedSubject[0].themes.filter((theme)=>theme.id === newLesson.theme?.id)[0].lessons
+        return result.map((el)=>({name: `Занятие ${el.number}`, id: el.id}))
     }
 
     const changeSquadNewLesson = (isNewLesson: boolean, newSquad: AddInputList) => {
@@ -331,7 +338,10 @@ export default function ShedulePage() {
         const activeSquad = schedule.squads.filter((el)=>el.id === lesson.squad.id)[0]
         const direction = allDirections.find((direction)=>activeSquad.direction?.id === direction.id)
         handleGetSubjects(direction ? direction.id : '')
-        setNewLesson({...lesson, isNewLesson: false})
+        setNewLesson({...lesson, 
+            isNewLesson: false, 
+            theme: {name: `Тема ${lesson.theme?.number}`, id: lesson.theme.id}, 
+            lesson: {name: `Занятие ${lesson.lesson.number}`, id: lesson.lesson.id}})
     }
 
     const getSemesterName = () => {
@@ -526,7 +536,7 @@ export default function ShedulePage() {
                                     isError={displayErrorsEvent}
                                     selectedList={newLesson.theme ? [newLesson.theme] : []}
                                     singleMode
-                                    allList={subjects.filter((subject)=>subject.id === newLesson.subject?.id)[0].themes}
+                                    allList={getThemesBySubject()}
                                     title='Выберите тему'
                                     changeInputList={(newList)=>setNewLesson({...newLesson, theme: {...newList[0]}, lesson: undefined})}
                                 />

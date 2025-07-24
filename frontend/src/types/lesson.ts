@@ -54,9 +54,9 @@ export type SheduleLesson = {
   id: string,
   teacher?: AddInputList,
   audience?: AddInputList,
-  lesson?: AddInputList & {number: number, type: string, lessonType: number},
+  lesson: {number: number, type: string, lessonType: number, id: string},
   squad: AddInputList,
-  theme?: AddInputList & {number: number},
+  theme: {number: number, id: string},
   subject: AddInputList,
   number: number,
   date: string

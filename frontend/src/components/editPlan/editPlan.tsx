@@ -108,7 +108,7 @@ export function EditPlan() {
     setConfirmDeleteThemeId(undefined)
     handleGetAllThemes(selectedSubject?.id)
   }
-  const handleCreateTheme = async (isNew:boolean, number: number | undefined, name: string | undefined, id: string | undefined) => {
+  const handleCreateTheme = async (isNew:boolean, number: number | undefined, id: string | undefined) => {
     await axios[isNew ? 'post' : 'put'](PagesURl.THEME, {
       id,
       number,
@@ -188,7 +188,6 @@ export function EditPlan() {
 
   useEffect(()=>{
     if (selectedDirection) {
-      console.log(selectedDirection, 'selectedDirection')
       setSelectedSubject(undefined)
       setAllSubjects(undefined)
       setSelectedTheme(undefined)
@@ -199,7 +198,6 @@ export function EditPlan() {
   },[selectedDirection])
   useEffect(()=>{
     if (selectedSubject) {
-      console.log(selectedSubject, 'selectedSubject')
       setSelectedTheme(undefined)
       setAllThemes(undefined)
       setAllLessons(undefined)
@@ -284,7 +282,7 @@ export function EditPlan() {
                 onEdit={() => {setEditLesson(
                   {...el, 
                     type: {name: LESSON_TYPE[el.type].name, id: el.type}, 
-                    semester: {name: el.semester, id: el.semester}});console.log(el)}}
+                    semester: {name: el.semester, id: el.semester}})}}
                 onDelete={() => { setConfirmDeleteLessonId(el.id) }}
               />
             ))}
@@ -332,11 +330,7 @@ export function EditPlan() {
               <p>Номер темы:</p>
               <Input value={editTheme.number.toString()} placeholder='Введите номер темы' onChange={(val) => setEditTheme({ ...editTheme, number: Number(val) })} />
             </div>
-            <div className={styles.popup__block}>
-              <p>Название темы</p>
-              <Input value={editTheme.name ? editTheme.name: ''} placeholder='Введите название темы' onChange={(val) => setEditTheme({ ...editTheme, name: val })} />
-            </div>
-            <Button onClick={()=>handleCreateTheme(false, editTheme.number, editTheme.name, editTheme.id)}>Сохранить</Button>
+            <Button onClick={()=>handleCreateTheme(false, editTheme.number, editTheme.id)}>Сохранить</Button>
           </div>
         </PopupContainer>
       }
@@ -348,11 +342,7 @@ export function EditPlan() {
               <p>Номер темы:</p>
               <Input value={newTheme.number ? newTheme.number.toString() : ''} placeholder='Введите номер темы' onChange={(val) => setNewTheme({ ...newTheme, number: Number(val) })} />
             </div>
-            <div className={styles.popup__block}>
-              <p>Название темы</p>
-              <Input value={newTheme.name ? newTheme.name: ''} placeholder='Введите название темы' onChange={(val) => setNewTheme({ ...newTheme, name: val })} />
-            </div>
-            <Button onClick={()=>handleCreateTheme(true, newTheme.number, newTheme.name, undefined)}>Создать тему</Button>
+            <Button onClick={()=>handleCreateTheme(true, newTheme.number, undefined)}>Создать тему</Button>
           </div>
         </PopupContainer>
       }
