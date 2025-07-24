@@ -108,11 +108,10 @@ export function EditPlan() {
     setConfirmDeleteThemeId(undefined)
     handleGetAllThemes(selectedSubject?.id)
   }
-  const handleCreateTheme = async (isNew:boolean, number: number | undefined, semester: number | undefined, name: string | undefined, id: string | undefined) => {
+  const handleCreateTheme = async (isNew:boolean, number: number | undefined, name: string | undefined, id: string | undefined) => {
     await axios[isNew ? 'post' : 'put'](PagesURl.THEME, {
       id,
       number,
-      semester,
       name,
       subjectId: selectedSubject?.id
     })
@@ -134,11 +133,12 @@ export function EditPlan() {
     setConfirmDeleteLessonId(undefined)
     handleGetAllLessons(selectedTheme?.id)
   }
-  const handleCreateLesson = async (isNew: boolean, number: number | undefined, type: number | undefined, id: string | undefined) => {
+  const handleCreateLesson = async (isNew: boolean, number: number | undefined, type: number | undefined, semester: number | undefined, id: string | undefined) => {
     await axios[isNew ? 'post' : 'put'](PagesURl.LESSON, {
       id,
       number,
       type,
+      semester,
       themeId: selectedTheme?.id,
       subjectId: selectedSubject?.id
     })
@@ -268,7 +268,7 @@ export function EditPlan() {
                 onDelete={() => { setConfirmDeleteThemeId(el.id) }}
               />
             ))}
-            <Button onClick={()=>setNewTheme({number: undefined, semester: undefined})} size={'max'} variant={'whiteMain'}><Icon glyph='add' glyphColor='grey'/></Button>
+            <Button onClick={()=>setNewTheme({number: undefined})} size={'max'} variant={'whiteMain'}><Icon glyph='add' glyphColor='grey'/></Button>
           </>
         </SettingsList>
       }
@@ -281,7 +281,10 @@ export function EditPlan() {
                 isWarning={el.isWarning}
                 key={`${el.id}--${index}`}
                 value={el.number.toString()}
-                onEdit={() => {setEditLesson({...el, type: {name: LESSON_TYPE[el.type].name, id: el.type}, name: el.name});console.log(el)}}
+                onEdit={() => {setEditLesson(
+                  {...el, 
+                    type: {name: LESSON_TYPE[el.type].name, id: el.type}, 
+                    semester: {name: el.semester, id: el.semester}});console.log(el)}}
                 onDelete={() => { setConfirmDeleteLessonId(el.id) }}
               />
             ))}
@@ -325,34 +328,31 @@ export function EditPlan() {
         <PopupContainer onClose={()=>setEditTheme(undefined)} displayClose>
           <div className={styles.popup}>
             <h2>Редактирование темы</h2>
-            <Input value={editTheme.number.toString()} placeholder='Номер темы' onChange={(val) => setEditTheme({ ...editTheme, number: Number(val) })} />
-             <Input value={editTheme.name ? editTheme.name: ''} placeholder='Название темы' onChange={(val) => setNewTheme({ ...editTheme, name: val })} />
-            <AddInput
-              title={'Выберите семестр'}
-              singleMode
-              allList={[1,2,3,4,5].map((el)=>({name: el, id: el}))}
-              selectedList={[{name: editTheme.semester, id: editTheme.semester}]}
-              changeInputList={(list)=>setEditTheme({...editTheme, semester: Number(list[0].name)})}
-            />
-            <Button onClick={()=>handleCreateTheme(false, editTheme.number, editTheme.semester, editTheme.name, editTheme.id)}>Сохранить</Button>
+            <div className={styles.popup__block}>
+              <p>Номер темы:</p>
+              <Input value={editTheme.number.toString()} placeholder='Введите номер темы' onChange={(val) => setEditTheme({ ...editTheme, number: Number(val) })} />
+            </div>
+            <div className={styles.popup__block}>
+              <p>Название темы</p>
+              <Input value={editTheme.name ? editTheme.name: ''} placeholder='Введите название темы' onChange={(val) => setEditTheme({ ...editTheme, name: val })} />
+            </div>
+            <Button onClick={()=>handleCreateTheme(false, editTheme.number, editTheme.name, editTheme.id)}>Сохранить</Button>
           </div>
         </PopupContainer>
       }
       {newTheme && 
         <PopupContainer onClose={()=>setNewTheme(undefined)} displayClose>
           <div className={styles.popup}>
-            <h2>Редактирование темы</h2>
-            <Input value={newTheme.number ? newTheme.number.toString() : ''} placeholder='Номер темы' onChange={(val) => setNewTheme({ ...newTheme, number: Number(val) })} />
-            <Input value={newTheme.name ? newTheme.name: ''} placeholder='Название темы' onChange={(val) => setNewTheme({ ...newTheme, name: val })} />
-            <AddInput
-              minWidth={340}
-              title={'Выберите семестр'}
-              singleMode
-              allList={[1,2,3,4,5].map((el)=>({name: el, id: el}))}
-              selectedList={newTheme.semester!==undefined ? [{name: newTheme.semester, id: newTheme.semester}] : []}
-              changeInputList={(list)=>setNewTheme({...newTheme, semester: Number(list[0].name)})}
-            />
-            <Button onClick={()=>handleCreateTheme(true, newTheme.number, newTheme.semester, newTheme.name, undefined)}>Создать тему</Button>
+            <h2>Создание темы</h2>
+            <div className={styles.popup__block}>
+              <p>Номер темы:</p>
+              <Input value={newTheme.number ? newTheme.number.toString() : ''} placeholder='Введите номер темы' onChange={(val) => setNewTheme({ ...newTheme, number: Number(val) })} />
+            </div>
+            <div className={styles.popup__block}>
+              <p>Название темы</p>
+              <Input value={newTheme.name ? newTheme.name: ''} placeholder='Введите название темы' onChange={(val) => setNewTheme({ ...newTheme, name: val })} />
+            </div>
+            <Button onClick={()=>handleCreateTheme(true, newTheme.number, newTheme.name, undefined)}>Создать тему</Button>
           </div>
         </PopupContainer>
       }
@@ -360,34 +360,73 @@ export function EditPlan() {
         <PopupContainer onClose={()=>setEditLesson(undefined)} displayClose>
           <div className={styles.popup}>
             <h2>Редактирование занятия</h2>
-            <Input value={editLesson.number.toString()} placeholder='Номер занятия' onChange={(val) => setEditLesson({ ...editLesson, number: Number(val) })} />
-             <Input value={editLesson.name ? editLesson.name: ''} placeholder='Название занятия' onChange={(val) => setEditLesson({ ...editLesson, name: val })} />
-            <AddInput
-              minWidth={340}
-              title={'Выберите тип занятия'}
-              singleMode
-              allList={LESSON_TYPE.map((el, index)=>({name: el.name, id: index}))}
-              selectedList={[{name: editLesson.type.name, id: editLesson.type.id}]}
-              changeInputList={(list)=>setEditLesson({...editLesson, type: list[0]})}
-            />
-            <Button onClick={()=>handleCreateLesson(false, editLesson.number, Number(editLesson.type.id), editLesson.id)}>Сохранить</Button>
+            <div className={styles.popup__block}>
+              <p>Номер занятия</p>
+              <Input value={editLesson.number.toString()} placeholder='Введите номер занятия' onChange={(val) => setEditLesson({ ...editLesson, number: Number(val) })} />
+            </div>
+            <div className={styles.popup__block}>
+              <p>Тип занятия</p>
+              <AddInput
+                minWidth={340}
+                title={'Выберите тип занятия'}
+                singleMode
+                allList={LESSON_TYPE.map((el, index) => ({ name: el.name, id: index }))}
+                selectedList={[{ name: editLesson.type.name, id: editLesson.type.id }]}
+                changeInputList={(list) => setEditLesson({ ...editLesson, type: list[0] })}
+              />
+            </div>
+            <div className={styles.popup__block}>
+              <p>Семестр занятия</p>
+              <AddInput
+                minWidth={340}
+                title={'Выберите семестр занятия'}
+                singleMode
+                allList={[1, 2, 3, 4, 5].map((el) => ({ name: el, id: el }))}
+                selectedList={[{ name: editLesson.semester.name, id: editLesson.semester.id }]}
+                changeInputList={(list) => setEditLesson({ ...editLesson, semester: list[0] })}
+              />
+            </div>
+            <Button onClick={()=>handleCreateLesson(false, editLesson.number, Number(editLesson.type.id), Number(editLesson.semester.id), editLesson.id)}>Сохранить</Button>
           </div>
         </PopupContainer>
       }
       {newLesson &&
-        <PopupContainer onClose={()=>setEditLesson(undefined)} displayClose>
+        <PopupContainer onClose={()=>setNewLesson(undefined)} displayClose>
           <div className={styles.popup}>
-            <h2>Редактирование занятия</h2>
-            <Input value={newLesson.number!== undefined ? newLesson.number.toString() : ''} placeholder='Номер занятия' onChange={(val) => setNewLesson({ ...newLesson, number: Number(val) })} />
-            <AddInput
-              minWidth={340}
-              title={'Выберите тип занятия'}
-              singleMode
-              allList={LESSON_TYPE.map((el, index)=>({name: el.name, id: index}))}
-              selectedList={newLesson.type ? [{name: newLesson.type.name, id: newLesson.type.id}]: []}
-              changeInputList={(list)=>setNewLesson({...newLesson, type: list[0]})}
-            />
-            <Button onClick={()=>handleCreateLesson(true, newLesson.number, newLesson.type ? Number(newLesson.type.id) : undefined, undefined)}>Создать занятие</Button>
+            <h2>Создание занятия</h2>
+            <div className={styles.popup__block}>
+              <p>Номер занятия</p>
+              <Input value={newLesson.number!== undefined ? newLesson.number.toString() : ''} placeholder='Введите номер занятия' onChange={(val) => setNewLesson({ ...newLesson, number: Number(val) })} />
+            </div>
+            <div className={styles.popup__block}>
+              <p>Тип занятия</p>
+              <AddInput
+                minWidth={340}
+                title={'Выберите тип занятия'}
+                singleMode
+                allList={LESSON_TYPE.map((el, index) => ({ name: el.name, id: index }))}
+                selectedList={newLesson.type ? [{ name: newLesson.type.name, id: newLesson.type.id }] : []}
+                changeInputList={(list) => setNewLesson({ ...newLesson, type: list[0] })}
+              />
+            </div>
+            <div className={styles.popup__block}>
+              <p>Семестр занятия</p>
+              <AddInput
+                minWidth={340}
+                title={'Выберите семестр занятия'}
+                singleMode
+                allList={[1, 2, 3, 4, 5].map((el) => ({ name: el, id: el }))}
+                selectedList={newLesson.semester ? [{ name: newLesson.semester.name, id: newLesson.semester.id }] : []}
+                changeInputList={(list) => setNewLesson({ ...newLesson, semester: list[0] })}
+              />
+            </div>
+            <Button onClick={()=>handleCreateLesson(
+              true, 
+              newLesson.number, 
+              newLesson.type ? Number(newLesson.type.id) : undefined, 
+              newLesson.semester ? Number(newLesson.semester.id) : undefined, 
+              undefined
+            )}>Создать занятие</Button>
           </div>
         </PopupContainer>
       }
