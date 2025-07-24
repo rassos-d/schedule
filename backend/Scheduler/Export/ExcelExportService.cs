@@ -213,7 +213,7 @@ public class ExcelExportService
                 var lesson = GetOrDefault(@event.LessonId, planRepository.GetLesson);
                 var themeText = $"т.{theme?.Number}/{lesson?.Number} {lesson?.Type.GetView()}";
 
-                cells.SetCellValue(heightOffset + eventLocalPos, eventCol, subject);
+                cells.SetCellValue(heightOffset + eventLocalPos, eventCol, subject?.Name);
                 cells.SetCellValue(heightOffset + eventLocalPos + 1, eventCol, themeText);
                 cells.SetCellValue(heightOffset + eventLocalPos + 2, eventCol, audience?.Name);
                 cells.SetCellValue(heightOffset + eventLocalPos + 3, eventCol, string.Join(' ', new[] { teacher?.Rank, teacher?.Name }.Where(x => !string.IsNullOrEmpty(x))));

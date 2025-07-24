@@ -12,9 +12,8 @@ import { NewTheme, Theme } from '../../types/theme'
 import PopupContainer from '../popupContainer/popupContainer'
 import { AddInput, Input, SearchInput } from '../input/Input'
 import { EditLesson, Lesson, NewSmallLesson } from '../../types/lesson'
-import { LESSON_TYPE } from '../../consts'
+import { DIRECTION_TYPE, LESSON_TYPE } from '../../consts'
 
-const NEW_DIRECTION_NAME = 'Новое направление'
 const NEW_SUBJECT_NAME = 'Новый предмет'
 
 export function EditPlan() {
@@ -23,7 +22,10 @@ export function EditPlan() {
   const [allDirections, setAllDirections] = useState<(Direction & { isEdit: boolean, isWarning: boolean })[]>()
   const [confirmDeleteDirectionId, setConfirmDeleteDirectionId] = useState<string>()
   const [selectedDirection, setSelectedDirection] = useState<{name: string, id: string}>()
+  const [editDirection, setEditDirection] = useState<Direction>()
+  const [newDirection, setNewDirection] = useState<Partial<Direction>>()
   const [searchDirection, setSearchDirection] = useState('')
+  const [checkDirection, setCheckDirection] = useState(false)
 
   const [isOpenSubjects, setIsOpenSubjects] = useState<boolean>(false)
   const [allSubjects, setAllSubjects] = useState<(Subject & { isEdit: boolean, isWarning: boolean})[]>()
@@ -53,21 +55,20 @@ export function EditPlan() {
     setAllDirections(data.map((el) => ({ ...el, isEdit: false, isWarning: false })))
     setAllSubjects(undefined)
   }
-  const handleEditDirection = async (id: string, name: string) => {
-    await axios.put(PagesURl.DIRECTION, {
-      id,
-      name
-    })
-    handleGetAllDirections()
-  }
   const handleDeleteDirection = async (id: string) => {
     await axios.delete(PagesURl.DIRECTION + `/${id}`)
     setConfirmDeleteDirectionId(undefined)
     handleGetAllDirections()
   }
-  const handleCreateDirection = async () => {
-    await axios.post(PagesURl.DIRECTION, {
-      name: NEW_DIRECTION_NAME
+  const handleCreateDirection = async (isNew: boolean, name: string, type: number | undefined, id: string | undefined) => {
+    if (type === undefined || name.length === 0) {
+      setCheckDirection(true)
+    }
+    setCheckDirection(false)
+    await axios[isNew ? 'post' : 'put'](PagesURl.DIRECTION, {
+      name,
+      type,
+      id
     })
     handleGetAllDirections()
   }
@@ -166,23 +167,6 @@ export function EditPlan() {
     handleGetAllLessons(selectedTheme?.id)
   }
 
-  const changeIsEditDirection = (index: number) => {
-    if (!allDirections) return
-    const newDirections = [...allDirections]
-    const targetDirection = newDirections[index]
-    let editFlag = false
-    const result = newDirections.map((el) => {
-      if (el.isEdit && el.id !== targetDirection.id) {
-        editFlag = true
-        return { ...el, isWarning: true }
-      }
-      return { ...el, isWarning: false }
-    })
-    if (!editFlag) {
-      result[index].isEdit = true
-    }
-    setAllDirections(result)
-  }
   const changeIsEditSubject = (index: number) => {
     if (!allSubjects) return
     const newSubjects = [...allSubjects]
@@ -254,14 +238,13 @@ export function EditPlan() {
                 isWarning={el.isWarning}
                 key={`${el.id}--${index}`}
                 value={el.name}
-                onEdit={() => changeIsEditDirection(index)}
+                onEdit={() => setEditDirection(el)}
                 onSelect={() => { setSelectedDirection({ name: el.name, id: el.id }); setIsOpensDirections(false) }}
                 onDelete={() => { setConfirmDeleteDirectionId(el.id) }}
-                onEnter={(val) => { handleEditDirection(el.id, val) }}
               />
             ))}
           </div>
-          <Button onClick={handleCreateDirection} size={'max'} variant={'whiteMain'}><Icon glyph='add' glyphColor='grey' /></Button>
+          <Button onClick={()=>setNewDirection({})} size={'max'} variant={'whiteMain'}><Icon glyph='add' glyphColor='grey' /></Button>
         </>
       </SettingsList>
       {allSubjects && 
@@ -358,8 +341,57 @@ export function EditPlan() {
           onDelete={() => handleDeleteLesson(confirmDeleteLessonId)}
         />
       }
+      {editDirection && 
+        <PopupContainer onClose={()=>{setEditDirection(undefined);setCheckDirection(false)}} displayClose>
+          <div className={styles.popup}>
+            <h2>Редактирование направления</h2>
+            <div className={styles.popup__block}>
+              <p>Название направления</p>
+              <Input errorText=' ' validateChecker={(number)=>{return !number || Number(number)!==0}} isError={checkDirection} value={editDirection.name} placeholder='Введите название направления' onChange={(val) => setEditDirection({ ...editDirection, name: val })} />
+            </div>
+            <div className={styles.popup__block}>
+              <p>Тип направления</p>
+              <AddInput
+                singleMode
+                title='Выберите тип'
+                allList={DIRECTION_TYPE.map((el, index)=>({name: el, id: index}))}
+                selectedList={editDirection.type ? [editDirection.type] : []}
+                changeInputList={(newList)=>setEditDirection({...editDirection, type: newList[0]})}
+              />
+            </div>          
+            <Button onClick={()=>handleCreateDirection(false, editDirection.name, Number(editDirection.type.id), editDirection.id)}>Сохранить</Button>
+          </div>
+        </PopupContainer>
+      }
+      {newDirection && 
+        <PopupContainer onClose={()=>{setNewDirection(undefined);setCheckDirection(false)}} displayClose>
+          <div className={styles.popup}>
+            <h2>Создание направления</h2>
+            <div className={styles.popup__block}>
+              <p>Название направления</p>
+              <Input errorText=' ' validateChecker={(number)=>{return !number || Number(number)!==0}} isError={checkDirection} value={newDirection.name ? newDirection.name : ''} placeholder='Введите название направления' onChange={(val) => setNewDirection({ ...newDirection, name: val })} />
+            </div>
+            <div className={styles.popup__block}>
+              <p>Тип направления</p>
+              <AddInput
+                singleMode
+                title='Выберите тип'
+                allList={DIRECTION_TYPE.map((el, index)=>({name: el, id: index}))}
+                selectedList={newDirection.type ? [newDirection.type] : []}
+                changeInputList={(newList)=>setNewDirection({...editDirection, type: newList[0]})}
+              />
+            </div>          
+            <Button onClick={()=>handleCreateDirection(
+              true, 
+              newDirection.name ? newDirection.name : '', 
+              newDirection.type ? Number(newDirection.type.id) : undefined, 
+              undefined)
+            }>Создать направление</Button>
+          </div>
+        </PopupContainer>
+      }
       {editTheme && 
-        <PopupContainer onClose={()=>setEditTheme(undefined)} displayClose>
+        <PopupContainer onClose={()=>{setEditTheme(undefined);setCheckTheme(false)}} displayClose>
           <div className={styles.popup}>
             <h2>Редактирование темы</h2>
             <div className={styles.popup__block}>
