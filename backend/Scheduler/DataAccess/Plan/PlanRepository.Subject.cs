@@ -51,7 +51,6 @@ public partial class PlanRepository
         }
         
         var subjects = Directions.SelectMany(d => d.Subjects).ToList().AddSummingUp();
-        subjects.Sort((a1, a2) => string.Compare(a1.Name, a2.Name, StringComparison.Ordinal));
         return subjects;
     }
 
