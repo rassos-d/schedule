@@ -37,6 +37,7 @@ namespace Scheduler.Controllers.Plan
                 ThemeId = dto.ThemeId,
                 SubjectId = dto.SubjectId,
                 Number = dto.Number,
+                HoursCount = dto.HoursCount,
                 Semester = dto.Semester
             };
             planRepository.SaveLesson(lesson);

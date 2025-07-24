@@ -9,6 +9,8 @@ public class LessonInfo
     public required int? Number { get; init; }
     
     public int? ThemeNumber { get; init; }
+
+    public int HoursCount { get; init; }
     
     public required string? Type { get; init; }
     
