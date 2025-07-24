@@ -60,26 +60,26 @@ public class EventGenerator(SquadRepository squadRepo, PlanRepository planRepo)
                             LessonId = lesson.Id,
                             ThemeId = lesson.ThemeId,
                             SubjectId = lesson.SubjectId,
-                            Date = date,
-                            Number = lessonNumber
+                            Date = i == 0 ? date : null,
+                            Number = i == 0 ? lessonNumber : null
                         };
                         page.Events.Add(@event);
+                    }
+                    
+                    index.Lesson.Value++;
                         
-                        index.Lesson.Value++;
-                        
-                        if (index.Lesson.Value == subject.Count)
+                    if (index.Lesson.Value == subject.Count)
+                    {
+                        if (index.Subject + 2 >= groupedLessons.Count)
                         {
-                            if (index.Subject + 2 >= groupedLessons.Count)
-                            {
-                                var other = lessonNumber is 1 or 2 ? second : first;
-                                index.Subject = other.Subject;
-                                index.Lesson = other.Lesson;
-                            }
-                            else
-                            {
-                                index.Subject += 2;
-                                index.Lesson.Value = 0;
-                            }
+                            var other = lessonNumber is 1 or 2 ? second : first;
+                            index.Subject = other.Subject;
+                            index.Lesson = other.Lesson;
+                        }
+                        else
+                        {
+                            index.Subject += 2;
+                            index.Lesson.Value = 0;
                         }
                     }
                 }
