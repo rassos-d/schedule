@@ -497,6 +497,7 @@ export default function Main() {
                                 <div onClick={(e) => { e.stopPropagation(); setConfirmDeleteScheduleYearIndex(index) }} className={styles.popup__delete}>
                                     <Icon glyph='trash' glyphColor='error' />
                                 </div>
+                                <p>Год обучения:</p>
                                 <AddInput
                                     isError={isEnableValidationCreateSchedule}
                                     title='Год обучения'
@@ -506,13 +507,16 @@ export default function Main() {
                                     changeInputList={(newList) => addNewYearToYear(Number(newList[0].id), index)}
                                 />
                                 {squads &&
-                                    <AddInput
-                                        title='Взвода'
-                                        isError={isEnableValidationCreateSchedule}
-                                        selectedList={year.squads}
-                                        allList={squads.filter((squad) => squad.studyYear === year.studyYear)}
-                                        changeInputList={(newList) => updateSquards(newList.map((item) => ({ name: item.name.toString(), id: item.id.toString() })), index)}
-                                    />
+                                    <>
+                                        <p>Год обучения:</p>
+                                        <AddInput
+                                            title='Взвода'
+                                            isError={isEnableValidationCreateSchedule}
+                                            selectedList={year.squads}
+                                            allList={squads.filter((squad) => squad.studyYear === year.studyYear)}
+                                            changeInputList={(newList) => updateSquards(newList.map((item) => ({ name: item.name.toString(), id: item.id.toString() })), index)}
+                                        />
+                                    </>
                                 }
                                 {newSchedule.semester && <div className={styles.popup__line}>
                                     <p>Дата первого занятия</p>
@@ -526,6 +530,7 @@ export default function Main() {
                         ))}
                         {COURSES_YEAR.length > newSchedule.pages.length && <Button onClick={addNewYear}>Добавить год обучения</Button>}
                         <div style={{ width: '95%' }}>
+                            <p>Семестр:</p>
                             <AddInput
                                 title='Семестр'
                                 singleMode
