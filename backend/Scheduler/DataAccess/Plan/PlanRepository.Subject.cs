@@ -50,7 +50,9 @@ public partial class PlanRepository
             GetDirection(direction.Id);
         }
         
-        return Directions.SelectMany(d => d.Subjects).ToList().AddSummingUp();
+        var subjects = Directions.SelectMany(d => d.Subjects).ToList().AddSummingUp();
+        subjects.Sort((a1, a2) => string.Compare(a1.Name, a2.Name, StringComparison.Ordinal));
+        return subjects;
     }
 
     public void DeleteSubject(Guid id)
