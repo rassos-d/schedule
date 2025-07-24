@@ -536,7 +536,7 @@ export default function Main() {
                                 singleMode
                                 isError={isEnableValidationCreateSchedule}
                                 selectedList={newSchedule.semester ? [newSchedule.semester] : []}
-                                allList={newSchedule.pages.find((page) => page.studyYear === 1) ? SEMESTR_YEAR.filter((el) => el.id === 0) : SEMESTR_YEAR}
+                                allList={SEMESTR_YEAR}
                                 changeInputList={(newList) => addNewSemester(newList[0])}
                             />
                         </div>
