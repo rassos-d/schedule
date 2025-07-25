@@ -25,7 +25,7 @@ public class ScheduleController(ScheduleService service) : ControllerBase
     }
 
     [HttpGet("{scheduleId:guid}/days-of-weeks")]
-    public IActionResult GetStudyYears(Guid scheduleId)
+    public IActionResult GetDaysOfWeeks(Guid scheduleId)
     {
         return Ok(service.GetDaysOfWeeks(scheduleId));
     }
@@ -48,7 +48,7 @@ public class ScheduleController(ScheduleService service) : ControllerBase
     }
 
     [HttpPut]
-    public IActionResult Update([FromBody] EntityNameUpdateDto dto)
+    public IActionResult Update([FromBody] ScheduleUpdateDto dto)
     {
         service.Update(dto);
         return Ok();
