@@ -78,9 +78,9 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
         return export.Save(scheduleId);
     }
 
-    public void Update(EntityNameUpdateDto dto)
+    public void Update(ScheduleUpdateDto dto)
     {
-        var schedule = new ScheduleInfo(dto.Id, dto.Name);
+        var schedule = new ScheduleInfo(dto.Id, dto.Name, dto.Semester);
         repo.UpdateSchedule(schedule);
     }
     

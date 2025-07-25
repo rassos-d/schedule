@@ -73,6 +73,7 @@ public class ScheduleRepository : BaseRepository
         if (_schedulesCache.TryGetValue(scheduleInfo.Id, out var schedule))
         {
             schedule.Name = scheduleInfo.Name;
+            schedule.Semester = scheduleInfo.Semester;
             WriteSchedule(schedule);
         }
     }
@@ -162,7 +163,7 @@ public class ScheduleRepository : BaseRepository
         var schedule = schedules.FirstOrDefault(s => s.Id == scheduleInfo.Id);
         if (schedule is null)
         {
-            schedules.Add(new ScheduleInfo(scheduleInfo.Id, scheduleInfo.Name));
+            schedules.Add(new ScheduleInfo(scheduleInfo.Id, scheduleInfo.Name, scheduleInfo.Semester));
         }
         else
         {
