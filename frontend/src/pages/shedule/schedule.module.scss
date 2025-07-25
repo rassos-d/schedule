@@ -206,6 +206,9 @@
       &_active {
         background-color: var(--light-grey-color);
       }
+      &_full {
+        border: 2px solid var(--dangerous-color);
+      }
     }
     &__items {
       display: flex;
@@ -226,6 +229,7 @@
     }
     &__content{
       &_close {
+        position: relative;
         opacity: 0;
         height: 50px;
       }
@@ -272,5 +276,17 @@
   &__line {
     width: 100%;
     display: flex;
+  }
+}
+
+.hasStash {
+  position: absolute;
+  color: #000;
+  padding: 5px;
+  border: 3px solid var(--dangerous-color);
+  bottom: 9px;
+  right: 10px;
+  &_hidden {
+    opacity: 0;
   }
 }

@@ -67,6 +67,7 @@ export default function ShedulePage() {
     const sidebarRefIcon = useRef<HTMLDivElement>(null)
     const sidebarContentRef = useRef<HTMLDivElement>(null)
     const containerRef = useRef<HTMLDivElement>(null)
+    const sidebarRefHasStash = useRef<HTMLDivElement>(null)
 
     const [schedule, setShedule] = useState<Schedule>()
     const [errorList, setErrorList] = useState<string[]>([])
@@ -147,7 +148,7 @@ export default function ShedulePage() {
 
     const handleGetStudyYears = async () => {
         const {data} = await axios.get<number[]>(PagesURl.SCHEDULE + `/${id}/days-of-weeks`)
-        setAllTabs(data)
+        setAllTabs(data.sort())
         setActiveTab(data[0])
     }
 
@@ -267,23 +268,26 @@ export default function ShedulePage() {
     }
     const startDragging = (squardIndex: number) => {
         setActiveSquardIndex(squardIndex)
-        if (sidebarRefIcon.current && sidebarContentRef.current && containerRef.current) {
+        if (sidebarRefIcon.current && sidebarContentRef.current && containerRef.current && sidebarRefHasStash.current) {
             sidebarContentRef.current.classList.remove(styles.sidebar__content_close)
             sidebarRefIcon.current.classList.remove(styles.sidebar__icon_close)
             containerRef.current.classList.add(styles.container_full)
+            sidebarRefHasStash.current.classList.add(styles.hasStash_hidden)
         }
     }
     const changeOpenSidebar = () => {
-        if (sidebarRefIcon.current && sidebarContentRef.current && containerRef.current) {
+        if (sidebarRefIcon.current && sidebarContentRef.current && containerRef.current && sidebarRefHasStash.current) {
             if (sidebarContentRef.current.classList.contains(styles.sidebar__content_close)) {
                 sidebarContentRef.current.classList.remove(styles.sidebar__content_close)
                 sidebarRefIcon.current.classList.remove(styles.sidebar__icon_close)
                 containerRef.current.classList.add(styles.container_full)
+                sidebarRefHasStash.current.classList.add(styles.hasStash_hidden)
                 return
             }
             sidebarContentRef.current.classList.add(styles.sidebar__content_close)
             sidebarRefIcon.current.classList.add(styles.sidebar__icon_close)
             containerRef.current.classList.remove(styles.container_full)
+            sidebarRefHasStash.current.classList.remove(styles.hasStash_hidden)
         } 
     }
 
@@ -364,6 +368,15 @@ export default function ShedulePage() {
                 element.style.opacity = '1';
             }
         }
+    }
+
+    const getFreeSquads = () => {
+        if (!freeLessons || !schedule) return ''
+        let result:string[] = []
+        for (const lesson of freeLessons) {
+            result.push(schedule.squads[lesson.squardIndex].name)
+        }
+        return result.filter((value, index, self) => self.indexOf(value) === index).join(', ')
     }
 
     useEffect(()=>{
@@ -466,7 +479,11 @@ export default function ShedulePage() {
                                     {schedule.squads.map((squard, index) => (
                                         <p
                                             key={squard.id}
-                                            className={`${styles.sidebar__tab} ${index === activeSquardIndex && styles.sidebar__tab_active}`}
+                                            className={`
+                                                ${styles.sidebar__tab} 
+                                                ${freeLessons.find((el)=>el.squardIndex === index) && styles.sidebar__tab_full} 
+                                                ${index === activeSquardIndex && styles.sidebar__tab_active
+                                            }`}
                                             onClick={(e) => { e.stopPropagation(); setActiveSquardIndex(index) }}
                                         >
                                             {squard.name}
@@ -492,7 +509,7 @@ export default function ShedulePage() {
                         <div ref={sidebarRefIcon} onClick={changeOpenSidebar} style={{ cursor: 'pointer' }} className={`${styles.sidebar__icon} ${styles.sidebar__icon_close}`}>
                             <Icon glyph='arrow-down' glyphColor='black' />
                         </div>
-                        
+                        {freeLessons.length !== 0 && <div ref={sidebarRefHasStash} className={styles.hasStash}>{`Есть нераспределенные занятия во взводах: ${getFreeSquads()}`}</div>}
                     </div>
                 </DndProvider>
             </div>
