@@ -39,6 +39,7 @@ export default function Main() {
 
     const [shedules, setShedules] = useState<SmallShedule[]>()
     const [newSchedule, setNewSchedule] = useState<CreateSchedule & { isNew: boolean }>()
+    const [viewSchedule, setViewSchedule] = useState<CreateSchedule>()
 
     const [squads, setSquads] = useState<Squad[]>()
     const [editSquad, setEditSquad] = useState<EditSquad>()
@@ -222,8 +223,8 @@ export default function Main() {
     const handleGetEditSchedule = async (scheduleId: string) => {
         if (!squads) return
         const { data } = await axios.get<UpdateSchedule>(PagesURl.SCHEDULE + `/${scheduleId}/update-info`)
-        setNewSchedule({
-            ...data, isNew: false, id: scheduleId, semester: SEMESTR_YEAR.find((el)=>el.id === data.semester), pages: data.pages.map((page) => {
+        setViewSchedule({
+            ...data, id: scheduleId, semester: SEMESTR_YEAR.find((el)=>el.id === data.semester), pages: data.pages.map((page) => {
                 const activeSquads = squads.filter((el) => page.squads.includes(el.id))
                 return { ...page, squads: activeSquads}
             })
@@ -380,7 +381,7 @@ export default function Main() {
                                         <p>{shedule.name}</p>
                                         <div className={styles.container__icons}>
                                             <div onClick={(e) => { e.stopPropagation(); handleGetEditSchedule(shedule.id) }}>
-                                                <Icon glyph='edit' glyphColor='black' />
+                                                <Icon glyph='eye' glyphColor='black' />
                                             </div>
                                             <div onClick={(e) => { e.stopPropagation(); setConfirmDeleteScheduleId(shedule.id) }}>
                                                 <Icon glyph='close' glyphColor='black' />
@@ -496,6 +497,53 @@ export default function Main() {
                         ))}
                         {COURSES_YEAR.length > newSchedule.pages.length && <Button onClick={addNewYear}>Добавить лист</Button>}
                         <Button onClick={() => handleCreateShedule(newSchedule)}>{newSchedule.isNew ? 'Создать расписание' : 'Сохранить'}</Button>
+                    </div>
+                </PopupContainer>
+            }
+            {viewSchedule !== undefined &&
+                <PopupContainer displayClose onClose={() => { setViewSchedule(undefined); setIsEnableValidationCreateSchedule(false) }}>
+                    <div className={styles.popup}>
+                        <h2>Расписание</h2>
+                        <div style={{ width: '95%' }}>
+                            <p>Название:</p>
+                            <h5>{viewSchedule.name}</h5>
+                        </div>
+                        <div style={{ width: '95%' }}>
+                            <p>Семестр:</p>
+                            <AddInput
+                                onlySelected
+                                title='Семестр'
+                                singleMode
+                                isError={isEnableValidationCreateSchedule}
+                                selectedList={viewSchedule.semester ? [viewSchedule.semester] : []}
+                                allList={SEMESTR_YEAR}
+                                changeInputList={() => {}}
+                            />
+                        </div>
+                        {viewSchedule.pages.map((year, index) => (
+                            <div className={styles.popup__addList} key={`${year.start}--${index}`}>
+                                {squads &&
+                                    <>
+                                        <AddInput
+                                            onlySelected
+                                            title='Взвода'
+                                            isError={isEnableValidationCreateSchedule}
+                                            selectedList={year.squads}
+                                            allList={squads}
+                                            changeInputList={() => {}}
+                                        />
+                                    </>
+                                }
+                                {<div className={styles.popup__line}>
+                                    <p>Дата первого занятия</p>
+                                    <p>{year.start}</p>
+                                </div>}
+                                {<div className={styles.popup__line}>
+                                    <p>Дата последнего занятия</p>
+                                    <p>{year.start}</p>
+                                </div>}
+                            </div>
+                        ))}
                     </div>
                 </PopupContainer>
             }

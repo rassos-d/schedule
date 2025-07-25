@@ -35,6 +35,7 @@ export type glyphs =
   'teacher' |
   'time' |
   'event' |
+  'eye' |
   'close' |
   'check' |
   'trash';

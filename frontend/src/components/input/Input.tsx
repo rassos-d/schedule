@@ -128,6 +128,7 @@ type AddInputProps = {
   totalParts?: number
   currentPart?: number
   isError?: boolean
+  onlySelected?: boolean
 }
 
 type SearchInputProps = {
@@ -147,10 +148,10 @@ export function SearchInput({ searchValue, placeholder = 'Поиск', changeSea
 }
 
 
-export function AddInput({ selectedList, changeInputList, allList, title, placeholder = 'Поиск', singleMode, totalParts, currentPart, maxWidth, minWidth, onSeeMore, onSearch, isError, enableSearch }: AddInputProps) {
+export function AddInput({ selectedList, changeInputList, allList, title, placeholder = 'Поиск', singleMode, totalParts, currentPart, maxWidth, minWidth, onSeeMore, onSearch, isError, enableSearch, onlySelected }: AddInputProps) {
 
   const [searchValue, setSearchValue] = useState('')
-  const [displayList, setDisplayList] = useState(false)
+  const [displayList, setDisplayList] = useState(onlySelected)
 
   const changeSearchValue = (newvalue: string) => {
     setSearchValue(newvalue)
@@ -199,18 +200,25 @@ export function AddInput({ selectedList, changeInputList, allList, title, placeh
     return selectedList.length !== 0
   }
 
+  const getList = () => {
+    if (onlySelected) {
+      return selectedList
+    }
+    return allList.filter((el)=>(enableSearch ? el.name.toString().toLowerCase().includes(searchValue.toLowerCase()) : true))
+  }
+
   return (
     <div style={{minWidth: `${minWidth ? minWidth + 'px' : 'auto'}`, maxWidth: `${maxWidth ? maxWidth + 'px' : 'auto'}`} } className={`${styles.list}`}>
-      <div onClick={() => { setDisplayList(!displayList) }} className={`${styles.list__title} ${getTitleColor() === 'white' ? styles.list__title_active : ''} ${!isValid() ? styles.list__title_error : ''}`}>
+      <div onClick={onlySelected ? undefined : () => { setDisplayList(!displayList) }} className={`${styles.list__title} ${getTitleColor() === 'white' ? styles.list__title_active : ''} ${!isValid() ? styles.list__title_error : ''}`}>
         <p>{selectedList[0] && singleMode ? selectedList[0].name : title}</p>
-        <Icon glyph={`arrow-${displayList ? 'up' : 'down'}`} glyphColor={getTitleColor()} />
+        {onlySelected || <Icon glyph={`arrow-${displayList ? 'up' : 'down'}`} glyphColor={getTitleColor()} />}
       </div>
       {displayList && <div className={styles.list__list}>
         {(onSearch || enableSearch) &&
           <SearchInput placeholder={placeholder} changeSearchValue={changeSearchValue} searchValue={searchValue}/>}
-        {allList.filter((el)=>(enableSearch ? el.name.toString().toLowerCase().includes(searchValue.toLowerCase()) : true)).map((el) => (
+        {getList().map((el) => (
           <div key={el.id} onClick={() => { changeList(el) }} className={styles.list__line}>
-            <img src={`/icons/${singleMode ? 'radioButton' : 'checkbox'}/${selectedList.findIndex((item) => item.id === el.id) !== -1 ? 'active' : 'disable'}.svg`} />
+            {onlySelected || <img src={`/icons/${singleMode ? 'radioButton' : 'checkbox'}/${selectedList.findIndex((item) => item.id === el.id) !== -1 ? 'active' : 'disable'}.svg`} />}
             <p>{el.name}</p>
           </div>
         ))}
