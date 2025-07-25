@@ -19,7 +19,6 @@ export type CreateSchedule = {
 }
 
 export type CreateScheduleYear = {
-  studyYear: number, 
   squads: ScheduleSquad[], 
   start: string, 
   end: string
@@ -34,7 +33,6 @@ export type UpdateSchedule = {
 export type UpdateScheduleYear = {
   studyYear: number, 
   squads: string[], 
-  semester: number
   start: string, 
   end: string
 }

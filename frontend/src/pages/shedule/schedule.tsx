@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async'
 import styles from './schedule.module.scss'
 import axios, { PagesURl } from '../../services/api/api'
 import { Button } from '../../components/button/button'
-import {ChangeLessonReponse, Conflict, Schedule, YearDays} from '../../types/schedule'
+import {ChangeLessonReponse, Conflict, Schedule} from '../../types/schedule'
 import { useEffect, useRef, useState } from 'react'
 import { getFullSchedule, getSchedule, sortedDates } from '../../utils/schedule'
 import { checkLesson } from '../../utils/validate'
@@ -29,7 +29,7 @@ import { AddInputList } from '../../types/input'
 import { cloneObject } from '../../utils'
 import { AxiosResponse } from 'axios'
 import { DeletePopup } from '../../components/deletePopup/deletePopup'
-import { SEMESTR_YEAR } from '../../consts'
+import { WEEK_DAYS } from '../../consts'
 
 const TIMES = [
     {
@@ -61,8 +61,8 @@ export default function ShedulePage() {
 
     const {id} = useParams()
 
-    const [allTabs, setAllTabs] = useState<YearDays[]>()
-    const [activeTab, setActiveTab] = useState<YearDays>()
+    const [allTabs, setAllTabs] = useState<number[]>()
+    const [activeTab, setActiveTab] = useState<number>()
 
     const sidebarRefIcon = useRef<HTMLDivElement>(null)
     const sidebarContentRef = useRef<HTMLDivElement>(null)
@@ -146,7 +146,7 @@ export default function ShedulePage() {
     }
 
     const handleGetStudyYears = async () => {
-        const {data} = await axios.get<YearDays[]>(PagesURl.SCHEDULE + `/${id}/study-years`)
+        const {data} = await axios.get<number[]>(PagesURl.SCHEDULE + `/${id}/days-of-weeks`)
         setAllTabs(data)
         setActiveTab(data[0])
     }
@@ -168,7 +168,7 @@ export default function ShedulePage() {
     }
     const handleUpdateScheduleTime = async (lesson: Partial<SheduleLesson>) => {
         if (!activeTab) return
-        const {data} = await axios.put<ChangeLessonReponse>(PagesURl.EVENT + `/${lesson.id}/schedules/${id}/${activeTab.studyYear}`, {
+        const {data} = await axios.put<ChangeLessonReponse>(PagesURl.EVENT + `/${lesson.id}/schedules/${id}/${activeTab}`, {
             number: lesson.number,
             date: lesson.date
         })
@@ -188,7 +188,7 @@ export default function ShedulePage() {
         }
         setDisplayErrorsEvent(false)
         const {data} = await axios[newLesson.isNewLesson ? 'post' : 'put']<Conflict, AxiosResponse<Conflict & {id: string}>, NewLessonRequest>(
-            PagesURl.EVENT + `${newLesson.id ? '/' + newLesson.id : ''}/schedules/${id}/${activeTab.studyYear}`, {
+            PagesURl.EVENT + `${newLesson.id ? '/' + newLesson.id : ''}/schedules/${id}/${activeTab}`, {
             subjectId: newLesson.subject.id as string,
             teacherId: newLesson.teacher.id as string,
             themeId: newLesson.theme.id as string,
@@ -203,13 +203,13 @@ export default function ShedulePage() {
             toast(data.message)
         }
         setNewLesson(undefined)
-        handleGetSchedule(activeTab.studyYear)
+        handleGetSchedule(activeTab)
     }
     const handleDeleteLesson = async (lessonId: string) => {
         if (!activeTab) return
-        await axios.delete(PagesURl.EVENT + `/${lessonId}/schedules/${id}/${activeTab.studyYear}`)
+        await axios.delete(PagesURl.EVENT + `/${lessonId}/schedules/${id}/${activeTab}`)
         setConfirmDeleteEventId(undefined)
-        handleGetSchedule(activeTab.studyYear)
+        handleGetSchedule(activeTab)
     }
 
 
@@ -345,11 +345,6 @@ export default function ShedulePage() {
             lesson: {name: `Занятие ${lesson.lesson.number}`, id: lesson.lesson.id}})
     }
 
-    const getSemesterName = () => {
-        if (!schedule) return ''
-        return SEMESTR_YEAR.filter((el)=>el.id === schedule.semester)[0].name.toString().toLowerCase()
-    }
-
     const onDragging = (squadId: string) => {
         if (!schedule) return
         for (const squad of schedule.squads) {
@@ -381,7 +376,7 @@ export default function ShedulePage() {
             handleGetAllTeachers()
             handleGetAllAudience()
             handleGetAllDirections()
-            handleGetSchedule(activeTab.studyYear)
+            handleGetSchedule(activeTab)
         }
     },[activeTab])
 
@@ -391,7 +386,7 @@ export default function ShedulePage() {
     return (
         <>
             <Helmet>
-                <title>{`${schedule.name} ${activeTab.dayOfWeek} ${getSemesterName()} семестр `}</title>
+                <title>{`${schedule.name} ${WEEK_DAYS[activeTab]}`}</title>
             </Helmet>
             <div  ref={containerRef} className={`${styles.container}`}>
                 <div className={styles.container__tabs}>
@@ -401,7 +396,7 @@ export default function ShedulePage() {
                     <Button onClick={()=>navigate('/')} className={styles.container__back}>На главную</Button>
                     <Button onClick={handleExportShedule}>ЭКСПОРТ</Button>
                 </div>
-                <h1 className={styles.container__title}>{`${schedule.name} ${activeTab.dayOfWeek} ${getSemesterName()} семестр`}</h1>
+                <h1 className={styles.container__title}>{`${schedule.name} ${WEEK_DAYS[activeTab]}`}</h1>
                 <DndProvider backend={HTML5Backend}>
                     {schedule.squads.map((item, squardIndex) => (
                         <div id={`squad--${item.id}`} key={item.id} className={styles.container__tableContainer}>

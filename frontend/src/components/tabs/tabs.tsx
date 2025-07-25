@@ -1,18 +1,18 @@
 import { memo } from 'react'
 import styles from './tabs.module.scss'
-import {YearDays} from "../../types/schedule.ts";
+import { WEEK_DAYS } from '../../consts'
 
 type TabsProps = {
-  tabs: readonly YearDays[]
-  onClick: (nextTab: YearDays) => void
-  activeTab: YearDays
+  tabs: readonly number[]
+  onClick: (nextTab: number) => void
+  activeTab: number
 }
 
 function TabsComponent ({tabs, activeTab, onClick}:TabsProps) {
   return (
     <div className={styles.container}>
       {tabs.map((tab)=>(
-        <p onClick={()=>onClick(tab)} className={`${styles.container__tab} ${activeTab.studyYear === tab.studyYear && styles.container__tab_active}`} key={tab.dayOfWeek}>{tab.dayOfWeek}</p>
+        <p onClick={()=>onClick(tab)} className={`${styles.container__tab} ${activeTab === tab && styles.container__tab_active}`} key={tab}>{WEEK_DAYS[tab]}</p>
       ))}
     </div>
   )
