@@ -32,10 +32,11 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
             { 
                 ScheduleId = schedule.Id,
                 Squads = pagesGroup.SelectMany(p => p.Squads).ToList(),
-                Dates = dates            
+                Dates = dates   ,
+                DayOfWeek = minStartDate.DayOfWeek
             };
             schedule.Pages.Add(page);
-            eventGenerator.Generate(page);
+            eventGenerator.Generate(schedule.Semester, page);
         }
 
         repo.SaveSchedule(schedule);
@@ -60,16 +61,16 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
                 Events = existsPage is null ? [] : existsPage.Events.ToList()
             };
             schedule.Pages.Add(page);
-            eventGenerator.Generate(page);
+            eventGenerator.Generate(schedule.Semester, page);
         }
 
         repo.SaveSchedule(schedule);
     }
     
-    public List<StudyYearsDto> GetStudyYears(Guid scheduleId)
+    public List<DayOfWeek> GetDaysOfWeeks(Guid scheduleId)
     {
         var schedule = repo.GetSchedule(scheduleId);
-        return schedule.Pages.Select(p => new StudyYearsDto((int) p.StudyYear, p.Dates.Min().DayOfWeek.ToRussian())).ToList();
+        return schedule.Pages.Select(p => p.DayOfWeek).ToList();
     }
 
     public string ExportExcel(Guid scheduleId)
@@ -116,7 +117,6 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
             Semester = schedule.Semester,
             Pages = schedule.Pages.Select(page => new SchedulePageCreateDto
             {
-                DayOfWeek = page.DayOfWeek,
                 Squads = page.Squads,
                 Start = page.Dates.Min(),
                 End = page.Dates.Max()

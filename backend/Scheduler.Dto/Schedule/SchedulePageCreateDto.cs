@@ -2,8 +2,6 @@ namespace Scheduler.Dto.Schedule;
 
 public class SchedulePageCreateDto
 {
-    public required DayOfWeek DayOfWeek { get; init; }
-
     public required List<Guid> Squads { get; init; } = [];
     
     public required DateOnly Start { get; init; }

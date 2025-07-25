@@ -7,7 +7,7 @@ namespace Scheduler.Services.Schedule;
 
 public class EventGenerator(SquadRepository squadRepo, PlanRepository planRepo)
 {
-    public void Generate(SchedulePage page)
+    public void Generate(int semester, SchedulePage page)
     {
         int[] lessonNumbers = [1, 2, 4];
         foreach (var squadId in page.Squads)
@@ -16,7 +16,7 @@ public class EventGenerator(SquadRepository squadRepo, PlanRepository planRepo)
             if (squad?.DirectionId == null || !squad.StudyYear.HasValue)
                 continue;
             var lessons =
-                planRepo.FindLessonsForSemester(squad.DirectionId.Value, squad.StudyYear.Value, page.Semester);
+                planRepo.FindLessonsForSemester(squad.DirectionId.Value, squad.StudyYear.Value, semester);
             var groupedLessons = lessons
                 .GroupBy(x => x.SubjectId)
                 .Select(x => x.OrderBy(l => int.Parse($"{l.ThemeNumber}{l.Number.ToString()}")).ToList()

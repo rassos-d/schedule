@@ -24,10 +24,10 @@ public class ScheduleController(ScheduleService service) : ControllerBase
         return Ok(response);
     }
 
-    [HttpGet("{scheduleId:guid}/study-years")]
+    [HttpGet("{scheduleId:guid}/days-of-weeks")]
     public IActionResult GetStudyYears(Guid scheduleId)
     {
-        return Ok(service.GetStudyYears(scheduleId));
+        return Ok(service.GetDaysOfWeeks(scheduleId));
     }
     
     [HttpPost]

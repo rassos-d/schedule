@@ -53,7 +53,7 @@ public class ExcelExportService
 
         foreach (var page in schedule.Pages)
         {
-            WriteSheet(resultExcel.Workbook, template, page);
+            WriteSheet(resultExcel.Workbook, template, page, schedule.Semester);
         }
 
         resultExcel.Save();
@@ -88,13 +88,14 @@ public class ExcelExportService
     private void WriteSheet(
         ExcelWorkbook workbook,
         Template template,
-        SchedulePage page)
+        SchedulePage page, 
+        int semester)
     {
         // создаем лист сразу с шапкой
         var sheet = workbook.Worksheets.Add(page.Dates.Min().DayOfWeek.ToRussian(), template.Header.Sheet);
 
         var squads = page.Squads.Select(squadId => GetSquad(page, squadRepository.Get(squadId)!));
-        FillHeader(squads, sheet.Cells, page.Dates, page.Semester);
+        FillHeader(squads, sheet.Cells, page.Dates, semester);
 
         var totalHeight = template.Header.Size.Height + 1;
 

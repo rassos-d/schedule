@@ -7,8 +7,6 @@ public class SchedulePage
     public required Guid ScheduleId { get; init; }
     
     public DayOfWeek DayOfWeek { get; set; }
-    public StudyYear StudyYear { get; set; }
-    public int Semester { get; set; }
     
     public List<DateOnly> Dates { get; set; } = [];
     
