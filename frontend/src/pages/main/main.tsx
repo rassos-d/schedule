@@ -212,6 +212,7 @@ export default function Main() {
                 squads: page.squads.map(squad => squad.id)
             }))
         };
+        console.log(transformedSchedule)
         const { data } = await axios[schedule.isNew ? 'post' : 'put']<{ data: string }>(PagesURl.SCHEDULE + (!schedule.isNew ? '/full' : ''), transformedSchedule)
         setNewSchedule(undefined)
         if (transformedSchedule.isNew) {
@@ -222,7 +223,7 @@ export default function Main() {
         if (!squads) return
         const { data } = await axios.get<UpdateSchedule>(PagesURl.SCHEDULE + `/${scheduleId}/update-info`)
         setNewSchedule({
-            ...data, isNew: false, id: scheduleId, pages: data.pages.map((page) => {
+            ...data, isNew: false, id: scheduleId, semester: SEMESTR_YEAR.find((el)=>el.id === data.semester), pages: data.pages.map((page) => {
                 const activeSquads = squads.filter((el) => page.squads.includes(el.id))
                 return { ...page, squads: activeSquads}
             })
@@ -285,6 +286,7 @@ export default function Main() {
             const result = cloneObject(prev)
             return {...result, pages: removeElementAtIndex(result.pages, index)}
         })
+        setConfirmDeleteScheduleYearIndex(undefined)
     }
     const addNewSemester = (newSemestr: AddInputList) => {
         setNewSchedule((prev) => {
@@ -482,11 +484,11 @@ export default function Main() {
                                         />
                                     </>
                                 }
-                                {newSchedule.semester && <div className={styles.popup__line}>
+                                {newSchedule.semester!==undefined && <div className={styles.popup__line}>
                                     <p>Дата первого занятия</p>
                                     <Input startDate={getSemesterStartDate(Number(newSchedule.semester.id))} isError={isEnableValidationCreateSchedule} value={year.start} type='date' onChange={(val) => updateDateYear(val, true, index)} />
                                 </div>}
-                                {newSchedule.semester && <div className={styles.popup__line}>
+                                {newSchedule.semester!==undefined && <div className={styles.popup__line}>
                                     <p>Дата последнего занятия</p>
                                     <Input startDate={getSemesterStartDate(Number(newSchedule.semester.id))} isError={isEnableValidationCreateSchedule} value={year.end} type='date' onChange={(val) => updateDateYear(val, false, index)} />
                                 </div>}

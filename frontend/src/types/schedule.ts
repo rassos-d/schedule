@@ -27,6 +27,7 @@ export type CreateScheduleYear = {
 export type UpdateSchedule = {
   id: string
   name: string
+  semester: number
   pages: UpdateScheduleYear[]
 }
 
