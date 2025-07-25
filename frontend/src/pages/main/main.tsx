@@ -501,7 +501,7 @@ export default function Main() {
                 </PopupContainer>
             }
             {viewSchedule !== undefined &&
-                <PopupContainer displayClose onClose={() => { setViewSchedule(undefined); setIsEnableValidationCreateSchedule(false) }}>
+                <PopupContainer displayClose onClose={() => { setViewSchedule(undefined) }}>
                     <div className={styles.popup}>
                         <h2>Расписание</h2>
                         <div style={{ width: '95%' }}>
