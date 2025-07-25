@@ -2,14 +2,14 @@ import { Helmet } from 'react-helmet-async'
 import styles from './main.module.scss'
 import axios, { PagesURl } from '../../services/api/api'
 import { useEffect, useState } from 'react'
-import { CreateSchedule, CreateScheduleYear, ScheduleSquad, SmallShedule, UpdateSchedule } from '../../types/schedule'
+import { CreateSchedule, ScheduleSquad, SmallShedule, UpdateSchedule } from '../../types/schedule'
 import { Icon } from '../../components/icon'
 import { Button } from '../../components/button/button'
 import PopupContainer from '../../components/popupContainer/popupContainer'
 import { AddInput, Input } from '../../components/input/Input'
 import { useNavigate } from 'react-router-dom'
 import { COURSES_YEAR, DIRECTION_TYPE, SEMESTR_YEAR } from '../../consts'
-import { cloneObject, getUniqueElements, removeElementAtIndex } from '../../utils'
+import { cloneObject, removeElementAtIndex } from '../../utils'
 import { EditSquad, NewSquad, Squad } from '../../types/squad'
 import { SettingsList } from '../../components/settingsList/settingsList'
 import { Audience } from '../../types/audience'
@@ -206,10 +206,10 @@ export default function Main() {
         setIsEnableValidationCreateSchedule(false)
         const transformedSchedule = {
             ...schedule,
+            semester: schedule.semester?.id,
             pages: schedule.pages.map(page => ({
                 ...page,
-                squads: page.squads.map(squad => squad.id),
-                semester: schedule.semester ? schedule.semester.id : undefined
+                squads: page.squads.map(squad => squad.id)
             }))
         };
         const { data } = await axios[schedule.isNew ? 'post' : 'put']<{ data: string }>(PagesURl.SCHEDULE + (!schedule.isNew ? '/full' : ''), transformedSchedule)
@@ -224,7 +224,7 @@ export default function Main() {
         setNewSchedule({
             ...data, isNew: false, id: scheduleId, pages: data.pages.map((page) => {
                 const activeSquads = squads.filter((el) => page.squads.includes(el.id))
-                return { ...page, squads: activeSquads, semester: SEMESTR_YEAR.filter((el) => el.id === page.semester)[0] }
+                return { ...page, squads: activeSquads}
             })
         })
     }
@@ -271,50 +271,19 @@ export default function Main() {
         handleGetAllSquads()
     }
 
-    const getFreeYears = (scheduleYears: CreateScheduleYear[]) => {
-        const newFreeYears = [...COURSES_YEAR, ...scheduleYears.map((year) => year.studyYear)]
-        const unique = getUniqueElements(newFreeYears)
-        return unique
-    }
-
     const addNewYear = () => {
-        if (!newSchedule) return
-        setNewSchedule((prev) => {
-            if (!prev) return
-            const freeYears = getFreeYears(prev.pages)
-            return {
-                ...prev, pages: [...prev.pages, {
-                    studyYear: freeYears[0],
-                    squads: [],
-                    start: '',
-                    end: ''
-                }
-                ]
-            }
-        })
-    }
-    const deleteYear = (index: number) => {
-        if (!newSchedule) return
-        setNewSchedule((prev) => {
-            if (!prev) return
-            return {
-                ...prev, pages: removeElementAtIndex(prev.pages, index)
-            }
-        })
-        setConfirmDeleteScheduleYearIndex(undefined)
-    }
-    const addNewYearToYear = (year: number, index: number) => {
         setNewSchedule((prev) => {
             if (!prev) return undefined
             const result = cloneObject(prev)
-            if (result.pages[index].studyYear !== year) {
-                result.pages[index] = { ...result.pages[index], squads: [] }
-            }
-            if (result.pages[index].studyYear === 1 && year !== 1 || result.pages[index].studyYear !== 1 && year === 1) {
-                result.semester = undefined
-            }
-            result.pages[index].studyYear = year
+            result.pages.push({squads: [], start: '', end: ''})
             return result
+        })
+    }
+    const deleteYear = (index: number) => {
+        setNewSchedule((prev) => {
+            if (!prev) return undefined
+            const result = cloneObject(prev)
+            return {...result, pages: removeElementAtIndex(result.pages, index)}
         })
     }
     const addNewSemester = (newSemestr: AddInputList) => {
@@ -485,28 +454,30 @@ export default function Main() {
                     <div className={styles.popup}>
                         <h2>{newSchedule.isNew ? 'Создание' : 'Редактирование'} расписания</h2>
                         <div style={{ width: '95%' }}><Input value={newSchedule.name} onChange={(value) => setNewSchedule({ ...newSchedule, name: value })} placeholder='Введите название' /></div>
+                        <div style={{ width: '95%' }}>
+                            <p>Семестр:</p>
+                            <AddInput
+                                title='Семестр'
+                                singleMode
+                                isError={isEnableValidationCreateSchedule}
+                                selectedList={newSchedule.semester ? [newSchedule.semester] : []}
+                                allList={SEMESTR_YEAR}
+                                changeInputList={(newList) => addNewSemester(newList[0])}
+                            />
+                        </div>
                         {newSchedule.pages.map((year, index) => (
-                            <div className={styles.popup__addList} key={year.studyYear}>
+                            <div className={styles.popup__addList} key={`${year.start}--${index}`}>
                                 <div onClick={(e) => { e.stopPropagation(); setConfirmDeleteScheduleYearIndex(index) }} className={styles.popup__delete}>
                                     <Icon glyph='trash' glyphColor='error' />
                                 </div>
-                                <p>Год обучения:</p>
-                                <AddInput
-                                    isError={isEnableValidationCreateSchedule}
-                                    title='Год обучения'
-                                    singleMode
-                                    selectedList={[{ name: year.studyYear, id: year.studyYear }]}
-                                    allList={COURSES_YEAR.map((el)=>({name: el, id: el}))}
-                                    changeInputList={(newList) => addNewYearToYear(Number(newList[0].id), index)}
-                                />
                                 {squads &&
                                     <>
-                                        <p>Год обучения:</p>
                                         <AddInput
+                                            enableSearch
                                             title='Взвода'
                                             isError={isEnableValidationCreateSchedule}
                                             selectedList={year.squads}
-                                            allList={squads.filter((squad) => squad.studyYear === year.studyYear)}
+                                            allList={squads}
                                             changeInputList={(newList) => updateSquards(newList.map((item) => ({ name: item.name.toString(), id: item.id.toString() })), index)}
                                         />
                                     </>
@@ -521,18 +492,7 @@ export default function Main() {
                                 </div>}
                             </div>
                         ))}
-                        {COURSES_YEAR.length > newSchedule.pages.length && <Button onClick={addNewYear}>Добавить год обучения</Button>}
-                        <div style={{ width: '95%' }}>
-                            <p>Семестр:</p>
-                            <AddInput
-                                title='Семестр'
-                                singleMode
-                                isError={isEnableValidationCreateSchedule}
-                                selectedList={newSchedule.semester ? [newSchedule.semester] : []}
-                                allList={SEMESTR_YEAR}
-                                changeInputList={(newList) => addNewSemester(newList[0])}
-                            />
-                        </div>
+                        {COURSES_YEAR.length > newSchedule.pages.length && <Button onClick={addNewYear}>Добавить лист</Button>}
                         <Button onClick={() => handleCreateShedule(newSchedule)}>{newSchedule.isNew ? 'Создать расписание' : 'Сохранить'}</Button>
                     </div>
                 </PopupContainer>
@@ -713,7 +673,7 @@ export default function Main() {
             {confirmDeleteScheduleYearIndex !== undefined &&
                 <DeletePopup
                     title='Удаление года обучения'
-                    text='Вы уверены, что хотите удалить год обучения?'
+                    text='Вы уверены, что хотите удалить лист?'
                     onCancel={() => setConfirmDeleteScheduleYearIndex(undefined)}
                     onDelete={() => deleteYear(confirmDeleteScheduleYearIndex)}
                 />

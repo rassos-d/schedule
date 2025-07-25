@@ -15,3 +15,5 @@ export const LESSON_TYPE = [
 ]
 
 export const DIRECTION_TYPE = ['Кадровые', 'Запас']
+
+export const WEEK_DAYS = ['Воскресенье', "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"]
