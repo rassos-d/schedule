@@ -18,7 +18,7 @@ import { HiddenInputBlock } from '../../components/hiddenInputBlock/hiddenInputB
 import { Direction } from '../../types/directions'
 import { AddInputList } from '../../types/input'
 import { VacationBlock } from '../../components/vacationBlock/vacationBlock'
-import { isValidCreateSchedule } from '../../utils/validate'
+import { isValidCreateSchedule, isValidEditTeacher } from '../../utils/validate'
 import { DeletePopup } from '../../components/deletePopup/deletePopup'
 import { getSemesterStartDate } from '../../utils/date'
 import { EditPlan } from '../../components/editPlan/editPlan'
@@ -44,6 +44,7 @@ export default function Main() {
     const [squads, setSquads] = useState<Squad[]>()
     const [editSquad, setEditSquad] = useState<EditSquad>()
     const [newSquad, setNewSquad] = useState<NewSquad>()
+    const [validateSquad, setValidateSquad] = useState(false)
 
 
     const [allAudience, setAllAudience] = useState<(Audience & { isEdit: boolean, isWarning: boolean })[]>()
@@ -120,7 +121,7 @@ export default function Main() {
     }
     const handleEditTeacher = async () => {
         if (!editTeacher) return
-        if (editTeacher.name.length === 0 || editTeacher.rank.length === 0) {
+        if (!isValidEditTeacher(editTeacher)) {
             setCheckEditTeacher(true)
             return
         }
@@ -213,7 +214,6 @@ export default function Main() {
                 squads: page.squads.map(squad => squad.id)
             }))
         };
-        console.log(transformedSchedule)
         const { data } = await axios[schedule.isNew ? 'post' : 'put']<{ data: string }>(PagesURl.SCHEDULE + (!schedule.isNew ? '/full' : ''), transformedSchedule)
         setNewSchedule(undefined)
         if (transformedSchedule.isNew) {
@@ -238,6 +238,11 @@ export default function Main() {
     }
     const handleAddSquad = async () => {
         if (!newSquad) return
+        if (!newSquad.daddy || !newSquad.direction || !newSquad.name || !newSquad.studyYear) {
+            setValidateSquad(true)
+            return
+        }
+        setValidateSquad(false)
         const { data } = await axios.post<{ data: string }>(PagesURl.SQUAD, {
             name: newSquad.name,
         })
@@ -248,6 +253,10 @@ export default function Main() {
     const handleEditSquad = async (newSquad?: EditSquad) => {
         const targetSquad = newSquad ? newSquad : editSquad
         if (!targetSquad) return
+        if (!targetSquad.daddy || !targetSquad.direction || !targetSquad.name || !targetSquad.studyYear) {
+            setValidateSquad(true)
+            return
+        }
         await axios.put(PagesURl.SQUAD, {
             id: targetSquad.id,
             name: targetSquad.name,
@@ -548,7 +557,7 @@ export default function Main() {
                 </PopupContainer>
             }
             {editTeacher &&
-                <PopupContainer displayClose onClose={() => setEditTeacher(undefined)}>
+                <PopupContainer displayClose onClose={() => {setEditTeacher(undefined);setCheckEditTeacher(false)}}>
                     <div className={styles.edit}>
                         <h2>Редактирование преподавателя</h2>
                         <Input isError={checkEditTeacher} value={editTeacher.name} placeholder='Фамилия' onChange={(val) => setEditTeacher({ ...editTeacher, name: val })} />
@@ -581,7 +590,7 @@ export default function Main() {
                 </PopupContainer>
             }
             {newTeacher &&
-                <PopupContainer displayClose onClose={() => setNewTeacher(undefined)}>
+                <PopupContainer displayClose onClose={() => {setNewTeacher(undefined);setCheckEditTeacher(false)}}>
                     <div className={styles.edit}>
                         <h2>Создание преподавателя</h2>
                         <Input isError={checkEditTeacher} value={newTeacher.name} placeholder='Фамилия' onChange={(val) => setNewTeacher({ ...newTeacher, name: val })} />
@@ -615,7 +624,7 @@ export default function Main() {
             }
 
             {editSquad &&
-                <PopupContainer onClose={() => setEditSquad(undefined)} displayClose>
+                <PopupContainer onClose={() => {setEditSquad(undefined);setValidateSquad(false)}} displayClose>
                     <div className={styles.edit}>
                         <h2>Редактирование Взвода</h2>
                         <Input value={editSquad.name} placeholder='Название' onChange={(val) => setEditSquad({ ...editSquad, name: val })} />
@@ -664,13 +673,14 @@ export default function Main() {
                 </PopupContainer>
             }
             {newSquad &&
-                <PopupContainer displayClose onClose={() => setNewSquad(undefined)}>
+                <PopupContainer displayClose onClose={() => {setNewSquad(undefined);setValidateSquad(false)}}>
                     <div className={styles.edit}>
                         <h2>Создание Взвода</h2>
-                        <Input value={newSquad.name} placeholder='Название' onChange={(val) => setNewSquad({ ...newSquad, name: val })} />
+                        <Input isError={validateSquad} value={newSquad.name} placeholder='Название' onChange={(val) => setNewSquad({ ...newSquad, name: val })} />
                         <div className={styles.edit__line}>
                             <p>Год обучения</p>
                             <AddInput
+                                isError={validateSquad}
                                 selectedList={newSquad.studyYear ? [newSquad.studyYear] : []}
                                 allList={COURSES_YEAR.map((item) => ({ id: item, name: item }))}
                                 title='Выберите год обучения'
@@ -681,6 +691,7 @@ export default function Main() {
                         <div className={styles.edit__line}>
                             <p>Ответственный преподаватель</p>
                             <AddInput
+                                isError={validateSquad}
                                 selectedList={newSquad.daddy ? [newSquad.daddy] : []}
                                 allList={allTeachers}
                                 title='Выберите ответственного преподавателя'
@@ -691,6 +702,7 @@ export default function Main() {
                         <div className={styles.edit__line}>
                             <p>Аудитория</p>
                             <AddInput
+                                isError={validateSquad}
                                 selectedList={newSquad.fixedAudience ? [newSquad.fixedAudience] : []}
                                 allList={allAudience}
                                 title='Выберите аудиторию взвода'
@@ -701,6 +713,7 @@ export default function Main() {
                         <div className={styles.edit__line}>
                             <p>Направление</p>
                             <AddInput
+                                isError={validateSquad}
                                 selectedList={newSquad.direction ? [newSquad.direction] : []}
                                 allList={allDirections}
                                 title='Выберите направление взвода'
