@@ -43,7 +43,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var baseFolder = Directory.GetCurrentDirectory();
-FilePaths.BaseFolder = Path.Combine(baseFolder, "data");
+FilePaths.BaseFolder = Path.Combine(baseFolder, "../data");
 
 Console.WriteLine(baseFolder);
 
