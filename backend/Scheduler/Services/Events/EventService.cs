@@ -83,13 +83,7 @@ public class EventService(
     {
         var teacherNames = teacherRepository.GetAll()
             .ToDictionary(k => k.Id, t => $"{t.Rank} {t.Name}");
-
-        var subjectColors = planRepository.FindSubjects().Select(s => new SubjectColorDto
-        {
-            SubjectId = s.Id,
-            Color = s.Color
-        })
-            .ToList();
+        
         var audienceNames = audienceRepository
             .GetAll()
             .ToDictionary(k => k.Id, t => t.Name);
@@ -125,8 +119,7 @@ public class EventService(
                 .Where(e => e.Date == null && e.Number == null)
                 .Select(e => ConvertToEvent(e, teacherNames, audienceNames, squads, lessons))
                 .ToList(),
-            Conflicts = CheckForConflict(schedulePage),
-            SubjectColors = subjectColors
+            Conflicts = CheckForConflict(schedulePage)
         };
     }
 
@@ -321,10 +314,22 @@ public class EventService(
                 : null,
             Lesson = new LessonGetDto { Id = @event.LessonId, Number = lesson?.Number, LessonType = lesson?.Type, Type = lesson?.Type.GetView()},
             Theme = new ThemeGetDto { Id = @event.ThemeId, Number = theme?.Number },
-            Subject = ConvertToResponse(subject?.Id, subject?.Name),
+            Subject = ConvertToResponse(subject?.Id, subject?.Name, subject?.Color)
         };
     }
 
+    private SubjectDto? ConvertToResponse(Guid? id, string? name, string? color)
+    {
+        if (id is null || name is null)
+            return null;
+        return new SubjectDto
+        {
+            Id = id.Value,
+            Name = name,
+            Color = color
+        };
+    }
+    
     private EntityWithNameGetDto? ConvertToResponse(Guid? id, string? name)
     {
         if (id is null || name is null)

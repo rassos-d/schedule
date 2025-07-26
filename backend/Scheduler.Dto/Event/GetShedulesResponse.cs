@@ -17,6 +17,4 @@ public class GetEventsByScheduleResponse
     public List<EventsResponse> NoName { get; init; } = [];
 
     public CheckConflictResponse Conflicts { get; init; }
-
-    public List<SubjectColorDto> SubjectColors { get; set; }
 }

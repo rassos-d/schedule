@@ -1,5 +1,6 @@
 using Scheduler.Dto;
 using Scheduler.Dto.Plan.Lesson;
+using Scheduler.Dto.Plan.Subject;
 using Scheduler.Dto.Plan.Theme;
 
 public class EventsResponse
@@ -15,7 +16,7 @@ public class EventsResponse
     
     public ThemeGetDto? Theme { get; set; }
     
-    public EntityWithNameGetDto? Subject { get; set; }
+    public SubjectDto? Subject { get; set; }
     
     public int? Number { get; set; }
 
