@@ -1,3 +1,4 @@
+using Scheduler.Constants;
 using Scheduler.DataAccess;
 using Scheduler.DataAccess.General;
 using Scheduler.Export;
@@ -40,6 +41,11 @@ builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+var baseFolder = Directory.GetCurrentDirectory();
+FilePaths.BaseFolder = Path.Combine(baseFolder, "data");
+
+Console.WriteLine(baseFolder);
 
 var app = builder.Build();
 

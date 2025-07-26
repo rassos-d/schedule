@@ -14,11 +14,9 @@ public partial class PlanRepository
             var direction = GetDirection(directionInfo.Id);
             if (direction is null)
                 continue;
-            logger.LogInformation("Add colors for direction {0}", direction.Name);
 
             foreach (var subject in direction.Subjects)
             {
-                logger.LogInformation("Add color for subject {0}", subject.Name);
                 if (subject.Color == null || !Colors.All().Contains(subject.Color))
                 {
                     var color = GetRandomColor(usageColors);

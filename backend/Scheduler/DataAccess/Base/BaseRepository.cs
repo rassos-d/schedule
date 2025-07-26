@@ -1,4 +1,5 @@
 using System.Text.Json;
+using Scheduler.Constants;
 using static Scheduler.Constants.FilePaths;
 namespace Scheduler.DataAccess.Base;
 
@@ -28,7 +29,7 @@ public abstract class BaseRepository
         var filePath = Path.Combine(DirectoryPath, path);
         if (File.Exists(filePath) == false)
         {
-            throw new FileNotFoundException();
+            throw new FileNotFoundException($"Base = {BaseFolder}, FilePath={filePath}");
         }
         
         return File.ReadAllText(filePath);

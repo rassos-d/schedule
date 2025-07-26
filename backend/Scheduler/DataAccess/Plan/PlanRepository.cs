@@ -5,13 +5,11 @@ namespace Scheduler.DataAccess.Plan;
 
 public partial class PlanRepository : BaseRepository
 {
-    private readonly ILogger<PlanRepository> logger;
     protected readonly List<Direction> Directions = [];
     protected IEnumerable<Subject> Subjects => Directions.SelectMany(d => d.Subjects);
     
-    public PlanRepository(ILogger<PlanRepository> logger) : base("plan")
+    public PlanRepository() : base("plan")
     {
-        this.logger = logger;
         var directions = GetAllDirectionInfos();
         foreach (var direction in directions)
         {
