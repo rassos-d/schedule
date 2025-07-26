@@ -8,23 +8,17 @@ public partial class PlanRepository
 {
     public void UpdateSubjectColors()
     {
-        static string GetRandomColor(List<string> colors)
-        {
-            var random = new Random();
-            if (colors.Count == 0)
-                colors = Colors.All().ToList();
-            var index = random.Next(colors.Count);
-            return Colors.All()[index];
-        }
-
         foreach (var directionInfo in GetAllDirectionInfos())
         {
             var usageColors = Colors.All().ToList();
             var direction = GetDirection(directionInfo.Id);
             if (direction is null)
                 continue;
+            logger.LogInformation("Add colors for direction {0}", direction.Name);
+
             foreach (var subject in direction.Subjects)
             {
+                logger.LogInformation("Add color for subject {0}", subject.Name);
                 if (subject.Color == null || !Colors.All().Contains(subject.Color))
                 {
                     var color = GetRandomColor(usageColors);
@@ -95,5 +89,14 @@ public partial class PlanRepository
         var direction = Directions.First(x => x.Id == subject.DirectionId);
         direction.Subjects.Remove(subject);
         SaveChanges();
+    }
+    
+    private static string GetRandomColor(List<string> colors)
+    {
+        var random = new Random();
+        if (colors.Count == 0)
+            colors = Colors.All().ToList();
+        var index = random.Next(colors.Count);
+        return Colors.All()[index];
     }
 }
