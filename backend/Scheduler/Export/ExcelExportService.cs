@@ -40,7 +40,7 @@ public class ExcelExportService
         this.planRepository = planRepository;
     }
 
-    public string Save(Guid scheduleId)
+    public string Save(Guid scheduleId, bool isAddColors)
     {
         if (File.Exists(resultPath))
             File.Delete(resultPath);
@@ -53,7 +53,7 @@ public class ExcelExportService
 
         foreach (var page in schedule.Pages)
         {
-            WriteSheet(resultExcel.Workbook, template, page, schedule.Semester);
+            WriteSheet(resultExcel.Workbook, template, page, schedule.Semester, isAddColors);
         }
 
         resultExcel.Save();
@@ -89,7 +89,8 @@ public class ExcelExportService
         ExcelWorkbook workbook,
         Template template,
         SchedulePage page, 
-        int semester)
+        int semester,
+        bool isAddColors)
     {
         // создаем лист сразу с шапкой
         var sheet = workbook.Worksheets.Add(page.Dates.Min().DayOfWeek.ToRussian(), template.Header.Sheet);
@@ -103,7 +104,7 @@ public class ExcelExportService
         {
             // ставим взвод
             template.Body.Range.Copy(sheet.Cells[totalHeight, 1]);
-            FillSquad(squad, sheet.Cells, page.Dates, totalHeight);
+            FillSquad(squad, sheet.Cells, page.Dates, totalHeight, isAddColors);
             totalHeight += template.Body.Size.Height;
         }
 
@@ -159,7 +160,7 @@ public class ExcelExportService
         };
     }
 
-    private void FillSquad(SquadExcel squad, ExcelRange cells, List<DateOnly> dates, int heightOffset)
+    private void FillSquad(SquadExcel squad, ExcelRange cells, List<DateOnly> dates, int heightOffset, bool isAddColors)
     {
         FillSquadName(squad, cells, heightOffset);
 
@@ -169,7 +170,7 @@ public class ExcelExportService
             .ToDictionary(x => x.First, x => x.Second);
 
         FillDates(cells, dates, heightOffset, colByDate);
-        FillSquadEvents(squad, cells, heightOffset, colByDate);
+        FillSquadEvents(squad, cells, heightOffset, colByDate, isAddColors);
     }
 
     private static void FillSquadName(SquadExcel squad, ExcelRange cells, int heightOffset)
@@ -197,7 +198,7 @@ public class ExcelExportService
         }
     }
 
-    private void FillSquadEvents(SquadExcel squad, ExcelRange cells, int heightOffset, Dictionary<DateOnly, int> colByDate)
+    private void FillSquadEvents(SquadExcel squad, ExcelRange cells, int heightOffset, Dictionary<DateOnly, int> colByDate, bool isAddColors)
     {
         const int eventOffset = 4;
         foreach (var @event in squad.Events)
@@ -214,6 +215,8 @@ public class ExcelExportService
                 var lesson = GetOrDefault(@event.LessonId, planRepository.GetLesson);
                 var themeText = $"т.{theme?.Number}/{lesson?.Number} {lesson?.Type.GetView()}";
 
+                if (isAddColors && subject is not null && subject.Color is not null)
+                    cells.Style.Fill.BackgroundColor.SetColor(ColorTranslator.FromHtml(subject.Color));
                 cells.SetCellValue(heightOffset + eventLocalPos, eventCol, subject?.Name);
                 cells.SetCellValue(heightOffset + eventLocalPos + 1, eventCol, themeText);
                 cells.SetCellValue(heightOffset + eventLocalPos + 2, eventCol, audience?.Name);

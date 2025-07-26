@@ -38,10 +38,10 @@ public class ScheduleController(ScheduleService service) : ControllerBase
     }
     
     [HttpPost("{scheduleId:guid}/excel")]
-    public IActionResult SaveExcel(Guid scheduleId)
+    public IActionResult SaveExcel(Guid scheduleId, [FromQuery] bool isAddColors)
     {
         var name = service.GetName(scheduleId);
-        var result = service.ExportExcel(scheduleId);
+        var result = service.ExportExcel(scheduleId, isAddColors);
 
         var file = System.IO.File.OpenRead(result);
         return File(file, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", $"{name}.xlsx");

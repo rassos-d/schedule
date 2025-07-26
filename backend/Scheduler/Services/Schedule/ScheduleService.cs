@@ -73,9 +73,9 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
         return schedule.Pages.Select(p => p.DayOfWeek).ToList();
     }
 
-    public string ExportExcel(Guid scheduleId)
+    public string ExportExcel(Guid scheduleId, bool isAddColors)
     {
-        return export.Save(scheduleId);
+        return export.Save(scheduleId, isAddColors);
     }
 
     public void Update(ScheduleUpdateDto dto)
