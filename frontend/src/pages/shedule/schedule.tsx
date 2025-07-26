@@ -320,21 +320,27 @@ export default function ShedulePage() {
 
     const getThemesBySubject = () => {
         if (!subjects || !newLesson) return []
-        const resultThemes = subjects.filter((subject)=>subject.id === newLesson.subject?.id)[0].themes
+        const selectedSubject = subjects.find((subject)=>subject.id === newLesson.subject?.id)
+        if (!selectedSubject) return []
+        const resultThemes = selectedSubject.themes
         return resultThemes.map((el)=>({name: `Тема ${el.number}`, id: el.id}))
     }
     const getLessonsByTheme = () => {
         if (!subjects || !newLesson || !newLesson.subject) return [] as AddInputList[]
         const selectedSubject = subjects.filter((subject)=>subject.id === newLesson.subject?.id)
         if (!selectedSubject) return [] as AddInputList[]
-        const result = selectedSubject[0].themes.filter((theme)=>theme.id === newLesson.theme?.id)[0].lessons
-        return result.map((el)=>({name: `Занятие ${el.number}`, id: el.id}))
+        console.log(selectedSubject, newLesson)
+        const selectedTheme = selectedSubject[0].themes.filter((theme)=>theme.id === newLesson.theme?.id)
+        if (selectedTheme.length === 0) return []
+        console.log(selectedTheme)
+        return selectedTheme[0].lessons.map((el)=>({name: `Занятие ${el.number}`, id: el.id}))
     }
 
     const changeSquadNewLesson = (isNewLesson: boolean, newSquad: AddInputList) => {
         setNewLesson((prev)=>{
             if (!prev || !schedule || !allDirections) return undefined
-            const activeSquad = schedule.squads.filter((el)=>el.id === newSquad.id)[0]
+            const activeSquad = schedule.squads.find((el)=>el.id === newSquad.id)
+            if (!activeSquad) return
             const direction = allDirections.find((direction)=>activeSquad.direction?.id === direction.id)
             handleGetSubjects(direction ? direction.id : '')
             const result = cloneObject(prev)
@@ -352,13 +358,14 @@ export default function ShedulePage() {
     const onEditLesson = (lesson: SheduleLesson) => {
         if (!schedule || !allDirections) return undefined
         setSubjects(undefined)
-        const activeSquad = schedule.squads.filter((el)=>el.id === lesson.squad.id)[0]
+        const activeSquad = schedule.squads.find((el)=>el.id === lesson.squad.id)
+        if (!activeSquad) return
         const direction = allDirections.find((direction)=>activeSquad.direction?.id === direction.id)
         handleGetSubjects(direction ? direction.id : '')
         setNewLesson({...lesson, 
             isNewLesson: false, 
-            theme: {name: `Тема ${lesson.theme?.number}`, id: lesson.theme.id}, 
-            lesson: {name: `Занятие ${lesson.lesson.number}`, id: lesson.lesson.id}})
+            theme: lesson.theme ? {name: `Тема ${lesson.theme?.number}`, id: lesson.theme.id} : undefined, 
+            lesson: lesson.lesson ? {name: `Занятие ${lesson.lesson.number}`, id: lesson.lesson.id} : undefined})
     }
 
     const onDragging = (squadId: string) => {
