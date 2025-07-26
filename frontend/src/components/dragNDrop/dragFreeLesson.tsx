@@ -7,6 +7,7 @@ import { Icon } from '../icon'
 
 type LessonProps = {
   lesson: FreeLesson;
+  enableColor: boolean
   onMove: (target:DropResult, lesson: FreeLesson) => void;
   onDragging: (squardId: string) => void
   onStopDragging: () => void
@@ -20,7 +21,7 @@ type DropResult = {
   number: number;
 }
 
-function LessonComponent({ lesson, squardIndex, onMove, onDelete, onDragging, onStopDragging }: LessonProps) {
+function LessonComponent({ lesson, squardIndex, enableColor, onMove, onDelete, onDragging, onStopDragging }: LessonProps) {
 
   const ref = useRef<HTMLDivElement>(null)
 
@@ -65,7 +66,12 @@ function LessonComponent({ lesson, squardIndex, onMove, onDelete, onDragging, on
 
 
   return (
-    <div onMouseEnter={()=>{setIsHover(true)}} onMouseLeave={()=>setIsHover(false)}  ref={drag} className={styles.freeLesson} style={{ opacity: isDragging ? 0.5 : 1 }}>
+    <div 
+      onMouseEnter={()=>{setIsHover(true)}} 
+      onMouseLeave={()=>setIsHover(false)}  
+      ref={drag} 
+      className={styles.freeLesson} 
+      style={{ opacity: isDragging ? 0.5 : 1, backgroundColor: enableColor ? lesson.subject.color : '' } }>
         {lesson.lesson && lesson.lesson.lessonType === 5 ? LESSON_TYPE[lesson.lesson.lessonType].shortName : ''}
         <p>{lesson.subject.name}</p>
         <p>{`

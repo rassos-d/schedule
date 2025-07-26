@@ -141,6 +141,7 @@ export default function ShedulePage() {
 
         document.body.removeChild(link);
         window.URL.revokeObjectURL(downloadUrl);
+        setConfirmExport(false)
     }
 
     const handleGetSubjects = async (directionId: string) => {
@@ -272,14 +273,19 @@ export default function ShedulePage() {
             return newLessons
         })
     }
+    const checkOpenStash = (y: number) => {
+        if (!sidebarContentRef.current) return
+        if (sidebarContentRef.current.getBoundingClientRect().y <= (y + 150)) {
+            if (sidebarRefIcon.current && sidebarContentRef.current && containerRef.current && sidebarRefHasStash.current) {
+                sidebarContentRef.current.classList.remove(styles.sidebar__content_close)
+                sidebarRefIcon.current.classList.remove(styles.sidebar__icon_close)
+                containerRef.current.classList.add(styles.container_full)
+                sidebarRefHasStash.current.classList.add(styles.hasStash_hidden)
+            }
+        }
+    }
     const startDragging = (squardIndex: number) => {
         setActiveSquardIndex(squardIndex)
-        if (sidebarRefIcon.current && sidebarContentRef.current && containerRef.current && sidebarRefHasStash.current) {
-            sidebarContentRef.current.classList.remove(styles.sidebar__content_close)
-            sidebarRefIcon.current.classList.remove(styles.sidebar__icon_close)
-            containerRef.current.classList.add(styles.container_full)
-            sidebarRefHasStash.current.classList.add(styles.hasStash_hidden)
-        }
     }
     const changeOpenSidebar = () => {
         if (sidebarRefIcon.current && sidebarContentRef.current && containerRef.current && sidebarRefHasStash.current) {
@@ -455,6 +461,7 @@ export default function ShedulePage() {
                                                 <div key={lesson.number} className={`${styles.table__lesson} ${lesson.number === 3 && styles.table__time_row_grey}`}>
                                                     {"id" in lesson ?
                                                         <DragLesson
+                                                            checkOpenStash={checkOpenStash}
                                                             enableColor={enableColors}
                                                             onDragging={onDragging}
                                                             onStopDragging={onStopDragging}
@@ -510,6 +517,7 @@ export default function ShedulePage() {
                                 <div className={styles.sidebar__items}>
                                     {freeLessons.filter((lesson) => lesson.squardIndex === activeSquardIndex).map((lesson) => (
                                         <DragFreeLesson
+                                            enableColor={enableColors}
                                             onStopDragging={onStopDragging}
                                             onDragging={onDragging} 
                                             onDelete={()=>{setConfirmDeleteEventId(lesson.id)}} 
@@ -648,7 +656,7 @@ export default function ShedulePage() {
                 <PopupContainer displayClose onClose={()=>setConfirmExport(false)}>
                     <div className={styles.popup}>
                         <h2>Экспорт расписания</h2>
-                        <p>Эскпортировать расписание с цветами?</p>
+                        <p>Использовать цвета в экспорте?</p>
                         <div style={{columnGap: '10px'}} className={styles.popup__line}>
                             <Button onClick={()=>handleExportShedule(true)} size={'max'}>Да</Button>
                             <Button onClick={()=>handleExportShedule(false)} size={'max'}>Нет</Button>
