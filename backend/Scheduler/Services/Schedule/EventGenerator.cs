@@ -17,13 +17,15 @@ public class EventGenerator(SquadRepository squadRepo, PlanRepository planRepo)
                 continue;
             var lessons =
                 planRepo.FindLessonsForSemester(squad.DirectionId.Value, squad.StudyYear.Value, semester);
+            if (lessons.Count == 0)
+                continue;
             var groupedLessons = lessons
                 .GroupBy(x => x.SubjectId)
                 .Select(x => x.OrderBy(l => int.Parse($"{l.ThemeNumber}{l.Number.ToString()}")).ToList()
                 )
                 .OrderBy(x => x.Count)
                 .ToList();
-
+            
             var first = new Index(0, new Val(0));
             var second = new Index(1, new Val(0));
             foreach (var date in page.Dates)

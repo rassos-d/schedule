@@ -6,6 +6,36 @@ namespace Scheduler.DataAccess.Plan;
 
 public partial class PlanRepository
 {
+    public void UpdateSubjectColors()
+    {
+        static string GetRandomColor(List<string> colors)
+        {
+            var random = new Random();
+            if (colors.Count == 0)
+                colors = Colors.All().ToList();
+            var index = random.Next(colors.Count);
+            return Colors.All()[index];
+        }
+
+        foreach (var directionInfo in GetAllDirectionInfos())
+        {
+            var usageColors = Colors.All().ToList();
+            var direction = GetDirection(directionInfo.Id);
+            if (direction is null)
+                continue;
+            foreach (var subject in direction.Subjects)
+            {
+                if (subject.Color == null || !Colors.All().Contains(subject.Color))
+                {
+                    var color = GetRandomColor(usageColors);
+                    subject.Color = color;
+                    usageColors.Remove(color);
+                }
+            }
+            SaveChanges();
+        }
+    }
+    
     public void CreateSubject(Subject subject)
     {
         var direction = GetDirection(subject.DirectionId);

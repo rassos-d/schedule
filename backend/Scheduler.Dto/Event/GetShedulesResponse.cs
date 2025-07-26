@@ -1,4 +1,5 @@
 using Scheduler.Dto.General.Squad;
+using Scheduler.Dto.Plan.Subject;
 
 namespace Scheduler.Dto.Event;
 
@@ -16,4 +17,6 @@ public class GetEventsByScheduleResponse
     public List<EventsResponse> NoName { get; init; } = [];
 
     public CheckConflictResponse Conflicts { get; init; }
+
+    public List<SubjectColorDto> SubjectColors { get; set; }
 }
