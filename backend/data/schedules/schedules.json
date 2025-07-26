@@ -1,6 +1,12 @@
 [
   {
     "Id": "23b6fdf6-6f08-4692-bbd8-7851cd1c1ddf",
-    "Name": "\u0444\u044B\u0444\u0432\u0430\u043F\u0440\u043E"
+    "Name": "\u0444\u044B\u0444\u0432\u0430\u043F\u0440\u043E",
+    "Semester": 0
+  },
+  {
+    "Id": "2d815097-98ad-48f9-9bb4-3f5c37d08c24",
+    "Name": "xccv",
+    "Semester": 0
   }
 ]

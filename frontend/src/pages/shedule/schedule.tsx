@@ -64,6 +64,9 @@ export default function ShedulePage() {
     const [allTabs, setAllTabs] = useState<number[]>()
     const [activeTab, setActiveTab] = useState<number>()
 
+    const [enableColors, setEnableColors] = useState(false)
+    const [confirmExport, setConfirmExport] = useState(false)
+
     const sidebarRefIcon = useRef<HTMLDivElement>(null)
     const sidebarContentRef = useRef<HTMLDivElement>(null)
     const containerRef = useRef<HTMLDivElement>(null)
@@ -107,10 +110,13 @@ export default function ShedulePage() {
         setAllSquads(data)
     }
 
-    const handleExportShedule = async () => {
+    const handleExportShedule = async (withColors: boolean) => {
         if (!schedule) return
         const response = await axios.post<Blob>(PagesURl.SCHEDULE + `/${id}/excel`, {}, {
-            responseType: 'blob'
+            responseType: 'blob',
+            params: {
+                isAddColors: withColors
+            }
         })
         const contentDisposition = response.headers['content-disposition'];
         let fileName = `${schedule.name}.xlsx`;
@@ -407,7 +413,15 @@ export default function ShedulePage() {
                 </div>
                 <div className={styles.container__buttons}>
                     <Button onClick={()=>navigate('/')} className={styles.container__back}>На главную</Button>
-                    <Button onClick={handleExportShedule}>ЭКСПОРТ</Button>
+                    <div className={styles.container__buttons_right}>
+                        <div className={styles.container__tumblerContainer}>
+                            <div onClick={()=>setEnableColors(!enableColors)} className={`${styles.container__tumbler} ${enableColors ? styles.container__tumbler_enable : styles.container__tumbler_disable}`}>
+                                <div className={`${styles.container__tumblerPoint} ${enableColors ? styles.container__tumblerPoint_enable : styles.container__tumblerPoint_disable}`}></div>
+                            </div>
+                            <p>Отображать цвета предметов</p>
+                        </div>
+                        <Button onClick={()=>setConfirmExport(true)}>ЭКСПОРТ</Button>
+                    </div>
                 </div>
                 <h1 className={styles.container__title}>{`${schedule.name} ${WEEK_DAYS[activeTab]}`}</h1>
                 <DndProvider backend={HTML5Backend}>
@@ -441,6 +455,7 @@ export default function ShedulePage() {
                                                 <div key={lesson.number} className={`${styles.table__lesson} ${lesson.number === 3 && styles.table__time_row_grey}`}>
                                                     {"id" in lesson ?
                                                         <DragLesson
+                                                            enableColor={enableColors}
                                                             onDragging={onDragging}
                                                             onStopDragging={onStopDragging}
                                                             isNew={createdLessonId === lesson.id}
@@ -628,6 +643,18 @@ export default function ShedulePage() {
                     onCancel={()=>setConfirmDeleteEventId(undefined)}
                     onDelete={()=>handleDeleteLesson(confirmDeleteEventId)}
                 />
+            }
+            {confirmExport &&
+                <PopupContainer displayClose onClose={()=>setConfirmExport(false)}>
+                    <div className={styles.popup}>
+                        <h2>Экспорт расписания</h2>
+                        <p>Эскпортировать расписание с цветами?</p>
+                        <div style={{columnGap: '10px'}} className={styles.popup__line}>
+                            <Button onClick={()=>handleExportShedule(true)} size={'max'}>Да</Button>
+                            <Button onClick={()=>handleExportShedule(false)} size={'max'}>Нет</Button>
+                        </div>
+                    </div>
+                </PopupContainer>
             }
         </>
     )

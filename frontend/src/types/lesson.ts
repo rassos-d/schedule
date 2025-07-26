@@ -60,7 +60,7 @@ export type SheduleLesson = {
   lesson: {number: number, type: string, lessonType: number, id: string},
   squad: AddInputList,
   theme: {number: number, id: string},
-  subject: AddInputList,
+  subject: AddInputList & {color: string},
   number: number,
   date: string
   isUpdate: boolean

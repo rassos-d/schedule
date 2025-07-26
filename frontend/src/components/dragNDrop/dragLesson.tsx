@@ -15,6 +15,7 @@ type LessonProps = {
   onDelete: () => void
   onDragging: (squardId: string) => void
   onStopDragging: () => void
+  enableColor?: boolean
   date: string
   number: number
   squardIndex: number
@@ -27,7 +28,7 @@ type DropResult = {
   lesson?: SheduleLesson
 } | { activeSquardIndex: number }
 
-function LessonComponent({ lesson, date, number, squardIndex, isConflict, isNew, onMove, onStartDragging, onSelect, onDelete, onDragging, onStopDragging }: LessonProps) {
+function LessonComponent({ lesson, date, number, squardIndex, isConflict, isNew, enableColor, onMove, onStartDragging, onSelect, onDelete, onDragging, onStopDragging }: LessonProps) {
 
   const ref = useRef<HTMLDivElement>(null)
   
@@ -96,10 +97,11 @@ function LessonComponent({ lesson, date, number, squardIndex, isConflict, isNew,
   return (
     <div 
       ref={ref}
+      style={enableColor ? {backgroundColor: lesson.subject.color} : {} }
       onMouseEnter={()=>{setIsHover(true)}} 
       onMouseLeave={()=>setIsHover(false)} 
       onClick={()=>onSelect(lesson)} 
-      className={`${styles.dragLessonContainer} ${isConflict && styles.dragLessonContainer_error}`}
+      className={`${styles.dragLessonContainer} ${isConflict && styles.dragLessonContainer_error} `}
     >
       <div className={styles.dragLessonContainer__content} style={{ opacity: isDragging ? 0.5 : 1 }}>
         {lesson.lesson && lesson.lesson.lessonType === 5 ? LESSON_TYPE[lesson.lesson.lessonType].shortName : ''}

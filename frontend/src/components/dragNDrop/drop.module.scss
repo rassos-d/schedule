@@ -45,7 +45,7 @@
     }
   }
   &_error {
-    background-color: var(--dangerous-color);
+    background-color: var(--dangerous-color) !important;
   }
   &_new {
     transition: .4s;

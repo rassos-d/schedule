@@ -154,6 +154,46 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    &_right {
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
+    }
+  }
+  &__tumblerContainer {
+    display: flex;
+    column-gap: 5px;
+    align-items: center;
+  }
+  &__tumbler {
+    position: relative;
+    cursor: pointer;
+    border-radius: var(--extra-large-border-radius);
+    width: 60px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &_enable {
+      background-color: var(--main-color);
+    }
+    &_disable {
+      background-color: var(--light-grey-color);
+    }
+  }
+  &__tumblerPoint {
+    position: absolute;
+    background-color: #fff;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    transition: .4s;
+    &_enable {
+      right: 2px;
+    }
+    &_disable {
+      left: 2px;
+    }
   }
   &__sidebar {
     position: fixed;
