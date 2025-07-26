@@ -1,5 +1,6 @@
 using System.Drawing;
 using OfficeOpenXml;
+using OfficeOpenXml.Style;
 using Scheduler.Dto.Constants;
 using Scheduler.DataAccess;
 using Scheduler.DataAccess.General;
@@ -216,7 +217,14 @@ public class ExcelExportService
                 var themeText = $"т.{theme?.Number}/{lesson?.Number} {lesson?.Type.GetView()}";
 
                 if (isAddColors && subject is not null && subject.Color is not null)
-                    cells.Style.Fill.BackgroundColor.SetColor(ColorTranslator.FromHtml(subject.Color));
+                {
+                    var color = ColorTranslator.FromHtml(subject.Color);
+                    for (var i = 0; i < 4; i++)
+                    {
+                        var cell = cells.TakeSingleCell(heightOffset + eventLocalPos + i, eventCol);
+                        FillCellColor(cell, color);
+                    }
+                }
                 cells.SetCellValue(heightOffset + eventLocalPos, eventCol, subject?.Name);
                 cells.SetCellValue(heightOffset + eventLocalPos + 1, eventCol, themeText);
                 cells.SetCellValue(heightOffset + eventLocalPos + 2, eventCol, audience?.Name);
@@ -225,6 +233,11 @@ public class ExcelExportService
         }
     }
 
+    private static void FillCellColor(ExcelRangeBase cell, Color color)
+    {
+        cell.Style.Fill.PatternType = ExcelFillStyle.Solid;
+        cell.Style.Fill.BackgroundColor.SetColor(color);
+    }
     private static void FillDates(ExcelRange cells, List<DateOnly> dates, int heightOffset, Dictionary<DateOnly, int> colByDate)
     {
         for (var dateIndex = 0; dateIndex < dates.Count; dateIndex++)
