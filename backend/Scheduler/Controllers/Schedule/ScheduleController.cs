@@ -38,7 +38,7 @@ public class ScheduleController(ScheduleService service) : ControllerBase
     }
     
     [HttpPost("{scheduleId:guid}/excel")]
-    public IActionResult SaveExcel(Guid scheduleId, [FromQuery] bool isAddColors)
+    public IActionResult SaveExcel(Guid scheduleId, [FromQuery] bool isAddColors = false)
     {
         var name = service.GetName(scheduleId);
         var result = service.ExportExcel(scheduleId, isAddColors);
