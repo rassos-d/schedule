@@ -117,7 +117,7 @@ public class EventService(
                 .ToList(),
             NoName = schedulePage.Events
                 .Where(e => e.Date == null && e.Number == null)
-                .Select(e => ConvertToEvent(e, teacherNames, audienceNames, squads, lessons))
+                .Select(e => ConvertToEvent(e, teacherNames, audienceNames, squads))
                 .ToList(),
             Conflicts = CheckForConflict(schedulePage)
         };
@@ -251,7 +251,7 @@ public class EventService(
                 continue;
             }
 
-            var response = ConvertToEvent(e, teacherNames, audienceNames, squads, lessons);
+            var response = ConvertToEvent(e, teacherNames, audienceNames, squads);
 
             if (eventBySquad.ContainsKey(e.SquadId!.Value))
                 eventBySquad[e.SquadId!.Value].Add(response);
@@ -292,12 +292,11 @@ public class EventService(
     private EventsResponse ConvertToEvent(Event @event,
         Dictionary<Guid, string> teacherNames,
         Dictionary<Guid, string> audienceNames,
-        Dictionary<Guid, Squad> squads,
-        Dictionary<Guid, Lesson> lessons)
+        Dictionary<Guid, Squad> squads)
     {
-        var lesson = @event.LessonId.HasValue ? lessons.GetValueOrDefault(@event.LessonId.Value) : null;
-        var theme = lesson is not null ? planRepository.GetTheme(lesson.ThemeId) : null;
-        var subject = theme is not null ? planRepository.GetSubject(theme.SubjectId) : null;
+        var subject = @event.SubjectId.HasValue ? planRepository.GetSubject(@event.SubjectId.Value) : null;
+        var theme = subject?.Themes.FirstOrDefault(t => t.Id == @event.ThemeId);
+        var lesson = theme?.Lessons.FirstOrDefault(t => t.Id == @event.LessonId);
         return new EventsResponse
         {
             Id = @event.Id,
@@ -312,8 +311,8 @@ public class EventService(
             Squad = @event.SquadId.HasValue
                 ? ConvertToResponse(@event.SquadId.Value, squads.GetValueOrDefault(@event.SquadId.Value)?.Name)
                 : null,
-            Lesson = new LessonGetDto { Id = @event.LessonId, Number = lesson?.Number, LessonType = lesson?.Type, Type = lesson?.Type.GetView()},
-            Theme = new ThemeGetDto { Id = @event.ThemeId, Number = theme?.Number },
+            Lesson = lesson?.Id is not null ? new LessonGetDto { Id = lesson.Id, Number = lesson?.Number, LessonType = lesson?.Type, Type = lesson?.Type.GetView()} : null,
+            Theme = theme?.Id is not null ? new ThemeGetDto { Id = theme.Id, Number = theme?.Number } : null,
             Subject = ConvertToResponse(subject?.Id, subject?.Name, subject?.Color)
         };
     }

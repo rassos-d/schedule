@@ -1,0 +1,271 @@
+{
+  "Audiences": {
+    "24f12d29-2a2e-4f3d-a82f-ccfd59bca229": {
+      "Name": "\u0412\u041E-402",
+      "Id": "24f12d29-2a2e-4f3d-a82f-ccfd59bca229"
+    },
+    "ebf246ff-0203-4e2b-967c-1a9f308ef9fb": {
+      "Name": "\u0412\u041E-404",
+      "Id": "ebf246ff-0203-4e2b-967c-1a9f308ef9fb"
+    },
+    "783bafa4-f2bb-4a87-a81e-7217b966fc9d": {
+      "Name": "\u0412\u041E-321",
+      "Id": "783bafa4-f2bb-4a87-a81e-7217b966fc9d"
+    },
+    "5057c32e-a83d-45a7-b2ce-ed820ad84639": {
+      "Name": "\u0412\u041E-010",
+      "Id": "5057c32e-a83d-45a7-b2ce-ed820ad84639"
+    },
+    "450126f0-91a0-472e-9001-59e37e1b09b4": {
+      "Name": "\u0412\u041E-110",
+      "Id": "450126f0-91a0-472e-9001-59e37e1b09b4"
+    },
+    "ab44b222-1a2f-4aec-b836-f2d868aed3fd": {
+      "Name": "\u0412\u041E-301",
+      "Id": "ab44b222-1a2f-4aec-b836-f2d868aed3fd"
+    },
+    "90cb74cc-2267-48b9-8dd1-2dcd8bf221a9": {
+      "Name": "\u0412\u041E-304",
+      "Id": "90cb74cc-2267-48b9-8dd1-2dcd8bf221a9"
+    },
+    "19f615c9-e424-4bfa-8814-f521847ea4b8": {
+      "Name": "\u0412\u041E-305",
+      "Id": "19f615c9-e424-4bfa-8814-f521847ea4b8"
+    },
+    "143a9579-5978-4841-bb02-ec2cfcc6f553": {
+      "Name": "\u0412\u041E-316",
+      "Id": "143a9579-5978-4841-bb02-ec2cfcc6f553"
+    },
+    "4deb7e78-a753-4a5f-9c9c-beba2cf7d882": {
+      "Name": "\u0412\u041E-318",
+      "Id": "4deb7e78-a753-4a5f-9c9c-beba2cf7d882"
+    },
+    "fc7a4d8a-e6ec-434d-ab01-a44f03610088": {
+      "Name": "\u0412\u041E-408",
+      "Id": "fc7a4d8a-e6ec-434d-ab01-a44f03610088"
+    }
+  },
+  "Squads": {
+    "12cdee49-ec9d-465b-ab80-21a2e874c496": {
+      "StudyYear": 2,
+      "DaddyId": "fa5186f0-b807-47bc-95c4-856d01df73f0",
+      "FixedAudienceId": "24f12d29-2a2e-4f3d-a82f-ccfd59bca229",
+      "DirectionId": "9d5c98b6-c6be-47a3-b738-58b5b9cc9b75",
+      "Name": "\u0410-225",
+      "Id": "12cdee49-ec9d-465b-ab80-21a2e874c496"
+    },
+    "e74c7f45-a8b2-4ecb-a7d1-c11940c879ea": {
+      "StudyYear": 2,
+      "DaddyId": "35ac3693-627c-4186-989e-a6d2fb85997e",
+      "FixedAudienceId": "19f615c9-e424-4bfa-8814-f521847ea4b8",
+      "DirectionId": "a3df2652-c8f5-4a99-a036-4ef7da86c580",
+      "Name": "\u0420-2251",
+      "Id": "e74c7f45-a8b2-4ecb-a7d1-c11940c879ea"
+    },
+    "c4fa4245-45e5-4bc0-a8cb-8837c66bd529": {
+      "StudyYear": 2,
+      "DaddyId": "59b44e67-77b4-41fc-8855-68fa8c079ff7",
+      "FixedAudienceId": "90cb74cc-2267-48b9-8dd1-2dcd8bf221a9",
+      "DirectionId": "a3df2652-c8f5-4a99-a036-4ef7da86c580",
+      "Name": "\u0420-2252",
+      "Id": "c4fa4245-45e5-4bc0-a8cb-8837c66bd529"
+    },
+    "50199d1f-b8f3-4e1d-aadd-c98c4ed3c889": {
+      "StudyYear": 2,
+      "DaddyId": "df99ac1f-b2a5-4716-990b-28c1e3eaeddc",
+      "FixedAudienceId": "ebf246ff-0203-4e2b-967c-1a9f308ef9fb",
+      "DirectionId": "97d3077a-7436-4359-bf60-80495a9005ad",
+      "Name": "\u0414-225",
+      "Id": "50199d1f-b8f3-4e1d-aadd-c98c4ed3c889"
+    },
+    "8e856e49-01cf-4f5c-bda6-634907add33d": {
+      "StudyYear": 3,
+      "DaddyId": "fa5186f0-b807-47bc-95c4-856d01df73f0",
+      "FixedAudienceId": "24f12d29-2a2e-4f3d-a82f-ccfd59bca229",
+      "DirectionId": "9d5c98b6-c6be-47a3-b738-58b5b9cc9b75",
+      "Name": "\u0410-324",
+      "Id": "8e856e49-01cf-4f5c-bda6-634907add33d"
+    },
+    "6851db84-193d-46f4-b794-6c6d7d366c11": {
+      "StudyYear": 3,
+      "DaddyId": "35ac3693-627c-4186-989e-a6d2fb85997e",
+      "FixedAudienceId": "19f615c9-e424-4bfa-8814-f521847ea4b8",
+      "DirectionId": "a3df2652-c8f5-4a99-a036-4ef7da86c580",
+      "Name": "\u0420-3241",
+      "Id": "6851db84-193d-46f4-b794-6c6d7d366c11"
+    },
+    "717c3ad4-3f0c-41ae-92b7-31236c961014": {
+      "StudyYear": 3,
+      "DaddyId": "59b44e67-77b4-41fc-8855-68fa8c079ff7",
+      "FixedAudienceId": "90cb74cc-2267-48b9-8dd1-2dcd8bf221a9",
+      "DirectionId": "a3df2652-c8f5-4a99-a036-4ef7da86c580",
+      "Name": "\u0420-3242",
+      "Id": "717c3ad4-3f0c-41ae-92b7-31236c961014"
+    },
+    "5546fe80-55ea-42d7-9f4c-1a43a443d6eb": {
+      "StudyYear": 3,
+      "DaddyId": "df99ac1f-b2a5-4716-990b-28c1e3eaeddc",
+      "FixedAudienceId": "ebf246ff-0203-4e2b-967c-1a9f308ef9fb",
+      "DirectionId": "97d3077a-7436-4359-bf60-80495a9005ad",
+      "Name": "\u0414-324",
+      "Id": "5546fe80-55ea-42d7-9f4c-1a43a443d6eb"
+    },
+    "89c933ea-e3a0-41f8-a0e9-11de11eb4459": {
+      "StudyYear": 2,
+      "DaddyId": "0635c269-8b96-4246-9ddc-75ea52b7747a",
+      "FixedAudienceId": "fc7a4d8a-e6ec-434d-ab01-a44f03610088",
+      "DirectionId": "c834c292-725f-4690-84b8-793ce6db28c5",
+      "Name": "\u0423-225",
+      "Id": "89c933ea-e3a0-41f8-a0e9-11de11eb4459"
+    },
+    "b008a212-ee96-46c7-8957-d43d21c92bba": {
+      "StudyYear": 3,
+      "DaddyId": "0635c269-8b96-4246-9ddc-75ea52b7747a",
+      "FixedAudienceId": "fc7a4d8a-e6ec-434d-ab01-a44f03610088",
+      "DirectionId": "c834c292-725f-4690-84b8-793ce6db28c5",
+      "Name": "\u0423-324",
+      "Id": "b008a212-ee96-46c7-8957-d43d21c92bba"
+    },
+    "a89eb267-a5c4-41a8-b911-8bb50d7fd48a": {
+      "StudyYear": 1,
+      "DaddyId": "59b44e67-77b4-41fc-8855-68fa8c079ff7",
+      "FixedAudienceId": "143a9579-5978-4841-bb02-ec2cfcc6f553",
+      "DirectionId": "856bc9b6-4242-4be5-85da-0a2f0fc0adc1",
+      "Name": "\u0420\u0418-125",
+      "Id": "a89eb267-a5c4-41a8-b911-8bb50d7fd48a"
+    },
+    "7490d8dc-748c-4a19-a067-688a0721cad5": {
+      "StudyYear": 1,
+      "DaddyId": "0635c269-8b96-4246-9ddc-75ea52b7747a",
+      "FixedAudienceId": "fc7a4d8a-e6ec-434d-ab01-a44f03610088",
+      "DirectionId": "28f81f2a-b78e-4daf-a4b2-be35fc906a20",
+      "Name": "\u0423\u0413\u0418-125",
+      "Id": "7490d8dc-748c-4a19-a067-688a0721cad5"
+    }
+  },
+  "Teachers": {
+    "665d2bf4-cd33-4126-99dc-4e0ae8e1e97b": {
+      "Rank": "\u043F/\u043F-\u043A",
+      "Vacations": [],
+      "SubjectIds": [],
+      "Name": "\u0428\u0435\u0432\u0447\u0443\u043A \u0410.\u0412.",
+      "Id": "665d2bf4-cd33-4126-99dc-4e0ae8e1e97b"
+    },
+    "35ac3693-627c-4186-989e-a6d2fb85997e": {
+      "Rank": "\u043F/\u043F-\u043A",
+      "Vacations": [
+        {
+          "StartDate": "2025-11-05",
+          "EndDate": "2025-11-23"
+        }
+      ],
+      "SubjectIds": [],
+      "Name": "\u041F\u043E\u043F\u043E\u0432 \u0414.\u0410.",
+      "Id": "35ac3693-627c-4186-989e-a6d2fb85997e"
+    },
+    "0c3d1846-0275-4c92-a3aa-0a8c52f0e0bf": {
+      "Rank": "\u043F/\u043F-\u043A",
+      "Vacations": [
+        {
+          "StartDate": "2025-10-20",
+          "EndDate": "2025-11-14"
+        }
+      ],
+      "SubjectIds": [],
+      "Name": "\u0418\u0432\u0430\u043D\u043E\u0432 \u0410.\u0421.",
+      "Id": "0c3d1846-0275-4c92-a3aa-0a8c52f0e0bf"
+    },
+    "59b44e67-77b4-41fc-8855-68fa8c079ff7": {
+      "Rank": "\u043F/\u043F-\u043A",
+      "Vacations": [
+        {
+          "StartDate": "2025-09-15",
+          "EndDate": "2025-10-25"
+        }
+      ],
+      "SubjectIds": [],
+      "Name": "\u0418\u0432\u0430\u043D\u043E\u0432 \u0420.\u0410.",
+      "Id": "59b44e67-77b4-41fc-8855-68fa8c079ff7"
+    },
+    "fa5186f0-b807-47bc-95c4-856d01df73f0": {
+      "Rank": "\u043F/\u043F-\u043A",
+      "Vacations": [
+        {
+          "StartDate": "2025-10-06",
+          "EndDate": "2025-11-02"
+        }
+      ],
+      "SubjectIds": [],
+      "Name": "\u0424\u0440\u043E\u043B\u043E\u0432 \u0418.\u0412.",
+      "Id": "fa5186f0-b807-47bc-95c4-856d01df73f0"
+    },
+    "0635c269-8b96-4246-9ddc-75ea52b7747a": {
+      "Rank": "\u043F/\u043F-\u043A",
+      "Vacations": [
+        {
+          "StartDate": "2025-09-08",
+          "EndDate": "2025-10-03"
+        }
+      ],
+      "SubjectIds": [],
+      "Name": "\u0412\u0430\u0440\u043B\u0430\u043C\u043E\u0432 \u0412.\u0410.",
+      "Id": "0635c269-8b96-4246-9ddc-75ea52b7747a"
+    },
+    "b2d80f1a-ec2d-45e7-a3df-1e731661bce3": {
+      "Rank": "\u043F-\u043A",
+      "Vacations": [],
+      "SubjectIds": [],
+      "Name": "\u0413\u0430\u0448\u0435\u0432 \u0414.\u041D.",
+      "Id": "b2d80f1a-ec2d-45e7-a3df-1e731661bce3"
+    },
+    "0ce95bbe-89f4-4c2d-9462-983fb67cd837": {
+      "Rank": "\u043F-\u043A",
+      "Vacations": [
+        {
+          "StartDate": "2025-09-08",
+          "EndDate": "2025-10-01"
+        },
+        {
+          "StartDate": "2025-11-17",
+          "EndDate": "2025-12-01"
+        }
+      ],
+      "SubjectIds": [],
+      "Name": "\u041A\u0438\u0437\u044E\u043D \u041D.\u041D.",
+      "Id": "0ce95bbe-89f4-4c2d-9462-983fb67cd837"
+    },
+    "0c7b1c41-b722-4c29-828f-e5bed5c5ad7e": {
+      "Rank": "\u043F-\u043A",
+      "Vacations": [],
+      "SubjectIds": [],
+      "Name": "\u0414\u043E\u043D\u0447\u0435\u043D\u043A\u043E \u0418.\u0410.",
+      "Id": "0c7b1c41-b722-4c29-828f-e5bed5c5ad7e"
+    },
+    "df99ac1f-b2a5-4716-990b-28c1e3eaeddc": {
+      "Rank": "\u043C-\u0440",
+      "Vacations": [
+        {
+          "StartDate": "2025-09-08",
+          "EndDate": "2025-10-06"
+        }
+      ],
+      "SubjectIds": [],
+      "Name": "\u041B\u0443\u043D\u0451\u0432 \u0410.\u0414.",
+      "Id": "df99ac1f-b2a5-4716-990b-28c1e3eaeddc"
+    },
+    "7961cb7d-8f3e-4d6f-8b16-157df9aad45b": {
+      "Rank": "\u043C\u043F\u043E",
+      "Vacations": [],
+      "SubjectIds": [],
+      "Name": "\u0411\u043E\u0431\u0440\u043E\u0432 \u042E.\u0418.",
+      "Id": "7961cb7d-8f3e-4d6f-8b16-157df9aad45b"
+    },
+    "6be83e4e-d07d-46c3-905a-58f5ab688d4a": {
+      "Rank": "\u043A-\u043D",
+      "Vacations": [],
+      "SubjectIds": [],
+      "Name": "\u0411\u0430\u0441\u044B\u0440\u043E\u0432 \u0420.\u0410.",
+      "Id": "6be83e4e-d07d-46c3-905a-58f5ab688d4a"
+    }
+  }
+}
