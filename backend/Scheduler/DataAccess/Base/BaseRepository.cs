@@ -31,8 +31,17 @@ public abstract class BaseRepository
         {
             throw new FileNotFoundException($"Base = {BaseFolder}, FilePath={filePath}");
         }
-        
-        return File.ReadAllText(filePath);
+
+        try
+        {
+            return File.ReadAllText(filePath);
+
+        }
+        catch (Exception)
+        {
+            Task.Delay(100).GetAwaiter().GetResult();
+            return File.ReadAllText(filePath);
+        }
     }
 
     protected List<string> GetAllFiles(string path)
@@ -42,7 +51,16 @@ public abstract class BaseRepository
     }
     protected void WriteFile(string path, object text)
     {
+        
         var filePath = Path.Combine(DirectoryPath, path);
-        File.WriteAllText(filePath, JsonSerializer.Serialize(text, JsonOptions));
+        try
+        {
+            File.WriteAllText(filePath, JsonSerializer.Serialize(text, JsonOptions));
+        }
+        catch (Exception)
+        {
+            Task.Delay(100).GetAwaiter().GetResult();
+            File.WriteAllText(filePath, JsonSerializer.Serialize(text, JsonOptions));
+        }
     }
 }
