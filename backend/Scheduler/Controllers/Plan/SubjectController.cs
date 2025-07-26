@@ -54,7 +54,7 @@ public class SubjectController : ControllerBase
             return NotFound();
 
         subject.Name = updatedSubject.Name;
-        subject.Color = updatedSubject.Color;
+        subject.Color = updatedSubject.Color ?? subject.Color;
         _planRepository.UpdateSubject(subject);
         return Ok();
 
