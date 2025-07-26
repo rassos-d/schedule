@@ -11,6 +11,7 @@ type LessonProps = {
   isNew?: boolean
   onMove: (target: DropResult, date: string, number: number) => void;
   onStartDragging: (squardIndex:  number) => void
+  checkOpenStash: (y: number) => void
   onSelect: (lesson: SheduleLesson) => void
   onDelete: () => void
   onDragging: (squardId: string) => void
@@ -28,7 +29,7 @@ type DropResult = {
   lesson?: SheduleLesson
 } | { activeSquardIndex: number }
 
-function LessonComponent({ lesson, date, number, squardIndex, isConflict, isNew, enableColor, onMove, onStartDragging, onSelect, onDelete, onDragging, onStopDragging }: LessonProps) {
+function LessonComponent({ lesson, date, number, squardIndex, isConflict, isNew, enableColor, onMove, onStartDragging, onSelect, onDelete, onDragging, onStopDragging, checkOpenStash }: LessonProps) {
 
   const ref = useRef<HTMLDivElement>(null)
   
@@ -81,6 +82,12 @@ function LessonComponent({ lesson, date, number, squardIndex, isConflict, isNew,
 
   drag(drop(ref))
 
+  const checkDragging = (e: MouseEvent) => {
+    if (isDragging) {
+      checkOpenStash(e.clientY)
+    }
+  }
+
   useEffect(()=>{
     if (isDragging) {
       onStartDragging(squardIndex)
@@ -92,6 +99,10 @@ function LessonComponent({ lesson, date, number, squardIndex, isConflict, isNew,
       addClass()
     }
   },[])
+
+  useEffect(()=>{
+    document.addEventListener('drag', checkDragging)
+  },[isDragging])
 
 
   return (
