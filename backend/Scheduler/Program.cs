@@ -1,9 +1,9 @@
 using Scheduler.DataAccess;
 using Scheduler.DataAccess.General;
 using Scheduler.Export;
-using Scheduler.Middlewares;
 using Scheduler.Services.Events;
 using Scheduler.Services.General;
+using Scheduler.Services.Migration;
 using Scheduler.Services.Schedule;
 using PlanRepository = Scheduler.DataAccess.Plan.PlanRepository;
 
@@ -35,6 +35,7 @@ builder.Services.AddSingleton<ScheduleService>();
 builder.Services.AddSingleton<EventService>();
 builder.Services.AddSingleton<EventGenerator>();
 builder.Services.AddSingleton<ExcelExportService>();
+builder.Services.AddHostedService<StartupService>();
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();

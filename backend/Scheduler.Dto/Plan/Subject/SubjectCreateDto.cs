@@ -1,3 +1,3 @@
 namespace Scheduler.Dto.Plan.Subject;
 
-public record SubjectCreateDto(string Name, Guid DirectionId);
+public record SubjectCreateDto(string Name, string Color, Guid DirectionId);

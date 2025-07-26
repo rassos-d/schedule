@@ -6,6 +6,7 @@ using Scheduler.Dto.Constants;
 using Scheduler.Dto.Event;
 using Scheduler.Dto.General.Squad;
 using Scheduler.Dto.Plan.Lesson;
+using Scheduler.Dto.Plan.Subject;
 using Scheduler.Dto.Plan.Theme;
 using Scheduler.Entities;
 using Scheduler.Entities.General;
@@ -83,6 +84,12 @@ public class EventService(
         var teacherNames = teacherRepository.GetAll()
             .ToDictionary(k => k.Id, t => $"{t.Rank} {t.Name}");
 
+        var subjectColors = planRepository.FindSubjects().Select(s => new SubjectColorDto
+        {
+            SubjectId = s.Id,
+            Color = s.Color
+        })
+            .ToList();
         var audienceNames = audienceRepository
             .GetAll()
             .ToDictionary(k => k.Id, t => t.Name);
@@ -118,7 +125,8 @@ public class EventService(
                 .Where(e => e.Date == null && e.Number == null)
                 .Select(e => ConvertToEvent(e, teacherNames, audienceNames, squads, lessons))
                 .ToList(),
-            Conflicts = CheckForConflict(schedulePage)
+            Conflicts = CheckForConflict(schedulePage),
+            SubjectColors = subjectColors
         };
     }
 

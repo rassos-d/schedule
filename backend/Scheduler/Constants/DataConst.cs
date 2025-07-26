@@ -8,6 +8,7 @@ public static class DataConst
     {
         Id = Guid.Parse("4CDF1240-9276-4AC7-892C-4E4D9A3CF9DB"),
         Name = "Подведение итогов",
+        Color = Colors.All().First()
     };
     
     public static List<Subject> SummingUpList => [SummingUp];
