@@ -30,6 +30,7 @@ import { cloneObject } from '../../utils'
 import { AxiosResponse } from 'axios'
 import { DeletePopup } from '../../components/deletePopup/deletePopup'
 import { WEEK_DAYS } from '../../consts'
+import { Statistic } from '../../components/statistic/statistic'
 
 const TIMES = [
     {
@@ -92,6 +93,8 @@ export default function ShedulePage() {
     const [confirmDeleteEventId, setConfirmDeleteEventId] = useState<string>()
 
     const [newLesson, setNewLesson] = useState<NewLesson & {isNewLesson: boolean}>()
+
+    const [displayStatistic, setDisplayStatistic] = useState(false)
 
     const handleGetAllTeachers = async () => {
         const {data } = await axios.get<Teacher[]>(PagesURl.TEACHER)
@@ -421,11 +424,12 @@ export default function ShedulePage() {
                     <Button onClick={()=>navigate('/')} className={styles.container__back}>На главную</Button>
                     <div className={styles.container__buttons_right}>
                         <div className={styles.container__tumblerContainer}>
+                            <p>Подсветка</p>
                             <div onClick={()=>setEnableColors(!enableColors)} className={`${styles.container__tumbler} ${enableColors ? styles.container__tumbler_enable : styles.container__tumbler_disable}`}>
                                 <div className={`${styles.container__tumblerPoint} ${enableColors ? styles.container__tumblerPoint_enable : styles.container__tumblerPoint_disable}`}></div>
                             </div>
-                            <p>Отображать цвета предметов</p>
                         </div>
+                        <Button onClick={()=>setDisplayStatistic(true)}>Статистика</Button>
                         <Button onClick={()=>setConfirmExport(true)}>ЭКСПОРТ</Button>
                     </div>
                 </div>
@@ -663,6 +667,12 @@ export default function ShedulePage() {
                         </div>
                     </div>
                 </PopupContainer>
+            }
+            {displayStatistic && 
+                <Statistic 
+                    onClose={()=>setDisplayStatistic(false)}
+                    onCreateLesson={()=>{}}
+                />
             }
         </>
     )

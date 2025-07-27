@@ -1,0 +1,79 @@
+.container {
+  padding: 15px;
+  padding-top: 0;
+  min-width: 1000px;
+  &__tabs {
+    width: fit-content;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #000;
+    border-top: none;
+    background-color: #fff;
+    border-bottom-left-radius: var(--medium-border-radius);
+    border-bottom-right-radius: var(--medium-border-radius);
+    z-index: 2;
+    top: 0;
+    overflow: hidden;
+  }
+  &__tab {
+    cursor: pointer;
+    padding: 10px 25px;
+    &:hover {
+      background-color: var(--ultra-light-grey-color);
+    }
+    &_active {
+      background-color: var(--ultra-light-grey-color);
+    }
+  }
+}
+
+.table {
+  width: 100%;
+  border: 1px solid #000;
+  &__line {
+    display: grid;
+    &_teacher {
+      grid-template-columns: 40% 1fr 1fr;
+    }
+    &_squads {
+      grid-template-columns: 1fr 1fr 1fr 40%;
+    }
+    &:not(:last-child) {
+      border-bottom: 1px solid #000;
+    }
+  }
+  &__title {
+    text-align: center;
+    color: var(--black-color);
+    &:not(:last-child) {
+      border-right: 1px solid #000; 
+    }
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--black-color);
+    &:not(:last-child) {
+      border-right: 1px solid #000; 
+    }
+  }
+  &__subjects {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  &__subject {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    &:not(:last-child) {
+      border-bottom: 1px solid #000;
+    }
+  }
+}
