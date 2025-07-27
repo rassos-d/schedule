@@ -108,7 +108,7 @@ function LessonComponent({ lesson, date, number, squardIndex, isConflict, isNew,
   return (
     <div 
       ref={ref}
-      style={enableColor ? {backgroundColor: lesson.subject.color} : {} }
+      style={enableColor ? {backgroundColor: lesson.subject?.color} : {} }
       onMouseEnter={()=>{setIsHover(true)}} 
       onMouseLeave={()=>setIsHover(false)} 
       onClick={()=>onSelect(lesson)} 
@@ -116,7 +116,7 @@ function LessonComponent({ lesson, date, number, squardIndex, isConflict, isNew,
     >
       <div className={styles.dragLessonContainer__content} style={{ opacity: isDragging ? 0.5 : 1 }}>
         {lesson.lesson && lesson.lesson.lessonType === 5 ? LESSON_TYPE[lesson.lesson.lessonType].shortName : ''}
-        <p>{lesson.subject.name}</p>
+        <p>{lesson.subject?.name}</p>
         <p>{`
           ${lesson.theme ? 'т. ' + lesson.theme.number + '/' : ''}${lesson.lesson && lesson.lesson.number !== undefined ? lesson.lesson.number : ''}
           ${lesson.lesson && lesson.lesson.lessonType !== 5 ? LESSON_TYPE[lesson.lesson.lessonType].shortName : ''} `}</p>

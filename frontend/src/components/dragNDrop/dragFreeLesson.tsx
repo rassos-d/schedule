@@ -71,9 +71,9 @@ function LessonComponent({ lesson, squardIndex, enableColor, onMove, onDelete, o
       onMouseLeave={()=>setIsHover(false)}  
       ref={drag} 
       className={styles.freeLesson} 
-      style={{ opacity: isDragging ? 0.5 : 1, backgroundColor: enableColor ? lesson.subject.color : '' } }>
+      style={{ opacity: isDragging ? 0.5 : 1, backgroundColor: enableColor ? lesson.subject?.color : '' } }>
         {lesson.lesson && lesson.lesson.lessonType === 5 ? LESSON_TYPE[lesson.lesson.lessonType].shortName : ''}
-        <p>{lesson.subject.name}</p>
+        <p>{lesson.subject?.name}</p>
         <p>{`
           ${lesson.theme ? 'т. ' + lesson.theme.number + '/' : ''}${lesson.lesson && lesson.lesson.number !== undefined ? lesson.lesson.number : ''}
           ${lesson.lesson && lesson.lesson.lessonType !== 5 ? LESSON_TYPE[lesson.lesson.lessonType].shortName : ''} `}</p>
