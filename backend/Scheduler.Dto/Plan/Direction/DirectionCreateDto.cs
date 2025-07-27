@@ -1,3 +1,4 @@
+using Scheduler.Dto.Base;
 using Scheduler.Dto.Constants;
 
 namespace Scheduler.Dto.Plan.Direction;

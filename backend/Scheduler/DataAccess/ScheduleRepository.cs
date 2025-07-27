@@ -48,6 +48,7 @@ public class ScheduleRepository : BaseRepository
         {
             Id = scheduleId,
             Name = scheduleInfo?.Name ?? "unknown",
+            Semester = scheduleInfo?.Semester ?? 0
         };
 
         foreach (var dayOfWeeks in studyYears)

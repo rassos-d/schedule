@@ -1,4 +1,5 @@
 using Scheduler.Dto;
+using Scheduler.Dto.General.Teacher;
 using Scheduler.Entities.Base;
 
 namespace Scheduler.Entities.General;

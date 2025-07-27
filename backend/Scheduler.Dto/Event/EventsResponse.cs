@@ -1,4 +1,5 @@
 using Scheduler.Dto;
+using Scheduler.Dto.Base;
 using Scheduler.Dto.Plan.Lesson;
 using Scheduler.Dto.Plan.Subject;
 using Scheduler.Dto.Plan.Theme;

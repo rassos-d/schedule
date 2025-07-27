@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Scheduler.Dto;
+using Scheduler.Dto.Base;
 using Scheduler.Dto.Constants;
 using Scheduler.Dto.Schedule;
 using Scheduler.Services.Schedule;
