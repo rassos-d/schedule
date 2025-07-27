@@ -72,8 +72,22 @@
     align-items: center;
     justify-content: space-between;
     padding: 5px;
+    background-color: #ff07006e;
     &:not(:last-child) {
       border-bottom: 1px solid #000;
+    }
+    &_empty {
+      width: 100%;
+      height: 100%;
+      background-color: #00800073;
+    }
+  }
+  &__squad {
+    &:not(:first-child) {
+      border-top: 1px solid #000;
+    }
+    &_grey {
+      background-color: var(--ultra-light-grey-color);
     }
   }
 }

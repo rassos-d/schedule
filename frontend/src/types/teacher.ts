@@ -19,3 +19,11 @@ export type Vacation = {
   startDate: string
   endDate: string
 }
+
+export type StatisticTeacher = {
+  id: string,
+  name: string,
+  rank: string,
+  hoursCount: number,
+  subjectsCount: number
+}

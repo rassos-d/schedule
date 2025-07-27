@@ -20,14 +20,24 @@ export type EditSquad = {
 
 export type NewSquad = Omit<EditSquad, "id">
 
-/* export type Squad = {
-  name: string,
-  studyYear: number,
-  daddyId: string,
-  daddy: string
-  fixedAudienceId: string,
-  fixedAudience: string
-  directionId: string,
-  direction: string
+export type StatisticSquad = {
   id: string
-} */
+  name: string
+  teacherId: string
+  fixedAudienceId: string
+  subjects: {
+    id: string
+    name: string
+    plannedHours: number
+    completedHours: number
+    missingLessons: MissingLesson[]
+  }[]
+}
+
+export type MissingLesson = {
+  lessonId: string,
+  lessonNumber: number,
+  themeId: string,
+  themeNumber: number,
+  hoursCount: number
+}

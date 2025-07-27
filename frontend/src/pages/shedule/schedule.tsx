@@ -291,18 +291,22 @@ export default function ShedulePage() {
         setActiveSquardIndex(squardIndex)
     }
     const changeOpenSidebar = () => {
-        if (sidebarRefIcon.current && sidebarContentRef.current && containerRef.current && sidebarRefHasStash.current) {
+        if (sidebarRefIcon.current && sidebarContentRef.current && containerRef.current) {
             if (sidebarContentRef.current.classList.contains(styles.sidebar__content_close)) {
                 sidebarContentRef.current.classList.remove(styles.sidebar__content_close)
                 sidebarRefIcon.current.classList.remove(styles.sidebar__icon_close)
                 containerRef.current.classList.add(styles.container_full)
-                sidebarRefHasStash.current.classList.add(styles.hasStash_hidden)
+                if (sidebarRefHasStash.current) {
+                    sidebarRefHasStash.current.classList.add(styles.hasStash_hidden)
+                }
                 return
             }
             sidebarContentRef.current.classList.add(styles.sidebar__content_close)
             sidebarRefIcon.current.classList.add(styles.sidebar__icon_close)
             containerRef.current.classList.remove(styles.container_full)
-            sidebarRefHasStash.current.classList.remove(styles.hasStash_hidden)
+            if (sidebarRefHasStash.current) {
+                sidebarRefHasStash.current.classList.remove(styles.hasStash_hidden)
+            }
         } 
     }
 
@@ -669,9 +673,11 @@ export default function ShedulePage() {
                 </PopupContainer>
             }
             {displayStatistic && 
-                <Statistic 
+                <Statistic
+                    updateStash={()=>handleGetSchedule(activeTab)}
+                    scheduleId={id ? id : ''}
+                    dayOfWeek={activeTab}
                     onClose={()=>setDisplayStatistic(false)}
-                    onCreateLesson={()=>{}}
                 />
             }
         </>
