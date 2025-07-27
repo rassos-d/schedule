@@ -87,9 +87,9 @@ export function Statistic ({scheduleId, dayOfWeek, onClose, updateStash}:Statist
                 </div>
                 {squad.subjects.map((subject) => (
                   <div key={subject.id} className={`${styles.table__line}  ${styles.table__line_squads}`}>
-                    <p className={styles.table__item}>{subject.name}</p>
-                    <p className={styles.table__item}>{subject.plannedHours}</p>
-                    <p className={styles.table__item}>{subject.completedHours}</p>
+                    <p className={`${styles.table__item} ${subject.plannedHours !==subject.completedHours && styles.table__error}`}>{subject.name}</p>
+                    <p className={`${styles.table__item} ${subject.plannedHours !==subject.completedHours && styles.table__error}`}>{subject.plannedHours}</p>
+                    <p className={`${styles.table__item} ${subject.plannedHours !==subject.completedHours && styles.table__error}`}>{subject.completedHours}</p>
                     <div className={`${styles.table__item} ${styles.table__subjects}`}>
                       {subject.missingLessons.map((lesson) => (
                         <div key={lesson.lessonId} className={styles.table__subject}>

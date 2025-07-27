@@ -7,7 +7,7 @@
     "frontendDist": "../frontend/dist",
     "devUrl": "http://localhost:8000",
     "beforeDevCommand": "cd frontend && concurrently \"npm run dev\" \"cd ../backend/Scheduler && dotnet run\"",
-    "beforeBuildCommand": "cd frontend && npm run build && cd ../backend/Scheduler && dotnet publish -c Release -o ../../src-tauri/bin/backend"
+    "beforeBuildCommand": "cd frontend && npm run build"
   },
   "app": {
     "windows": [
