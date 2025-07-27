@@ -1,6 +1,9 @@
+using System.Diagnostics;
+using System.Text.Json;
+using Scheduler.Constants;
 using Scheduler.DataAccess;
-using Scheduler.Dto;
-using Scheduler.Dto.Constants;
+using Scheduler.DataAccess.General;
+using Scheduler.DataAccess.Plan;
 using Scheduler.Dto.Schedule;
 using Scheduler.Entities.Schedule;
 using Scheduler.Export;
@@ -8,7 +11,7 @@ using Scheduler.Models;
 
 namespace Scheduler.Services.Schedule;
 
-public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenerator, ExcelExportService export)
+public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenerator, ExcelExportService export, TeacherRepository teacherRepository, SquadRepository squadRepository, PlanRepository planRepository)
 {
     public List<ScheduleInfo> Find()
     {
@@ -108,6 +111,39 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
         return repo.GetSchedule(id).Name;
     }
 
+    public void Generate(Guid scheduleId, DayOfWeek dayOfWeek, List<Guid> teacherIds)
+    {       
+        var schedule = repo.GetSchedule(scheduleId);
+        var schedulePage = schedule.Pages.First(p => p.DayOfWeek == dayOfWeek);
+        var teachers = teacherRepository.GetAll().Where(t => teacherIds.Contains(t.Id)).ToList();
+        var squads = squadRepository.GetAll().Where(t => schedulePage.Squads.Contains(t.Id)).ToList();
+        var directions = planRepository
+            .GetAllDirectionInfos()
+            .Where(d => squads.Select(s => s.DirectionId)
+                .Contains(d.Id))
+            .ToList();
+
+        var request = new GenerationSchedule
+        {
+            Dates = schedulePage.Dates.OrderBy(d => d).ToList(),
+            Directions = directions,
+            Squads = squads,
+            Teachers = teachers
+        };
+        var fileName = $"{scheduleId}_{dayOfWeek}.json";
+        var filePath = Path.Combine(FilePaths.BaseFolder, "generate", fileName);
+        var directionDirectoryPath = Path.Combine(FilePaths.BaseFolder, "plan");
+        var outputDirectionPath = Path.Combine(FilePaths.BaseFolder, "generate", "output");
+        var jsonOptions = new JsonSerializerOptions
+        {
+            WriteIndented = true,
+            PropertyNameCaseInsensitive = true
+        };
+        File.WriteAllText(filePath, JsonSerializer.Serialize(request, jsonOptions));
+
+        GenerateByPython(filePath, "", directionDirectoryPath, "");
+    }
+
     public ScheduleCreateDto GetUpdateInfo(Guid scheduleId)
     {
         var schedule = repo.GetSchedule(scheduleId);
@@ -135,5 +171,27 @@ public class ScheduleService(ScheduleRepository repo, EventGenerator eventGenera
         }
 
         return result;
+    }
+
+    private static void GenerateByPython(string filePath, string pythonPath, string dataPath, string outputPath)
+    { 
+        var arguments = $"\"{filePath}\" \"{dataPath}\" \"{outputPath}\"";
+
+        var startInfo = new ProcessStartInfo
+        {
+            FileName = pythonPath,
+            Arguments = arguments,
+            UseShellExecute = false,
+            RedirectStandardOutput = true,
+            CreateNoWindow = false
+        };
+
+        using (Process process = Process.Start(startInfo))
+        {
+            var output = process.StandardOutput.ReadToEnd();
+            Console.WriteLine(output);
+
+            process.WaitForExit();
+        }
     }
 }

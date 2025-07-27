@@ -47,6 +47,13 @@ public class ScheduleController(ScheduleService service) : ControllerBase
         return File(file, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", $"{name}.xlsx");
     }
 
+    [HttpPost("{scheduleId:guid}/generation")]
+    public IActionResult Generate(Guid scheduleId, [FromBody] ScheduleGenerationDto dto)
+    {
+        service.Generate(scheduleId, dto.DayOfWeek, dto.TeacherIds);
+        return Ok();
+    }
+    
     [HttpPut]
     public IActionResult Update([FromBody] ScheduleUpdateDto dto)
     {
