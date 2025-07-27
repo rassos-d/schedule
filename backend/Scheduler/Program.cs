@@ -6,10 +6,13 @@ using Scheduler.Services.Events;
 using Scheduler.Services.General;
 using Scheduler.Services.Migration;
 using Scheduler.Services.Schedule;
+using Scheduler.Services.Statistic;
 using PlanRepository = Scheduler.DataAccess.Plan.PlanRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
@@ -36,14 +39,12 @@ builder.Services.AddSingleton<ScheduleService>();
 builder.Services.AddSingleton<EventService>();
 builder.Services.AddSingleton<EventGenerator>();
 builder.Services.AddSingleton<ExcelExportService>();
+builder.Services.AddSingleton<StatisticService>();
 builder.Services.AddHostedService<StartupService>();
 builder.Services.AddControllers();
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
 var baseFolder = Directory.GetCurrentDirectory();
-FilePaths.BaseFolder = Path.Combine(baseFolder, "data");
+FilePaths.BaseFolder = Path.Combine(baseFolder, "../data");
 
 Console.WriteLine(baseFolder);
 

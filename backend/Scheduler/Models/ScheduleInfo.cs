@@ -11,5 +11,6 @@ public class ScheduleInfo
     {
         Id = id;
         Name = name;
+        Semester = semester;
     }
 }

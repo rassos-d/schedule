@@ -7,7 +7,7 @@ namespace Scheduler.DataAccess.General;
 
 public abstract class GeneralRepository<T> : BaseRepository where T : EntityWithName
 {
-    private readonly GeneralData Data;
+    protected readonly GeneralData Data;
     protected abstract Func<GeneralData, Dictionary<Guid, T>> GetData { get; }
     
     private readonly string _filePath;

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Scheduler.DataAccess.General;
 using Scheduler.Dto;
+using Scheduler.Dto.Base;
 using Scheduler.Entities.General;
 
 namespace Scheduler.Controllers.General;

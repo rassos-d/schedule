@@ -1,4 +1,4 @@
-namespace Scheduler.Dto;
+namespace Scheduler.Dto.Base;
 
 public record EntityWithNameCreateDto
 {

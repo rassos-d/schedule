@@ -1,3 +1,5 @@
+using Scheduler.Dto.Base;
+
 namespace Scheduler.Dto.General.Squad;
 
 public class GetSquadResponse

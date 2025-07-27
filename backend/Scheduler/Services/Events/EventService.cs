@@ -2,6 +2,7 @@ using Scheduler.DataAccess;
 using Scheduler.DataAccess.General;
 using Scheduler.DataAccess.Plan;
 using Scheduler.Dto;
+using Scheduler.Dto.Base;
 using Scheduler.Dto.Constants;
 using Scheduler.Dto.Event;
 using Scheduler.Dto.General.Squad;

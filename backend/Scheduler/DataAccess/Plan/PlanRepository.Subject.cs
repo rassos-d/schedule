@@ -57,6 +57,11 @@ public partial class PlanRepository
                ?? FindSubjects().FirstOrDefault(s => s.Id == id);
     }
 
+    public List<Subject> GetSubjects(IEnumerable<Guid> subjectIds)
+    {
+        return Subjects.Where(x => subjectIds.Contains(x.Id)).ToList();
+    }
+
     public List<Subject> FindSubjects(Guid? directionId = null)
     {
         if (directionId.HasValue)
