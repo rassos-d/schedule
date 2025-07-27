@@ -135,7 +135,8 @@ public class ExcelExportService
         var yearsText = $"{startYear}-{endYear}";
         var vucsText = string.Join(", ", squads
             .Select(x => x.DirectionName.Split('-').Last())
-            .Where(x => !string.IsNullOrWhiteSpace(x)));
+            .Where(x => !string.IsNullOrWhiteSpace(x))
+            .Distinct());
         var dayText = dates.First().DayOfWeek.ToRussian();
 
         header.SetCellValue(0, 0, header.Text
