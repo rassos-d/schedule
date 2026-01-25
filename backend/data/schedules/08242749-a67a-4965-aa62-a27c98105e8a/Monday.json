@@ -100,7 +100,7 @@
       "TeacherId": "0635c269-8b96-4246-9ddc-75ea52b7747a",
       "AudienceId": "24f12d29-2a2e-4f3d-a82f-ccfd59bca229",
       "Number": 4,
-      "Date": "2025-12-01",
+      "Date": "2025-11-24",
       "Id": "bd940782-1e9d-42b5-b9f3-614f17dcf8fa"
     },
     {
@@ -126,7 +126,7 @@
       "TeacherId": "0635c269-8b96-4246-9ddc-75ea52b7747a",
       "AudienceId": "24f12d29-2a2e-4f3d-a82f-ccfd59bca229",
       "Number": 4,
-      "Date": "2025-12-08",
+      "Date": "2025-12-01",
       "Id": "710a1185-b76f-42c9-85da-5cf1bce6c4dd"
     },
     {
@@ -138,8 +138,8 @@
       "SquadId": "7490d8dc-748c-4a19-a067-688a0721cad5",
       "TeacherId": "0635c269-8b96-4246-9ddc-75ea52b7747a",
       "AudienceId": "24f12d29-2a2e-4f3d-a82f-ccfd59bca229",
-      "Number": 2,
-      "Date": "2025-12-15",
+      "Number": 4,
+      "Date": "2025-12-08",
       "Id": "313d03d7-1320-4111-b652-2bc4bfae0b00"
     },
     {
@@ -308,7 +308,7 @@
       "TeacherId": "0c3d1846-0275-4c92-a3aa-0a8c52f0e0bf",
       "AudienceId": "24f12d29-2a2e-4f3d-a82f-ccfd59bca229",
       "Number": 1,
-      "Date": "2025-12-08",
+      "Date": "2025-12-15",
       "Id": "dad562a6-792f-4d26-9c83-fafb236d88d7"
     },
     {
@@ -346,7 +346,7 @@
       "SquadId": "7490d8dc-748c-4a19-a067-688a0721cad5",
       "TeacherId": "0c3d1846-0275-4c92-a3aa-0a8c52f0e0bf",
       "AudienceId": "24f12d29-2a2e-4f3d-a82f-ccfd59bca229",
-      "Number": 1,
+      "Number": 2,
       "Date": "2025-12-15",
       "Id": "807e03ba-3192-4e7b-86c5-101f228c829e"
     },
@@ -593,8 +593,8 @@
       "SquadId": "7490d8dc-748c-4a19-a067-688a0721cad5",
       "TeacherId": "fa5186f0-b807-47bc-95c4-856d01df73f0",
       "AudienceId": "24f12d29-2a2e-4f3d-a82f-ccfd59bca229",
-      "Number": 5,
-      "Date": "2025-11-24",
+      "Number": 4,
+      "Date": "2025-11-17",
       "Id": "da495df4-d02b-4573-a135-f940b68bdf0f"
     },
     {
@@ -606,7 +606,7 @@
       "SquadId": "7490d8dc-748c-4a19-a067-688a0721cad5",
       "TeacherId": "fa5186f0-b807-47bc-95c4-856d01df73f0",
       "AudienceId": "24f12d29-2a2e-4f3d-a82f-ccfd59bca229",
-      "Number": 4,
+      "Number": 2,
       "Date": "2025-11-24",
       "Id": "8ea26bce-519f-4941-b271-aa8e8d40fbab"
     },
@@ -632,9 +632,22 @@
       "SquadId": "7490d8dc-748c-4a19-a067-688a0721cad5",
       "TeacherId": "fa5186f0-b807-47bc-95c4-856d01df73f0",
       "AudienceId": "24f12d29-2a2e-4f3d-a82f-ccfd59bca229",
-      "Number": 2,
-      "Date": "2025-12-08",
+      "Number": 4,
+      "Date": "2025-12-15",
       "Id": "a73d2d41-493c-44ab-a9bb-6582f61d7d04"
+    },
+    {
+      "ScheduleId": "08242749-a67a-4965-aa62-a27c98105e8a",
+      "SubjectId": "cf887c19-1ff1-42b9-b268-b3db7e4140f9",
+      "ThemeId": "16730583-3ed4-44db-a414-37130645b18f",
+      "LessonType": null,
+      "LessonId": "bbe7fbf4-21a3-4c25-8bba-a3dfbc8405f6",
+      "SquadId": "7490d8dc-748c-4a19-a067-688a0721cad5",
+      "TeacherId": "fa5186f0-b807-47bc-95c4-856d01df73f0",
+      "AudienceId": "24f12d29-2a2e-4f3d-a82f-ccfd59bca229",
+      "Number": 5,
+      "Date": "2025-11-17",
+      "Id": "1fd0d7c7-c32e-4fad-84d6-59393dc944de"
     }
   ]
 }

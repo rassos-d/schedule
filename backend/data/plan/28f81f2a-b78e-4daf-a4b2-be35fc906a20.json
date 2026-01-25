@@ -335,9 +335,34 @@
               "ThemeId": "77fafed4-d8b1-4d3e-8ac7-742d2c02da74",
               "Semester": 2,
               "Id": "5a6db75e-bae9-4139-a813-7a25597d77af"
+            },
+            {
+              "Number": 4,
+              "HoursCount": 2,
+              "Type": 3,
+              "SubjectId": "da75efdd-1507-4639-ba3d-2e2006eaca45",
+              "ThemeId": "77fafed4-d8b1-4d3e-8ac7-742d2c02da74",
+              "Semester": 2,
+              "Id": "2b4805c1-ab7e-4147-93f8-41e7821f9a72"
             }
           ],
           "Id": "77fafed4-d8b1-4d3e-8ac7-742d2c02da74"
+        },
+        {
+          "Number": 88888,
+          "SubjectId": "da75efdd-1507-4639-ba3d-2e2006eaca45",
+          "Lessons": [
+            {
+              "Number": 88888,
+              "HoursCount": 8,
+              "Type": 5,
+              "SubjectId": "da75efdd-1507-4639-ba3d-2e2006eaca45",
+              "ThemeId": "0afc3a63-211a-4486-b132-f7d52e351709",
+              "Semester": 2,
+              "Id": "459d6af2-2d6e-4506-a90e-20d3882d3ee3"
+            }
+          ],
+          "Id": "0afc3a63-211a-4486-b132-f7d52e351709"
         }
       ],
       "Color": "#B0E0E6",
@@ -475,6 +500,15 @@
               "ThemeId": "ef394132-f84a-49f2-bd12-3d8d6f0de426",
               "Semester": 2,
               "Id": "2b513910-0270-4dfb-bf33-2e36aa4f5fdc"
+            },
+            {
+              "Number": 3,
+              "HoursCount": 2,
+              "Type": 3,
+              "SubjectId": "d0a22876-ac5c-4474-ba21-448be42ebd87",
+              "ThemeId": "ef394132-f84a-49f2-bd12-3d8d6f0de426",
+              "Semester": 2,
+              "Id": "22b33382-5243-4510-8a4b-67fbd95deeb3"
             }
           ],
           "Id": "ef394132-f84a-49f2-bd12-3d8d6f0de426"
@@ -631,6 +665,40 @@
             }
           ],
           "Id": "bc6bb6b0-9177-45d0-bd17-74c717926c80"
+        },
+        {
+          "Number": 5,
+          "SubjectId": "cf887c19-1ff1-42b9-b268-b3db7e4140f9",
+          "Lessons": [
+            {
+              "Number": 1,
+              "HoursCount": 2,
+              "Type": 0,
+              "SubjectId": "cf887c19-1ff1-42b9-b268-b3db7e4140f9",
+              "ThemeId": "ab056231-4a8e-4252-9207-6d45d0016cdb",
+              "Semester": 2,
+              "Id": "847994d4-3f9d-40ba-be5b-f5d91daad1b9"
+            },
+            {
+              "Number": 2,
+              "HoursCount": 2,
+              "Type": 2,
+              "SubjectId": "cf887c19-1ff1-42b9-b268-b3db7e4140f9",
+              "ThemeId": "ab056231-4a8e-4252-9207-6d45d0016cdb",
+              "Semester": 2,
+              "Id": "e50b2728-de7e-43d4-ba5f-5b05c52f238e"
+            },
+            {
+              "Number": 3,
+              "HoursCount": 2,
+              "Type": 3,
+              "SubjectId": "cf887c19-1ff1-42b9-b268-b3db7e4140f9",
+              "ThemeId": "ab056231-4a8e-4252-9207-6d45d0016cdb",
+              "Semester": 2,
+              "Id": "38e2b908-95c6-4982-ac9a-4f41d3efb898"
+            }
+          ],
+          "Id": "ab056231-4a8e-4252-9207-6d45d0016cdb"
         }
       ],
       "Color": "#AFEEEE",
@@ -845,6 +913,15 @@
               "ThemeId": "f7ec3368-0ea2-4d01-af8a-d52ff40952ee",
               "Semester": 2,
               "Id": "133ba24c-48ad-45cd-affb-e92982f48a66"
+            },
+            {
+              "Number": 3,
+              "HoursCount": 2,
+              "Type": 3,
+              "SubjectId": "2c5416e7-d5f7-4fbc-b58c-f1918989a7eb",
+              "ThemeId": "f7ec3368-0ea2-4d01-af8a-d52ff40952ee",
+              "Semester": 2,
+              "Id": "2700b9ae-46ed-489c-8f01-b4fd277d3054"
             }
           ],
           "Id": "f7ec3368-0ea2-4d01-af8a-d52ff40952ee"
@@ -895,7 +972,7 @@
           "Lessons": [
             {
               "Number": 1,
-              "HoursCount": 2,
+              "HoursCount": 4,
               "Type": 2,
               "SubjectId": "64b60ea5-2fdf-4929-bc55-ffe50f5df60e",
               "ThemeId": "910a7d37-bb5d-4a98-9d6b-4e19fae7456f",
@@ -950,6 +1027,15 @@
               "ThemeId": "f3a3cdeb-be24-41c7-94c3-d2de12795e6c",
               "Semester": 2,
               "Id": "aab4bb7e-7a88-489c-9dcc-129a1c07c6c4"
+            },
+            {
+              "Number": 2,
+              "HoursCount": 2,
+              "Type": 1,
+              "SubjectId": "e4b88c14-8ae1-4ae3-a7e9-6a5406ff7dfb",
+              "ThemeId": "f3a3cdeb-be24-41c7-94c3-d2de12795e6c",
+              "Semester": 2,
+              "Id": "9e547d1f-9d19-4055-b4fd-400fde703c48"
             }
           ],
           "Id": "f3a3cdeb-be24-41c7-94c3-d2de12795e6c"

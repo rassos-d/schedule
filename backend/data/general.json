@@ -43,6 +43,18 @@
     "fc7a4d8a-e6ec-434d-ab01-a44f03610088": {
       "Name": "\u0412\u041E-408",
       "Id": "fc7a4d8a-e6ec-434d-ab01-a44f03610088"
+    },
+    "20fbb950-79b5-4e63-ae65-d642ee827adc": {
+      "Name": "\u0430\u043D\u0433\u0430\u0440 \u2116 702",
+      "Id": "20fbb950-79b5-4e63-ae65-d642ee827adc"
+    },
+    "14f24725-d6a0-4750-9186-507a8c90ebeb": {
+      "Name": "\u0441\u0442\u0440. \u043F\u043B\u0430\u0446",
+      "Id": "14f24725-d6a0-4750-9186-507a8c90ebeb"
+    },
+    "9f111c5e-d3a3-4d1c-9ef5-158915c6685e": {
+      "Name": "\u0432\u043E\u0439\u0441\u043A\u043E\u0432\u043E\u0435 \u0441\u0442\u0440\u0435\u043B\u044C\u0431\u0438\u0449\u0435",
+      "Id": "9f111c5e-d3a3-4d1c-9ef5-158915c6685e"
     }
   },
   "Squads": {
@@ -136,10 +148,10 @@
     },
     "7490d8dc-748c-4a19-a067-688a0721cad5": {
       "StudyYear": 1,
-      "DaddyId": "0635c269-8b96-4246-9ddc-75ea52b7747a",
-      "FixedAudienceId": "fc7a4d8a-e6ec-434d-ab01-a44f03610088",
+      "DaddyId": "0c3d1846-0275-4c92-a3aa-0a8c52f0e0bf",
+      "FixedAudienceId": "24f12d29-2a2e-4f3d-a82f-ccfd59bca229",
       "DirectionId": "28f81f2a-b78e-4daf-a4b2-be35fc906a20",
-      "Name": "\u0423\u0413\u0418-125",
+      "Name": "\u0423\u0413\u0418-154054-707",
       "Id": "7490d8dc-748c-4a19-a067-688a0721cad5"
     }
   },
@@ -147,7 +159,11 @@
     "665d2bf4-cd33-4126-99dc-4e0ae8e1e97b": {
       "Rank": "\u043F/\u043F-\u043A",
       "Vacations": [],
-      "SubjectIds": [],
+      "SubjectIds": [
+        "ce9d47c8-e037-4892-9216-86f468ac11e2",
+        "bbc004dd-153a-4a64-9da6-d38fe9fd962a",
+        "5daabaee-619d-4a30-b8c6-f0a9d1ca6274"
+      ],
       "Name": "\u0428\u0435\u0432\u0447\u0443\u043A \u0410.\u0412.",
       "Id": "665d2bf4-cd33-4126-99dc-4e0ae8e1e97b"
     },
@@ -155,8 +171,8 @@
       "Rank": "\u043F/\u043F-\u043A",
       "Vacations": [
         {
-          "StartDate": "2025-11-05",
-          "EndDate": "2025-11-23"
+          "StartDate": "2026-05-11",
+          "EndDate": "2026-06-03"
         }
       ],
       "SubjectIds": [],
@@ -171,7 +187,9 @@
           "EndDate": "2025-11-14"
         }
       ],
-      "SubjectIds": [],
+      "SubjectIds": [
+        "d5943448-554c-4586-a319-1ca4247a3479"
+      ],
       "Name": "\u0418\u0432\u0430\u043D\u043E\u0432 \u0410.\u0421.",
       "Id": "0c3d1846-0275-4c92-a3aa-0a8c52f0e0bf"
     },
@@ -179,11 +197,28 @@
       "Rank": "\u043F/\u043F-\u043A",
       "Vacations": [
         {
-          "StartDate": "2025-09-15",
-          "EndDate": "2025-10-25"
+          "StartDate": "2026-04-06",
+          "EndDate": "2026-04-20"
         }
       ],
-      "SubjectIds": [],
+      "SubjectIds": [
+        "18135c03-820b-40b4-a972-b47951d72c37",
+        "7f13d10c-a405-4f12-8cca-9b35f7d8e59d",
+        "d5943448-554c-4586-a319-1ca4247a3479",
+        "00b9fecd-8cbb-4308-8954-daa3c4940d9a",
+        "da75efdd-1507-4639-ba3d-2e2006eaca45",
+        "fb6350ba-3653-483f-aa96-d855345bc6d9",
+        "e7605523-9bb4-4efb-b9ce-e6853b032c36",
+        "e8105768-25f2-45d5-bcd4-8940518d1a45",
+        "f944b6a2-5dc4-402e-9906-b4ae50471c36",
+        "f1f44145-bac0-4be6-8f22-9d4ca75a2b48",
+        "fb239656-87c2-4cc4-b847-288a2704d915",
+        "aa2a2c1d-b731-49e2-aed2-aed76b4f40d1",
+        "cf887c19-1ff1-42b9-b268-b3db7e4140f9",
+        "4cdf1240-9276-4ac7-892c-4e4d9a3cf9db",
+        "5daabaee-619d-4a30-b8c6-f0a9d1ca6274",
+        "ce9d47c8-e037-4892-9216-86f468ac11e2"
+      ],
       "Name": "\u0418\u0432\u0430\u043D\u043E\u0432 \u0420.\u0410.",
       "Id": "59b44e67-77b4-41fc-8855-68fa8c079ff7"
     },
@@ -191,8 +226,8 @@
       "Rank": "\u043F/\u043F-\u043A",
       "Vacations": [
         {
-          "StartDate": "2025-10-06",
-          "EndDate": "2025-11-02"
+          "StartDate": "2026-05-11",
+          "EndDate": "2026-05-25"
         }
       ],
       "SubjectIds": [],
@@ -203,18 +238,23 @@
       "Rank": "\u043F/\u043F-\u043A",
       "Vacations": [
         {
-          "StartDate": "2025-09-08",
-          "EndDate": "2025-10-03"
+          "StartDate": "2026-05-01",
+          "EndDate": "2026-05-15"
         }
       ],
-      "SubjectIds": [],
+      "SubjectIds": [
+        "c9c18558-8d69-44c1-bb87-4492b12e150e",
+        "2c5416e7-d5f7-4fbc-b58c-f1918989a7eb"
+      ],
       "Name": "\u0412\u0430\u0440\u043B\u0430\u043C\u043E\u0432 \u0412.\u0410.",
       "Id": "0635c269-8b96-4246-9ddc-75ea52b7747a"
     },
     "b2d80f1a-ec2d-45e7-a3df-1e731661bce3": {
       "Rank": "\u043F-\u043A",
       "Vacations": [],
-      "SubjectIds": [],
+      "SubjectIds": [
+        "624eae1b-703f-4e23-ab4d-cb659e41f352"
+      ],
       "Name": "\u0413\u0430\u0448\u0435\u0432 \u0414.\u041D.",
       "Id": "b2d80f1a-ec2d-45e7-a3df-1e731661bce3"
     },
@@ -222,15 +262,13 @@
       "Rank": "\u043F-\u043A",
       "Vacations": [
         {
-          "StartDate": "2025-09-08",
-          "EndDate": "2025-10-01"
-        },
-        {
-          "StartDate": "2025-11-17",
-          "EndDate": "2025-12-01"
+          "StartDate": "2026-05-12",
+          "EndDate": "2026-05-26"
         }
       ],
-      "SubjectIds": [],
+      "SubjectIds": [
+        "3564aa48-ee60-4019-9f29-4c47df8bbdcc"
+      ],
       "Name": "\u041A\u0438\u0437\u044E\u043D \u041D.\u041D.",
       "Id": "0ce95bbe-89f4-4c2d-9462-983fb67cd837"
     },
@@ -253,17 +291,19 @@
       "Name": "\u041B\u0443\u043D\u0451\u0432 \u0410.\u0414.",
       "Id": "df99ac1f-b2a5-4716-990b-28c1e3eaeddc"
     },
-    "7961cb7d-8f3e-4d6f-8b16-157df9aad45b": {
-      "Rank": "\u043C\u043F\u043E",
-      "Vacations": [],
-      "SubjectIds": [],
-      "Name": "\u0411\u043E\u0431\u0440\u043E\u0432 \u042E.\u0418.",
-      "Id": "7961cb7d-8f3e-4d6f-8b16-157df9aad45b"
-    },
     "6be83e4e-d07d-46c3-905a-58f5ab688d4a": {
       "Rank": "\u043A-\u043D",
-      "Vacations": [],
-      "SubjectIds": [],
+      "Vacations": [
+        {
+          "StartDate": "2026-03-03",
+          "EndDate": "2026-03-31"
+        }
+      ],
+      "SubjectIds": [
+        "4c2d156d-683e-451f-97f5-445a72ba5a55",
+        "f1dcb510-de04-4feb-b028-f42416623631",
+        "fc4c1dfc-6a33-41c2-8d7c-82fb0e889c2e"
+      ],
       "Name": "\u0411\u0430\u0441\u044B\u0440\u043E\u0432 \u0420.\u0410.",
       "Id": "6be83e4e-d07d-46c3-905a-58f5ab688d4a"
     }
