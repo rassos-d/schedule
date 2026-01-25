@@ -21,7 +21,7 @@ public class EventGenerator(SquadRepository squadRepo, PlanRepository planRepo)
                 continue;
             var groupedLessons = lessons
                 .GroupBy(x => x.SubjectId)
-                .Select(x => x.OrderBy(l => int.Parse($"{l.ThemeNumber}{l.Number.ToString()}")).ToList()
+                .Select(x => x.OrderBy(l => int.TryParse($"{l.ThemeNumber}{l.Number.ToString()}", out var orderBy) ? orderBy : int.MaxValue).ToList()
                 )
                 .OrderBy(x => x.Count)
                 .ToList();
