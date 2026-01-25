@@ -272,7 +272,7 @@ public class EventService(
                 .GroupBy(events => events.Date)
                 .OrderBy(v => v.Key)
                 .ToDictionary(e => e.Key!.Value,
-                    e => e.ToList());
+                    e => e.Where(e => e.Subject is not null).ToList());
 
             foreach (var date in dates.Where(date => !eventsDictionary.ContainsKey(date)))
                 eventsDictionary[date] = [];
